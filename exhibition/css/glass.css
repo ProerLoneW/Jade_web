@@ -34,7 +34,7 @@ body{
     width: 400px;
     height: 600px;
     background-color: rgba(17, 205, 82, 0.1);
-    background-image: url("../image/babatuosi.jpg");
+    /*background-image: url("../image/babatuosi.jpg");*/
     margin: 30px;
     border-radius: 15px;
     /* 阴影 */
