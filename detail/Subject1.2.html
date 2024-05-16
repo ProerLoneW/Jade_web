@@ -34,115 +34,127 @@
     <div class="topping-mod xfont icon-up">
         <div class="s"></div>
     </div>
-    <div class="x-layout bg1">
-        <style>
-            #myalert {
-                display: none;
-            }
+    <div class="nav_left">
+        <div class="item"><a href="/news.html">最新资讯</a></div>
+        <div class="item"><a href="/teacher_style.html">教师风采</a></div>
+        <div class="item"><a href="/class_silhouette.html">课堂剪影</a></div>
+        <!-- <div class="item"><a href="/jade_encyclopedia.html">美玉百科</a></div> -->
+        <div class="item"><a href="/jade_history.html">漫话玉史</a></div>
+        <!-- <div class="item"><a href="/jade_poems.html">诗说美珏</a></div> -->
+        <div class="item"><a href="/message_board.html">留言黑板</a></div>
+        <div class="item"><a href="/about.html">关于我们</a></div>
+    </div>
+    <style>
+        /* 在每个div盒子中内联style */
+        #myalert {
+            display: none;
+        }
 
-            .recruit .block1 {
-                height: auto
-            }
+        .recruit .block1 {
+            height: auto
+        }
 
-            .layer {
-                background: url(/Public/static/images/con_mask.png);
-                ;
-                position: fixed;
-                left: 0;
-                right: 0;
-                top: 0;
-                bottom: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 1000000;
-            }
+        .layer {
+            background: url(/Public/static/images/con_mask.png);
+            ;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000000;
+        }
 
-            .layer .myalert {
-                padding: 30px;
-                background: #fff;
-                width: 240px;
-                position: absolute;
-                margin-top: -100px;
-                top: 50%;
-                left: 50%;
-                margin-left: -120px;
-                text-align: center;
-                z-index: 100000
-            }
+        .layer .myalert {
+            padding: 30px;
+            background: #fff;
+            width: 240px;
+            position: absolute;
+            margin-top: -100px;
+            top: 50%;
+            left: 50%;
+            margin-left: -120px;
+            text-align: center;
+            z-index: 100000
+        }
 
-            .layer .guan {
-                background: url(/Public/static/images/close.png) no-repeat center;
-                display: block;
-                width: 23px;
-                height: 23px;
-                position: absolute;
-                top: 10px;
-                right: 10px;
-            }
+        .layer .guan {
+            background: url(/Public/static/images/close.png) no-repeat center;
+            display: block;
+            width: 23px;
+            height: 23px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
 
-            .layer .text {
-                padding-bottom: 15px;
-                font-size: 16px;
-                color: #474747;
-            }
+        .layer .text {
+            padding-bottom: 15px;
+            font-size: 16px;
+            color: #474747;
+        }
 
-            .layer .button {
-                background: none;
-                border: 1px solid #bbbbbb;
-                width: 91px;
-                height: 29px;
-                font: 14px/100% "Microsoft YaHei", Arial, Tahoma, Helvetica, sans-serif;
-                color: #707070;
-            }
-        </style>
-        <div id="myalert" class="layer">
-            <div class="myalert">
-                <a href="javascript:;" onclick="myalert_hide();" class="guan"></a>
-                <div class="text">请输入关键字</div>
-                <a><button class="button" id="my_ok"
-                        style="cursor:pointer ;opacity: 1;transform: translateY(0px);">确定</button></a>
-            </div>
+        .layer .button {
+            background: none;
+            border: 1px solid #bbbbbb;
+            width: 91px;
+            height: 29px;
+            font: 14px/100% "Microsoft YaHei", Arial, Tahoma, Helvetica, sans-serif;
+            color: #707070;
+        }
+    </style>
+    <div id="myalert" class="layer">
+        <div class="myalert">
+            <a href="javascript:;" onclick="myalert_hide();" class="guan"></a>
+            <div class="text">请输入关键字</div>
+            <a><button class="button" id="my_ok"
+                    style="cursor:pointer ;opacity: 1;transform: translateY(0px);">确定</button></a>
         </div>
-        <script>
-            function my_alert(text, callback) {
-                $('#myalert').show();
-                $('#myalert .myalert div').html(text);
+    </div>
+    <script>
+        function my_alert(text, callback) {
+            $('#myalert').show();
+            $('#myalert .myalert div').html(text);
 
-                $('#my_ok').click(function () {
-                    $('#myalert').hide();
-
-                    if (typeof (callback) == 'function') {
-                        callback();
-                        return false;
-                    }
-                });
-            }
-
-            function myalert_hide() {
+            $('#my_ok').click(function () {
                 $('#myalert').hide();
-            }
-        </script>
 
-        <div class="x-header gn">
+                if (typeof (callback) == 'function') {
+                    callback();
+                    return false;
+                }
+            });
+        }
+
+        function myalert_hide() {
+            $('#myalert').hide();
+        }
+    </script>
+
+    <div class="x-layout home">
+        <div class="x-header">
 
             <div class="menu-mod">
                 <div class="logo"><a href="/"><img src="/Uploads/Picture/2021/11/05/s6185032db4faf.png" alt="" title=""
                             class="i"></a></div>
             </div>
             <div class="tools-mod">
+                <!-- 这里去掉中文英文版 -->
                 <div class="tools-item lang select-mod">
                     <div class="select-bar bttn">
-                        <div class="select-btn xicon icon-down"></div>
+                        <!-- <div class="select-btn xicon icon-down"></div> -->
                         <div class="select-txt">
                             <div class="select-val">中文版</div>
                         </div>
                     </div>
-                    <div class="select-cont">
+                    <!-- <div class="select-cont">
                         <div class="select-opts">
                             <div class="select-item"><a href="/">中文版</a></div>
                             <div class="select-item"><a href="/en/index.html">EN</a></div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="tools-item share-box"><a class="share-item suds-mod bttn xicon icon-wx" href="javascript:;">
                         <div class="suds-pop at-b">
@@ -177,36 +189,24 @@
                             <ul>
                             </ul>
                         </div>
+                        
                         <div class="item">
-                            <div class="h"><a class="" href="/guide.html">导览</a>
+                            <div class="h"><a class="" href="/exhibition/exhibition.html">玉·展览</a>
                                 <span class="arr xicon icon-down"></span>
                             </div>
                             <ul>
-                                <li><a href="/guide.html#guide2">开放时间</a></li>
-                                <li><a href="/guide.html#guide3">参观公告</a></li>
-                                <li><a href="/guide.html#guide4">交通路线</a></li>
-                                <li><a href="/guide.html#guide5">票务信息</a></li>
-                                <li><a href="/guide.html#guide6">参观须知</a></li>
-                                <li><a href="/guide.html#guide7">馆内服务</a></li>
-                            </ul>
-                        </div>
-                        <div class="item">
-                            <div class="h"><a class="" href="/basic_display.html">展览</a>
-                                <span class="arr xicon icon-down"></span>
-                            </div>
-                            <ul>
-                                <li><a href="/basic_display.html">常设展览</a></li>
-                                <li><a href="/special_exhibtion.html">专题展览</a></li>
-                                <li><a href="/Temporary.html">临时展览</a></li>
+                                <li><a href="/exhibition/exhibition.html">国内展览</a></li>
+                                <li><a href="/exhibition/exhibition.html">学生策览</a></li>
+                                <!-- <li><a href="/Temporary.html">临时展览</a></li>
                                 <li><a href="/xiufu.html">修复展示</a></li>
                                 <li><a href="/online.html">线上展览</a></li>
                                 <li><a href="/temporary_exhibition.html">交流展览</a></li>
                                 <li><a href="/online2.html">虚拟布展</a></li>
-                                <li><a href="/online1.html">云展览</a></li>
+                                <li><a href="/online1.html">云展览</a></li> -->
                             </ul>
                         </div>
-                        <div class="item">
-                            <div class="h"><a class="" href="/collection.html">藏品</a>
+                        <!-- <div class="item">
+                                                    <div class="h"><a class="" href="/collection.html"></a>
                                 <span class="arr xicon icon-down"></span>
                             </div>
                             <ul>
@@ -214,46 +214,45 @@
                                 <li><a href="/collection.html">馆藏精品</a></li>
                                 <li><a href="/Collections/ww_data.html">文物数据</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                         <div class="item">
-                            <div class="h"><a class="" href="/education.html">教育</a>
+                            <div class="h"><a class="" href="/collection.html">玉·美学</a>
                                 <span class="arr xicon icon-down"></span>
                             </div>
                             <ul>
-                                <li><a href="/education.html#education1">活动预告</a></li>
-                                <li><a href="/education.html#education2">精彩回顾</a></li>
+                                <li><a href="/collection.html">玉词百科</a></li>
+                                <li><a href="/collection.html">美玉宝库</a></li>
+                                <li><a href="/collection.html">诗说美珏</a></li>
+                                <li><a href="/collection.html">玉蕴哲思</a></li>
                             </ul>
                         </div>
+                        
                         <div class="item">
-                            <div class="h"><a class="" href="/Publication/Subject.html">学术</a>
+                            <div class="h"><a class="" href="/Publication/Subject.html">玉·学术</a>
                                 <span class="arr xicon icon-down"></span>
                             </div>
                             <ul>
                                 <li><a href="/Publication/Subject.html">学术刊物</a></li>
-                                <li><a href="/Academic_achievements/Publication.html">学术成果</a></li>
-                                <li><a href="/Project_topic/Domestic.html">学术研讨会</a></li>
-                                <li><a href="/Academic_lectures.html">学术讲座</a></li>
-                                <li><a href="/Academic_institutions.html">学术机构</a></li>
-                                <li><a href="/mural_base/overview.html">馆藏壁画科研基地</a></li>
-                                <li><a href="/Academic_youth forums.html">青年学术论坛</a></li>
-                                <li><a href="/Academic_achievements/Scientific Academic resources.html">学术资源目录</a></li>
+                                <li><a href="/Publication/Subject-essay.html">学术论文</a></li>
+                                <li><a href="/Publication/Subject-lectures.html">学术讲座</a></li>
+                                <li><a href="/Publication/Subject-resources.html">学术资源</a></li>
                             </ul>
                         </div>
                         <div class="item">
-                            <div class="h"><a class="" href="/product.html">文创</a>
+                            <div class="h"><a class="" href="/product.html">玉·交流</a>
                                 <span class="arr xicon icon-down"></span>
                             </div>
                             <ul>
-                                <li><a href="/product/tiger.html">虎符送福</a></li>
-                                <li><a href="/product/tgirl.html">唐妞</a></li>
-                                <li><a href="/product/tang.html">花舞大唐</a></li>
-                                <li><a href="/product/treasure.html">国宝系列</a></li>
-                                <li><a href="/product/calendar.html">陕博日历</a></li>
-                                <li><a href="/product/stamp.html">书籍邮册</a></li>
-                                <li><a href="/product/joint.html">联名文创</a></li>
+                                <li><a href="/product/tiger.html">师生论玉</a></li>
+                                <li><a href="/product/tgirl.html">文学创作</a></li>
+                                <li><a href="/product/tang.html">精美视频</a></li>
+                                <li><a href="/product/treasure.html">首饰制作</a></li>
+                                <li><a href="/product/calendar.html">对外合作</a></li>
+                                <li><a href="/product/stamp.html">考察指南</a></li>
+                                <!-- <li><a href="/product/joint.html">联名文创</a></li> -->
                             </ul>
                         </div>
-                        <div class="item">
+                        <!-- <div class="item">
                             <div class="h"><a class="" href="/info/Building.html">资讯</a>
                                 <span class="arr xicon icon-down"></span>
                             </div>
@@ -266,8 +265,8 @@
                                 <li><a href="/info/publicity.html">采购公示</a></li>
                                 <li><a href="/info/culturaltour.html">文明旅游</a></li>
                             </ul>
-                        </div>
-                        <div class="item">
+                        </div> -->
+                        <!-- <div class="item">
                             <div class="h"><a class="" href="/articles_association.html">信息公开</a>
                                 <span class="arr xicon icon-down"></span>
                             </div>
@@ -279,8 +278,8 @@
                                 <li><a href="/for_council.html">理事会信息</a></li>
                                 <li><a href="/lsjscy.html">理事监事成员</a></li>
                             </ul>
-                        </div>
-                        <div class="item">
+                        </div> -->
+                        <!-- <div class="item">
                             <div class="h"><a class="" href="/about.html">关于</a>
                                 <span class="arr xicon icon-down"></span>
                             </div>
@@ -292,25 +291,25 @@
                                 <li><a href="/about.html#about6">机构设置</a></li>
                                 <li><a href="/about.html#about7">专家介绍</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
 
                     <script>
                         //首页高亮
-                        var indexs = "";
+                        var indexs = "1";
                         if (indexs) {
                             $(".nav_child .item:first .h a").addClass("cur");
                         }
                         //一级高亮
-                        var nowurl = ("/Publication/Subject.html" != 'javascript:void(0);') ? "/Publication/Subject.html" : window.location.pathname;
+                        var nowurl = ("" != 'javascript:void(0);') ? "" : window.location.pathname;
                         $(' .nav_child .item .h a').each(function () {
                             var listurl = $(this).attr('href');
                             if (nowurl == listurl || listurl == '') {
                                 $(this).addClass('cur').siblings().removeClass('cur');
                             }
                         });
-                        var pas_id = "7";
-                        var pa_id = "19";
+                        var pas_id = "";
+                        var pa_id = "";
                         if (pa_id == 11) {
                             $('.item').eq(1).find('.h a').addClass('cur').siblings().removeClass('cur')
                         }
@@ -332,7 +331,7 @@
                         })
                         //二级导航
                         var _nowurl = window.location.href;
-                        var cat_url = '/Publication/Subject.html';
+                        var cat_url = '';
                         var arr = _nowurl.split('#')[1];
                         $('.nav_child .item ul li').find('a').each(function (i, k) {
                             var towurl = $(k).attr('href');
@@ -343,6 +342,10 @@
                     </script>
                 </div>
                 <div class="bg"></div>
+                <!-- 这个search-box咱们完全做不出来哈 -->
+                <!-- 
+                                    ********************************************
+                                 -->
                 <div class="search-box m-show">
                     <div class="search-txt"><input type="text" class="search-input" placeholder="search..."
                             id="txt_Search2" onkeypress="keydown(event, '#btn_Search2');"></div>
@@ -354,28 +357,29 @@
                             <a class="nav-link nav-lv1-link" href="/">首页</a>
                         </div>
                     </div>
+
                     <div class="nav-item nav-lv1-item ">
                         <div class="nav-tit nav-lv1-tit">
-                            <a class="nav-link nav-lv1-link" href="/guide.html">导览</a>
+                            <a class="nav-link nav-lv1-link" href="/exhibition/exhibition.html">玉·展览</a>
                         </div>
                     </div>
                     <div class="nav-item nav-lv1-item ">
                         <div class="nav-tit nav-lv1-tit">
-                            <a class="nav-link nav-lv1-link" href="/basic_display.html">展览</a>
+                            <a class="nav-link nav-lv1-link" href="/collection.html">玉·美学</a>
                         </div>
                     </div>
                     <div class="nav-item nav-lv1-item ">
                         <div class="nav-tit nav-lv1-tit">
-                            <a class="nav-link nav-lv1-link" href="/collection.html">藏品</a>
+                            <a class="nav-link nav-lv1-link" href="/Publication/Subject.html">玉·学问</a>
                         </div>
                     </div>
                     <div class="nav-item nav-lv1-item ">
                         <div class="nav-tit nav-lv1-tit">
-                            <a class="nav-link nav-lv1-link" href="/education.html">教育</a>
+                            <a class="nav-link nav-lv1-link" href="/education.html">玉·交流</a>
                         </div>
                     </div>
-                    <div class="nav-item nav-lv1-item ">
-                        <div class="nav-tit nav-lv1-tit">
+                    <!-- <div class="nav-item nav-lv1-item ">
+                                                    <div class="nav-tit nav-lv1-tit">
                             <a class="nav-link nav-lv1-link" href="/Publication/Subject.html">学术</a>
                         </div>
                     </div>
@@ -398,7 +402,7 @@
                         <div class="nav-tit nav-lv1-tit">
                             <a class="nav-link nav-lv1-link" href="/about.html">关于</a>
                         </div>
-                    </div>
+                    </div> -->
                     <script>
                         //首页高亮
                         var indexs = "";

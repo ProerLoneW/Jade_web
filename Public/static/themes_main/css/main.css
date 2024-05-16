@@ -610,7 +610,7 @@ body:not(.lang-en) .des {
 
 .more1:after {
     content: "";
-    background: url(../image/more1.png) no-repeat left center/contain;
+    background: url(../image/more1a.png) no-repeat left center/contain;
     width: 81px;
     height: 41px;
     display: inline-block;
@@ -849,7 +849,7 @@ body:not(.lang-en) .more1.v {
     left: 0;
     top: 100%;
     right: 0;
-    background: url(../image/bg1_1.jpg) no-repeat center center/cover;
+    background: url(../image/bg1_1.png) no-repeat center center/cover;
     opacity: 0;
     visibility: hidden;
     -webkit-transition: all 0.3s ease-out 0s;
@@ -1867,7 +1867,7 @@ body:not(.lang-en) .more1.v {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    background: url(../image/bg1_1.jpg) no-repeat center center/cover;
+    background: url(../image/bg1_1.png) no-repeat center center/cover;
     opacity: 0;
     visibility: hidden;
     -webkit-transition: all 0.3s ease-out 0s;
@@ -1943,7 +1943,7 @@ body:not(.lang-en) .more1.v {
 }
 
 .x-header2 .menu-btn::before {
-    content: 'å¯¼èˆª';
+    content: '导航';
     display: block;
     margin-right: 10px;
     line-height: 1
@@ -2715,7 +2715,7 @@ body:not(.lang-en) .more1.v {
 }
 
 .header_page .menu-btn::after {
-    content: 'å¯¼èˆª';
+    content: '导航';
     position: absolute;
     top: calc(100% + 5px);
     left: 50%;
@@ -3587,10 +3587,10 @@ div[data-search] .infoBox>img {
 .paging-mod .paging-link {
     padding: 0 5px;
     border-radius: 99px;
-    border: 1px solid #7f3222;
+    border: 1px solid #2a7f22;
     -webkit-transition-property: color, background, border;
     transition-property: color, background, border;
-    color: #7f3222;
+    color: #2a7f22;
     -webkit-transition-duration: .3s;
     transition-duration: .3s;
     font-family: 'Impact'
@@ -3970,7 +3970,7 @@ div[data-search] .infoBox>img {
 .scbar .arr {
     position: absolute;
     bottom: 100%;
-    background: #7f3222;
+    background: #618264;
     font-family: xfont;
     width: 50px;
     height: 43px;
@@ -4000,7 +4000,7 @@ div[data-search] .infoBox>img {
     display: flex;
     -ms-flex-negative: 0;
     flex-shrink: 0;
-    background: #7f3222;
+    background: #618264;
     padding: 15px 20px;
     border-radius: 35px;
     position: relative
@@ -4012,7 +4012,7 @@ div[data-search] .infoBox>img {
 
 .scbar .select-mod .select-cont::before,
 .scbar .select-mod .select-query::before {
-    background: #7f3222;
+    background: #2a7f22;
     border: none;
     -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
@@ -25118,7 +25118,7 @@ body:not(.lang-en) .articles_association .txt_cont .pbox {
 }
 
 .collection1 {
-    background: #292b2d;
+    background: #618264;
     position: relative
 }
 
@@ -25166,7 +25166,7 @@ body:not(.lang-en) .collection1 .head .text {
 }
 
 .collection1 img {
-    position: absolute
+    position: absolute;
 }
 
 .collection1 .bg1 {
