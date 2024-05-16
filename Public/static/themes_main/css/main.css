@@ -9783,8 +9783,9 @@ body:not(.lang-en) .nav_left .item {
 
 .home2 .bg {
     content: "";
-    background: url(../image/png1.png) no-repeat center top;
-    height: 357px;
+    background: url(/Public/static/themes_main/image/low_bar.png) no-repeat center top;
+    height: 450px;
+    z-index: 10;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -9802,7 +9803,7 @@ body:not(.lang-en) .nav_left .item {
 }
 
 .home2 .bg .g {
-    background: url(../image/png1_1.png) no-repeat center top;
+    background: url() no-repeat center top;
     height: 424px;
     position: absolute;
     left: 0;
@@ -9818,7 +9819,7 @@ body:not(.lang-en) .nav_left .item {
 }
 
 .home2 .bg .text .h {
-    font-size: 18px
+    font-size: 30px
 }
 
 @media screen and (max-width: 768px) {
@@ -9886,7 +9887,7 @@ body:not(.lang-en) .nav_left .item {
 
 .home2 .list .item .date {
     color: #7f3222;
-    font-size: 64px;
+    font-size: 30px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
@@ -10154,33 +10155,34 @@ body:not(.lang-en) .home2 .list .item .p {
     overflow: hidden;
     z-index: 3;
     background: #e8e3d1;
-    margin-top: -1px
+    margin-top: -1px;
 }
 
 .home4 .bg {
-    background: url(../image/png13.png) no-repeat center top/100% auto;
+    background: url() no-repeat center top/100% auto;
     position: absolute;
     left: 0;
     top: 0;
     right: 0;
-    height: calc(424 / 1920 * 100%)
+    height: calc(424 / 1920 * 100%);
 }
 
 .home4 .head {
-    position: relative
+    position: relative;
 }
 
 .home4 .content {
-    position: relative
+    position: relative;
 }
 
 .home4 .list {
     position: relative;
-    margin-top: 4vw
+    margin-top: 4vw;
 }
 
 .home4 .list .item {
-    position: relative
+    position: relative;
+    margin-bottom: 2vw;
 }
 
 .home4 .list .item a {
@@ -10188,7 +10190,7 @@ body:not(.lang-en) .home2 .list .item .p {
     left: 0;
     top: 0;
     right: 0;
-    bottom: 0
+    bottom: 0;
 }
 
 .home4 .list .item::before {
@@ -10198,118 +10200,134 @@ body:not(.lang-en) .home2 .list .item .p {
     top: 0;
     right: 0;
     background: no-repeat center center / contain;
-    z-index: 1
+    z-index: 1;
 }
 
 .home4 .list .item:nth-child(1) {
-    padding-top: calc(280 / 1920 * 100%)
+    padding-top: calc(280 / 1920 * 100%);
 }
 
 .home4 .list .item:nth-child(1):before {
-    background-image: url(../image/png11_1.png);
-    padding-top: calc(381 / 1920 * 100%)
+    background-image: url(../image/1.png);
+    z-index: 4;
+    background-size: cover;
+    padding-top: calc(381 / 1920 * 100%);
 }
 
 .home4 .list .item:nth-child(1) .h {
     left: 50%;
     top: 9vw;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
 .home4 .list .item:nth-child(2) {
     padding-top: calc(300 / 1920 * 100%);
-    margin-top: -5.8vw
+    margin-top: -5.8vw;
 }
 
 .home4 .list .item:nth-child(2):before {
-    background-image: url(../image/png11_2.png);
-    padding-top: calc(410 / 1920 * 100%)
+    background-image: url(../image/2.png);
+    z-index: 4;
+    background-size: cover;
+    padding-top: calc(410 / 1920 * 100%);
 }
 
 .home4 .list .item:nth-child(2) .h {
     left: 55%;
     top: 12vw;
     -webkit-transform: translate(0%, -50%);
-    transform: translate(0%, -50%)
+    transform: translate(0%, -50%);
+    z-index: 2;
 }
 
 .home4 .list .item:nth-child(3) {
     padding-top: calc(330 / 1920 * 100%);
-    margin-top: -6vw
+    margin-top: -6vw;
 }
 
 .home4 .list .item:nth-child(3):before {
-    background-image: url(../image/png11_3.png);
-    padding-top: calc(492 / 1920 * 100%)
+    background-image: url(../image/3.png);
+    background-size: cover;
+    z-index: 4;
+    padding-top: calc(492 / 1920 * 100%);
 }
 
 .home4 .list .item:nth-child(3) .h {
     left: 50%;
     top: 12vw;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
 
 .home4 .list .item:nth-child(4) {
     padding-top: calc(360 / 1920 * 100%);
-    margin-top: -9vw
+    margin-top: -9vw;
 }
 
 .home4 .list .item:nth-child(4):before {
-    background-image: url(../image/png11_4.png);
-    padding-top: calc(523 / 1920 * 100%)
+    background-image: url(../image/4.png);
+    background-size: cover;
+    z-index: 10;
+    padding-top: calc(523 / 1920 * 100%);
 }
 
 .home4 .list .item:nth-child(4) .h {
     left: 25%;
     top: 12vw;
     -webkit-transform: translate(0%, -50%);
-    transform: translate(0%, -50%)
+    transform: translate(0%, -50%);
+    z-index: 2;
 }
 
 .home4 .list .item:nth-child(5) {
     padding-top: calc(360 / 1920 * 100%);
-    margin-top: -9vw
+    background-size: cover;
+    z-index: 4;
+    margin-top: -9vw;
 }
 
 .home4 .list .item:nth-child(5):before {
-    background-image: url(../image/png11_5.png);
-    padding-top: calc(501 / 1920 * 100%)
+    background-image: url(../image/5.png);
+    padding-top: calc(501 / 1920 * 100%);
 }
 
 .home4 .list .item:nth-child(5) .h {
     left: 22%;
     top: 13vw;
     -webkit-transform: translate(0%, -50%);
-    transform: translate(0%, -50%)
+    transform: translate(0%, -50%);
+    z-index: 2;
 }
 
 .home4 .list .item:nth-child(6) {
     padding-top: calc(325 / 1920 * 100%);
-    margin-top: -8vw
+    margin-top: -8vw;
 }
 
 .home4 .list .item:nth-child(6):before {
     background-image: url(../image/png11_6.png);
-    padding-top: calc(428 / 1920 * 100%)
+    padding-top: calc(428 / 1920 * 100%);
 }
 
 .home4 .list .item:nth-child(6) .h {
     left: 60%;
     top: 12vw;
     -webkit-transform: translate(0%, -50%);
-    transform: translate(0%, -50%)
+    transform: translate(0%, -50%);
+    z-index: 2;
 }
 
 .home4 .list .item:nth-child(7) {
     padding-top: calc(350 / 1920 * 100%);
-    margin-top: -5.5vw
+    margin-top: -5.5vw;
 }
 
 .home4 .list .item:nth-child(7):before {
     background-image: url(../image/png11_7.png);
-    padding-top: calc(461 / 1920 * 100%)
+    padding-top: calc(461 / 1920 * 100%);
 }
 
 .home4 .list .item:nth-child(7):after {
@@ -10319,27 +10337,31 @@ body:not(.lang-en) .home2 .list .item .p {
     position: absolute;
     left: 0;
     bottom: 0;
-    right: 0
+    right: 0;
 }
 
 .home4 .list .item:nth-child(7) .h {
     left: 30%;
     top: 14vw;
     -webkit-transform: translate(0%, -50%);
-    transform: translate(0%, -50%)
+    transform: translate(0%, -50%);
+    z-index: 2;
 }
 
 .home4 .list .item .pic {
-    position: relative
+    position: relative;
+    z-index: 3;
 }
 
 .home4 .list .item .pic video {
     width: 100%;
-    height: auto
+    height: 500px;
+    object-fit: cover;
+    /* 使视频内容覆盖整个框 */
 }
 
 .home4 .list .item .pic img {
-    width: 100%
+    width: 100%;
 }
 
 .home4 .list .item .h {
@@ -10347,12 +10369,12 @@ body:not(.lang-en) .home2 .list .item .p {
     font-family: font;
     position: absolute;
     z-index: 1;
-    display: none
+    display: none;
 }
 
 @media screen and (max-width: 768px) {
     .home4 .list .item .h {
-        font-size: 24px
+        font-size: 24px;
     }
 }
 
@@ -10363,7 +10385,57 @@ body:not(.lang-en) .home2 .list .item .p {
     border-radius: 100%;
     display: block;
     margin: 10px auto 0;
-    background: #7f3222
+    background: #7f3222;
+}
+
+/* 新增样式 */
+.home4 .list .item .new-box {
+    display: flex;
+    background: url('../image/board.jpg') no-repeat center center/cover;
+    position: relative;
+    z-index: 4;
+    margin-top: 2vw;
+    padding: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.home4 .list .item .new-box .left-image {
+    flex: 1;
+    background: url('../image/tosay.jpg') no-repeat center center/cover;
+    height: 300px;
+    margin-right: 100px;
+}
+
+.home4 .list .item .new-box .right-inputs {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+
+.home4 .list .item .new-box .right-inputs input[type="text"] {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid lightgreen;
+    border-radius: 4px;
+    transition: background-image 1s ease-in-out;
+}
+
+/* 淡入淡出效果 */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .home5 {
@@ -10877,7 +10949,7 @@ body:not(.lang-en) .home2 .list .item .p {
 
 .home6 .nav::after {
     content: "";
-    background: url(../image/png6_3a.png) no-repeat center center/100% auto;
+    background: url(/Public/static/themes_main/image/nav-after.png) no-repeat center center/100% auto;
     width: 100%;
     height: 100%;
     position: relative;
@@ -11221,7 +11293,7 @@ body:not(.lang-en) .home2 .list .item .p {
         transform: none
     }
 
-    .home5 .list {
+    /* .home5 .list {
         opacity: 0;
         -webkit-transition: all 1.5s ease-out 0s;
         transition: all 1.5s ease-out 0s
@@ -11239,7 +11311,7 @@ body:not(.lang-en) .home2 .list .item .p {
     .home5.showd .pic img {
         -webkit-transform: none;
         transform: none
-    }
+    } */
 
     .home6:before {
         opacity: 0;
@@ -11381,7 +11453,7 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 
     .home1 .nav {
-        background: url(../image/png14.png) no-repeat center bottom/100% auto;
+        background: url(/Public/static/themes_main/image/png14.png) no-repeat center bottom/100% auto;
         height: calc(280 / 750 * 100vw);
         bottom: 0;
         display: -webkit-box;
@@ -11633,8 +11705,8 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 
     .home4 {
-        padding: 80px 0 0;
-        margin-top: 40px
+        padding: 0px 0 0;
+        margin-top: 0
     }
 
     .home4.android .item video {
@@ -11646,7 +11718,7 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 
     .home4 .list {
-        margin-top: 30px
+        margin-top: 0px
     }
 
     .home4 .list .item .pic {
@@ -11658,16 +11730,16 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 
     .home4 .list .item:nth-child(1) {
-        padding-top: 35vw
+        padding-top: 0vw
     }
 
-    .home4 .list .item:nth-child(1)::before {
-        background-image: url(../image/png19_1.png);
-        padding-top: calc(373 / 750 * 100%)
-    }
+    /* .home4 .list .item:nth-child(1)::before {
+        background-image: url(../image/png13.png);
+        padding-top: 0px
+    } */
 
     .home4 .list .item:nth-child(1) .pic {
-        background: url(../image/pic7_1.jpg) no-repeat center top/100% auto
+        background: url(../image/babatuosi.jpg) no-repeat center top/100% auto
     }
 
     .home4 .list .item:nth-child(2) {
@@ -11675,13 +11747,13 @@ body:not(.lang-en) .home2 .list .item .p {
         margin-top: -10vw
     }
 
-    .home4 .list .item:nth-child(2)::before {
-        background-image: url(../image/png19_2.png);
+    /* .home4 .list .item:nth-child(2)::before {
+        background-image: url(../image/png13.png);
         padding-top: calc(375 / 750 * 100%)
-    }
+    } */
 
     .home4 .list .item:nth-child(2) .pic {
-        background: url(../image/pic7_2.jpg) no-repeat center top/100% auto
+        background: url(../image/zhengyu.png) no-repeat center top/100% auto
     }
 
     .home4 .list .item:nth-child(3) {
@@ -11695,7 +11767,7 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 
     .home4 .list .item:nth-child(3) .pic {
-        background: url(../image/pic7_3.jpg) no-repeat center top/100% auto
+        background: url(../image/zhengyu.png) no-repeat center top/100% auto
     }
 
     .home4 .list .item:nth-child(4) {
@@ -23742,6 +23814,7 @@ body:not(.lang-en) .announcement .list .lcont .p {
 
     .announcement .list .li:hover .ltit a::after {
         background-image: url(../image/lys/png1.png);
+
         -webkit-animation: more1 0.5s ease-out 0s 1 both;
         animation: more1 0.5s ease-out 0s 1 both
     }

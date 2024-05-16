@@ -130,99 +130,144 @@ gsap.registerPlugin(InertiaPlugin, CSSRulePlugin, Draggable, ScrollToPlugin, Scr
         placeholder: function () {
             $.fn.placeholder && $("input, textarea").placeholder()
         },
-        screenScrollbar: function () {
-            $("body").append('<div class="scrollbar-rails scrollbar-rails-x"><div class="scrollbar-thumb scrollbar-thumb-x"></div></div><div class="scrollbar-rails scrollbar-rails-y"><div class="scrollbar-thumb scrollbar-thumb-y"></div></div>');
-            var t = $(window)
-                , i = $("body")
-                , s = $(".scrollbar-rails-x")
-                , o = $(".scrollbar-thumb-x")
-                , n = $(".scrollbar-rails-y")
-                , a = $(".scrollbar-thumb-y")
-                , r = e()
-                , l = !1;
-            function e() {
-                var e = {
-                    contWidth: t.width(),
-                    contHeight: t.height(),
-                    scrollWidth: i.outerWidth(!0),
-                    scrollHeight: i.outerHeight(!0),
-                    trackWidth: s.width(),
-                    trackHeight: n.height(),
-                    barWidth: 0,
-                    barHeight: 0,
-                    maxX: 0,
-                    maxY: 0,
-                    curX: i.scrollLeft(),
-                    curY: i.scrollTop()
-                };
-                return e.scrollWidth > e.contWidth ? (e.barWidth = Math.round(e.contWidth / e.scrollWidth * e.trackWidth),
-                    e.maxX = e.scrollWidth - e.contWidth) : (e.barWidth = e.trackWidth,
-                        e.maxX = 0),
-                    e.scrollHeight > e.contHeight ? (e.barHeight = Math.round(e.contHeight / e.scrollHeight * e.trackHeight),
-                        e.maxY = e.scrollHeight - e.contHeight) : (e.barHeight = e.trackHeight,
-                            e.maxY = 0),
-                    o.width(e.barWidth),
-                    a.height(e.barHeight),
-                    e.rateX = Math.min($.utils.is_number(e.curX / e.maxX) ? e.curX / e.maxX : 0, 1),
-                    e.rateY = Math.min($.utils.is_number(e.curY / e.maxY) ? e.curY / e.maxY : 0, 1),
-                    0 < e.maxX ? s.removeClass("scrollbar-rails-disable") : s.addClass("scrollbar-rails-disable"),
-                    0 < e.maxY ? n.removeClass("scrollbar-rails-disable") : n.addClass("scrollbar-rails-disable"),
-                    e
-            }
-            new ResizeObserver($.debounce(250, function () {
-                r = e()
-            })).observe(i[0]),
-                t.on("scroll", function () {
-                    r.curX = t.scrollLeft(),
-                        r.curY = t.scrollTop(),
-                        r.rateX = Math.min(r.curX / r.maxX, 1),
-                        r.rateY = Math.min(r.curY / r.maxY, 1),
-                        l || (gsap.to(o, {
-                            x: (r.trackWidth - r.barWidth) * r.rateX,
-                            duration: .1,
-                            overwrite: "auto"
-                        }),
-                            gsap.to(a, {
-                                y: (r.trackHeight - r.barHeight) * r.rateY,
-                                duration: .1,
-                                overwrite: "auto"
-                            }))
-                }),
-                Draggable.create(o, {
-                    type: "x",
-                    bounds: s,
-                    zIndexBoost: !1,
-                    onDrag: function () {
-                        var e = this.x / (r.trackWidth - r.barWidth);
-                        l = !0,
-                            gsap.set(t, {
-                                scrollTo: {
-                                    x: e * r.maxX
-                                }
-                            })
-                    },
-                    onDragEnd: function () {
-                        l = !1
-                    }
-                }),
-                Draggable.create(a, {
-                    type: "y",
-                    bounds: n,
-                    zIndexBoost: !1,
-                    onDrag: function () {
-                        var e = this.y / (r.trackHeight - r.barHeight);
-                        l = !0,
-                            gsap.set(t, {
-                                scrollTo: {
-                                    y: e * r.maxY
-                                }
-                            })
-                    },
-                    onDragEnd: function () {
-                        l = !1
-                    }
-                })
-        },
+        // screenScrollbar: function () {
+        //     // 向body添加水平和垂直滚动条轨道和滑块
+        //     $("body").append('<div class="scrollbar-rails scrollbar-rails-x"><div class="scrollbar-thumb scrollbar-thumb-x"></div></div><div class="scrollbar-rails scrollbar-rails-y"><div class="scrollbar-thumb scrollbar-thumb-y"></div></div>');
+
+        //     var t = $(window),               // 窗口对象
+        //         i = $("body"),               // body元素
+        //         s = $(".scrollbar-rails-x"), // 水平滚动条轨道
+        //         o = $(".scrollbar-thumb-x"), // 水平滚动条滑块
+        //         n = $(".scrollbar-rails-y"), // 垂直滚动条轨道
+        //         a = $(".scrollbar-thumb-y"), // 垂直滚动条滑块
+        //         r = e(),                     // 滚动条相关尺寸和位置信息
+        //         l = !1;                      // 是否正在拖动的标志
+
+        //     // 计算滚动条的尺寸和位置
+        //     function e() {
+        //         var e = {
+        //             contWidth: t.width(),           // 窗口宽度
+        //             contHeight: t.height(),         // 窗口高度
+        //             scrollWidth: i.outerWidth(!0),  // 页面内容宽度
+        //             scrollHeight: i.outerHeight(!0),// 页面内容高度
+        //             trackWidth: s.width(),          // 水平滚动条轨道宽度
+        //             trackHeight: n.height(),        // 垂直滚动条轨道高度
+        //             barWidth: 0,                    // 水平滚动条滑块宽度
+        //             barHeight: 0,                   // 垂直滚动条滑块高度
+        //             maxX: 0,                        // 最大水平滚动值
+        //             maxY: 0,                        // 最大垂直滚动值
+        //             curX: i.scrollLeft(),           // 当前水平滚动值
+        //             curY: i.scrollTop()             // 当前垂直滚动值
+        //         };
+
+        //         // 计算水平滚动条滑块宽度和最大水平滚动值
+        //         if (e.scrollWidth > e.contWidth) {
+        //             e.barWidth = Math.round(e.contWidth / e.scrollWidth * e.trackWidth);
+        //             e.maxX = e.scrollWidth - e.contWidth;
+        //         } else {
+        //             e.barWidth = e.trackWidth;
+        //             e.maxX = 0;
+        //         }
+
+        //         // 计算垂直滚动条滑块高度和最大垂直滚动值
+        //         if (e.scrollHeight > e.contHeight) {
+        //             e.barHeight = Math.round(e.contHeight / e.scrollHeight * e.trackHeight);
+        //             e.maxY = e.scrollHeight - e.contHeight;
+        //         } else {
+        //             e.barHeight = e.trackHeight;
+        //             e.maxY = 0;
+        //         }
+
+        //         // 设置水平滚动条滑块宽度
+        //         o.width(e.barWidth);
+        //         // 设置垂直滚动条滑块高度
+        //         a.height(e.barHeight);
+
+        //         // 计算当前滚动比例
+        //         e.rateX = Math.min($.utils.is_number(e.curX / e.maxX) ? e.curX / e.maxX : 0, 1);
+        //         e.rateY = Math.min($.utils.is_number(e.curY / e.maxY) ? e.curY / e.maxY : 0, 1);
+
+        //         // 显示或隐藏水平和垂直滚动条轨道
+        //         if (e.maxX > 0) {
+        //             s.removeClass("scrollbar-rails-disable");
+        //         } else {
+        //             s.addClass("scrollbar-rails-disable");
+        //         }
+
+        //         if (e.maxY > 0) {
+        //             n.removeClass("scrollbar-rails-disable");
+        //         } else {
+        //             n.addClass("scrollbar-rails-disable");
+        //         }
+
+        //         return e;
+        //     }
+        //     // 监听窗口大小变化，重新计算滚动条尺寸和位置
+        //     new ResizeObserver($.debounce(250, function () {
+        //         r = e();
+        //     })).observe(i[0]);
+
+        //     // 监听滚动事件，更新滚动条滑块位置
+        //     t.on("scroll", function () {
+        //         r.curX = t.scrollLeft();
+        //         r.curY = t.scrollTop();
+        //         r.rateX = Math.min(r.curX / r.maxX, 1);
+        //         r.rateY = Math.min(r.curY / r.maxY, 1);
+
+        //         // 平滑移动滚动条滑块
+        //         if (!l) {
+        //             gsap.to(o, {
+        //                 x: (r.trackWidth - r.barWidth) * r.rateX,
+        //                 duration: .1,
+        //                 overwrite: "auto"
+        //             });
+        //             gsap.to(a, {
+        //                 y: (r.trackHeight - r.barHeight) * r.rateY,
+        //                 duration: .1,
+        //                 overwrite: "auto"
+        //             });
+        //         }
+        //     });
+
+        //     // 为水平滚动条滑块设置拖动事件
+        //     Draggable.create(o, {
+        //         type: "x",
+        //         bounds: s,
+        //         zIndexBoost: !1,
+        //         onDrag: function () {
+        //             var e = this.x / (r.trackWidth - r.barWidth);
+        //             l = !0;
+        //             gsap.set(t, {
+        //                 scrollTo: {
+        //                     x: e * r.maxX
+        //                 }
+        //             });
+        //         },
+        //         onDragEnd: function () {
+        //             l = !1;
+        //         }
+        //     });
+
+        //     // 为垂直滚动条滑块设置拖动事件
+        //     Draggable.create(a, {
+        //         type: "y",
+        //         bounds: n,
+        //         zIndexBoost: !1,
+        //         onDrag: function () {
+        //             var e = this.y / (r.trackHeight - r.barHeight);
+        //             l = !0;
+        //             gsap.set(t, {
+        //                 scrollTo: {
+        //                     y: e * r.maxY
+        //                 }
+        //             });
+        //         },
+        //         onDragEnd: function () {
+        //             l = !1;
+        //         }
+        //     });
+        // },
+
         scrollFade: function (t) {
             var a = this;
             function e() {
@@ -319,22 +364,44 @@ gsap.registerPlugin(InertiaPlugin, CSSRulePlugin, Draggable, ScrollToPlugin, Scr
                 $(window).on("load resize", e)
         },
         horizontalNav: function () {
+            // 内部函数，用于调整子导航菜单的位置和宽度
             function e() {
                 $(".nav-lv2").each(function () {
                     var e, t, i, s, o = $(this);
-                    o.hasClass("exp") || (s = 0,
-                        s = (e = $(window).width()) / 2 < (t = o.parent().width()) / 2 + (i = o.parent().offset().left) ? 2 * (e - (t / 2 + i)) : 2 * (t / 2 + i),
+                    // 如果没有 "exp" 类，则进行调整
+                    if (!o.hasClass("exp")) {
+                        s = 0;
+                        e = $(window).width();  // 获取窗口的宽度
+                        t = o.parent().width(); // 获取父元素的宽度
+                        i = o.parent().offset().left; // 获取父元素相对于文档左侧的偏移量
+
+                        // 计算子导航菜单的宽度
+                        if (e / 2 < t / 2 + i) {
+                            s = 2 * (e - (t / 2 + i));
+                        } else {
+                            s = 2 * (t / 2 + i);
+                        }
+
+                        // 设置子导航菜单的宽度和左偏移量
                         o.css({
                             width: e + "px",
                             left: -i + "px"
                         }).find(".nav-grp").css({
                             width: s + "px",
                             "margin-left": t / 2 + i - s / 2 + "px"
-                        }))
-                })
+                        });
+                    }
+                });
             }
-            $(".x-header").hasClass("hz-nav") && (this.is_mobile || (e(),
-                $(window).on("resize", e)))
+            // 如果 ".x-header" 元素有 "hz-nav" 类，并且不是在移动设备上
+            if ($(".x-header").hasClass("hz-nav")) {
+                if (!this.is_mobile) {
+                    // 调用内部函数调整子导航菜单
+                    e();
+                    // 当窗口大小变化时，重新调用内部函数
+                    $(window).on("resize", e);
+                }
+            }
         },
         getFullScreen: function () {
             function e() {
@@ -1452,46 +1519,46 @@ gsap.registerPlugin(InertiaPlugin, CSSRulePlugin, Draggable, ScrollToPlugin, Scr
                 for (var t = 0; t < e.length; t += 2)
                     e[t].style.cssText = e[t + 1]
         }
-        i.st = ScrollTrigger.create({
-            animation: i.tl,
-            scroller: o.container,
-            trigger: o.anchor.elm,
-            start: o.anchor.start + " " + o.scroller.start,
-            end: o.anchor.end + " " + o.scroller.end,
-            horizontal: o.config.hz,
-            pin: o.config.fix,
-            scrub: o.config.sync,
-            snap: o.config.snap,
-            once: o.config.once,
-            toggleClass: o.config.ncls,
-            toggleActions: o.config.act,
-            markers: o.config.debug,
-            onEnter: function (e) {
-                $(o.anchor.elm).addClass(o.config.acls),
-                    $(o.item.elm).addClass(o.config.icls),
-                    $.utils.is_function(o.onEnter) && o.onEnter(e)
-            },
-            onLeave: function (e) {
-                $.utils.is_function(o.onLeave) && o.onLeave(e)
-            },
-            onEnterBack: function (e) {
-                $.utils.is_function(o.onEnterBack) && o.onEnterBack(e)
-            },
-            onLeaveBack: function (e) {
-                $(o.anchor.elm).removeClass(o.config.acls),
-                    $(o.item.elm).removeClass(o.config.icls),
-                    $.utils.is_function(o.onLeaveBack) && o.onLeaveBack(e)
-            },
-            onUpdate: function (e) {
-                $.utils.is_function(o.onUpdate) && o.onUpdate(e)
-            },
-            onToggle: function (e) {
-                $.utils.is_function(o.onToggle) && o.onToggle(e)
-            },
-            onRefresh: function (e) {
-                $.utils.is_function(o.onRefresh) && o.onRefresh(e)
-            }
-        }),
+        // i.st = ScrollTrigger.create({
+        //     animation: i.tl,
+        //     scroller: o.container,
+        //     trigger: o.anchor.elm,
+        //     start: o.anchor.start + " " + o.scroller.start,
+        //     end: o.anchor.end + " " + o.scroller.end,
+        //     horizontal: o.config.hz,
+        //     pin: o.config.fix,
+        //     scrub: o.config.sync,
+        //     snap: o.config.snap,
+        //     once: o.config.once,
+        //     toggleClass: o.config.ncls,
+        //     toggleActions: o.config.act,
+        //     markers: o.config.debug,
+        //     onEnter: function (e) {
+        //         $(o.anchor.elm).addClass(o.config.acls),
+        //             $(o.item.elm).addClass(o.config.icls),
+        //             $.utils.is_function(o.onEnter) && o.onEnter(e)
+        //     },
+        //     onLeave: function (e) {
+        //         $.utils.is_function(o.onLeave) && o.onLeave(e)
+        //     },
+        //     onEnterBack: function (e) {
+        //         $.utils.is_function(o.onEnterBack) && o.onEnterBack(e)
+        //     },
+        //     onLeaveBack: function (e) {
+        //         $(o.anchor.elm).removeClass(o.config.acls),
+        //             $(o.item.elm).removeClass(o.config.icls),
+        //             $.utils.is_function(o.onLeaveBack) && o.onLeaveBack(e)
+        //     },
+        //     onUpdate: function (e) {
+        //         $.utils.is_function(o.onUpdate) && o.onUpdate(e)
+        //     },
+        //     onToggle: function (e) {
+        //         $.utils.is_function(o.onToggle) && o.onToggle(e)
+        //     },
+        //     onRefresh: function (e) {
+        //         $.utils.is_function(o.onRefresh) && o.onRefresh(e)
+        //     }
+        // }),
             i.state = function (e) {
                 var t = [];
                 $.utils.is_jquery(e) ? gsap.utils.toArray(e).forEach(function (e) {
@@ -1524,52 +1591,52 @@ gsap.registerPlugin(InertiaPlugin, CSSRulePlugin, Draggable, ScrollToPlugin, Scr
             ,
             i.init(),
             $.xRoll.list.push(i)
-    }
-    ,
-    $.xRoll.list = [],
-    $.xRoll.preset = {
-        left: {
-            x: "-30%"
-        },
-        right: {
-            x: "30%"
-        },
-        top: {
-            y: "-30%"
-        },
-        bottom: {
-            y: "30%"
         }
-    },
-    $.utils.init({
-        htmlSize: !1,
-        backTop: '[class*="topping"]',
-        scrollFade: [{
-            elm: ".topping-mod",
-            bottom: function () {
-                var e = $("body").height();
-                return 0 < $(".x-footer").length && (e = Math.floor($(".x-footer").offset().top)),
-                    e
+        ,
+        $.xRoll.list = [],
+        $.xRoll.preset = {
+            left: {
+                x: "-30%"
+            },
+            right: {
+                x: "30%"
+            },
+            top: {
+                y: "-30%"
+            },
+            bottom: {
+                y: "30%"
             }
-        }, {
-            elm: ".sidebar-mod",
-            range: $(window).height() / 2,
-            always: !0
-        }]
-    }),
-    $(function () {
-        $(".x-header .menu-btn").on("click", function () {
-            var e = $(this).closest(".x-header");
-            e.find(".nav-mod");
-            e.hasClass("menu-open") ? ($("body").removeClass("menu-screen"),
-                e.removeClass("menu-open"),
-                $.utils.enWinScroll()) : ($("body").addClass("menu-screen"),
-                    e.addClass("menu-open"),
-                    "fixed" !== e.css("position") && gsap.to(window, {
-                        duration: .2,
-                        scrollTo: 0
-                    }))
+        },
+        $.utils.init({
+            htmlSize: !1,
+            backTop: '[class*="topping"]',
+            scrollFade: [{
+                elm: ".topping-mod",
+                bottom: function () {
+                    var e = $("body").height();
+                    return 0 < $(".x-footer").length && (e = Math.floor($(".x-footer").offset().top)),
+                        e
+                }
+            }, {
+                elm: ".sidebar-mod",
+                range: $(window).height() / 2,
+                always: !0
+            }]
         }),
+        $(function () {
+            $(".x-header .menu-btn").on("click", function () {
+                var e = $(this).closest(".x-header");
+                e.find(".nav-mod");
+                e.hasClass("menu-open") ? ($("body").removeClass("menu-screen"),
+                    e.removeClass("menu-open"),
+                    $.utils.enWinScroll()) : ($("body").addClass("menu-screen"),
+                        e.addClass("menu-open"),
+                        "fixed" !== e.css("position") && gsap.to(window, {
+                            duration: .2,
+                            scrollTo: 0
+                        }))
+            }),
             $(".x-header .nav-box").hover(function () {
                 $(".nav_child").addClass("s")
             }, function () {
@@ -1600,7 +1667,7 @@ gsap.registerPlugin(InertiaPlugin, CSSRulePlugin, Draggable, ScrollToPlugin, Scr
                     $(".x-header").removeClass("menu-open").find(".nav-mod").removeAttr("style").find(".nav-item").removeClass("act").find(".nav-lv").removeAttr("style"),
                     0 == $(".pop-mod.x-show").length && $.utils.enWinScroll())
             })
-    }),
+        }),
     $(function () {
         $(".x-header2 .menu-btn").on("click", function () {
             var e = $(this).closest(".x-header2");
@@ -1957,182 +2024,182 @@ gsap.registerPlugin(InertiaPlugin, CSSRulePlugin, Draggable, ScrollToPlugin, Scr
         $(".video-mod").xVideo()
     }),
     $(function () {
-        $(".tracker-mod").each(function () {
-            var s = $(this)
-                , c = s.find(".tracker-box")
-                , d = s.find(".tracker-track")
-                , u = s.find(".tracker-item")
-                , f = s.find(".tracker-prev")
-                , h = s.find(".tracker-next")
-                , p = 0 < u.filter(".cur").length ? u.filter(".cur").index() : 0
-                , m = !$.utils.is_undefined(s.attr("page"))
-                , g = !$.utils.is_undefined(s.attr("round"))
-                , v = null
-                , b = null
-                , o = null
-                , e = null
-                , n = null;
-            function i() {
-                b = d.outerWidth() > c.width() ? "x" : d.outerHeight() > c.height() ? "y" : null,
-                    v && 0 < v.length && v[0].vars.type != b && (v[0].kill(),
-                        v = null,
-                        gsap.set(d, {
-                            x: 0,
-                            y: 0
-                        })),
-                    v || u.removeClass("in out over"),
-                    $.utils.is_string(b) ? (v ? v[0].update(!0) : v = Draggable.create(d, {
-                        type: b,
-                        bounds: c,
-                        inertia: !0,
-                        lockAxis: !0,
-                        zIndexBoost: !1,
-                        dragResistance: .3,
-                        edgeResistance: .9,
-                        dragClickables: !0,
-                        allowContextMenu: !0,
-                        onClick: function () {
-                            gsap.killTweensOf(".tracker-track")
-                        },
-                        onDragEnd: function () {
-                            x()
-                        },
-                        onThrowComplete: function () {
-                            m && !g && ("x" == b ? 0 == this.x ? (f.addClass("disable"),
-                                h.removeClass("disable")) : this.x == this.minX ? (h.addClass("disable"),
-                                    f.removeClass("disable")) : (f.removeClass("disable"),
-                                        h.removeClass("disable")) : "y" == b && (0 == this.y ? (f.addClass("disable"),
-                                            h.removeClass("disable")) : this.y == this.minY ? (h.addClass("disable"),
-                                                f.removeClass("disable")) : (f.removeClass("disable"),
-                                                    h.removeClass("disable"))))
-                        }
-                    }),
-                        f.removeClass("disdrag"),
-                        h.removeClass("disdrag")) : (f.addClass("disdrag"),
-                            h.addClass("disdrag")),
-                    a(u.eq(p), !0)
-            }
-            function x() {
-                n = e = o = null,
-                    u.removeClass("in out over"),
-                    o = u.filter(function () {
-                        return "x" == b ? $(this).offset().left >= c.offset().left && $(this).offset().left + $(this).outerWidth() <= c.offset().left + c.width() : "y" == b ? $(this).offset().top >= c.offset().top && $(this).offset().top + $(this).outerHeight() <= c.offset().top + c.height() : void 0
-                    }).addClass("in"),
-                    e = u.not(o).addClass("out"),
-                    n = e.filter(function () {
-                        return "x" == b ? $(this).offset().left < c.offset().left && $(this).offset().left + $(this).outerWidth() > c.offset().left || $(this).offset().left < c.offset().left + c.width() && $(this).offset().left + $(this).outerWidth() > c.offset().left + c.width() : "y" == b ? $(this).offset().top < c.offset().top && $(this).offset().top + $(this).outerHeight() > c.offset().top || $(this).offset().top < c.offset().top + c.height() && $(this).offset().top + $(this).outerHeight() > c.offset().top + c.height() : void 0
-                    }).addClass("over")
-            }
-            function a(e, t) {
-                var i, s, o, n, a, r, l;
-                0 == e.length || !t && e.index() == p || (e.trigger("click.tab"),
-                    p = e.index(),
-                    g || m || (0 == p ? f.addClass("disable") : f.removeClass("disable"),
-                        p == u.length - 1 ? h.addClass("disable") : h.removeClass("disable")),
-                    e.hasClass("cur") || e.addClass("cur").siblings().removeClass("cur"),
-                    v && (t = t ? 0 : .5,
-                        "x" == b ? (i = gsap.getProperty(d[0], "x"),
-                            s = c.offset().left + c.width() / 2,
-                            o = e.offset().left + e.outerWidth() / 2,
-                            a = {
-                                duration: t,
-                                x: n = v[0].minX
-                            },
-                            r = {
-                                duration: t,
-                                x: v[0].maxX
-                            },
-                            l = {
-                                duration: t,
-                                x: "+=" + (s - o)
-                            }) : "y" == b && (i = gsap.getProperty(d[0], "y"),
-                                s = c.offset().top + c.height() / 2,
-                                o = e.offset().top + e.outerHeight() / 2,
-                                a = {
-                                    duration: t,
-                                    y: n = v[0].minY
-                                },
-                                r = {
-                                    duration: t,
-                                    y: v[0].maxY
-                                },
-                                l = {
-                                    duration: t,
-                                    y: "+=" + (s - o)
-                                }),
-                        l = s < o ? 0 < n - i + o - s ? gsap.to(d, a) : gsap.to(d, l) : 0 < i + s - o ? gsap.to(d, r) : gsap.to(d, l),
-                        0 < t ? l.eventCallback("onComplete", x) : x()))
-            }
-            i(),
-                $(window).on("resize", $.debounce(300, i)),
-                u.on("click.tracker", function () {
-                    a($(this))
-                }),
-                f.on("click.tracker", function () {
-                    var e = 0
-                        , t = s.attr("page")
-                        , i = u.eq(p).prevAll(":visible").first();
-                    m ? v && (0 != (i = (i = (0 < o.length ? o : n).first().prevAll(":visible")).filter(function (e) {
-                        return 0 < t ? e < t : 0 == e
-                    })).length ? (g || (h.removeClass("disable"),
-                        v && 1 == o.first().prevAll(":visible").length && f.addClass("disable")),
-                        "x" == b ? (0 <= (e = 0 < t ? gsap.getProperty(d[0], "x") + (c.offset().left - i.offset().left) : gsap.getProperty(d[0], "x") + (c.offset().left + c.width() - (i.offset().left + i.outerWidth()))) && (e = 0,
-                            g || f.addClass("disable")),
-                            gsap.to(d, {
-                                duration: .5,
-                                x: e,
-                                onComplete: x
-                            })) : "y" == b && (0 <= (e = 0 < t ? gsap.getProperty(d[0], "y") + (c.offset().top - i.offset().top) : gsap.getProperty(d[0], "y") + (c.offset().top + c.height() - (i.offset().top + i.outerHeight()))) && (e = 0,
-                                g || f.addClass("disable")),
-                                gsap.to(d, {
-                                    duration: .5,
-                                    y: e,
-                                    onComplete: x
-                                }))) : v && g && ("x" == b ? gsap.to(d, {
-                                    duration: .5,
-                                    x: v[0].minX,
-                                    onComplete: x
-                                }) : "y" == b && gsap.to(d, {
-                                    duration: .5,
-                                    y: v[0].minY,
-                                    onComplete: x
-                                }))) : 0 == i.length ? g && a(u.last()) : a(i)
-                }),
-                h.on("click.tracker", function () {
-                    var e = 0
-                        , t = s.attr("page")
-                        , i = u.eq(p).nextAll(":visible").first();
-                    m ? v && (0 != (i = (i = (0 < o.length ? o : n).last().nextAll(":visible")).filter(function (e) {
-                        return 0 < t ? e < t : 0 == e
-                    })).length ? (g || (f.removeClass("disable"),
-                        v && 1 == o.last().nextAll(":visible").length && h.addClass("disable")),
-                        "x" == b ? ((e = 0 < t ? gsap.getProperty(d[0], "x") - (i.offset().left + i.outerWidth() - (c.offset().left + c.width())) : gsap.getProperty(d[0], "x") - (i.offset().left - c.offset().left)) - v[0].minX <= 0 && (e = v[0].minX,
-                            g || h.addClass("disable")),
-                            gsap.to(d, {
-                                duration: .5,
-                                x: e,
-                                onComplete: x
-                            })) : "y" == b && ((e = 0 < t ? gsap.getProperty(d[0], "y") - (i.offset().top + i.outerHeight() - (c.offset().top + c.height())) : gsap.getProperty(d[0], "y") - (i.offset().top - c.offset().top)) - v[0].minY <= 0 && (e = v[0].minY,
-                                g || h.addClass("disable")),
-                                gsap.to(d, {
-                                    duration: .5,
-                                    y: e,
-                                    onComplete: x
-                                }))) : v && g && ("x" == b ? gsap.to(d, {
-                                    duration: .5,
-                                    x: 0,
-                                    onComplete: x
-                                }) : "y" == b && gsap.to(d, {
-                                    duration: .5,
-                                    y: 0,
-                                    onComplete: x
-                                }))) : 0 == i.length ? g && a(u.first()) : a(i)
-                }),
-                s.on("refresh", function (e, t) {
-                    e.stopPropagation(),
-                        $.utils.is_undefined(t) && (t = 0),
-                        p = t,
-                        i()
-                })
-        })
+        // $(".tracker-mod").each(function () {
+        //     var s = $(this)
+        //         , c = s.find(".tracker-box")
+        //         , d = s.find(".tracker-track")
+        //         , u = s.find(".tracker-item")
+        //         , f = s.find(".tracker-prev")
+        //         , h = s.find(".tracker-next")
+        //         , p = 0 < u.filter(".cur").length ? u.filter(".cur").index() : 0
+        //         , m = !$.utils.is_undefined(s.attr("page"))
+        //         , g = !$.utils.is_undefined(s.attr("round"))
+        //         , v = null
+        //         , b = null
+        //         , o = null
+        //         , e = null
+        //         , n = null;
+        //     function i() {
+        //         b = d.outerWidth() > c.width() ? "x" : d.outerHeight() > c.height() ? "y" : null,
+        //             v && 0 < v.length && v[0].vars.type != b && (v[0].kill(),
+        //                 v = null,
+        //                 gsap.set(d, {
+        //                     x: 0,
+        //                     y: 0
+        //                 })),
+        //             v || u.removeClass("in out over"),
+        //             $.utils.is_string(b) ? (v ? v[0].update(!0) : v = Draggable.create(d, {
+        //                 type: b,
+        //                 bounds: c,
+        //                 inertia: !0,
+        //                 lockAxis: !0,
+        //                 zIndexBoost: !1,
+        //                 dragResistance: .3,
+        //                 edgeResistance: .9,
+        //                 dragClickables: !0,
+        //                 allowContextMenu: !0,
+        //                 onClick: function () {
+        //                     gsap.killTweensOf(".tracker-track")
+        //                 },
+        //                 onDragEnd: function () {
+        //                     x()
+        //                 },
+        //                 onThrowComplete: function () {
+        //                     m && !g && ("x" == b ? 0 == this.x ? (f.addClass("disable"),
+        //                         h.removeClass("disable")) : this.x == this.minX ? (h.addClass("disable"),
+        //                             f.removeClass("disable")) : (f.removeClass("disable"),
+        //                                 h.removeClass("disable")) : "y" == b && (0 == this.y ? (f.addClass("disable"),
+        //                                     h.removeClass("disable")) : this.y == this.minY ? (h.addClass("disable"),
+        //                                         f.removeClass("disable")) : (f.removeClass("disable"),
+        //                                             h.removeClass("disable"))))
+        //                 }
+        //             }),
+        //                 f.removeClass("disdrag"),
+        //                 h.removeClass("disdrag")) : (f.addClass("disdrag"),
+        //                     h.addClass("disdrag")),
+        //             a(u.eq(p), !0)
+        //     }
+        //     function x() {
+        //         n = e = o = null,
+        //             u.removeClass("in out over"),
+        //             o = u.filter(function () {
+        //                 return "x" == b ? $(this).offset().left >= c.offset().left && $(this).offset().left + $(this).outerWidth() <= c.offset().left + c.width() : "y" == b ? $(this).offset().top >= c.offset().top && $(this).offset().top + $(this).outerHeight() <= c.offset().top + c.height() : void 0
+        //             }).addClass("in"),
+        //             e = u.not(o).addClass("out"),
+        //             n = e.filter(function () {
+        //                 return "x" == b ? $(this).offset().left < c.offset().left && $(this).offset().left + $(this).outerWidth() > c.offset().left || $(this).offset().left < c.offset().left + c.width() && $(this).offset().left + $(this).outerWidth() > c.offset().left + c.width() : "y" == b ? $(this).offset().top < c.offset().top && $(this).offset().top + $(this).outerHeight() > c.offset().top || $(this).offset().top < c.offset().top + c.height() && $(this).offset().top + $(this).outerHeight() > c.offset().top + c.height() : void 0
+        //             }).addClass("over")
+        //     }
+        //     function a(e, t) {
+        //         var i, s, o, n, a, r, l;
+        //         0 == e.length || !t && e.index() == p || (e.trigger("click.tab"),
+        //             p = e.index(),
+        //             g || m || (0 == p ? f.addClass("disable") : f.removeClass("disable"),
+        //                 p == u.length - 1 ? h.addClass("disable") : h.removeClass("disable")),
+        //             e.hasClass("cur") || e.addClass("cur").siblings().removeClass("cur"),
+        //             v && (t = t ? 0 : .5,
+        //                 "x" == b ? (i = gsap.getProperty(d[0], "x"),
+        //                     s = c.offset().left + c.width() / 2,
+        //                     o = e.offset().left + e.outerWidth() / 2,
+        //                     a = {
+        //                         duration: t,
+        //                         x: n = v[0].minX
+        //                     },
+        //                     r = {
+        //                         duration: t,
+        //                         x: v[0].maxX
+        //                     },
+        //                     l = {
+        //                         duration: t,
+        //                         x: "+=" + (s - o)
+        //                     }) : "y" == b && (i = gsap.getProperty(d[0], "y"),
+        //                         s = c.offset().top + c.height() / 2,
+        //                         o = e.offset().top + e.outerHeight() / 2,
+        //                         a = {
+        //                             duration: t,
+        //                             y: n = v[0].minY
+        //                         },
+        //                         r = {
+        //                             duration: t,
+        //                             y: v[0].maxY
+        //                         },
+        //                         l = {
+        //                             duration: t,
+        //                             y: "+=" + (s - o)
+        //                         }),
+        //                 l = s < o ? 0 < n - i + o - s ? gsap.to(d, a) : gsap.to(d, l) : 0 < i + s - o ? gsap.to(d, r) : gsap.to(d, l),
+        //                 0 < t ? l.eventCallback("onComplete", x) : x()))
+        //     }
+        //     i(),
+        //         $(window).on("resize", $.debounce(300, i)),
+        //         u.on("click.tracker", function () {
+        //             a($(this))
+        //         }),
+        //         f.on("click.tracker", function () {
+        //             var e = 0
+        //                 , t = s.attr("page")
+        //                 , i = u.eq(p).prevAll(":visible").first();
+        //             m ? v && (0 != (i = (i = (0 < o.length ? o : n).first().prevAll(":visible")).filter(function (e) {
+        //                 return 0 < t ? e < t : 0 == e
+        //             })).length ? (g || (h.removeClass("disable"),
+        //                 v && 1 == o.first().prevAll(":visible").length && f.addClass("disable")),
+        //                 "x" == b ? (0 <= (e = 0 < t ? gsap.getProperty(d[0], "x") + (c.offset().left - i.offset().left) : gsap.getProperty(d[0], "x") + (c.offset().left + c.width() - (i.offset().left + i.outerWidth()))) && (e = 0,
+        //                     g || f.addClass("disable")),
+        //                     gsap.to(d, {
+        //                         duration: .5,
+        //                         x: e,
+        //                         onComplete: x
+        //                     })) : "y" == b && (0 <= (e = 0 < t ? gsap.getProperty(d[0], "y") + (c.offset().top - i.offset().top) : gsap.getProperty(d[0], "y") + (c.offset().top + c.height() - (i.offset().top + i.outerHeight()))) && (e = 0,
+        //                         g || f.addClass("disable")),
+        //                         gsap.to(d, {
+        //                             duration: .5,
+        //                             y: e,
+        //                             onComplete: x
+        //                         }))) : v && g && ("x" == b ? gsap.to(d, {
+        //                             duration: .5,
+        //                             x: v[0].minX,
+        //                             onComplete: x
+        //                         }) : "y" == b && gsap.to(d, {
+        //                             duration: .5,
+        //                             y: v[0].minY,
+        //                             onComplete: x
+        //                         }))) : 0 == i.length ? g && a(u.last()) : a(i)
+        //         }),
+        //         h.on("click.tracker", function () {
+        //             var e = 0
+        //                 , t = s.attr("page")
+        //                 , i = u.eq(p).nextAll(":visible").first();
+        //             m ? v && (0 != (i = (i = (0 < o.length ? o : n).last().nextAll(":visible")).filter(function (e) {
+        //                 return 0 < t ? e < t : 0 == e
+        //             })).length ? (g || (f.removeClass("disable"),
+        //                 v && 1 == o.last().nextAll(":visible").length && h.addClass("disable")),
+        //                 "x" == b ? ((e = 0 < t ? gsap.getProperty(d[0], "x") - (i.offset().left + i.outerWidth() - (c.offset().left + c.width())) : gsap.getProperty(d[0], "x") - (i.offset().left - c.offset().left)) - v[0].minX <= 0 && (e = v[0].minX,
+        //                     g || h.addClass("disable")),
+        //                     gsap.to(d, {
+        //                         duration: .5,
+        //                         x: e,
+        //                         onComplete: x
+        //                     })) : "y" == b && ((e = 0 < t ? gsap.getProperty(d[0], "y") - (i.offset().top + i.outerHeight() - (c.offset().top + c.height())) : gsap.getProperty(d[0], "y") - (i.offset().top - c.offset().top)) - v[0].minY <= 0 && (e = v[0].minY,
+        //                         g || h.addClass("disable")),
+        //                         gsap.to(d, {
+        //                             duration: .5,
+        //                             y: e,
+        //                             onComplete: x
+        //                         }))) : v && g && ("x" == b ? gsap.to(d, {
+        //                             duration: .5,
+        //                             x: 0,
+        //                             onComplete: x
+        //                         }) : "y" == b && gsap.to(d, {
+        //                             duration: .5,
+        //                             y: 0,
+        //                             onComplete: x
+        //                         }))) : 0 == i.length ? g && a(u.first()) : a(i)
+        //         }),
+        //         s.on("refresh", function (e, t) {
+        //             e.stopPropagation(),
+        //                 $.utils.is_undefined(t) && (t = 0),
+        //                 p = t,
+        //                 i()
+        //         })
+        // })
     });
