@@ -1,0 +1,817 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="author" content="http://www.fractal-technology.com">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="keywords" content="陕西历史博物馆" />
+    <meta name="description" content="陕西历史博物馆" />
+    <title>学术讲座</title>
+    <script type="text/javascript">
+        if (!window.matchMedia) {
+            var el = document.createElement('div');
+            el.style.cssText = "position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: #575757; z-index: 999999;";
+            el.innerHTML = '<div style="position: absolute; top: 40%; left: 0; right: 0; margin: auto; width: 80%; font-family: Microsoft YaHei; font-size: 2em; font-weight: bold; text-align: center; color: #fff;">您当前使用的浏览器版本过低，<br>建议尽快升级您的浏览器，以获得更好的浏览体验！</div>';
+            document.documentElement.appendChild(el);
+        }
+    </script>
+    <link rel="stylesheet" href="/Public/static/themes_main/css/vendor.css">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/Public/static/themes_main/css/main.css">
+    <!-- endinject -->
+    <script src="/Public/static/themes_main/js/vendor.js"></script>
+    <!-- inject:js -->
+    <script src="/Public/static/themes_main/js/main.js"></script>
+    <!-- endinject -->
+</head>
+<style type="text/css">
+    .logo .widget-area-edit {
+        top: 0px
+    }
+</style>
+
+<body>
+    <div class="topping-mod xfont icon-up">
+        <div class="s"></div>
+    </div>
+    <div class="x-layout bg1">
+        <style>
+            #myalert {
+                display: none;
+            }
+
+            .recruit .block1 {
+                height: auto
+            }
+
+            .layer {
+                background: url(/Public/static/images/con_mask.png);
+                ;
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1000000;
+            }
+
+            .layer .myalert {
+                padding: 30px;
+                background: #fff;
+                width: 240px;
+                position: absolute;
+                margin-top: -100px;
+                top: 50%;
+                left: 50%;
+                margin-left: -120px;
+                text-align: center;
+                z-index: 100000
+            }
+
+            .layer .guan {
+                background: url(/Public/static/images/close.png) no-repeat center;
+                display: block;
+                width: 23px;
+                height: 23px;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+
+            .layer .text {
+                padding-bottom: 15px;
+                font-size: 16px;
+                color: #474747;
+            }
+
+            .layer .button {
+                background: none;
+                border: 1px solid #bbbbbb;
+                width: 91px;
+                height: 29px;
+                font: 14px/100% "Microsoft YaHei", Arial, Tahoma, Helvetica, sans-serif;
+                color: #707070;
+            }
+        </style>
+        <div id="myalert" class="layer">
+            <div class="myalert">
+                <a href="javascript:;" onclick="myalert_hide();" class="guan"></a>
+                <div class="text">请输入关键字</div>
+                <a><button class="button" id="my_ok"
+                        style="cursor:pointer ;opacity: 1;transform: translateY(0px);">确定</button></a>
+            </div>
+        </div>
+        <script>
+            function my_alert(text, callback) {
+                $('#myalert').show();
+                $('#myalert .myalert div').html(text);
+
+                $('#my_ok').click(function () {
+                    $('#myalert').hide();
+
+                    if (typeof (callback) == 'function') {
+                        callback();
+                        return false;
+                    }
+                });
+            }
+
+            function myalert_hide() {
+                $('#myalert').hide();
+            }
+        </script>
+
+        <div class="x-header gn">
+
+            <div class="menu-mod">
+                <div class="logo"><a href="/"><img src="/Uploads/Picture/2021/11/05/s6185032db4faf.png" alt="" title=""
+                            class="i"></a></div>
+            </div>
+            <div class="tools-mod">
+                <div class="tools-item lang select-mod">
+                    <div class="select-bar bttn">
+                        <div class="select-btn xicon icon-down"></div>
+                        <div class="select-txt">
+                            <div class="select-val">中文版</div>
+                        </div>
+                    </div>
+                    <div class="select-cont">
+                        <div class="select-opts">
+                            <div class="select-item"><a href="/">中文版</a></div>
+                            <div class="select-item"><a href="/en/index.html">EN</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tools-item share-box"><a class="share-item suds-mod bttn xicon icon-wx" href="javascript:;">
+                        <div class="suds-pop at-b">
+                            <div class="code"><img src="/Uploads/Picture/2023/02/14/s63eae4ff6f316.png" title="" alt="">
+                            </div>
+                        </div>
+                    </a>
+                    <a class="share-item suds-mod bttn xicon icon-wb" href="javascript:;">
+                        <div class="suds-pop at-b">
+                            <div class="code"><img src="/Uploads/Picture/2023/02/15/s63ec8c8fc4e56.png" title="" alt="">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="tools-item search-mod">
+                    <div class="search-tap xicon icon-search bttn"></div>
+                    <div class="search-box">
+                        <div class="search-txt"><input type="text" class="search-input" placeholder="search..."
+                                id="txt_Search" onkeypress="keydown(event, '#btn_Search')"></div>
+                        <div class="search-btn"><button class="search-submit xicon icon-search" type="submit"
+                                id="btn_Search"></button></div>
+                    </div>
+                </div>
+                <div class="menu-btn"><span class="line"></span></div>
+            </div>
+            <div class="nav-mod">
+                <div class="nav_child">
+                    <div class="inner">
+                        <div class="item">
+                            <div class="h"><a class="" href="/">首页</a>
+                            </div>
+                            <ul>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <div class="h"><a class="" href="/guide.html">玉·资讯</a>
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                            <ul>
+                                <li><a href="/guide.html#guide2"></a></li>
+                                <li><a href="/guide.html#guide3"></a></li>
+                                <li><a href="/guide.html#guide4"></a></li>
+                                <li><a href="/guide.html#guide5"></a></li>
+                                <li><a href="/guide.html#guide6"></a></li>
+                                <li><a href="/guide.html#guide7"></a></li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <div class="h"><a class="" href="/basic_display.html">玉·展览</a>
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                            <ul>
+                                <li><a href="/basic_display.html"></a>国内展览</a></li>
+                                <li><a href="/special_exhibtion.html">学生展览</a></li>
+                                <!-- <li><a href="/Temporary.html">临时展览</a></li>
+                                <li><a href="/xiufu.html">修复展示</a></li>
+                                <li><a href="/online.html">线上展览</a></li>
+                                <li><a href="/temporary_exhibition.html">交流展览</a></li>
+                                <li><a href="/online2.html">虚拟布展</a></li>
+                                <li><a href="/online1.html">云展览</a></li> -->
+                            </ul>
+                        </div>
+                        <!-- <div class="item">
+                            <div class="h"><a class="" href="/collection.html">藏品</a>
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                            <ul>
+                                <li><a href="/collection.html">镇馆之宝</a></li>
+                                <li><a href="/collection.html">馆藏精品</a></li>
+                                <li><a href="/Collections/ww_data.html">文物数据</a></li>
+                            </ul>
+                        </div> -->
+                        <div class="item">
+                            <div class="h"><a class="" href="/education.html">玉·美学</a>
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                            <ul>
+                                <li><a href="/education.html#education1">玉词百科</a></li>
+                                <li><a href="/education.html#education1">美玉宝库</a></li>
+                                <li><a href="/education.html#education2">诗说美珏</a></li>
+                                <li><a href="/education.html#education2">玉蕴哲思</a></li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <div class="h"><a class="" href="/Publication/Subject.html">玉·学术</a>
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                            <ul>
+                                <li><a href="/Publication/Subject.html">学术刊物</a></li>
+                                <li><a href="/Publication/Subject-essay.html">学术论文</a></li>
+                                <li><a href="/Publication/Subject-lectures.html">学术讲座</a></li>
+                                <li><a href="/Publication/Subject-resources.html">学术资源</a></li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <div class="h"><a class="" href="/product.html">玉·交流</a>
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                            <ul>
+                                <li><a href="/product/tiger.html">师生论玉</a></li>
+                                <li><a href="/product/tgirl.html">文学创作</a></li>
+                                <li><a href="/product/tang.html">精美视频</a></li>
+                                <li><a href="/product/treasure.html">首饰制作</a></li>
+                                <li><a href="/product/calendar.html">对外合作</a></li>
+                                <li><a href="/product/stamp.html">考察指南</a></li>
+                                <!-- <li><a href="/product/joint.html">联名文创</a></li> -->
+                            </ul>
+                        </div>
+                        <!-- <div class="item">
+                            <div class="h"><a class="" href="/info/Building.html">资讯</a>
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                            <ul>
+                                <li><a href="/info/Building.html">党建工作</a></li>
+                                <li><a href="/info/news.html">工作动态</a></li>
+                                <li><a href="/info/industry.html">行业信息</a></li>
+                                <li><a href="/info/announcement.html">最新公告</a></li>
+                                <li><a href="/volunteer.html">志愿者</a></li>
+                                <li><a href="/info/publicity.html">采购公示</a></li>
+                                <li><a href="/info/culturaltour.html">文明旅游</a></li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <div class="h"><a class="" href="/articles_association.html">信息公开</a>
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                            <ul>
+                                <li><a href="/articles_association.html">博物馆章程</a></li>
+                                <li><a href="/Activity_Board.html">运营看板</a></li>
+                                <li><a href="/shared_resource.html">公共资源共享服务</a></li>
+                                <li><a href="/Social_practice_activities.html">在校学生社会实践活动</a></li>
+                                <li><a href="/for_council.html">理事会信息</a></li>
+                                <li><a href="/lsjscy.html">理事监事成员</a></li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <div class="h"><a class="" href="/about.html">关于</a>
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                            <ul>
+                                <li><a href="/about.html#about3">本馆概述</a></li>
+                                <li><a href="/about.html">馆长致辞</a></li>
+                                <li><a href="/about.html#about4">历史沿革</a></li>
+                                <li><a href="/about.html#about5">馆级领导</a></li>
+                                <li><a href="/about.html#about6">机构设置</a></li>
+                                <li><a href="/about.html#about7">专家介绍</a></li>
+                            </ul>
+                        </div> -->
+                    </div>
+
+                    <script>
+                        //首页高亮
+                        var indexs = "";
+                        if (indexs) {
+                            $(".nav_child .item:first .h a").addClass("cur");
+                        }
+                        //一级高亮
+                        var nowurl = ("/Publication/Subject.html" != 'javascript:void(0);') ? "/Publication/Subject.html" : window.location.pathname;
+                        $(' .nav_child .item .h a').each(function () {
+                            var listurl = $(this).attr('href');
+                            if (nowurl == listurl || listurl == '') {
+                                $(this).addClass('cur').siblings().removeClass('cur');
+                            }
+                        });
+                        var pas_id = "7";
+                        var pa_id = "19";
+                        if (pa_id == 11) {
+                            $('.item').eq(1).find('.h a').addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pa_id == 3) {
+                            $('.item').eq(9).find('.h a').addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pas_id == 9) {
+                            $('.item').eq(3).find('.h a').addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pas_id == 10) {
+                            $('.item').eq(2).find('.h a').addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pa_id == 7) {
+                            $('.item').eq(5).find('.h a').addClass('cur').siblings().removeClass('cur')
+                        }
+                        //锚点点击高亮
+                        $(document).on('click', 'li', function () {
+                            $(this).addClass('cur').siblings().removeClass('cur');
+                        })
+                        //二级导航
+                        var _nowurl = window.location.href;
+                        var cat_url = '/Publication/Subject.html';
+                        var arr = _nowurl.split('#')[1];
+                        $('.nav_child .item ul li').find('a').each(function (i, k) {
+                            var towurl = $(k).attr('href');
+                            if (towurl.indexOf(arr) > -1 || towurl == window.location.pathname || towurl == cat_url || towurl == '') {
+                                $(this).parents('.item').find('.h a').addClass('cur').siblings().removeClass('cur');
+                            }
+                        });
+                    </script>
+                </div>
+                <div class="bg"></div>
+                <div class="search-box m-show">
+                    <div class="search-txt"><input type="text" class="search-input" placeholder="search..."
+                            id="txt_Search2" onkeypress="keydown(event, '#btn_Search2');"></div>
+                    <button class="search-submit xicon icon-search" type="submit" id="btn_Search2"></button>
+                </div>
+                <div class="nav-box nav-lv1">
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            <a class="nav-link nav-lv1-link" href="/">首页</a>
+                        </div>
+                    </div>
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            <a class="nav-link nav-lv1-link" href="/guide.html">玉·资讯</a>
+                        </div>
+                    </div>
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            <a class="nav-link nav-lv1-link" href="/guide.html">玉·展览</a>
+                        </div>
+                    </div>
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            <a class="nav-link nav-lv1-link" href="/basic_display.html">玉·美学</a>
+                        </div>
+                    </div>
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            <a class="nav-link nav-lv1-link" href="/Publication/Subject.html">玉·学术</a>
+                        </div>
+                    </div>
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            <a class="nav-link nav-lv1-link" href="/education.html">玉·交流</a>
+                        </div>
+                    </div>
+                    <script>
+                        //首页高亮
+                        var indexs = "";
+                        if (indexs) {
+                            $(".nav-lv1-item:first").addClass("cur");
+                        }
+                        //一级高亮
+                        var nowurl = ("/Publication/Subject.html" != 'javascript:void(0);') ? "/Publication/Subject.html" : window.location.pathname;
+                        $(' .nav-lv1-item a').each(function () {
+                            var listurl = $(this).attr('href');
+                            if (nowurl == listurl || listurl == '') {
+                                $(this).parents('.nav-lv1-item').addClass('cur').siblings().removeClass('cur');
+                            }
+                        });
+                        var pas_id = "7";
+                        var pa_id = "19";
+                        if (pa_id == 11) {
+                            $('.nav-lv1-item').eq(1).addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pa_id == 3) {
+                            $('.nav-lv1-item').eq(9).addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pas_id == 9) {
+                            $('.nav-lv1-item').eq(3).addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pas_id == 10) {
+                            $('.nav-lv1-item').eq(2).addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pa_id == 7) {
+                            $('.nav-lv1-item').eq(5).addClass('cur').siblings().removeClass('cur')
+                        }
+                        //锚点点击高亮
+                        $(document).on('click', '.nav-lv2-item', function () {
+                            $(this).addClass('cur').siblings().removeClass('cur');
+                        })
+
+                        //二级导航
+                        var _nowurl = window.location.href;
+                        var cat_url = '/Publication/Subject.html';
+                        var arr = _nowurl.split('#')[1];
+                        $('.nav-lv2 .nav-lv2-item').find('a').each(function (i, k) {
+                            var towurl = $(k).attr('href');
+                            if (towurl.indexOf(arr) > -1 || towurl == window.location.pathname || towurl == cat_url || towurl == '') {
+                                // $(this).parents('.nav-lv2-item').addClass('cur').siblings().removeClass('cur');
+                                $(this).parents(".nav-lv1-item").addClass('cur').siblings().removeClass('cur');
+                            }
+                        });
+                    </script>
+                </div>
+                <div class="bb">
+                    <div class="lang"><a class="now" href="/">中</a><a href="/en/index.html">EN</a></div>
+                    <div class="share-box m-show">
+                        <a class="share-item suds-mod xicon icon-wx" href="javascript:;">
+                            <div class="suds-pop at-t">
+                                <div class="code"><img src="/Uploads/Picture/2023/02/14/s63eae4ff6f316.png" alt=""
+                                        title=""></div>
+                            </div>
+                        </a>
+                        <a href="#" class="share-item xicon icon-wb" title="分享到新浪微博"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            var p = 1;
+            var catrgory_id = "65";
+            $(function () {
+                $('#btn_Search').click(function () {
+                    var keywords = $("#txt_Search").val();
+                    if (keywords == '') {
+                        my_alert("请输入关键字");
+                        return false;
+                    }
+                    var tit = '《文博》';
+                    if (tit == "搜索结果") {
+                        window.location.href = "/searchs/keywords/" + encodeURI(keywords);
+                    } else {
+                        window.open("/searchs/keywords/" + encodeURI(keywords));
+                    }
+                });
+                $('#btn_Search2').click(function () {
+                    var keywords = $("#txt_Search2").val();
+                    if (keywords == '') {
+                        my_alert("请输入关键字");
+                        return false;
+                    }
+
+                    var tit = '《文博》';
+                    if (tit == "搜索结果") {
+                        window.location.href = "/searchs/keywords/" + encodeURI(keywords);
+                    } else {
+                        window.open("/searchs/keywords/" + encodeURI(keywords));
+                    }
+                });
+
+            })
+            function keydown(e, but) {
+                var currKey = 0, e = e || event;
+                var _this = $(but);
+
+                if (e.keyCode == 13) {
+                    _this.click();
+                    return false;
+                }
+            }
+
+
+
+        </script>
+        <div class="x-container">
+            <div class="x-wrap2">
+                <div class="bread-mod">
+                    <div class="inner">
+                        <div class="bread-item"><a title="首页" href="/">首页</a></div>
+                        <div class="bread-item"><a href="javascript:void(0);">玉·学术</a></div>
+                        <div class="bread-item"><a href="/Publication/Subject.html">学术论文</a></div>
+                        <div class="bread-item cur"><a href="javascript:void(0);" style="cursor: default;">《天工》</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="learning">
+                <div class="x-wrap2">
+                    <div class="head tac">
+                        <div class="title">玉·学术</div>
+                        <div class="text" style="min-height:14px;min-width:14px;">传承与发扬中华文化历史</div>
+                    </div>
+                    <div class="tabs" id="headlist">
+                        <a href="/Publication/Subject.html">学术刊物</a><a
+                            href="/Publication/Subject-essay.html" class="now">学术论文</a><a
+                            href="/Publication/Subject-lectures.html">学术讲座</a><a
+                            href="/Publication/Subject-resources.html">学术资源</a>
+                    </div>
+                    <div class="content">
+                        <div class="dt">
+                            <div class="tit transR">
+                                <div class="title">学术论文</div>
+                                <div class="tabs1">
+                                    <a class="now" href="/Publication/Subject.html">《天工》</a><a
+                                        href="/Publication/Subject2.html">《故宫博物院院刊》</a><a
+                                        href="/Publication/Subject3.html">《紫禁城》</a><a
+                                        href="/Publication/Almanac.html">《中华奇石》</a>
+                                </div>
+                            </div>
+                            <div class="pic transL"><img src="/Public\static\themes_main\image\Subject\png10.png" alt="">
+                            </div>
+                            <div class="bg1 transL"></div>
+                        </div>
+                        <div id="datalist">
+
+                            <div class="list" id="datalist_wap">
+                                <div class="item">
+                                    <!--			<div class="date"><strong>08</strong>2024-04</div>-->
+                                    <div class="r">
+                                        <a href="/detail/Subject1.1.html" target="_blank">
+                                            <div class="h">《论玉雕设计的美学内涵》</div>
+                                            <div class="p">
+                                                玉雕文化在我国有着极为久远的历史,随着千万年的流传,已成为我国传统文化的艺术瑰宝,更是非遗文化传承的代表。玉雕设计的美学内涵是历史的结晶,更是民族的智慧,还是人们审美价值的体现,因此它的美学内涵是丰富多彩的,是中国传统工艺美学里最为杰出的代表。
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <!--			<div class="date"><strong>13</strong>2024-01</div>-->
+                                    <div class="r">
+                                        <a href="/detail/Subject1.2.html" target="_blank">
+                                            <div class="h">《宝玉石矿产原料与优化处理》
+                                                </div>
+                                            <div class="p">
+                                                随着封建社会的建立和玉石雕琢业的发展，玉石被赋予了独特的文化内涵和象征，其温润的外表和品质使人不禁将“美玉”和“君子”联系在一起，玉也，就成为君子的象征物，并在中华民族几千年来的发展过程中形成了民族爱
+                                                来看，宝石和玉石在狭义和广义上存在不同定义和区分，广义上的宝石等同于玉石，指的是色彩瑰丽、坚硬耐久，并可琢磨、可雕刻成首饰和工艺品的矿物或岩石，包括天然的和人工合成的；狭义上宝石和玉石存在区别，宝石指
+                                                的是晶莹剔透、坚硬耐久，可琢磨成宝石首饰的单晶体或双晶，如钻石、红宝石等，而玉石则是指色彩瑰丽、坚硬耐久、稀少，可琢磨成首饰和工艺品的矿物集合体或岩石，如翡翠、软玉、岫玉等。可以说，对于宝玉石矿产原料
+                                                及加工处理的详细认识有助于宝玉石产业的进一步发展。
+                                                                                          </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <!--			<div class="date"><strong>07</strong>2023-11</div>-->
+                                    <div class="r">
+                                        <a href="/detail/Subject1.3.html" target="_blank">
+                                            <div class="h">《推动玉石健康与香文化结合》</div>
+                                            <div class="p">
+                                                近年来，海外版抖音TikTok掀起了一股“刮痧”风，外国网民对刮痧疗法不吝好评，妥妥地被刮痧板这支小小的“东方制造”所折服。刮痧板在欧美的流行，也是中国制造提升质量、提升信誉的契机。位于寮步镇的慕尚未来美容用品（广东）有限公司（以下简称“慕尚未来”）将中医理疗文化与天然玉石生产工艺相结合，打造了玉石刮痧板、玉石滚轮、玉石面膜等系列美容护理产品，备受海外市场青睐。
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <!--			<div class="date"><strong>19</strong>2023-09</div>-->
+                                    <div class="r">
+                                        <a href="/detail/Subject1.4.html" target="_blank">
+                                            <div class="h">《流动的石头：过程与关系中的材料哲思》</div>
+                                            <div class="p">
+                                                流动具有空间性、时间性和有生性。通过对材料与物品
+                                                固有认知的反思，从过程与关系的哲学视角，探索具有发展可能的
+                                                手工艺材料观。从玉石到玉器，从材料的取舍到“遗留之物”，
+                                                从可见的形式到不可见的耗损，从非人类世界到人类世界，从材料
+                                                的谜语特性到手工艺制作的问答机制，从物质材料的流动到感知意
+                                                识的流动，从形式生成到价值创造，从知识和经验的生长到智慧涌
+                                                现，无不体现石头与世界互通中流转多变的形态、属性及作用。                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <!--			<div class="date"><strong>19</strong>2023-09</div>-->
+                                    <div class="r">
+                                        <a href="/detail/Subject1.5.html" target="_blank">
+                                            <div class="h">《汉代玉器纹样的视觉特征研究与应用》</div>
+                                            <div class="p">
+                                                主要从对汉代玉器纹样的研究入手，从不同的玉器纹饰中提取艺术主题，并以创新的方式运用于服装设
+                                                计中，为服装设计提供灵感和素材。                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="paging-mod w">
+                                <div class="paging-box">
+
+                                    <a href="javascript:void(0);" class="paging-item paging-link cur">1</a>
+                                    <a href="/Publication/Subject/p/2.html" onClick="getPage($(this));return false;"
+                                        class="paging-item paging-link">2</a> <a href="/Publication/Subject/p/3.html"
+                                        onClick="getPage($(this));return false;" class="paging-item paging-link">3</a>
+                                    <a href="/Publication/Subject/p/4.html" onClick="getPage($(this));return false;"
+                                        class="paging-item paging-link">4</a> <a href="/Publication/Subject/p/5.html"
+                                        onClick="getPage($(this));return false;" class="paging-item paging-link">5</a>
+                                    <a href="/Publication/Subject/p/2.html" onClick="getPage($(this));return false;"
+                                        class="paging-item paging-arrow xfont icon-right"></a>
+                                    <div class="paging-item paging-jump">
+                                        <div class="paging-table">
+                                            <div class="paging-cell">
+                                                <input type="text" class="paging-input"
+                                                    onkeyup="this.value=this.value.replace(/[^\d]/g,'');" id="text_se">
+                                            </div>
+                                            <div class="paging-cell">
+                                                <button type="submit" class="paging-btn" data-max="6" id="btn_new"
+                                                    onclick="go($(this));return false;">GO</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <script>
+                                function getPage(obj) {
+                                    var url = obj.attr('href');
+                                    if (url == 'javascript:void(0);') {
+                                        return false;
+                                    }
+                                    // $.ajaxSetup({cache:false});
+                                    $.get(url, {}, function (data) {
+                                        $('#datalist').html(data);
+                                        $('html,body,.body_page').animate({ scrollTop: parseInt($('#headlist').offset().top - 0) }, 500);
+                                    })
+                                }
+                                function go(obj) {
+                                    var text_se = obj.parent().prev().find('.paging-input').val();
+                                    if (text_se == '') {
+                                        my_alert('请输入页码');
+                                        return false;
+                                    } else {
+                                        getkey(text_se);
+                                        return false;
+                                    }
+                                }
+                                $('.paging-input').keypress(function (e) {
+                                    var keycode = e.keyCode ? e.keyCode : e.which;
+                                    if (keycode == 13) {
+                                        var text_se = $(this).val();
+                                        if (text_se == '') {
+                                            my_alert('请输入页码');
+                                            return false;
+                                        } else {
+                                            getkey(text_se);
+                                            return false;
+                                        }
+                                    }
+                                });
+
+                                function sel(obj) {
+                                    var text_se = obj.value;
+                                    getkey(text_se);
+                                }
+                                function getkey(p) {
+                                    if (p == '') {
+                                        return false;
+                                    }
+                                    var pagesize = "6"
+                                    var url = "/Publication/Subject/p/_PAGENUM_.html";
+
+                                    if ((p * 1) <= (pagesize * 1)) {
+                                        p = p;
+                                    } else {
+                                        p = pagesize;
+                                    }
+                                    var urls = url.replace('_PAGENUM_', p);
+                                    $.get(urls, function (data) {
+                                        $('#datalist').html(data);
+                                        $('html,body,.body_page').animate({ scrollTop: parseInt($('#headlist').offset().top - 0) }, 500);
+                                    });
+                                }
+                            </script>
+
+                        </div>
+
+                        <div class="paging-more w" id="mores"><a>查看更多</a></div>
+
+                    </div>
+                </div>
+                <img src="/Public/static/themes_main/image/baiy/png7_2.png" alt="" class="bp">
+            </div>
+        </div>
+
+        <!-- inject:private:js -->
+        <script>
+            "use strict";
+
+            $(function () {
+                var p = 1,
+                    url = window.location.href;
+                $('#mores').click(function () {
+                    p++;
+                    var search = {
+                        p: p,
+                        tpl_file: 'article/learns_wap'
+                    }
+                    $.get(url, search, function (data) {
+                        if (data) {
+                            $('#datalist_wap').append(data);
+                        }
+                    })
+
+                })
+                $(".learning").addClass("showdd");
+
+                function winscroll() {
+                    scrollact(".learning .dt", 5, function () { }, function () { });
+                }
+
+                $(window).scroll(function () {
+                    winscroll();
+                });
+                $(".tabs").scrollLeft($(".tabs .now").offset().left - $(".tabs").offset().left); ///  
+            });
+        </script>
+        <!-- endinject 
+        <script type="text/javascript">
+            $.post("/fangwen.html" + '?' + Math.random(), { '_json': Math.random() }, function (data) {
+                var datas = data['info'];
+                var str = "<i>" + datas.toString().split("").join("</i><i>") + "</i>";
+                $('.x-footer .viewer .num').html(str);
+            }, 'json')
+        </script>
+        <div class="x-footer">
+            <div class="x-wrap">
+                <div class="nav_foot"><a href="/sitemap.html" target="_blank">网站地图</a><span>|</span><a
+                        href="/leaving/message.html">网友留言</a><span>|</span>
+                    <script type="text/javascript">
+                        $(function () {
+                            $('.nav_foot span:last').remove();
+                        })
+                    </script>
+                </div>
+                <div class="friends"> 友情链接：
+                    <a href="http://www.chnmuseum.cn/" target="_blank">中国国家博物馆</a><a
+                        href="https://www.dpm.org.cn/Home.html" target="_blank">故宫博物院</a><a
+                        href="https://www.shanghaimuseum.net/mu/frontend/pg/index" target="_blank">上海博物馆</a><a
+                        href="http://www.njmuseum.com/zh" target="_blank">南京博物院</a><a href="http://www.hnmuseum.com/"
+                        target="_blank">湖南博物院</a><a href="http://www.chnmus.net/" target="_blank">河南博物院</a><a
+                        href="http://hbsbwg.cjyun.org/home/index.html" target="_blank">湖北省博物馆</a><a
+                        href="https://www.zhejiangmuseum.com/" target="_blank">浙江省博物馆</a><a
+                        href="http://www.lnmuseum.com.cn/" target="_blank">辽宁省博物馆</a><a
+                        href="http://www.capitalmuseum.org.cn/" target="_blank">首都博物馆</a><a
+                        href="http://www.shanximuseum.com/sx/index/index.html" target="_blank">山西博物院</a><a
+                        href="http://www.3gmuseum.cn/" target="_blank">重庆中国三峡博物馆</a><a href="https://www.dha.ac.cn/"
+                        target="_blank">敦煌研究院</a><a href="http://www.bmy.com.cn/" target="_blank">秦始皇帝陵博物院</a><a
+                        href="http://www.beilin-museum.com/" target="_blank">西安碑林博物馆</a><a href="http://www.hylae.com/"
+                        target="_blank">汉景帝阳陵博物院</a>
+                </div>
+                <div class="list">
+                    <div class="item">
+                        <div class="icon"><img src="/Public/static/themes_main/image/lyj/icon12.png" alt=""></div>
+                        <div class="txt">4000293806</div>
+                    </div>
+                    <div class="item">
+                        <div class="icon"><img src="/Public/static/themes_main/image/lyj/icon13.png" alt=""></div>
+                        <div class="txt">sxhm1991@sxhm.com</div>
+                    </div>
+                    <div class="item">
+                        <div class="icon"><img src="/Public/static/themes_main/image/lyj/icon14.png" alt=""></div>
+                        <div class="txt">中国 · 陕西 · 西安市小寨东路91号</div>
+                    </div>
+                </div>
+                <div class="info">
+                    <span>Copyright 2021 陕西历史博物馆版权所有All Rights Reserved. </span>
+                    <a href="http://beian.miit.gov.cn/" target="_blank">陕ICP备05005777号-2</a>
+
+                    <a href="http://www.beian.gov.cn/" target="_blank">陕公网安备 61011302001384号</a>
+                </div>
+                <div class="viewer"><span>网站浏览人数：</span>
+                    <div class="num"></div>
+                </div>
+                <div class="support"><a>网站建设</a>：<a>北京分形科技</a></div>
+            </div>
+        </div>
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?f9afe60a3a50056805fb3c57adc8fc9a";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+        <script type="text/javascript" src="https://s13.cnzz.com/z_stat.php?id=3732658&web_id=3732658"></script>
+
+    </div>
+    <style>
+        .empty-data {
+            width: 100%;
+            font-size: 25px;
+            padding-top: 8%;
+            padding-bottom: 8%;
+            text-align: center;
+        }
+    </style>
+    -->
+</body>
+
+</html>

@@ -9594,39 +9594,39 @@ body:not(.lang-en) .nav_left .item {
 }
 
 .nav_left .item:nth-child(1) {
-    background-image: url(../image/png7_1.png);
+    background-image: url(/Public/static/themes_main/image/index-nav-left-1.png);
     width: 85px
 }
 
 .nav_left .item:nth-child(2) {
-    background-image: url(../image/png7_2.png);
+    background-image: url(/Public/static/themes_main/image/index-nav-left-2.png);
     width: 87px
 }
 
 .nav_left .item:nth-child(3) {
-    background-image: url(../image/png7_3.png);
+    background-image: url(/Public/static/themes_main/image/index-nav-left-3.png);
     width: 67px
 }
 
 .nav_left .item:nth-child(4) {
-    background-image: url(../image/png7_4.png);
+    background-image: url(/Public/static/themes_main/image/index-nav-left-4.png);
     width: 76px
 }
 
 .nav_left .item:nth-child(5) {
-    background-image: url(../image/png7_5.png);
+    background-image: url(/Public/static/themes_main/image/index-nav-left-5.png);
     width: 97px
 }
 
 .nav_left .item:nth-child(6) {
-    background-image: url(../image/png7_6.png);
+    background-image: url(/Public/static/themes_main/image/index-nav-left-6.png);
     width: 86px
 }
 
-.nav_left .item:nth-child(7) {
+/* .nav_left .item:nth-child(7) {
     background-image: url(../image/png7_7.png);
     width: 66px
-}
+} */
 
 .head {
     display: -webkit-box;
