@@ -4478,11 +4478,15 @@ div[data-search] .infoBox>img {
 }
 
 .icon-wx::before {
-    content: '\e611'
+    content: url(/Public/static/themes_main/image/profile.jpg);
+    
+    object-fit: cover;
+    /* background-size: cover; */
+    /* background-image: url(/Public/static/themes_main/image/babatuosi.jpg); */
 }
 
 .icon-wb::before {
-    content: '\e612'
+    content: ''
 }
 
 .icon-qq::before {
