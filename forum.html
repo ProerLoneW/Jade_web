@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>玉·交流</title>
+    <style>
+        .post {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 150px; /* 固定高度 */
+        }
+        .post img {
+            max-height: 100%; /* 图片适应高度 */
+            max-width: 150px; /* 限制图片最大宽度 */
+        }
+        .post .content {
+            flex-grow: 1;
+            margin-right: 10px; /* 为图片留出空间 */
+        }
+    </style>
+</head>
+<body>
+    <h1>玉·交流</h1>
+    {% if 'username' in session %}
+        <p><a href="{{ url_for('forum_post') }}">发布帖子</a></p>
+        <p><a href="{{ url_for('logout') }}">登出</a></p>
+    {% else %}
+        <p><a href="{{ url_for('login') }}">登录</a> | <a href="{{ url_for('register') }}">注册</a></p>
+    {% endif %}
+
+    <div class="posts">
+        {% for post in posts %}
+            <div class="post">
+                <div class="content">
+                    <p>{{ post.author.username }} {{ post.timestamp|date }}</p>
+                    <h2><a href="{{ url_for('read_post', post_id=post.id) }}">{{ post.title }}</a></h2>
+                    {% if session.get('role') == 'admin' %}
+                        <form method="post" action="{{ url_for('delete_post', post_id=post.id) }}" style="display:inline;">
+                            <button type="submit">删除</button>
+                        </form>
+                    {% endif %}
+                    <form method="post" action="{{ url_for('like_post', post_id=post.id) }}" style="display:inline;">
+                        <button type="submit">
+                            {% if 'liked_posts' in session and post.id in session['liked_posts'] %}
+                                取消点赞
+                            {% else %}
+                                点赞
+                            {% endif %}
+                        </button>
+                        <span>（{{ post.likes|length }}）</span>
+                    </form>
+                </div>
+                {% if post.images %}
+                    <img src="{{ url_for('static', filename=post.images[0].file_path) }}" alt="Post Image">
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+        {% if prev_url %}
+            <a href="{{ prev_url }}">上一页</a>
+        {% endif %}
+        {% if next_url %}
+            <a href="{{ next_url }}">下一页</a>
+        {% endif %}
+    </div>
+</body>
+</html>

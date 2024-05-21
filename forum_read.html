@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+    <style>
+        .post {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .comment {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .images img {
+            flex: 1 1 calc(33.333% - 10px); /* 每行3张图片，减去gap */
+            max-width: calc(33.333% - 10px);
+            height: auto;
+        }
+        .bold-text {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="post">
+        <p>{{ post.author.username }} {{ post.timestamp|date }}</p>
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+        {% if post.images %}
+            <div class="images">
+                {% for image in post.images %}
+                    <img src="{{ url_for('static', filename=image.file_path) }}" alt="Post Image">
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+    
+    <h3>评论（{{ comments|length }}）</h3>
+    <div class="comments">
+        {% for comment in comments %}
+            <div class="comment">
+                <p>{{ comment.author.username }} {{ comment.timestamp|date }}</p>
+                <p>{{ comment.content }}</p>
+                {% if comment.images %}
+                    <div class="images">
+                        {% for image in comment.images %}
+                            <img src="{{ url_for('static', filename=image.file_path) }}" alt="Comment Image">
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if 'username' in session %}
+        <form method="post" action="{{ url_for('comment_post', post_id=post.id) }}" enctype="multipart/form-data">
+            <p class="bold-text">我有见解</p>
+            <textarea name="content" required></textarea><br>
+            <input type="file" name="images" multiple><br>
+            <small>至多提交三张图片</small><br>
+            <button type="submit">发表评论</button>
+        </form>
+    {% else %}
+        <p><a href="{{ url_for('login') }}">Login to comment</a></p>
+    {% endif %}
+</body>
+</html>
