@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ article.title }}</title>
+</head>
+<body>
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.content }}</p>
+    <div>
+        {% if prev_article %}
+            <a href="{{ url_for('read_article', article_id=prev_article.id) }}">上一篇</a>
+        {% endif %}
+        {% if next_article %}
+            <a href="{{ url_for('read_article', article_id=next_article.id) }}">下一篇</a>
+        {% endif %}
+    </div>
+</body>
+</html>

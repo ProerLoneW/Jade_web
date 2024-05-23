@@ -12,64 +12,48 @@
         .comment {
             border: 1px solid #ddd;
             padding: 10px;
-            margin-bottom: 10px;
+            margin-top: 10px;
         }
-        .images {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        .images img {
-            flex: 1 1 calc(33.333% - 10px); /* 每行3张图片，减去gap */
-            max-width: calc(33.333% - 10px);
-            height: auto;
-        }
-        .bold-text {
-            font-weight: bold;
+        .comment img {
+            max-height: 100px;
         }
     </style>
 </head>
 <body>
     <div class="post">
-        <p>{{ post.author.username }} {{ post.timestamp|date }}</p>
-        <h2>{{ post.title }}</h2>
+        <p><a href="{{ url_for('profile', username=post.author.username) }}">{{ post.author.username }}</a> {{ post.timestamp|date }}</p>
+        <h1>{{ post.title }}</h1>
         <p>{{ post.content }}</p>
         {% if post.images %}
-            <div class="images">
-                {% for image in post.images %}
-                    <img src="{{ url_for('static', filename=image.file_path) }}" alt="Post Image">
-                {% endfor %}
-            </div>
+            {% for image in post.images %}
+                <img src="{{ url_for('static', filename=image.file_path) }}" alt="Post Image">
+            {% endfor %}
         {% endif %}
     </div>
-    
-    <h3>评论（{{ comments|length }}）</h3>
+
     <div class="comments">
-        {% for comment in comments %}
+        <h2>评论</h2>
+        {% for comment in post.comments %}
             <div class="comment">
                 <p>{{ comment.author.username }} {{ comment.timestamp|date }}</p>
                 <p>{{ comment.content }}</p>
                 {% if comment.images %}
-                    <div class="images">
-                        {% for image in comment.images %}
-                            <img src="{{ url_for('static', filename=image.file_path) }}" alt="Comment Image">
-                        {% endfor %}
-                    </div>
+                    {% for image in comment.images %}
+                        <img src="{{ url_for('static', filename=image.file_path) }}" alt="Comment Image">
+                    {% endfor %}
                 {% endif %}
             </div>
         {% endfor %}
     </div>
 
-    {% if 'username' in session %}
+    <div class="add-comment">
+        <h2>发表评论</h2>
         <form method="post" action="{{ url_for('comment_post', post_id=post.id) }}" enctype="multipart/form-data">
-            <p class="bold-text">我有见解</p>
-            <textarea name="content" required></textarea><br>
-            <input type="file" name="images" multiple><br>
-            <small>至多提交三张图片</small><br>
+            <textarea name="content" rows="4" cols="50" placeholder="输入你的评论"></textarea><br>
+            <label for="images">最多选择三张照片:</label>
+            <input type="file" id="images" name="images" multiple accept="image/*"><br>
             <button type="submit">发表评论</button>
         </form>
-    {% else %}
-        <p><a href="{{ url_for('login') }}">Login to comment</a></p>
-    {% endif %}
+    </div>
 </body>
 </html>

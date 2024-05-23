@@ -1,0 +1,1237 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="author" content="http://www.fractal-technology.com">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="keywords" content="玉石天地" />
+    <meta name="description" content="玉石天地" />
+    <title>玉-美学_玉石天地_玉石天地</title>
+    <script type="text/javascript">
+        if (!window.matchMedia) {
+            var el = document.createElement('div');
+            el.style.cssText = "position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: #575757; z-index: 999999;";
+            el.innerHTML = '<div style="position: absolute; top: 40%; left: 0; right: 0; margin: auto; width: 80%; font-family: Microsoft YaHei; font-size: 2em; font-weight: bold; text-align: center; color: #fff;">您当前使用的浏览器版本过低，<br>建议尽快升级您的浏览器，以获得更好的浏览体验！</div>';
+            document.documentElement.appendChild(el);
+        }
+    </script>
+    <link rel="stylesheet" href="/Public/static/themes_main/css/vendor.css">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/Public/static/themes_main/css/main.css">
+    <!-- endinject -->
+    <script src="/Public/static/themes_main/js/vendor.js"></script>
+    <!-- inject:js -->
+    <script src="/Public/static/themes_main/js/main.js"></script>
+    <!-- endinject -->
+</head>
+<style type="text/css">
+    .logo .widget-area-edit {
+        top: 0px
+    }
+</style>
+
+<body>
+
+
+    <div class="topping-mod xfont icon-up">
+        <div class="s"></div>
+    </div>
+    <div class="x-layout ">
+        <style>
+            #myalert {
+                display: none;
+            }
+
+            .recruit .block1 {
+                height: auto
+            }
+
+            .layer {
+                background: url(/Public/static/images/con_mask.png);
+                ;
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1000000;
+            }
+
+            .layer .myalert {
+                padding: 30px;
+                background: #fff;
+                width: 240px;
+                position: absolute;
+                margin-top: -100px;
+                top: 50%;
+                left: 50%;
+                margin-left: -120px;
+                text-align: center;
+                z-index: 100000
+            }
+
+            .layer .guan {
+                background: url(/Public/static/images/close.png) no-repeat center;
+                display: block;
+                width: 23px;
+                height: 23px;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+
+            .layer .text {
+                padding-bottom: 15px;
+                font-size: 16px;
+                color: #474747;
+            }
+
+            .layer .button {
+                background: none;
+                border: 1px solid #bbbbbb;
+                width: 91px;
+                height: 29px;
+                font: 14px/100% "Microsoft YaHei", Arial, Tahoma, Helvetica, sans-serif;
+                color: #707070;
+            }
+        </style>
+        <div id="myalert" class="layer">
+            <div class="myalert">
+                <a href="javascript:;" onclick="myalert_hide();" class="guan"></a>
+                <div class="text">请输入关键字</div>
+                <a><button class="button" id="my_ok"
+                        style="cursor:pointer ;opacity: 1;transform: translateY(0px);">确定</button></a>
+            </div>
+        </div>
+        <script>
+            function my_alert(text, callback) {
+                $('#myalert').show();
+                $('#myalert .myalert div').html(text);
+
+                $('#my_ok').click(function () {
+                    $('#myalert').hide();
+
+                    if (typeof (callback) == 'function') {
+                        callback();
+                        return false;
+                    }
+                });
+            }
+
+            function myalert_hide() {
+                $('#myalert').hide();
+            }
+        </script>
+
+        <div class="x-header2">
+            <div class="menu-mod">
+                <div class="logo"><a href="/"><img src="/Uploads/Picture/2021/11/05/s6185032db4faf.png" alt="" title=""
+                            class="i"></a></div>
+            </div>
+            <div class="tools-mod">
+                <div class="tools-item lang select-mod">
+                    <div class="select-bar bttn">
+                        <div class="select-btn xicon icon-down"></div>
+                        <div class="select-txt">
+                            <div class="select-val">中文版</div>
+                        </div>
+                    </div>
+                    <div class="select-cont">
+                        <div class="select-opts">
+                            <div class="select-item"><a href="/">中文版</a></div>
+                            <div class="select-item"><a href="/en/index.html">EN</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tools-item share-box"><a class="share-item suds-mod bttn xicon icon-wx" href="javascript:;">
+                        <div class="suds-pop at-b">
+                            <div class="code"><img src="/Uploads/Picture/2023/02/14/s63eae4ff6f316.png" title="" alt="">
+                            </div>
+                        </div>
+                    </a>
+                    <a class="share-item suds-mod bttn xicon icon-wb" href="javascript:;">
+                        <div class="suds-pop at-b">
+                            <div class="code"><img src="/Uploads/Picture/2023/02/15/s63ec8c8fc4e56.png" title="" alt="">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="tools-item search-mod">
+                    <div class="search-tap xicon icon-search bttn"></div>
+                    <div class="search-box">
+                        <div class="search-txt"><input type="text" class="search-input" placeholder="search..."
+                                id="txt_Search" onkeypress="keydown(event, '#btn_Search')"></div>
+                        <div class="search-btn"><button class="search-submit xicon icon-search" type="submit"
+                                id="btn_Search"></button></div>
+                    </div>
+                </div>
+                <div class="menu-btn"><span class="line"></span></div>
+            </div>
+            <div class="nav-mod">
+                <div class="nav_child" style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%;">
+                    <div class="item" style="text-align: center;">
+                        <div class="h">
+                            <a class="" href="../index.html">首页</a>
+                            <span class="arr xicon icon-down"></span>	    
+                        </div>
+                        
+                    </div>
+                    <div class="item" style="text-align: center;">
+                        <div class="h">
+                            <a class="" href="exhibition\exhibition.html">玉-展览</a>
+                            <span class="arr xicon icon-down"></span>	    
+                        </div>
+                        <ul>
+                            <li><a href="exhibition\exhibition.html">国内展览</a></li>
+                            <li><a href="exhibition\exhibition.html">学生策展</a></li>
+                        </ul>
+                    </div>
+                    <div class="item" style="text-align: center;">
+                        <div class="h">
+                            <a class=""href="collection.html">玉-美学</a>
+                            <span class="arr xicon icon-down"></span>	    
+                        </div>
+                        <ul>
+                            <li><a href="collection.html">玉词百科</a></li>
+                            <li><a href="collection.html">美玉宝库</a></li>
+                            <li><a href="collection.html">诗说美玉</a></li>
+                            <li><a href="collection.html">玉蕴哲思</a></li>	    	    
+                        </ul>
+                    </div>
+                    <div class="item" >
+                        <div class="h">
+                            <a class=""href="/Publication/Subject.html">玉-学术</a>
+                            <span class="arr xicon icon-down"></span>	  
+                        </div>
+                        <ul>
+                            <li><a href="/Publication/Subject.html">学术刊物</a></li>
+                            <li><a href="/Publication/Subject-essay.html">学术论文</a></li>
+                            <li><a href="/Publication/Subject-lectures.html">学术讲座</a></li>
+                            <li><a href="/Publication/Subject-resources.html">学习资料</a></li>
+                        </ul>
+                    </div>
+                    <div class="item" style="text-align: center;">
+                        <div class="h">
+                            <a class=""href="/product.html">玉-交流</a>
+                            <span class="arr xicon icon-down"></span>	    
+                        </div>
+                        <ul>
+                            <li><a href="../jade_poems.html">师生论玉</a></li>
+                            <li><a href="/product/tgirl.html">文学创作</a></li>
+                            <li><a href="/product/tang.html">精美视频</a></li>
+                            <li><a href="/product/treasure.html">首饰制作</a></li>
+                            <li><a href="/product/calendar.html">对外合作</a></li>
+                            <li><a href="/product/stamp.html">考察指南</a></li>   
+                        </ul>
+                    </div>
+                    <script>
+                        //首页高亮
+                        var indexs = "";
+                        if (indexs) {
+                            $(".nav_child .item:first .h a").addClass("cur");
+                        }
+                        //一级高亮
+                        var nowurl = ("/collection.html" != 'javascript:void(0);') ? "/collection.html" : window.location.pathname;
+                        $(' .nav_child .item .h a').each(function () {
+                            var listurl = $(this).attr('href');
+                            if (nowurl == listurl || listurl == '') {
+                                $(this).parents('.nav_child .h').addClass('cur').siblings().removeClass('cur');
+                            }
+                        });
+                        var pas_id = "";
+                        var pa_id = "1";
+                        if (pa_id == 11) {
+                            $('.nav-lv1-item').eq(1).addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pa_id == 3) {
+                            $('.nav-lv1-item').eq(9).addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pas_id == 9) {
+                            $('.nav-lv1-item').eq(3).addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pas_id == 10) {
+                            $('.nav-lv1-item').eq(2).addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pa_id == 7) {
+                            $('.nav-lv1-item').eq(5).addClass('cur').siblings().removeClass('cur')
+                        }
+                        //锚点点击高亮
+                        $(document).on('click', 'li', function () {
+                            $(this).addClass('cur').siblings().removeClass('cur');
+                        })
+                        //二级导航
+                        var _nowurl = window.location.href;
+                        var cat_url = '/collection.html';
+                        var arr = _nowurl.split('#')[1];
+                        $('.nav_child .item ul li').find('a').each(function (i, k) {
+                            var towurl = $(k).attr('href');
+                            if (towurl.indexOf(arr) > -1 || towurl == window.location.pathname || towurl == cat_url || towurl == '') {
+                                $(this).parents('.item').find('.h').addClass('cur').siblings().removeClass('cur');
+                            }
+                        });
+                    </script>
+                </div>
+                <div class="bg"></div>
+                <div class="search-box m-show">
+                    <div class="search-txt"><input type="text" class="search-input" placeholder="search..."
+                            id="txt_Search2" onkeypress="keydown(event, '#btn_Search2');"></div>
+                    <button class="search-submit xicon icon-search" type="submit" id="btn_Search2"></button>
+                </div>
+                <div class="bb">
+                    <div class="lang">
+                        <a class="now" href="/">中</a><a href="/en/index.html">EN</a>
+                    </div>
+                    <div class="share-box m-show">
+                        <a class="share-item suds-mod xicon icon-wx" href="javascript:;">
+                            <div class="suds-pop at-t">
+                                <div class="code"><img src="/Uploads/Picture/2023/02/14/s63eae4ff6f316.png" alt=""
+                                        title=""></div>
+                            </div>
+                        </a>
+                        <a href="#" class="share-item xicon icon-wb" title="分享到新浪微博"></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <script>
+            var p = 1;
+            var catrgory_id = "9";
+            $(function () {
+                $('#btn_Search').click(function () {
+                    var keywords = $("#txt_Search").val();
+                    if (keywords == '') {
+                        my_alert("请输入关键字");
+                        return false;
+                    }
+                    var tit = '藏品';
+                    if (tit == "搜索结果") {
+                        window.location.href = "/searchs/keywords/" + encodeURI(keywords);
+                    } else {
+                        window.open("/searchs/keywords/" + encodeURI(keywords));
+                    }
+                });
+                $('#btn_Search2').click(function () {
+                    var keywords = $("#txt_Search2").val();
+                    if (keywords == '') {
+                        my_alert("请输入关键字");
+                        return false;
+                    }
+
+                    var tit = '藏品';
+                    if (tit == "搜索结果") {
+                        window.location.href = "/searchs/keywords/" + encodeURI(keywords);
+                    } else {
+                        window.open("/searchs/keywords/" + encodeURI(keywords));
+                    }
+                });
+
+            })
+            function keydown(e, but) {
+                var currKey = 0, e = e || event;
+                var _this = $(but);
+
+                if (e.keyCode == 13) {
+                    _this.click();
+                    return false;
+                }
+            }
+
+        </script>
+        <div class="scbar act">
+            <div class="arr"></div>
+            <div class="inner">
+                <div class="item">
+                    <div class="select-mod at-t">
+                        <div class="select-bar">
+                            <div class="select-btn xicon icon-down"></div>
+                            <div class="select-txt">
+                                <div class="select-val placeholder">时代</div>
+                            </div>
+                        </div>
+                        <div class="select-cont">
+                            <div class="select-opts" id="chao">
+                                <div class="select-item" da-id="0">全部</div>
+                                <div class="select-item" da-id="42">史前</div>
+                                <div class="select-item" da-id="41">商周</div>
+                                <div class="select-item" da-id="40">秦</div>
+                                <div class="select-item" da-id="39">汉</div>
+                                <div class="select-item" da-id="38">南北朝</div>
+                                <div class="select-item" da-id="37">隋唐</div>
+                                <div class="select-item" da-id="61">五代十国</div>
+                                <div class="select-item" da-id="36">宋元</div>
+                                <div class="select-item" da-id="35">明清</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="select-mod at-t">
+                        <div class="select-bar">
+                            <div class="select-btn xicon icon-down"></div>
+                            <div class="select-txt">
+                                <div class="select-val placeholder">材质</div>
+                            </div>
+                        </div>
+                        <div class="select-cont">
+                            <div class="select-opts" id="material">
+                                <div class="select-item" da-id="0">全部</div>
+                                <div class="select-item" da-id="990197">瓷器</div>
+                                <div class="select-item" da-id="990198">金银器</div>
+                                <div class="select-item" da-id="990199">陶器</div>
+                                <div class="select-item" da-id="990222">壁画</div>
+                                <div class="select-item" da-id="990200">玉石器</div>
+                                <div class="select-item" da-id="990201">钱币</div>
+                                <div class="select-item" da-id="990202">铜器</div>
+                                <div class="select-item" da-id="990203">雕塑造像</div>
+                                <div class="select-item" da-id="990204">书法绘画</div>
+                                <div class="select-item" da-id="990205">铁器及其他金属器</div>
+                                <div class="select-item" da-id="990206">石器、石刻、砖瓦</div>
+                                <div class="select-item" da-id="990207">其他</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="select-mod at-t">
+                        <div class="select-bar">
+                            <div class="select-btn xicon icon-down"></div>
+                            <div class="select-txt">
+                                <div class="select-val placeholder">展览</div>
+                            </div>
+                        </div>
+                        <div class="select-cont">
+                            <div class="select-opts" id="exhibition">
+                                <div class="select-item" da-id="0">全部</div>
+                                <div class="select-item" da-id="990208">文明摇篮</div>
+                                <div class="select-item" da-id="990209">赫赫宗周</div>
+                                <div class="select-item" da-id="990210">东方帝国</div>
+                                <div class="select-item" da-id="990211">大汉雄风</div>
+                                <div class="select-item" da-id="990212">冲突融合</div>
+                                <div class="select-item" da-id="990213">盛唐气象</div>
+                                <div class="select-item" da-id="990214">文脉绵长</div>
+                                <div class="select-item" da-id="990215">专展</div>
+                                <div class="select-item" da-id="990216">唐代壁画珍品馆</div>
+                                <div class="select-item" da-id="990217">何家村窖藏出土文物展</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item bdr" id="kw"><input type="keyword" class="kw" placeholder="搜索"></div>
+                <div class="item bdr ok" id="bott"><input type="button" value="&#xe510;"></div>
+            </div>
+        </div>
+
+
+        <div class="x-container">
+            <div class="collection1">
+                <div class="content">
+                    <img src="/Public/static/themes_main/image/baiy/png2_4.png" alt="" class="p4">
+                    <img src="/Public/static/themes_main/image/baiy/png2_5.png" alt="" class="p5">
+                    <img src="/Public/static/themes_main/image/baiy/png3_3.png" alt="" class="bg3">
+                    <img src="/Public/static/themes_main/image/baiy/png3_2.png" alt="" class="bg2">
+                    <img src="/Public/static/themes_main/image/baiy/png2_2.png" alt="" class="p2">
+                    <img src="/Public/static/themes_main/image/baiy/png3_1.png" alt="" class="bg1">
+                    <img src="/Public/static/themes_main/image/baiy/png2_1.png" alt="" class="p1">
+                    <img src="/Public/static/themes_main/image/baiy/png2_3.png" alt="" class="p3">
+                    <div class="head">
+                        <div class="title" style="min-height:14px;min-width:14px;">藏品</div>
+                        <div class="text" style="min-height:14px;min-width:14px;">品味华夏玉石的气韵</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collection2">
+                <div class="head">
+                    <div class="title">精品宝玉</div>
+                </div>
+                <div class="list mCustomScrollbar _mCS_1" id="datalist2">
+                    <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_horizontal mCSB_inside"
+                        style="max-height: none;" tabindex="0">
+                        <div id="mCSB_1_container" class="mCSB_container"
+                            style="position: relative; top: 0px; left: 0px; width: 5165px; min-width: 100%; overflow-x: inherit;"
+                            dir="ltr">
+                            <div class="scroll">
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/515.html" target="_blank"><img
+                                                src="Public\static\themes_main\image\collection2\碧玉龙凤瓶\碧玉龙凤瓶_2.png"
+                                                title="" alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/515.html" target="_blank">碧玉龙凤瓶</a>
+                                    </div>
+                                    <div class="mask"><a href="/collections/detail/515.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public\static\themes_main\image\collection2\碧玉龙凤瓶\碧玉龙凤瓶_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">清</div>
+                                                <div class="h3">高16.3厘米，宽20.5厘米，厚4.1厘米</div>
+                                                <div class="p">
+                                                    碧玉质地。玉质纯正滢润，微透明，略有褐斑。器物镂空而成，由一扁瓶及一有孔树桩相连构成一连体器。扁瓶有盖，卧伏一蟠螭。扁瓶身外凸雕一龙盘绕于一侧，瓶颈部两侧出双夔耳，瓶身一面雕火珠，另一面雕蝙蝠。连体器的另一侧为梅桩花插，椭圆形口，中空，有深孔，外凸雕一夔凤，口衔灵芝，回首与瓶上的盘龙相望，间有凸雕梅花及灵芝。其设计极为精巧绝妙。
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/514.html" target="_blank"><img
+                                                src="Public\static\themes_main\image\collection2\会昌九老图玉山\会昌九老图玉山_2.png"
+                                                title="" alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/514.html" target="_blank">会昌九老图玉山</a>
+                                    </div>
+                                    <div class="mask"><a href="/collections/detail/514.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public\static\themes_main\image\collection2\会昌九老图玉山\会昌九老图玉山_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">清</div>
+                                                <div class="h3">通座高145厘米，最大周长245厘米。重832kg</div>
+                                                <div class="p">
+                                                    玉山以新疆和田玉料制作。作品完成于清乾隆五十一年（1786年）。立体雕刻，以镂雕、深浅浮雕和阴线刻等多种手法琢成四面通景的山水人物图。山间的文人雅士有的在小桥上交谈，有的在亭台内对弈，有的在抚琴，有的极目远望，还有的策杖攀登。小童子们或烧火煮茶，或捧包跟随，或在一旁洗耳恭听。玉山正面顶部有阴刻篆体“古稀天子”四字，左面有隶书“会昌九老图”五字，亭子下部有“乾隆丙午年制”款。背面顶部阴刻乾隆御题七言诗一首。
+                                                    　　“会昌九老图”描绘的是唐代会昌五年（845年），白居易等九位著名文人和士大夫会聚于河南香山游宴的故事。清代琢玉匠师运用高超的技艺把这一引人入胜的故事设计成令人向往的优美场景雕琢在这件大型玉山上。
+                                                    　　玉山整体造型古朴浑厚，图案极富诗情画意，洋溢着浓郁的生活气息
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/513.html" target="_blank"><img
+                                                src="Public/static/themes_main/image/collection2/青玉甪端/青玉甪端_2.png"
+                                                title="" alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/513.html" target="_blank">青玉甪端</a>
+                                    </div>
+                                    <div class="mask"><a href="/collections/detail/513.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public/static/themes_main/image/collection2/青玉甪端/青玉甪端_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">清</div>
+                                                <div class="h3">高12.5厘米，长19厘米，宽8厘米。清宫旧藏</div>
+                                                <div class="p">
+                                                    玉质暗青色，有微斑，局部染褐色。甪端为卧姿回首状，兽头较大，身体粗壮。头顶有一小角，脑后有长发。大耳，张口，颌下有须。凸胸，胸部有横节纹。前肢短，足大似蹄，细阴线刻出指爪。尾分三歧。
+                                                    　　“甪端”是中国古代传说中的一种神异之兽。《宋书•符瑞志下》：“甪端日行万八千里，又晓四夷之语。”曾经有学者将本物视为辟邪，但辟邪一般饰独角者多为鹿首造型，此物却为狮首。
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/512.html" target="_blank"><img
+                                                src="Public\static\themes_main\image\collection2\青玉双龙纹水丞\青玉双龙纹水丞_2.png"
+                                                title="" alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/512.html" target="_blank">青玉双龙纹水丞</a>
+                                    </div>
+                                    <div class="mask"><a href="/collections/detail/512.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public\static\themes_main\image\collection2\青玉双龙纹水丞\青玉双龙纹水丞_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">清</div>
+                                                <div class="h3">高6.9厘米，长13.1厘米，宽11.7厘米，口径4.1厘米。清宫旧藏。</div>
+                                                <div class="p">
+                                                    水丞青玉质，圆形，口内空。器腹外浮雕云纹和双龙戏珠，二龙首皆伏于器口外沿。器外底阴刻隶书乾隆御制诗一首：
+                                                    攻肖周人雅，形摹韩氏辞。云疑旉叆叇，龙亦作之而。
+                                                    抚手欲生润，澄怀足养怡。还如应真钵，祝可现莲蕤。
+                                                    款署：乾隆甲子仲春，御题。后附阴刻篆书“古香”、阳刻篆书“太朴”二闲章。
+                                                    此水丞为宫中书案上专用以盛水的器皿，因研墨用水量小，故器体也小巧玲珑。水丞的玉质纯净光润，云龙的雕琢生动传神，皆与盈盈水意相应合。
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/511.html" target="_blank"><img
+                                                src="Public\static\themes_main\image\collection2\玉八出戟方觚\玉八出戟方觚_2.png"
+                                                title="" alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/511.html" target="_blank">玉八出戟方觚</a>
+                                    </div>
+                                    <div class="mask"><a href="/collections/detail/511.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public\static\themes_main\image\collection2\玉八出戟方觚\玉八出戟方觚_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">明</div>
+                                                <div class="h3">高22.7厘米，口径8.1－8.5厘米，足径4.9－6厘米。清宫旧藏。</div>
+                                                <div class="p">
+                                                    作品为方柱形，分为上、中、下三部分。上部为撇口，粗颈，其外饰阴线琢出的变形蝉纹及双夔纹，四面花纹相同。中部为觚腹，四面微外凸，饰变形蝉纹，花纹与觚颈纹饰相呼应。下部与上部对称但稍短，上饰变形蝉纹。足下有一周方形榫式座。觚四面的中部各有一道凸起的戟线，戟线分成多节，每一节上有阴线图案。觚的四角饰有镂雕的卷草形装饰，这类装饰称为“出戟”，四面及四角出戟者称为“八出戟”。明朝时多用觚作为室内陈设，觚内或插如意，或插博古挂件。
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/510.html" target="_blank"><img
+                                                src="Public\static\themes_main\image\collection2\玉螭凤纹韘\玉螭凤纹韘_2.png"
+                                                title="" alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/510.html" target="_blank">玉螭凤纹韘</a>
+                                    </div>
+                                    <div class="mask"><a href="/collections/detail/510.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public\static\themes_main\image\collection2\玉螭凤纹韘\玉螭凤纹韘_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">汉</div>
+                                                <div class="h3">宽6.5厘米，高7.8厘米。清宫旧藏。</div>
+                                                <div class="p">
+                                                    玉为暗白色，局部呈褐赭色，片状，中部为心形玉片，表面饰云纹，中心有孔。玉片上部透雕云头装饰，两侧分别透雕螭、凤，螭细身，大臂，长角，长尾，凤亦细身，长尾，头顶之翎长而分叉。
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/509.html" target="_blank"><img
+                                                src="Public\static\themes_main\image\collection2\玉绞丝纹环\玉绞丝纹环_2.png"
+                                                title="" alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/509.html" target="_blank">玉绞丝纹环</a>
+                                    </div>
+                                    <div class="mask"><a href="/collections/detail/509.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public\static\themes_main\image\collection2\玉绞丝纹环\玉绞丝纹环_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">战国</div>
+                                                <div class="h3">直径8.3厘米，厚0.3厘米。清宫旧藏。</div>
+                                                <div class="p">
+                                                    瑗呈内、外双重环状，环面饰扭丝状纹饰，两环相连之6处，其中3处饰横向的扭丝纹。两环间有细长的透孔相隔，共6处，其中3条透孔中部开圆形小孔，应为穿绳悬挂所备。
+                                                    安徽省含山县凌家滩新石器遗址中就已出现内、外双重的环形玉，可见这类玉环源远流长，但在战国玉器中这类器物并不多见，尤其是扭丝纹环形玉多为单层，所以此双重玉瑗更显珍贵。
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/508.html" target="_blank"><img
+                                                src="Public\static\themes_main\image\collection2\玉镂雕螭龙合璧\玉镂雕螭龙合璧_2.png"
+                                                title="" alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/508.html" target="_blank">玉镂雕螭龙合璧</a>
+                                    </div>
+                                    <div class="mask"><a href="/collections/detail/508.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public\static\themes_main\image\collection2\玉镂雕螭龙合璧\玉镂雕螭龙合璧_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">战国</div>
+                                                <div class="h3">直径11.1厘米、厚0.4厘米。</div>
+                                                <div class="p">
+                                                    白玉质，玉中有糖色，玉质润泽且抛光较好，有玻璃光。玉璧周圈饰谷纹，谷纹颗粒饱满。璧内镂雕龙纹，龙张口，斧形下颚，杏眼出梢上钩，脖颈处有穿贝形纹。龙身扭曲呈S形，只见三爪，前爪前伸上举，后两爪紧抓内璧沿，绞丝尾上翘外勾。龙形整体感觉威猛有力，极富动感和韵律。
+                                                    此物被一切为二，反面纹饰同正面，但还残留有胶的痕迹。因是清宫旧藏之物，推测可能曾被嵌贴于家具或其它物件上，为镶嵌需要，切割为二。目前故宫还有大量嵌于家具上的玉器。
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/507.html" target="_blank"><img
+                                                src="Public\static\themes_main\image\collection2\玉人兽神像\玉人兽神像_2.png"
+                                                title="" alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/507.html" target="_blank">玉人兽神像</a>
+                                    </div>
+                                    <div class="mask"><a href="/collections/detail/507.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public\static\themes_main\image\collection2\玉人兽神像\玉人兽神像_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">新石器时代红山文化</div>
+                                                <div class="h3">高27.7厘米，最宽11.7厘米，厚1.5—3厘米 </div>
+                                                <div class="p">
+                                                    青绿色玉质，背面有土斑胶着于玉器之上。整体近似长方形，中部厚，正面略呈微弧，边缘较薄，并有一定的钝刃感。整器部分镂雕，由一人和一兽复合而成，上人下兽。神人头戴勾云形高冠，身体两侧围绕着云形装饰，五官鲜明，三角形鼻凸出，所穿服饰臂膊及后背上饰以网格纹。神人双手合于胸前，手持一长杖形物，赤脚踏一弧形角状物。角状物下有一兽，似熊，呈投降状伏卧，双前足伸出。玉像背面是正面纹饰的反面，饰有网格纹和瓦沟状勾云纹。
+                                                    　　这件玉人兽像于20世纪60年代初辗转由天津到北京，于1963年入藏故宫。近些年，随着东北地区红山文化的考古发掘，大量红山文化玉器展现在世人面前，提供了鉴定红山玉器的标准器。这件玉人兽像，其细部纹饰特征均不出红山文化玉器的范围，加之入藏较早，越来越多的证据显示其为红山文化玉器。只是玉像构图的复杂性前所未有，应是目前所见红山文化中等级最高的玉器。
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/506.html" target="_blank"><img
+                                                src="Public\static\themes_main\image\collection2\玉云龙纹炉\玉云龙纹炉_2.png"
+                                                title="" alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/506.html" target="_blank">玉云龙纹炉</a>
+                                    </div>
+                                    <div class="mask"><a href="/collections/detail/506.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public\static\themes_main\image\collection2\玉云龙纹炉\玉云龙纹炉_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">宋</div>
+                                                <div class="h3">高7.9厘米，口径12.8厘米</div>
+                                                <div class="p">
+                                                    炉青玉质。体圆形，侈口，无颈，垂腹，圈足外撇，两侧对称饰兽首吞耳。通体以“工”字纹为地，上饰游龙、祥云和海水纹。器内底阴刻乾隆七言诗一首:
+                                                    何年庙器赞天经，刻作飞龙殿四灵。
+                                                    毛伯邢侯异周制，祖丁父癸似商形。
+                                                    依然韫匵阅桑海，所惜从薪遇丙丁。
+                                                    土气羊脂胥变幻，只余云水淡拖青。
+                                                    末署“乾隆戊戌孟秋御题”。
+                                                    宋时，受理学“格物致知”思想的影响，文玩鉴赏成为时尚，对三代青铜器的研究也颇有成果。于是宋代的玉器形制便又多出了一个类别，那就是仿古青铜器玉器，简称仿古玉器。本器即以青铜簋为蓝本，但在器型和纹饰上多有增损变化，玉料也不是黄色。
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/505.html" target="_blank"><img
+                                                src="Public\static\themes_main\image\collection2\玉龙形勒\玉龙形勒_2.png"
+                                                title="" alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/505.html" target="_blank">玉龙形勒</a>
+                                    </div>
+                                    <div class="mask"><a href="/collections/detail/505.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public\static\themes_main\image\collection2\玉龙形勒\玉龙形勒_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">商</div>
+                                                <div class="h3">高2.3厘米，长6.5厘米，宽2.5厘米</div>
+                                                <div class="p">
+                                                    （音勒）以青玉制，有白色沁，圆筒形，两端粗细不等。器表饰龙纹，其龙纹特点是“臣”字眼，并饰有重环纹、鳞纹等。
+                                                    　　商代的玉龙，由龙眼的变化可分为早、中、晚三个时期，早期的龙眼为方形或菱形，中、晚期为“臣”字形。重环纹和鳞纹直至西周中晚期才出现在青铜器上，因此本器上的这两种纹饰对于玉器和青铜器装饰纹样的比较研究有重要的意义。
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/469.html" target="_blank"><img
+                                                src="Public\static\themes_main\image\collection2\青玉魁星\青玉魁星_2.png"
+                                                title="" alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/469.html" target="_blank">青玉魁星</a>
+                                    </div>
+                                    <div class="mask"><a href="/collections/detail/469.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public\static\themes_main\image\collection2\青玉魁星\青玉魁星_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">清</div>
+                                                <div class="h3">通高13.3 cm，宽7.3cm</div>
+                                                <div class="p">
+                                                    魁星是民间传说中掌管科举考试之神，古代读书子弟多在考试前恭拜魁星，以期求得高中。此青玉圆雕魁星面部严肃，一足后翘，一足站立于水中鳌鱼头顶，右手握笔，左手持银锭，周身飘带上还雕饰一量斗。
+                                                    魁星整体形象生动，又包含了魁星点斗、独占鳌头的美好寓意，是古人较为喜爱的题材。
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/468.html" target="_blank"><img
+                                                src="Public\static\themes_main\image\collection2\碧玉大盘\碧玉大盘_2.png"
+                                                title="" alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/468.html" target="_blank">碧玉大盘</a></div>
+                                    <div class="mask"><a href="/collections/detail/468.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public\static\themes_main\image\collection2\碧玉大盘\碧玉大盘_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">清</div>
+                                                <div class="h3">口径64.5厘米，底径42.5厘米，高14.5厘米</div>
+                                                <div class="p">
+                                                    这是乾隆二十一年（1756年）清军平阿睦尔撒纳叛乱战事中，在伊犁缴获并呈进内廷的战利品。乾隆帝非常喜爱，于乾隆二十二年（1757年）命工匠在玉盘内镌御制诗：“绿玉大盘径二尺，围盈六尺含精泽。葱岭之产葱其色，砑光无瑕抚无迹。团䂓寳月三五魄，素质弗事雕几饰。弘璧琬琰谁则识，荒唐徒见传荆国。岁贡用征远人格，成器仍藉他山石。汤之盘铭日新德，既宏博厚宥笋席，式如比义思无斁。”
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/466.html" target="_blank"><img
+                                                src="Public\static\themes_main\image\collection2\玉巫人\玉巫人_2.png" title=""
+                                                alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/466.html" target="_blank">玉巫人</a></div>
+                                    <div class="mask"><a href="/collections/detail/466.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public\static\themes_main\image\collection2\玉巫人\玉巫人_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">新石器时代红山文化</div>
+                                                <div class="h3">高14.6厘米，宽6厘米，厚4.7厘米</div>
+                                                <div class="p">
+                                                    黄绿色玉料，身上有大面积铁褐色沁斑。人像蛋形首，尖下颏，面部窄而前凸，眼睛及嘴部均以阴刻线刻画。全身赤裸，唯头上戴一动物头形的冠帽，动物眼睛圆凸，有两个竖直的长角，双耳镂空。冠帽前缘、人首额头处有浅刻的网格纹。人像细腰长腿，呈坐姿，上肢弯曲抚于腿上。后颈部有大的对穿孔，可以悬挂佩带。
+                                                    　　这件玉器是1983年初由内蒙古几位牧民卖给故宫博物院的，目前类似造型还未在考古发掘中发现。过去一些学者认为作品是兽面人身的造型，但仔细观察，可以看出作品为人戴着动物冠的形象。经研究，其和2002年在辽宁朝阳牛河梁遗址第十六地点四号墓人骨骼左侧骨盆外侧出土的一件玉立人，以及英国剑桥大学菲兹威廉姆博物馆（Fitzwilliam
+                                                    Museum）收藏的一件中国早年流散出去的玉坐人像，均表现的是同一类人，即红山时代巫的形象，是巫在作法时不同状态下的表现。故宫玉坐人和剑桥玉坐人可能为作法前或后的入定状态。
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/462.html" target="_blank"><img
+                                                src="Public\static\themes_main\image\collection2\玉辟邪\玉辟邪_2.png" title=""
+                                                alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/462.html" target="_blank">玉辟邪</a>
+                                    </div>
+                                    <div class="mask"><a href="/collections/detail/462.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public\static\themes_main\image\collection2\玉辟邪\玉辟邪_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">汉</div>
+                                                <div class="h3">长13.2厘米，宽4.8厘米，高8.6厘米</div>
+                                                <div class="p">
+                                                    玉料青褐色，圆雕异兽，卧状，圆目，张口，头顶有角，身有翼，长尾。
+                                                    　　汉代，造型艺术有很大的发展。许多动物、人物题材的作品形象生动，取材广泛。其中尤以各种不同形式的异兽最引人注目。这些异兽被赋予了超自然的特性，造型上有很强的气势。目前，在汉代遗址的考古发掘中已发现了数件此类玉制作品，传世玉器中也有少量遗存。这件玉异兽形状劲健雄伟，神态凶猛，造型表现力与工艺都有很高的水平，是此类作品中的典型。此物有一定的重量且重心低，可做玉镇使用
+                                                    。</div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/446.html" target="_blank"><img
+                                                src="Public\static\themes_main\image\collection2\黄玉三羊尊\黄玉三羊尊_2.png"
+                                                title="" alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/446.html" target="_blank">黄玉三羊尊</a>
+                                    </div>
+                                    <div class="mask"><a href="/collections/detail/446.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public\static\themes_main\image\collection2\黄玉三羊尊\黄玉三羊尊_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">清</div>
+                                                <div class="h3">高14.2厘米，口径7.6厘米，底径6.8厘米</div>
+                                                <div class="p">
+                                                    此器黄玉质，局部有褐色浸痕。圆形口外侈，颈部有环状凸棱，腹部凸雕三羊首，三羊前足形成器足，足下衬一圆托。
+                                                    　　三羊组合的艺术造型和纹饰图案在清代非常盛行，除玉器外，陶瓷、绘画中也往往以“三阳开泰”为题作为岁首称颂之辞。但黄玉雕三羊尊这样的器物却非常少见。
+
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="pic"><a href="/collections/detail/411.html" target="_blank"><img
+                                                src="Public\static\themes_main\image\collection2\玉花鸟纹梳\玉花鸟纹梳_2.png"
+                                                title="" alt="" class="mCS_img_loaded"></a></div>
+                                    <div class="h"><a href="/collections/detail/411.html" target="_blank">玉花鸟纹梳</a>
+                                    </div>
+                                    <div class="mask"><a href="/collections/detail/411.html" target="_blank">
+                                            <div class="pic"><img
+                                                    src="Public\static\themes_main\image\collection2\玉花鸟纹梳\玉花鸟纹梳_1.png"
+                                                    title="" alt="" class="mCS_img_loaded"></div>
+                                            <div class="text">
+                                                <div class="h2">唐</div>
+                                                <div class="h3">长10.5厘米，宽3.5厘米，厚0.4厘米</div>
+                                                <div class="p">
+                                                    梳玉色白中略青，半圆形，薄片状。外弧饰镂空花鸟纹，中部为3朵花，两侧各有一鸟。梳齿集于下弦，齿密而间距细小，底端平齐。
+                                                    　　唐代妇女往往在头部插梳以为装饰，此件玉梳器薄、齿短，恐非用以梳理头发，而应是置于头部的饰物。唐至五代，用于头部的玉饰品一般都较薄，且玉质精良，表面少起伏变化，刻画图案多用阴线，线条直而密，这些特点在此玉梳上有明显的体现。
+
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="mask"><a class="more1 w">了解更多</a></div>
+                                </div>
+                            </div>
+                            <script>
+                                "use strict";
+
+                                $(function () {
+                                    function winscroll() {
+                                        scrollact(".collection3", 3, function () { }, function () { });
+                                        scrollact(".collection4", 3, function () { }, function () { });
+
+                                        if ($(window).width() < 900) {
+                                            gd = 0;
+                                            sw = 0;
+                                            sw1 = 0;
+                                        }
+                                    }
+
+                                    $(".collection1").addClass("showd");
+                                    winscroll();
+                                    var sw = 1;
+                                    var sw1 = 1;
+                                    var gd = 0;
+                                    $("body").mouseout(function () {
+                                        sw1 = 0;
+                                    });
+                                    $("body").mouseover(function () {
+                                        sw1 = 1;
+                                    });
+                                    $("html").mousewheel(function (event, delta, deltaX, deltaY) {
+                                        gd = delta;
+                                    });
+                                    $(window).scroll(function () {
+                                        winscroll();
+
+                                        if ($(window).scrollTop() >= $(".collection2").offset().top && gd < 0 && sw1 == 1 && sw == 1) {
+                                            $(window).scrollTop($(".collection2").offset().top);
+                                            $(".collection2").addClass("act");
+                                        } else if (gd > 0) {
+                                            $(".collection2").removeClass("act");
+                                        }
+
+                                        if ($(window).scrollTop() < $(".collection2").offset().top && gd > 0) {
+                                            sw = 1;
+                                            sw1 = 1;
+                                        }
+                                        if ($(window).scrollTop() > $(".collection2").offset().top && sw1 == 0) {
+                                            sw = 0;
+                                            $(".collection2").removeClass("act");
+                                        }
+
+                                        if ($(window).scrollTop() > $(".collection2").offset().top + $(".collection2").height()) {
+                                            $(".collection2 .list").mCustomScrollbar("scrollTo", 0);
+                                        }
+                                    });
+                                    $(window).resize(function () {
+                                        if ($(".collection2").hasClass("act") && gd != 0) {
+                                            $(window).scrollTop($(".collection2").offset().top);
+                                        }
+                                    });
+                                    $(".collection2 .list").mCustomScrollbar({
+                                        axis: "x",
+                                        scrollInertia: 1000,
+                                        mouseWheel: {
+                                            scrollAmount: $(window).width() * 0.20
+                                        },
+                                        callbacks: {
+                                            whileScrolling: function whileScrolling() {
+                                                if (this.mcs.leftPct == 100 && sw == 1) {
+                                                    sw = 0;
+                                                    $(".collection2").removeClass("act");
+                                                    $("html,body").animate({
+                                                        scrollTop: $(".collection3").offset().top
+                                                    }, 600, function () {
+                                                        $(".collection2 .list").mCustomScrollbar("scrollTo", 0);
+                                                    });
+                                                }
+                                            }
+                                        }
+                                    });
+                                    $(".collection2 .arr span,.collection2 .more1").click(function () {
+                                        sw = 0;
+                                        $(".collection2").removeClass("act");
+                                        $("html,body").animate({
+                                            scrollTop: $(".collection3").offset().top
+                                        }, 700, function () {
+                                            $(".collection2 .list").mCustomScrollbar("scrollTo", 0);
+                                        });
+                                    }); ///  
+                                });
+                            </script>
+                        </div>
+                        <div id="mCSB_1_scrollbar_horizontal"
+                            class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_horizontal"
+                            style="display: block;">
+                            <div class="mCSB_draggerContainer">
+                                <div id="mCSB_1_dragger_horizontal" class="mCSB_dragger"
+                                    style="position: absolute; min-width: 30px; display: block; width: 30px; max-width: 384px; left: 0px;">
+                                    <div class="mCSB_dragger_bar"></div>
+                                </div>
+                                <div class="mCSB_draggerRail"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="arr"><span class="xfont icon-down"></span></div>
+            </div>
+            <div class="collection3">
+                <div class="head">
+                    <div class="title tac">宝玉藏品</div>
+                </div>
+                <div id="datalist">
+                    <div class="list" id="datalist_wap">
+                        <div class="item"><a href="/collections/detail/11710.html" target="_blank">
+                                <div class="bg"></div>
+                                <div class="pic"><img src="Public/static/themes_main/image/collection3/白玉卧犬/白玉卧犬.jpg"
+                                        title="" alt=""></div>
+                                <div class="h">白玉卧犬
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item"><a href="/collections/detail/11709.html" target="_blank">
+                                <div class="bg"></div>
+                                <div class="pic"><img
+                                        src="Public\static\themes_main\image\collection3\碧玉采玉图山子\碧玉采玉图山子.jpg" title=""
+                                        alt=""></div>
+                                <div class="h">碧玉采玉图山子
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item"><a href="/collections/detail/11708.html" target="_blank">
+                                <div class="bg"></div>
+                                <div class="pic"><img
+                                        src="Public\static\themes_main\image\collection3\墨玉嵌白玉蟠龙如意\墨玉嵌白玉蟠龙如意.jpg"
+                                        title="" alt=""></div>
+                                <div class="h">墨玉嵌白玉蟠龙如意
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item"><a href="/collections/detail/11707.html" target="_blank">
+                                <div class="bg"></div>
+                                <div class="pic"><img
+                                        src="Public\static\themes_main\image\collection3\青玉管碧玉斗紫毫提笔\青玉管碧玉斗紫毫提笔.jpg"
+                                        title="" alt=""></div>
+                                <div class="h">青玉管碧玉斗紫毫提笔
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item"><a href="/collections/detail/11706.html" target="_blank">
+                                <div class="bg"></div>
+                                <div class="pic"><img src="Public\static\themes_main\image\collection3\玉螭纹笔\玉螭纹笔.jpg"
+                                        title="" alt=""></div>
+                                <div class="h">玉螭纹笔
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item"><a href="/collections/detail/11705.html" target="_blank">
+                                <div class="bg"></div>
+                                <div class="pic"><img src="Public\static\themes_main\image\collection3\玉斧\玉斧.jpg"
+                                        title="" alt=""></div>
+                                <div class="h">玉斧
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item"><a href="/collections/detail/11704.html" target="_blank">
+                                <div class="bg"></div>
+                                <div class="pic"><img src="Public\static\themes_main\image\collection3\玉圭\玉圭.jpg"
+                                        title="" alt=""></div>
+                                <div class="h">玉圭
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item"><a href="/collections/detail/11703.html" target="_blank">
+                                <div class="bg"></div>
+                                <div class="pic"><img src="Public\static\themes_main\image\collection3\玉虎形佩\玉虎形佩.jpg"
+                                        title="" alt=""></div>
+                                <div class="h">玉虎形佩
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item"><a href="/collections/detail/11702.html" target="_blank">
+                                <div class="bg"></div>
+                                <div class="pic"><img src="Public\static\themes_main\image\collection3\玉人首\玉人首.jpg"
+                                        title="" alt=""></div>
+                                <div class="h">玉人首
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item"><a href="/collections/detail/11701.html" target="_blank">
+                                <div class="bg"></div>
+                                <div class="pic"><img src="Public\static\themes_main\image\collection3\玉勺\玉勺.jpg"
+                                        title="" alt=""></div>
+                                <div class="h">玉勺
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item"><a href="/collections/detail/11700.html" target="_blank">
+                                <div class="bg"></div>
+                                <div class="pic"><img src="Public\static\themes_main\image\collection3\玉羊首觽\玉羊首觽.jpg"
+                                        title="" alt=""></div>
+                                <div class="h">玉羊首觽
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item"><a href="/collections/detail/11699.html" target="_blank">
+                                <div class="bg"></div>
+                                <div class="pic"><img src="Public\static\themes_main\image\collection3\玉鱼\玉鱼.jpg"
+                                        title="" alt=""></div>
+                                <div class="h">玉鱼
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="paging-mod">
+                        <div class="paging-box">
+
+                            <a href="javascript:void(0);" class="paging-item paging-link cur">1</a>
+                            <a href="/searchs/collections/pagesize/12/tpl_file/collection/zhenguan/0/p/2.html"
+                                onclick="getPage($(this));return false;" class="paging-item paging-link">2</a> <a
+                                href="/searchs/collections/pagesize/12/tpl_file/collection/zhenguan/0/p/3.html"
+                                onclick="getPage($(this));return false;" class="paging-item paging-link">3</a> <a
+                                href="/searchs/collections/pagesize/12/tpl_file/collection/zhenguan/0/p/4.html"
+                                onclick="getPage($(this));return false;" class="paging-item paging-link">4</a> <a
+                                href="/searchs/collections/pagesize/12/tpl_file/collection/zhenguan/0/p/5.html"
+                                onclick="getPage($(this));return false;" class="paging-item paging-link">5</a>
+                            <span class="paging-item paging-dot">…</span> <a
+                                href="/searchs/collections/pagesize/12/tpl_file/collection/zhenguan/0/p/2.html"
+                                onclick="getPage($(this));return false;"
+                                class="paging-item paging-arrow xfont icon-right"></a>
+                            <div class="paging-item paging-jump">
+                                <div class="paging-table">
+                                    <div class="paging-cell">
+                                        <input type="text" class="paging-input"
+                                            onkeyup="this.value=this.value.replace(/[^\d]/g,'');" id="text_se">
+                                    </div>
+                                    <div class="paging-cell">
+                                        <button type="submit" class="paging-btn" data-max="555" id="btn_new"
+                                            onclick="go($(this));return false;">GO</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        function getPage(obj) {
+                            var url = obj.attr('href');
+                            if (url == 'javascript:void(0);') {
+                                return false;
+                            }
+                            // $.ajaxSetup({cache:false});
+                            $.get(url, {}, function (data) {
+                                $('#datalist').html(data);
+                                $('html,body,.body_page').animate({ scrollTop: parseInt($('#datalist').offset().top - 500) }, 500);
+                            })
+                        }
+                        function go(obj) {
+                            var text_se = obj.parent().prev().find('.paging-input').val();
+                            if (text_se == '') {
+                                my_alert('请输入页码');
+                                return false;
+                            } else {
+                                getkey(text_se);
+                                return false;
+                            }
+                        }
+                        $('.paging-input').keypress(function (e) {
+                            var keycode = e.keyCode ? e.keyCode : e.which;
+                            if (keycode == 13) {
+                                var text_se = $(this).val();
+                                if (text_se == '') {
+                                    my_alert('请输入页码');
+                                    return false;
+                                } else {
+                                    getkey(text_se);
+                                    return false;
+                                }
+                            }
+                        });
+
+                        function sel(obj) {
+                            var text_se = obj.value;
+                            getkey(text_se);
+                        }
+                        function getkey(p) {
+                            if (p == '') {
+                                return false;
+                            }
+                            var pagesize = "555"
+                            var url = "/searchs/collections/pagesize/12/tpl_file/collection/zhenguan/0/p/_PAGENUM_.html";
+
+                            if ((p * 1) <= (pagesize * 1)) {
+                                p = p;
+                            } else {
+                                p = pagesize;
+                            }
+                            var urls = url.replace('_PAGENUM_', p);
+                            $.get(urls, function (data) {
+                                $('#datalist').html(data);
+                                $('html,body,.body_page').animate({ scrollTop: parseInt($('#datalist').offset().top - 500) }, 500);
+                            });
+                        }
+                    </script>
+                </div>
+                <div class="paging-more " id="mores"><a>查看更多</a></div>
+            </div>
+            <div class="collection4">
+                <div class="bg1"></div>
+                <div class="bg2"></div>
+                <div class="box">
+                    <div class="head">
+                        <div class="title">玉石数据</div>
+                        <div class="text" style="min-height:20px;min-width:20px">
+                            <p>多方位揭示玉石的丰富文化内涵和历史价值</p>
+                        </div>
+                    </div>
+                    <div class="b"><a class="more1 w" href="/Collections/ww_data.html">进入玉石数据</a></div>
+                </div>
+            </div>
+
+        </div>
+        <script type="text/javascript">
+            var search = {
+                // 不设置category_id会出错
+                pagesize: 12,
+                tpl_file: 'collection',
+                p: 1,
+                zhenguan: 0
+
+            };
+            $('#mores').click(function () {
+                search.p++;
+                search.tpl_file = 'article/collection_wap';
+                $.get("/searchs/collections.html", search, function (data) {
+                    if (data) {
+                        $('#datalist_wap').append(data);
+                    }
+                })
+
+            });
+            var search2 = {
+                // 不设置category_id会出错
+                pagesize: 999,
+                tpl_file: 'collection2',
+                p: 1,
+                zhenguan: 1
+
+            };
+            refrush("/searchs/collections.html", search);
+            refrush2("/searchs/collections.html", search2);
+            $('#bott').click(function () {
+                search.zhenguan = 2;
+                search.tpl_file = 'collection';
+                search.material = $('#material .select-item.cur').attr('da-id');
+                search.exhibition = $('#exhibition .select-item.cur').attr('da-id');
+                search.category_id = $('#chao .select-item.cur').attr('da-id');
+                search.title = $('#kw input').val();
+                if (search.material || search.exhibition || search.category_id || search.title) {
+                    refrush("/searchs/collections.html", search);
+                    $('.collection2 .arr span').trigger("click");
+                } else {
+                    my_alert('请选择或填写筛选条件');
+                }
+            })
+            function refrush(url, datas) {
+                $.get(url, datas, function (data) {
+                    if (data) {
+                        $('#datalist').html(data);
+                    }
+                });
+            }
+            function refrush2(url, datas) {
+                $.get(url, datas, function (data) {
+                    if (data) {
+                        $('#datalist2').html(data);
+                    }
+                });
+            }
+        </script>
+        <script type="text/javascript">
+            $.post("/fangwen.html" + '?' + Math.random(), { '_json': Math.random() }, function (data) {
+                var datas = data['info'];
+                var str = "<i>" + datas.toString().split("").join("</i><i>") + "</i>";
+                $('.x-footer .viewer .num').html(str);
+            }, 'json')
+        </script>
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?f9afe60a3a50056805fb3c57adc8fc9a";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+        <script type="text/javascript" src="https://s13.cnzz.com/z_stat.php?id=3732658&web_id=3732658"></script>
+
+    </div>
+    <style>
+        .empty-data {
+            width: 100%;
+            font-size: 25px;
+            padding-top: 8%;
+            padding-bottom: 8%;
+            text-align: center;
+        }
+    </style>
+
+</body>
+
+</html>

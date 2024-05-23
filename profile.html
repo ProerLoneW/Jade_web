@@ -2,11 +2,151 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人主页</title>
+    <title>个人主页 - {{ user.username }}</title>
+    <style>
+        .profile {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .posts, .liked-posts {
+            display: block;
+        }
+        .post, .liked-post {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .edit-section {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleEdit(section) {
+            const readSection = document.getElementById(`read-${section}`);
+            const editSection = document.getElementById(`edit-${section}`);
+            const editButton = document.getElementById(`edit-button-${section}`);
+            const submitButton = document.getElementById(`submit-button-${section}`);
+
+            if (readSection.style.display === 'none') {
+                readSection.style.display = 'block';
+                editSection.style.display = 'none';
+                editButton.style.display = 'inline';
+                submitButton.style.display = 'none';
+            } else {
+                readSection.style.display = 'none';
+                editSection.style.display = 'block';
+                editButton.style.display = 'none';
+                submitButton.style.display = 'inline';
+            }
+        }
+
+        function toggleVisibility() {
+            const checkbox = document.getElementById('show_likes');
+            const visibilityText = document.getElementById('visibility-text');
+
+            checkbox.checked = !checkbox.checked;
+            visibilityText.innerText = checkbox.checked ? '公开' : '不予公开';
+
+            document.getElementById('likes-visibility-form').submit();
+        }
+    </script>
 </head>
 <body>
-    <h1>这里是个人主页</h1>
-    <p>This is the profile page.</p>
+    <div class="profile">
+        <h1>{{ user.username }}的个人主页</h1>
+        {% if user.avatar %}
+            <img src="{{ url_for('static', filename=user.avatar) }}" alt="Avatar" style="max-width: 150px; height: auto;">
+        {% endif %}
+
+        {% if is_self %}
+            <form method="post" enctype="multipart/form-data">
+                <div id="read-avatar">
+                    <p>头像</p>
+                </div>
+                <div id="edit-avatar" class="edit-section">
+                    <label for="avatar">更改头像:</label>
+                    <input type="file" id="avatar" name="avatar"><br>
+                </div>
+                <button type="button" id="edit-button-avatar" onclick="toggleEdit('avatar')">更换头像</button>
+                <button type="submit" id="submit-button-avatar" style="display:none;">提交头像</button>
+
+                <div id="read-gender">
+                    <p>性别: {{ user.gender }}</p>
+                </div>
+                <div id="edit-gender" class="edit-section">
+                    <label for="gender">性别:</label>
+                    <select id="gender" name="gender">
+                        <option value="不愿透露" {% if user.gender == '不愿透露' %}selected{% endif %}>不愿透露</option>
+                        <option value="♂" {% if user.gender == '♂' %}selected{% endif %}>♂</option>
+                        <option value="♀" {% if user.gender == '♀' %}selected{% endif %}>♀</option>
+                    </select><br>
+                </div>
+                <button type="button" id="edit-button-gender" onclick="toggleEdit('gender')">更换性别</button>
+                <button type="submit" id="submit-button-gender" style="display:none;">提交性别</button>
+
+                <div id="read-signature">
+                    <p>个性签名: {% if user.signature %}{{ user.signature }}{% else %}这个人很神秘，不愿意透露{% endif %}</p>
+                </div>
+                <div id="edit-signature" class="edit-section">
+                    <label for="signature">个性签名:</label>
+                    <textarea id="signature" name="signature" maxlength="40">{{ user.signature }}</textarea><br>
+                </div>
+                <button type="button" id="edit-button-signature" onclick="toggleEdit('signature')">更换个性签名</button>
+                <button type="submit" id="submit-button-signature" style="display:none;">提交个性签名</button>
+
+                <div id="read-favorite_jade">
+                    <p>喜欢的玉石: {% if user.favorite_jade %}{{ user.favorite_jade }}{% else %}这个人很神秘，不愿意透露{% endif %}</p>
+                </div>
+                <div id="edit-favorite_jade" class="edit-section">
+                    <label for="favorite_jade">喜欢的玉石:</label>
+                    <textarea id="favorite_jade" name="favorite_jade" maxlength="40">{{ user.favorite_jade }}</textarea><br>
+                </div>
+                <button type="button" id="edit-button-favorite_jade" onclick="toggleEdit('favorite_jade')">更换喜欢的玉石</button>
+                <button type="submit" id="submit-button-favorite_jade" style="display:none;">提交喜欢的玉石</button>
+            </form>
+        {% else %}
+            <div>
+                <p>性别: {{ user.gender }}</p>
+                <p>个性签名: {% if user.signature %}{{ user.signature }}{% else %}这个人很神秘，不愿意透露{% endif %}</p>
+                <p>喜欢的玉石: {% if user.favorite_jade %}{{ user.favorite_jade }}{% else %}这个人很神秘，不愿意透露{% endif %}</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="posts">
+        <h2>{% if is_self %}我发布的帖子{% else %}TA发布的帖子{% endif %}（{{ posts|length }}）</h2>
+        {% for post in posts %}
+            <div class="post">
+                <h3><a href="{{ url_for('read_post', post_id=post.id) }}">{{ post.title }}</a></h3>
+                <p>{{ post.content[:100] }}...</p>
+                {% if is_self %}
+                    <form method="post" action="{{ url_for('delete_post', post_id=post.id) }}" style="display:inline;">
+                        <button type="submit">删除</button>
+                    </form>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if user.show_likes or is_self %}
+        <div class="liked-posts">
+            <h2>{% if is_self %}我点赞的帖子{% else %}TA点赞的帖子{% endif %}（{{ liked_posts|length }}）
+                {% if is_self %}
+                    <form id="likes-visibility-form" method="post" action="{{ url_for('profile', username=session['username']) }}">
+                        <input type="checkbox" id="show_likes" name="show_likes" style="display:none;" {% if user.show_likes %}checked{% endif %}>
+                        <button type="button" onclick="toggleVisibility()">更换状态</button>
+                        <span id="visibility-text">{{ '公开' if user.show_likes else '不予公开' }}</span>
+                    </form>
+                {% endif %}
+            </h2>
+            {% for post in liked_posts %}
+                <div class="liked-post">
+                    <h3><a href="{{ url_for('read_post', post_id=post.id) }}">{{ post.title }}</a></h3>
+                    <p>{{ post.content[:100] }}...</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 </body>
 </html>

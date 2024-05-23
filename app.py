@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, session, url_for, f
 import pymysql
 import hashlib
 import sqlalchemy
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, DateTime,Text
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, DateTime,Text,Boolean
 from sqlalchemy.orm import sessionmaker, relationship, declarative_base
 from datetime import datetime
 from sqlalchemy_schemadisplay import create_schema_graph
@@ -30,19 +30,68 @@ engine = create_engine('mysql+pymysql://{user}:{password}@{host}:{port}/{databas
 
 Base = declarative_base()
 
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, DateTime, Text, Boolean
+from sqlalchemy.orm import sessionmaker, relationship, declarative_base
+import os
+from datetime import datetime
+
+Base = declarative_base()
+
 class User(Base):
     __tablename__ = "users"
+    __table_args__ = {'extend_existing': True}
     id = Column(Integer, primary_key=True)
     username = Column(String(255), unique=True, nullable=False)
     password = Column(String(255), nullable=False)
     email = Column(String(255), unique=True, nullable=False)
-    role = Column(String(50), nullable=False, default='student')  # 默认角色为学生
-    posts = relationship('Post', backref='author', lazy=True)
-    comments = relationship('Comment', backref='author', lazy=True)
-    likes = relationship('Like', backref='user', lazy=True)
+    role = Column(String(50), nullable=False, default='student')
+    avatar = Column(String(255), nullable=True)
+    gender = Column(String(10), nullable=False, default='不愿透露')
+    signature = Column(String(40), nullable=True)
+    favorite_jade = Column(String(40), nullable=True)
+    show_likes = Column(Boolean, default=True)
+    show_email = Column(Boolean, default=True)  
+    posts = relationship('Post', back_populates='author')
+    comments = relationship('Comment', back_populates='author')
+    likes = relationship('Like', back_populates='user')
+
+class Post(Base):
+    __tablename__ = "posts"
+    __table_args__ = {'extend_existing': True}
+    id = Column(Integer, primary_key=True)
+    title = Column(String(200), nullable=False)
+    content = Column(Text, nullable=True)
+    timestamp = Column(DateTime, default=datetime.utcnow)
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    author = relationship('User', back_populates='posts')
+    comments = relationship('Comment', back_populates='post', lazy=True)
+    likes = relationship('Like', back_populates='post', lazy=True)
+    images = relationship('Image', back_populates='post', lazy=True)
+
+class Comment(Base):
+    __tablename__ = "comments"
+    __table_args__ = {'extend_existing': True}
+    id = Column(Integer, primary_key=True)
+    content = Column(Text, nullable=False)
+    timestamp = Column(DateTime, default=datetime.utcnow)
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    post_id = Column(Integer, ForeignKey('posts.id'), nullable=False)
+    author = relationship('User', back_populates='comments')
+    post = relationship('Post', back_populates='comments')
+    images = relationship('Image', back_populates='comment', lazy=True)
+
+class Like(Base):
+    __tablename__ = "likes"
+    __table_args__ = {'extend_existing': True}
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    post_id = Column(Integer, ForeignKey('posts.id'), nullable=False)
+    user = relationship('User', back_populates='likes')
+    post = relationship('Post', back_populates='likes')
 
 class Image(Base):
     __tablename__ = "images"
+    __table_args__ = {'extend_existing': True}
     id = Column(Integer, primary_key=True)
     file_path = Column(String(255), nullable=False)
     post_id = Column(Integer, ForeignKey('posts.id'), nullable=True)
@@ -51,32 +100,22 @@ class Image(Base):
     post = relationship('Post', back_populates='images')
     comment = relationship('Comment', back_populates='images')
 
-class Post(Base):
-    __tablename__ = "posts"
+class Article(Base):
+    __tablename__ = "articles"
+    __table_args__ = {'extend_existing': True}
     id = Column(Integer, primary_key=True)
     title = Column(String(200), nullable=False)
-    content = Column(Text, nullable=True)
-    timestamp = Column(DateTime, default=datetime.utcnow)
-    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
-    comments = relationship('Comment', backref='post', lazy=True)
-    likes = relationship('Like', backref='post', lazy=True)
-    images = relationship('Image', back_populates='post', lazy=True)
-
-class Comment(Base):
-    __tablename__ = "comments"
-    id = Column(Integer, primary_key=True)
     content = Column(Text, nullable=False)
     timestamp = Column(DateTime, default=datetime.utcnow)
-    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
-    post_id = Column(Integer, ForeignKey('posts.id'), nullable=False)
-    images = relationship('Image', back_populates='comment', lazy=True)
 
-
-class Like(Base):
-    __tablename__ = "likes"
+class Collection(Base):
+    __tablename__ = "collections"
+    __table_args__ = {'extend_existing': True}
     id = Column(Integer, primary_key=True)
-    user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
-    post_id = Column(Integer, ForeignKey('posts.id'), nullable=False)
+    name = Column(String(200), nullable=False)
+    image_path = Column(String(255), nullable=False)
+    description = Column(Text, nullable=False)
+
 
 
 
@@ -109,11 +148,6 @@ def format_date(value):
 def root_index():
     return redirect(url_for("welcome"))
 
-@app.route('/profile')
-def profile():
-    if 'username' in session:
-        return render_template('profile.html')
-    return redirect(url_for('index'))
 
 @app.route('/admin/dashboard')
 def admin_dashboard():
@@ -141,8 +175,9 @@ def check_login():
 
 @app.route('/logout')
 def logout():
-    session.pop('username', None)
+    session.clear()  
     return redirect(url_for('index'))
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -190,11 +225,60 @@ def forum():
     per_page = 10
     total = db_session.query(Post).count()
     posts = db_session.query(Post).order_by(Post.timestamp.desc()).offset((page - 1) * per_page).limit(per_page).all()
-    
+
+    if 'username' in session:
+        username = session['username']
+    else:
+        return redirect(url_for("login"))
+
+    user = db_session.query(User).filter_by(username=username).first()
+    if user is None:
+        abort(404)
+
+    liked_post_ids = [like.post_id for like in user.likes]
+
     next_url = url_for('forum', page=page + 1) if total > page * per_page else None
     prev_url = url_for('forum', page=page - 1) if page > 1 else None
     
-    return render_template('forum.html', posts=posts, next_url=next_url, prev_url=prev_url)
+    return render_template('forum.html', posts=posts, next_url=next_url, prev_url=prev_url, user=user, liked_post_ids=liked_post_ids)
+
+
+@app.route('/profile/<username>', methods=['GET', 'POST'])
+def profile(username):
+    user = db_session.query(User).filter_by(username=username).first()
+    if user is None:
+        abort(404)
+    is_self = 'username' in session and session['username'] == username
+    if request.method == 'POST' and is_self:
+        if 'avatar' in request.files:
+            avatar = request.files['avatar']
+            if avatar.filename != '':
+                filename = f"{username}_avatar_{avatar.filename}"
+                filepath = os.path.join('static/uploads', filename)
+                avatar.save(filepath)
+                user.avatar = 'uploads/' + filename
+        user.gender = request.form.get('gender', user.gender)
+        user.signature = request.form.get('signature', user.signature)
+        user.favorite_jade = request.form.get('favorite_jade', user.favorite_jade)
+        # user.show_email = 'show_email' in request.form
+        user.show_likes = 'show_likes' in request.form
+        db_session.commit()
+        return redirect(url_for('profile', username=username))
+
+    posts = db_session.query(Post).filter_by(user_id=user.id).all()
+    liked_posts = db_session.query(Post).join(Like, Like.post_id == Post.id).filter(Like.user_id == user.id).all()
+
+    return render_template('profile.html', user=user, is_self=is_self, posts=posts, liked_posts=liked_posts)
+
+
+@app.route('/post/<int:post_id>/delete', methods=['POST'])
+def self_delete_post(post_id):
+    post = db_session.query(Post).filter_by(id=post_id).first()
+    if post and 'username' in session and (session['role'] == 'admin' or post.author.username == session['username']):
+        db_session.delete(post)
+        db_session.commit()
+    return redirect(url_for('profile', username=session['username']))
+
 
 @app.route('/forum/post', methods=['GET', 'POST'])
 def forum_post():
@@ -230,7 +314,6 @@ def comment_post(post_id):
     new_comment = Comment(content=content, post_id=post_id, author=user)
     db_session.add(new_comment)
     db_session.commit()
-    
     images = request.files.getlist('images')
     for index, image in enumerate(images[:3]):  
         if image.filename != '':
@@ -261,30 +344,114 @@ def delete_post(post_id):
         db_session.commit()
     return redirect(url_for('forum'))
 
-@app.route('/forum/<int:post_id>/like', methods=['POST'])
+@app.route('/post/<int:post_id>/like', methods=['POST'])
 def like_post(post_id):
     if 'username' not in session:
-        return redirect(url_for('login'))
+        return "User not logged in"
     user = db_session.query(User).filter_by(username=session['username']).first()
-    post = db_session.query(Post).filter_by(id=post_id).first()
-    if not user or not post:
-        return redirect(url_for('forum'))
-
-    liked_posts = session.get('liked_posts', [])
-    if post_id in liked_posts:
-        like = db_session.query(Like).filter_by(user_id=user.id, post_id=post_id).first()
-        if like:
-            db_session.delete(like)
-            db_session.commit()
-        liked_posts.remove(post_id)
-    else:
+    like = db_session.query(Like).filter_by(user_id=user.id, post_id=post_id).first()
+    if not like:
         new_like = Like(user_id=user.id, post_id=post_id)
         db_session.add(new_like)
         db_session.commit()
-        liked_posts.append(post_id)
+        return redirect(url_for('forum'))
+    return "Already liked"
 
-    session['liked_posts'] = liked_posts
-    return redirect(url_for('forum'))
+@app.route('/post/<int:post_id>/unlike', methods=['POST'])
+def unlike_post(post_id):
+    if 'username' not in session:
+        return "User not logged in"
+    user = db_session.query(User).filter_by(username=session['username']).first()
+    like = db_session.query(Like).filter_by(user_id=user.id, post_id=post_id).first()
+    if like:
+        db_session.delete(like)
+        db_session.commit()
+        return redirect(url_for('forum'))
+    return "Like not found"
+
+@app.route('/article/<int:article_id>')
+def read_article(article_id):
+    article = db_session.query(Article).filter_by(id=article_id).first()
+    if article is None:
+        abort(404)
+    prev_article = db_session.query(Article).filter(Article.id < article_id).order_by(Article.id.desc()).first()
+    next_article = db_session.query(Article).filter(Article.id > article_id).order_by(Article.id.asc()).first()
+    return render_template('read_article.html', article=article, prev_article=prev_article, next_article=next_article)
+
+@app.route('/manage_articles', methods=['GET', 'POST'])
+def manage_articles():
+    if 'role' not in session or session['role'] != 'admin':
+        return redirect(url_for('index'))
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['content']
+        new_article = Article(title=title, content=content)
+        db_session.add(new_article)
+        db_session.commit()
+        return redirect(url_for('manage_articles'))
+    articles = db_session.query(Article).order_by(Article.timestamp.desc()).all()
+    return render_template('manage_articles.html', articles=articles)
+
+@app.route('/article/<int:article_id>/delete', methods=['POST'])
+def delete_article(article_id):
+    if 'role' not in session or session['role'] != 'admin':
+        return redirect(url_for('index'))
+    article = db_session.query(Article).filter_by(id=article_id).first()
+    if article:
+        db_session.delete(article)
+        db_session.commit()
+    return redirect(url_for('manage_articles'))
+
+@app.route('/collections')
+def collections():
+    page = request.args.get('page', 1, type=int)
+    per_page = 9
+    total = db_session.query(Collection).count()
+    collections = db_session.query(Collection).order_by(Collection.id).offset((page - 1) * per_page).limit(per_page).all()
+
+    next_url = url_for('collections', page=page + 1) if total > page * per_page else None
+    prev_url = url_for('collections', page=page - 1) if page > 1 else None
+
+    return render_template('collections.html', collections=collections, next_url=next_url, prev_url=prev_url)
+
+@app.route('/collection/<int:collection_id>')
+def collection_detail(collection_id):
+    collection = db_session.query(Collection).filter_by(id=collection_id).first()
+    if collection is None:
+        abort(404)
+    return render_template('collection_detail.html', collection=collection)
+
+@app.route('/manage_collections', methods=['GET', 'POST'])
+def manage_collections():
+    if 'role' not in session or session['role'] != 'admin':
+        return redirect(url_for('index'))
+    
+    if request.method == 'POST':
+        name = request.form['name']
+        description = request.form['description']
+        image = request.files['image']
+        if image and image.filename != '':
+            filename = f"{name}_{image.filename}"
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            image.save(filepath)
+            new_collection = Collection(name=name, image_path='uploads/' + filename, description=description)
+            db_session.add(new_collection)
+            db_session.commit()
+        return redirect(url_for('manage_collections'))
+    collections = db_session.query(Collection).order_by(Collection.id).all()
+    return render_template('manage_collections.html', collections=collections)
+
+@app.route('/collection/<int:collection_id>/delete', methods=['POST'])
+def delete_collection(collection_id):
+    if 'role' not in session or session['role'] != 'admin':
+        return redirect(url_for('index'))
+    collection = db_session.query(Collection).filter_by(id=collection_id).first()
+    if collection:
+        db_session.delete(collection)
+        db_session.commit()
+    return redirect(url_for('manage_collections'))
+
+
 
 @app.route('/about')
 def about():

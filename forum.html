@@ -36,23 +36,23 @@
         {% for post in posts %}
             <div class="post">
                 <div class="content">
-                    <p>{{ post.author.username }} {{ post.timestamp|date }}</p>
+                    <p><a href="{{ url_for('profile', username=post.author.username) }}">{{ post.author.username }}</a> {{ post.timestamp|date }}</p>
                     <h2><a href="{{ url_for('read_post', post_id=post.id) }}">{{ post.title }}</a></h2>
                     {% if session.get('role') == 'admin' %}
                         <form method="post" action="{{ url_for('delete_post', post_id=post.id) }}" style="display:inline;">
                             <button type="submit">删除</button>
                         </form>
                     {% endif %}
-                    <form method="post" action="{{ url_for('like_post', post_id=post.id) }}" style="display:inline;">
-                        <button type="submit">
-                            {% if 'liked_posts' in session and post.id in session['liked_posts'] %}
-                                取消点赞
-                            {% else %}
-                                点赞
-                            {% endif %}
-                        </button>
-                        <span>（{{ post.likes|length }}）</span>
-                    </form>
+                    {% if post.id in liked_post_ids %}
+                        <form method="post" action="{{ url_for('unlike_post', post_id=post.id) }}" style="display:inline;">
+                            <button type="submit">取消点赞</button>
+                        </form>
+                    {% else %}
+                        <form method="post" action="{{ url_for('like_post', post_id=post.id) }}" style="display:inline;">
+                            <button type="submit">点赞</button>
+                        </form>
+                    {% endif %}
+                    <span>（{{ post.likes|length }}）</span>
                 </div>
                 {% if post.images %}
                     <img src="{{ url_for('static', filename=post.images[0].file_path) }}" alt="Post Image">

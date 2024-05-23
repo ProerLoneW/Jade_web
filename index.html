@@ -153,7 +153,7 @@
             
             if (data.loggedIn) {
                 loginStatusLink.textContent = '个人空间';
-                loginStatusLink.href = '/profile';
+                loginStatusLink.href = "{{ url_for('profile', username=session['username']) }}";
                 logoutLink.style.display = 'block';
             } else {
                 loginStatusLink.textContent = '未登录';
