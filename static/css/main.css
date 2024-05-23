@@ -610,7 +610,7 @@ body:not(.lang-en) .des {
 
 .more1:after {
     content: "";
-    background: url(../image/more1a.png) no-repeat left center/contain;
+    background: url(../img/more1a.png) no-repeat left center/contain;
     width: 81px;
     height: 41px;
     display: inline-block;
@@ -623,7 +623,7 @@ body:not(.lang-en) .des {
 }
 
 .more1.w:after {
-    background-image: url(../image/more1a.png)
+    background-image: url(../img/more1a.png)
 }
 
 .more1.g {
@@ -631,7 +631,7 @@ body:not(.lang-en) .des {
 }
 
 .more1.g:after {
-    background-image: url(../image/more1b.png)
+    background-image: url(../img/more1b.png)
 }
 
 body:not(.lang-en) .more1.v {
@@ -641,14 +641,14 @@ body:not(.lang-en) .more1.v {
 }
 
 .more1.v:after {
-    background-image: url(../image/more1v.png);
+    background-image: url(../img/more1v.png);
     width: 41px;
     height: 81px;
     margin: 10px 0 0
 }
 
 .more1.v.w:after {
-    background-image: url(../image/more1av.png)
+    background-image: url(../img/more1av.png)
 }
 
 @-webkit-keyframes more1 {
@@ -849,7 +849,7 @@ body:not(.lang-en) .more1.v {
     left: 0;
     top: 100%;
     right: 0;
-    background: url(../image/bg1_1.png) no-repeat center center/cover;
+    background: url(../img/bg1_1.png) no-repeat center center/cover;
     opacity: 0;
     visibility: hidden;
     -webkit-transition: all 0.3s ease-out 0s;
@@ -1003,11 +1003,11 @@ body:not(.lang-en) .more1.v {
     }
 
     .x-header.gn {
-        background: url(../image/bg2.png) no-repeat center center/cover
+        background: url(../img/bg2.png) no-repeat center center/cover
     }
 
     .x-header.gn .nav_child {
-        background: url(../image/bg1_8.jpg) no-repeat center bottom/cover !important
+        background: url(../img/bg1_8.jpg) no-repeat center bottom/cover !important
     }
 
     .x-header .logo {
@@ -1294,7 +1294,7 @@ body:not(.lang-en) .more1.v {
         position: relative;
         height: 60px;
         z-index: 11;
-        background: url(../image/bg1.png) no-repeat center top/270% auto
+        background: url(../img/bg1.png) no-repeat center top/270% auto
     }
 
     .x-header .x-wrap {
@@ -1867,7 +1867,7 @@ body:not(.lang-en) .more1.v {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-    background: url(../image/bg1_1.png) no-repeat center center/cover;
+    background: url(../img/bg1_1.png) no-repeat center center/cover;
     opacity: 0;
     visibility: hidden;
     -webkit-transition: all 0.3s ease-out 0s;
@@ -2138,7 +2138,7 @@ body:not(.lang-en) .more1.v {
 @media screen and (min-width: 901px) {
     .x-header2 .nav-mod .bg {
         content: "";
-        background: url(../image/bg1.png) no-repeat center top/100% auto;
+        background: url(../img/bg1.png) no-repeat center top/100% auto;
         position: absolute;
         left: 0;
         top: 0;
@@ -2365,7 +2365,7 @@ body:not(.lang-en) .more1.v {
         min-height: 50px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         z-index: 1;
-        background: url(../image/bg1.png) no-repeat center top/270% auto
+        background: url(../img/bg1.png) no-repeat center top/270% auto
     }
 
     .x-header2 .logo {
@@ -3026,7 +3026,7 @@ body:not(.lang-en) .more1.v {
         z-index: 11;
         border-bottom: 1px solid #beb8a3;
         position: relative;
-        background: #7f3222 url(../../image/bg3.png) no-repeat center center/cover;
+        background: #7f3222 url(../../img/bg3.png) no-repeat center center/cover;
         border-right: none
     }
 
@@ -3496,7 +3496,7 @@ div[data-search] .infoBox>img {
 
 .bread-mod::before {
     content: "";
-    background: url(../image/baiy/png9_1.png);
+    background: url(../img/baiy/png9_1.png);
     height: 3px;
     width: 119px;
     margin-right: 1em
@@ -3504,7 +3504,7 @@ div[data-search] .infoBox>img {
 
 .bread-mod::after {
     content: "";
-    background: url(../image/baiy/png9_2.png) no-repeat right center;
+    background: url(../img/baiy/png9_2.png) no-repeat right center;
     height: 3px;
     width: 119px;
     margin-right: 15px;
@@ -4632,7 +4632,7 @@ div[data-search] .infoBox>img {
 }
 
 .special_bottom .nav {
-    background: url(../image/baiy/png19.png) repeat-x center 1.8em;
+    background: url(../img/baiy/png19.png) repeat-x center 1.8em;
     font-size: 28px;
     font-family: font;
     line-height: 1;
@@ -4711,7 +4711,7 @@ div[data-search] .infoBox>img {
 }
 
 .special_bottom .x-wrap2 .d.c .bg {
-    background: url(../image/baiy/png21.png);
+    background: url(../img/baiy/png21.png);
     position: absolute;
     left: 0;
     top: 0;
@@ -4726,7 +4726,7 @@ div[data-search] .infoBox>img {
 }
 
 .special_bottom .x-wrap2 .d.c .bb span {
-    background: url(../image/baiy/png21_2.png) no-repeat center center;
+    background: url(../img/baiy/png21_2.png) no-repeat center center;
     width: 41px;
     height: 41px;
     display: block
@@ -5044,7 +5044,7 @@ div[data-search] .infoBox>img {
     transition-property: opacity, visibility, background, color;
     -webkit-transition-duration: .3s;
     transition-duration: .3s;
-    background: url(../image/jhy/top.png) no-repeat;
+    background: url(../img/jhy/top.png) no-repeat;
     background-size: contain
 }
 
@@ -5053,7 +5053,7 @@ div[data-search] .infoBox>img {
 }
 
 .topping-mod .s {
-    background: url(../image/jhy/top_a.png) no-repeat;
+    background: url(../img/jhy/top_a.png) no-repeat;
     background-size: contain;
     opacity: 0;
     -webkit-transition: all .3s;
@@ -7473,16 +7473,16 @@ body:not(.lang-en) .guide6 .list .item .slide-cont {
 }
 
 .x-layout.hhzz {
-    background: url(../image/xf/bg16.jpg) center top
+    background: url(../img/xf/bg16.jpg) center top
 }
 
 .x-layout.hhzz .x-header2 .nav-mod .bg {
     padding-top: calc(285 / 1920 * 100vw);
-    background-image: url(../image/xf/png34.png)
+    background-image: url(../img/xf/png34.png)
 }
 
 .x-layout.hhzz .x-header2 .nav_child {
-    background: url(../image/bg1_5.jpg) no-repeat center bottom/cover
+    background: url(../img/bg1_5.jpg) no-repeat center bottom/cover
 }
 
 .x-layout.hhzz .x-footer {
@@ -7512,7 +7512,7 @@ body:not(.lang-en) .guide6 .list .item .slide-cont {
     right: 0;
     top: 0;
     padding-top: 84.47916%;
-    background: url(../image/xf/png54.png) center top no-repeat;
+    background: url(../img/xf/png54.png) center top no-repeat;
     background-size: contain;
     z-index: -1
 }
@@ -7624,7 +7624,7 @@ body:not(.lang-en) .guide6 .list .item .slide-cont {
     top: 0;
     margin-top: 8.333%;
     padding-top: 88.9063%;
-    background: url(../image/xf/png37.png) center top no-repeat
+    background: url(../img/xf/png37.png) center top no-repeat
 }
 
 .hhzz2 .tit {
@@ -7684,7 +7684,7 @@ body:not(.lang-en) .hhzz2 .slick-item .st {
     top: 0;
     width: 84px;
     height: 353px;
-    background: url(../image/xf/png39.png) no-repeat;
+    background: url(../img/xf/png39.png) no-repeat;
     background-size: contain;
     z-index: -1
 }
@@ -7752,7 +7752,7 @@ body:not(.lang-en) .hhzz2 .slick-item .st {
 .hhzz3 {
     position: relative;
     padding-top: 270px;
-    background: url(../image/xf/png40.png) center 170px no-repeat
+    background: url(../img/xf/png40.png) center 170px no-repeat
 }
 
 .hhzz3 .tit {
@@ -7839,7 +7839,7 @@ body:not(.lang-en) .hhzz2 .slick-item .st {
 }
 
 .hhzz3 .slick-mod {
-    background: url(../image/xf/png44.png) center 260px no-repeat
+    background: url(../img/xf/png44.png) center 260px no-repeat
 }
 
 .hhzz3 .slick-item {
@@ -7998,7 +7998,7 @@ body:not(.lang-en) .hhzz2 .slick-item .st {
     top: 0;
     margin-top: 420px;
     padding-top: 80.4167%;
-    background: url(../image/xf/png50.png) center top no-repeat
+    background: url(../img/xf/png50.png) center top no-repeat
 }
 
 .hhzz4 .tit {
@@ -8537,7 +8537,7 @@ body:not(.lang-en) .hhzz2 .slick-item .st {
 }
 
 .x-layout.bg1 {
-    background: url(../image/baiy/bg4.jpg) no-repeat center bottom/cover
+    background: url(../img/baiy/bg4.jpg) no-repeat center bottom/cover
 }
 
 .x-layout.bg1 .x-footer {
@@ -8559,7 +8559,7 @@ body:not(.lang-en) .hhzz2 .slick-item .st {
 
 .learning::before {
     content: "";
-    background: url(../image/baiy/png7_1.png) no-repeat center top/100% auto;
+    background: url(../img/baiy/png7_1.png) no-repeat center top/100% auto;
     position: absolute;
     left: 0;
     top: 0;
@@ -8664,7 +8664,7 @@ body:not(.lang-en) .learning .dt .tit .tabs1 a {
 }
 
 .learning .dt .bg1 {
-    background: url(../image/baiy/png7_3.png) no-repeat center center/cover;
+    background: url(../img/baiy/png7_3.png) no-repeat center center/cover;
     position: absolute;
     left: 0;
     top: -5px;
@@ -8674,7 +8674,7 @@ body:not(.lang-en) .learning .dt .tit .tabs1 a {
 }
 
 .learning .dt .bg2 {
-    background: url(../image/baiy/png7_4.png) no-repeat center center/cover;
+    background: url(../img/baiy/png7_4.png) no-repeat center center/cover;
     position: absolute;
     left: 0;
     top: -5px;
@@ -8823,7 +8823,7 @@ body:not(.lang-en) .learning .dt .tit .tabs1 a {
 
 .learning .list .item .r .b .dld::before {
     content: "";
-    background: url(../image/baiy/png8_1.png) no-repeat center center;
+    background: url(../img/baiy/png8_1.png) no-repeat center center;
     width: 100%;
     height: 100%;
     display: block
@@ -8831,7 +8831,7 @@ body:not(.lang-en) .learning .dt .tit .tabs1 a {
 
 .learning .list .item .r .b .dld::after {
     content: "";
-    background: url(../image/baiy/png8_2.png) no-repeat center center;
+    background: url(../img/baiy/png8_2.png) no-repeat center center;
     width: 100%;
     height: 100%;
     display: block;
@@ -9357,7 +9357,7 @@ body:not(.lang-en) .learning_detail .list .item .p {
 }
 
 .x-layout.home .x-header {
-    background: url(../image/bg3.png) no-repeat center center/cover
+    background: url(../img/bg3.png) no-repeat center center/cover
 }
 
 @media screen and (min-width: 901px) {
@@ -9628,7 +9628,7 @@ body:not(.lang-en) .nav_left .item {
 }
 
 /* .nav_left .item:nth-child(7) {
-    background-image: url(../image/png7_7.png);
+    background-image: url(../img/png7_7.png);
     width: 66px
 } */
 
@@ -9843,7 +9843,7 @@ body:not(.lang-en) .nav_left .item {
     background: #e8e3d1;
     position: relative;
     padding: 6vw 0 11vw;
-    background: #e8e3d1 url(../image/png3.png) no-repeat center bottom/100% auto
+    background: #e8e3d1 url(../img/png3.png) no-repeat center bottom/100% auto
 }
 
 .home2 .head {
@@ -10028,7 +10028,7 @@ body:not(.lang-en) .home2 .list .item .p {
 }
 
 .home3 .frame:last-child .big .pic::before {
-    background-image: url(../image/png4_2.png)
+    background-image: url(../img/png4_2.png)
 }
 
 .home3 .frame .big {
@@ -10059,7 +10059,7 @@ body:not(.lang-en) .home2 .list .item .p {
     top: 0;
     width: 100%;
     height: 100%;
-    background: url(../image/png4_3.png) no-repeat center center/cover
+    background: url(../img/png4_3.png) no-repeat center center/cover
 }
 
 .home3 .frame .big .pic img {
@@ -10212,7 +10212,7 @@ body:not(.lang-en) .home2 .list .item .p {
 }
 
 .home4 .list .item:nth-child(1):before {
-    background-image: url(../image/1.png);
+    background-image: url(../img/1.png);
     z-index: 4;
     background-size: cover;
     padding-top: calc(381 / 1920 * 100%);
@@ -10232,7 +10232,7 @@ body:not(.lang-en) .home2 .list .item .p {
 }
 
 .home4 .list .item:nth-child(2):before {
-    background-image: url(../image/2.png);
+    background-image: url(../img/2.png);
     z-index: 4;
     background-size: cover;
     padding-top: calc(410 / 1920 * 100%);
@@ -10252,7 +10252,7 @@ body:not(.lang-en) .home2 .list .item .p {
 }
 
 .home4 .list .item:nth-child(3):before {
-    background-image: url(../image/3.png);
+    background-image: url(../img/3.png);
     background-size: cover;
     z-index: 4;
     padding-top: calc(492 / 1920 * 100%);
@@ -10272,7 +10272,7 @@ body:not(.lang-en) .home2 .list .item .p {
 }
 
 .home4 .list .item:nth-child(4):before {
-    background-image: url(../image/4.png);
+    background-image: url(../img/4.png);
     background-size: cover;
     z-index: 10;
     padding-top: calc(523 / 1920 * 100%);
@@ -10294,7 +10294,7 @@ body:not(.lang-en) .home2 .list .item .p {
 }
 
 .home4 .list .item:nth-child(5):before {
-    background-image: url(../image/5.png);
+    background-image: url(../img/5.png);
     padding-top: calc(501 / 1920 * 100%);
 }
 
@@ -10312,7 +10312,7 @@ body:not(.lang-en) .home2 .list .item .p {
 }
 
 .home4 .list .item:nth-child(6):before {
-    background-image: url(../image/png11_6.png);
+    background-image: url(../img/png11_6.png);
     padding-top: calc(428 / 1920 * 100%);
 }
 
@@ -10330,13 +10330,13 @@ body:not(.lang-en) .home2 .list .item .p {
 }
 
 .home4 .list .item:nth-child(7):before {
-    background-image: url(../image/png11_7.png);
+    background-image: url(../img/png11_7.png);
     padding-top: calc(461 / 1920 * 100%);
 }
 
 .home4 .list .item:nth-child(7):after {
     content: "";
-    background: url(../image/png12_8.png) no-repeat center center/contain;
+    background: url(../img/png12_8.png) no-repeat center center/contain;
     padding-top: calc(112 / 1920 * 100%);
     position: absolute;
     left: 0;
@@ -10395,7 +10395,7 @@ body:not(.lang-en) .home2 .list .item .p {
 /* 新增样式 */
 .home4 .list .item .new-box {
     display: flex;
-    background: url('../image/board.jpg') no-repeat center center/cover;
+    background: url('../img/board.jpg') no-repeat center center/cover;
     position: relative;
     z-index: 4;
     margin-top: 2vw;
@@ -10405,7 +10405,7 @@ body:not(.lang-en) .home2 .list .item .p {
 
 .home4 .list .item .new-box .left-image {
     flex: 1;
-    background: url('../image/tosay.jpg') no-repeat center center/cover;
+    background: url('../img/tosay.jpg') no-repeat center center/cover;
     height: 300px;
     margin-right: 100px;
 }
@@ -10853,7 +10853,7 @@ body:not(.lang-en) .home2 .list .item .p {
 
 .home6::before {
     content: "";
-    background: url(../image/png6.png) no-repeat center top;
+    background: url(../img/png6.png) no-repeat center top;
     position: absolute;
     width: 100%;
     height: 699px;
@@ -10940,7 +10940,7 @@ body:not(.lang-en) .home2 .list .item .p {
 
 .home6 .nav::before {
     content: "";
-    background: url(../image/png6_2.png) no-repeat center center/cover;
+    background: url(../img/png6_2.png) no-repeat center center/cover;
     width: 99px;
     height: 99px;
     -webkit-animation: home6 10s linear 0s infinite;
@@ -11089,39 +11089,39 @@ body:not(.lang-en) .home2 .list .item .p {
 }
 
 .home6 .div1 .child .pic {
-    background-image: url(../image/lyj/zixun2.png)
+    background-image: url(../img/lyj/zixun2.png)
 }
 
 .home6 .div1 .child1 .pic {
-    background-image: url(../image/lyj/zixun1.png)
+    background-image: url(../img/lyj/zixun1.png)
 }
 
 .home6 .div1 .child3 .pic {
-    background-image: url(../image/lyj/zixun3.png)
+    background-image: url(../img/lyj/zixun3.png)
 }
 
 .home6 .div2 .child .pic {
-    background-image: url(../image/lyj/jiaoyu2.png)
+    background-image: url(../img/lyj/jiaoyu2.png)
 }
 
 .home6 .div2 .child1 .pic {
-    background-image: url(../image/lyj/jiaoyu1.png)
+    background-image: url(../img/lyj/jiaoyu1.png)
 }
 
 .home6 .div2 .child3 .pic {
-    background-image: url(../image/lyj/jiaoyu3.png)
+    background-image: url(../img/lyj/jiaoyu3.png)
 }
 
 .home6 .div3 .child .pic {
-    background-image: url(../image/lyj/xueshu2.png)
+    background-image: url(../img/lyj/xueshu2.png)
 }
 
 .home6 .div3 .child1 .pic {
-    background-image: url(../image/lyj/xueshu1.png)
+    background-image: url(../img/lyj/xueshu1.png)
 }
 
 .home6 .div3 .child3 .pic {
-    background-image: url(../image/lyj/xueshu3.png)
+    background-image: url(../img/lyj/xueshu3.png)
 }
 
 .home6 .slick-current .text {
@@ -11436,7 +11436,7 @@ body:not(.lang-en) .home2 .list .item .p {
 
 @media screen and (max-width: 900px) {
     .x-layout.home .x-header {
-        background: #7f3222 url(../image/bg3.png) no-repeat center center/cover
+        background: #7f3222 url(../img/bg3.png) no-repeat center center/cover
     }
 
     .nav_left {
@@ -11558,7 +11558,7 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 
     .home2::after {
-        background: url(../image/png3.png) no-repeat center top/150% auto;
+        background: url(../img/png3.png) no-repeat center top/150% auto;
         content: "";
         display: block;
         height: 15vw
@@ -11604,7 +11604,7 @@ body:not(.lang-en) .home2 .list .item .p {
 
     .home2 .list .item {
         padding: 20px 0;
-        background: url(../image/png15.png) no-repeat center bottom/100% auto
+        background: url(../img/png15.png) no-repeat center bottom/100% auto
     }
 
     .home2 .list .item .inner {
@@ -11688,7 +11688,7 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 
     .home3 .frame .big .pic::before {
-        background: url(../image/pic8_2.jpg) no-repeat center top/100% auto
+        background: url(../img/pic8_2.jpg) no-repeat center top/100% auto
     }
 
     .home3 .frame .big .text {
@@ -11705,7 +11705,7 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 
     .home3 .frame:last-child .big .pic::before {
-        background: url(../image/pic8_1.jpg) no-repeat center top/100% auto
+        background: url(../img/pic8_1.jpg) no-repeat center top/100% auto
     }
 
     .home4 {
@@ -11738,12 +11738,12 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 
     /* .home4 .list .item:nth-child(1)::before {
-        background-image: url(../image/png13.png);
+        background-image: url(../img/png13.png);
         padding-top: 0px
     } */
 
     .home4 .list .item:nth-child(1) .pic {
-        background: url(../image/babatuosi.jpg) no-repeat center top/100% auto
+        background: url(../img/babatuosi.jpg) no-repeat center top/100% auto
     }
 
     .home4 .list .item:nth-child(2) {
@@ -11752,12 +11752,12 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 
     /* .home4 .list .item:nth-child(2)::before {
-        background-image: url(../image/png13.png);
+        background-image: url(../img/png13.png);
         padding-top: calc(375 / 750 * 100%)
     } */
 
     .home4 .list .item:nth-child(2) .pic {
-        background: url(../image/zhengyu.png) no-repeat center top/100% auto
+        background: url(../img/zhengyu.png) no-repeat center top/100% auto
     }
 
     .home4 .list .item:nth-child(3) {
@@ -11766,12 +11766,12 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 
     .home4 .list .item:nth-child(3)::before {
-        background-image: url(../image/png19_3.png);
+        background-image: url(../img/png19_3.png);
         padding-top: calc(405 / 750 * 100%)
     }
 
     .home4 .list .item:nth-child(3) .pic {
-        background: url(../image/zhengyu.png) no-repeat center top/100% auto
+        background: url(../img/zhengyu.png) no-repeat center top/100% auto
     }
 
     .home4 .list .item:nth-child(4) {
@@ -11780,12 +11780,12 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 
     .home4 .list .item:nth-child(4)::before {
-        background-image: url(../image/png19_4.png);
+        background-image: url(../img/png19_4.png);
         padding-top: calc(397 / 750 * 100%)
     }
 
     .home4 .list .item:nth-child(4) .pic {
-        background: url(../image/pic7_4.jpg) no-repeat center top/100% auto
+        background: url(../img/pic7_4.jpg) no-repeat center top/100% auto
     }
 
     .home4 .list .item:nth-child(5) {
@@ -11794,12 +11794,12 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 
     .home4 .list .item:nth-child(5)::before {
-        background-image: url(../image/png19_5.png);
+        background-image: url(../img/png19_5.png);
         padding-top: calc(406 / 750 * 100%)
     }
 
     .home4 .list .item:nth-child(5) .pic {
-        background: url(../image/pic7_5.jpg) no-repeat center top/100% auto
+        background: url(../img/pic7_5.jpg) no-repeat center top/100% auto
     }
 
     .home4 .list .item:nth-child(6) {
@@ -11808,12 +11808,12 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 
     .home4 .list .item:nth-child(6)::before {
-        background-image: url(../image/png19_6.png);
+        background-image: url(../img/png19_6.png);
         padding-top: calc(388 / 750 * 100%)
     }
 
     .home4 .list .item:nth-child(6) .pic {
-        background: url(../image/pic7_6.jpg) no-repeat center top/100% auto
+        background: url(../img/pic7_6.jpg) no-repeat center top/100% auto
     }
 
     .home4 .list .item:nth-child(7) {
@@ -11822,17 +11822,17 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 
     .home4 .list .item:nth-child(7)::before {
-        background-image: url(../image/png19_7.png);
+        background-image: url(../img/png19_7.png);
         padding-top: calc(388 / 750 * 100%)
     }
 
     .home4 .list .item:nth-child(7)::after {
-        background-image: url(../image/png19_8.png);
+        background-image: url(../img/png19_8.png);
         padding-top: calc(119 / 750 * 100%)
     }
 
     .home4 .list .item:nth-child(7) .pic {
-        background: url(../image/pic7_7.jpg) no-repeat center top/100% auto
+        background: url(../img/pic7_7.jpg) no-repeat center top/100% auto
     }
 
     .home5 {
@@ -11849,7 +11849,7 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 
     .home5 .content {
-        background: url(../image/png18.png) no-repeat center 25vw/35% auto
+        background: url(../img/png18.png) no-repeat center 25vw/35% auto
     }
 
     .home5 .list {
@@ -12008,7 +12008,7 @@ body:not(.lang-en) .home2 .list .item .p {
 
     .home6 {
         padding: 30vw 0 15px;
-        background: url(../image/png17.png) no-repeat center top/100% auto;
+        background: url(../img/png17.png) no-repeat center top/100% auto;
         margin-top: 40px
     }
 
@@ -12249,7 +12249,7 @@ body:not(.lang-en) .home2 .list .item .p {
     content: '';
     width: 81px;
     height: 41px;
-    background: url(../image/more1.png) no-repeat center;
+    background: url(../img/more1.png) no-repeat center;
     background-size: contain
 }
 
@@ -12375,7 +12375,7 @@ body:not(.lang-en) .news .cont .listwrap .txt_box2 .p {
 }
 
 .product .bg {
-    background: url(../image/baiy/bg1.png) no-repeat center top/100% auto;
+    background: url(../img/baiy/bg1.png) no-repeat center top/100% auto;
     min-height: 100vh;
     position: absolute;
     left: 0;
@@ -13011,7 +13011,7 @@ body:not(.lang-en) .product .content .item .mask .p {
 
 .special_exhibition1 .bg2 {
     width: 100%;
-    background: url(../image/jhy/bg1.png) center no-repeat;
+    background: url(../img/jhy/bg1.png) center no-repeat;
     background-size: cover;
     position: relative;
     overflow: hidden;
@@ -13353,12 +13353,12 @@ body:not(.lang-en) .product .content .item .mask .p {
 }
 
 .x-layout.fuse {
-    background: #66231b url(../image/lyj/fuse2.jpg) no-repeat top center/cover;
+    background: #66231b url(../img/lyj/fuse2.jpg) no-repeat top center/cover;
     color: #fff
 }
 
 .x-layout.fuse .x-header2 .nav_child {
-    background: url(../image/bg1_3.jpg) no-repeat center bottom/cover
+    background: url(../img/bg1_3.jpg) no-repeat center bottom/cover
 }
 
 .x-layout.fuse .x-header2 {
@@ -13384,7 +13384,7 @@ body:not(.lang-en) .product .content .item .mask .p {
     right: 0;
     bottom: 100%;
     padding-top: 73.4375%;
-    background-image: url(../image/lyj/fbg3.png);
+    background-image: url(../img/lyj/fbg3.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center
@@ -13395,7 +13395,7 @@ body:not(.lang-en) .product .content .item .mask .p {
 }
 
 .x-layout.fuse .x-header2 .nav-mod .bg {
-    background-image: url(../image/lyj/header.png)
+    background-image: url(../img/lyj/header.png)
 }
 
 .x-layout.fuse .x-wrapfuse {
@@ -13475,7 +13475,7 @@ body:not(.lang-en) .product .content .item .mask .p {
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: url(../image/lyj/fbg1.png);
+    background-image: url(../img/lyj/fbg1.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -13528,7 +13528,7 @@ body:not(.lang-en) .product .content .item .mask .p {
     left: 0;
     width: 24.4285%;
     height: 100%;
-    background-image: url(../image/lyj/fu2.png);
+    background-image: url(../img/lyj/fu2.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -13550,7 +13550,7 @@ body:not(.lang-en) .product .content .item .mask .p {
     right: 0;
     width: 24.4285%;
     height: 100%;
-    background-image: url(../image/lyj/fu1.png);
+    background-image: url(../img/lyj/fu1.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
@@ -13766,7 +13766,7 @@ body:not(.lang-en) .special_fuse1 .inner .tit_fuse {
 .x-layout.fuse .special_fuse2 .right .inner i.i1::before {
     width: 50.6591%;
     padding-top: 50.6591%;
-    background-image: url(../image/lyj/fu4.png);
+    background-image: url(../img/lyj/fu4.png);
     top: 0.9728%;
     left: 4.708%;
     -webkit-animation: rot 120s linear infinite;
@@ -13776,7 +13776,7 @@ body:not(.lang-en) .special_fuse1 .inner .tit_fuse {
 .x-layout.fuse .special_fuse2 .right .inner i.i1::after {
     width: 37.0998%;
     padding-top: 37.0998%;
-    background-image: url(../image/lyj/fu5.png);
+    background-image: url(../img/lyj/fu5.png);
     top: 46.2126%;
     right: 14.1242%;
     -webkit-animation: rot1 120s linear infinite;
@@ -13786,7 +13786,7 @@ body:not(.lang-en) .special_fuse1 .inner .tit_fuse {
 .x-layout.fuse .special_fuse2 .right .inner i.i2::before {
     width: 37.0998%;
     padding-top: 37.0998%;
-    background-image: url(../image/lyj/fu6.png);
+    background-image: url(../img/lyj/fu6.png);
     bottom: 0;
     left: -80px;
     -webkit-animation: rot 120s linear infinite;
@@ -14105,7 +14105,7 @@ body:not(.lang-en) .x-layout.fuse .special_fuse2 .left .flex .desc {
     content: '';
     width: 28px;
     height: 28px;
-    background-image: url(../image/lyj/c1b.png);
+    background-image: url(../img/lyj/c1b.png);
     position: absolute;
     right: 11.3333%;
     top: 0;
@@ -14120,7 +14120,7 @@ body:not(.lang-en) .x-layout.fuse .special_fuse2 .left .flex .desc {
     content: '';
     width: 28px;
     height: 28px;
-    background-image: url(../image/lyj/c1c.png);
+    background-image: url(../img/lyj/c1c.png);
     position: absolute;
     left: 11.3333%;
     top: 0;
@@ -14156,7 +14156,7 @@ body:not(.lang-en) .x-layout.fuse .special_fuse2 .left .flex .desc {
     top: 13px;
     left: -40px;
     right: 28px;
-    background-image: url(../image/lyj/c1d.png);
+    background-image: url(../img/lyj/c1d.png);
     background-repeat: repeat-x;
     background-position: left center;
     height: 2px
@@ -14243,7 +14243,7 @@ body:not(.lang-en) .x-layout.fuse .special_fuse2 .cont1 .top .tit-fuse {
     content: '';
     width: 28px;
     height: 28px;
-    background-image: url(../image/lyj/c1a.png);
+    background-image: url(../img/lyj/c1a.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -14259,7 +14259,7 @@ body:not(.lang-en) .x-layout.fuse .special_fuse2 .cont1 .top .tit-fuse {
 }
 
 .x-layout.fuse .special_fuse2 .cont1 .top .tracker-mod.dir-hor .tracker-item.cur::before {
-    background-image: url(../image/lyj/c1b.png)
+    background-image: url(../img/lyj/c1b.png)
 }
 
 .x-layout.fuse .special_fuse2 .cont1 .top .tracker-mod.dir-hor .tracker-item .txt {
@@ -14294,7 +14294,7 @@ body:not(.lang-en) .x-layout.fuse .special_fuse2 .cont1 .top .tracker-mod.dir-ho
     top: -37px;
     left: 0;
     right: calc(50% + 14px);
-    background-image: url(../image/lyj/c1d.png);
+    background-image: url(../img/lyj/c1d.png);
     background-repeat: repeat-x;
     background-position: left center;
     height: 2px
@@ -14306,7 +14306,7 @@ body:not(.lang-en) .x-layout.fuse .special_fuse2 .cont1 .top .tracker-mod.dir-ho
     top: -37px;
     right: 0;
     left: calc(50% + 14px);
-    background-image: url(../image/lyj/c1d.png);
+    background-image: url(../img/lyj/c1d.png);
     background-repeat: repeat-x;
     background-position: left center;
     height: 2px
@@ -14679,7 +14679,7 @@ body:not(.lang-en) .x-layout.fuse .special_fuse2 .cont1 .top .tracker-mod.dir-ho
     position: absolute;
     left: 0;
     top: -110px;
-    background-image: url(../image/lyj/fu13.png);
+    background-image: url(../img/lyj/fu13.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center
@@ -14692,7 +14692,7 @@ body:not(.lang-en) .x-layout.fuse .special_fuse2 .cont1 .top .tracker-mod.dir-ho
 .x-layout.fuse .special_fuse4 .slick-slide:nth-child(3n-1)::before {
     top: auto;
     bottom: -170px;
-    background-image: url(../image/lyj/fu12.png)
+    background-image: url(../img/lyj/fu12.png)
 }
 
 .x-layout.fuse .special_fuse4 .slick-slide:nth-child(3n-2) .slick-cont {
@@ -14701,7 +14701,7 @@ body:not(.lang-en) .x-layout.fuse .special_fuse2 .cont1 .top .tracker-mod.dir-ho
 
 .x-layout.fuse .special_fuse4 .slick-slide:nth-child(3n-2)::before {
     top: 17px;
-    background-image: url(../image/lyj/fu11.png)
+    background-image: url(../img/lyj/fu11.png)
 }
 
 .x-layout.fuse .special_fuse4 .slick-slide:nth-child(3n-2) .slick-cont .text {
@@ -15518,7 +15518,7 @@ body:not(.lang-en) .x-layout.fuse .special_fuse2 .cont1 .top .tracker-mod.dir-ho
 }
 
 .x-layout.red {
-    background: #66231b url(../image/baiy/bg8.jpg) no-repeat center -1px/100% auto;
+    background: #66231b url(../img/baiy/bg8.jpg) no-repeat center -1px/100% auto;
     color: #fff
 }
 
@@ -15534,12 +15534,12 @@ body:not(.lang-en) .x-layout.fuse .special_fuse2 .cont1 .top .tracker-mod.dir-ho
 .special_tang1 {
     position: relative;
     overflow: hidden;
-    background: url(../image/baiy/bg9.jpg) no-repeat center top/100% auto;
+    background: url(../img/baiy/bg9.jpg) no-repeat center top/100% auto;
     padding-top: calc(1150 / 1920 * 100%)
 }
 
 .special_tang1 .bg {
-    background: url(../image/baiy/png20.png) no-repeat center center/100% auto;
+    background: url(../img/baiy/png20.png) no-repeat center center/100% auto;
     padding-top: calc(213 / 1920 * 100%);
     position: absolute;
     left: 0;
@@ -15634,7 +15634,7 @@ body:not(.lang-en) .x-layout.fuse .special_fuse2 .cont1 .top .tracker-mod.dir-ho
 
 .special_tang2::before {
     content: "";
-    background: url(../image/baiy/png18_1.png) no-repeat center center/contain;
+    background: url(../img/baiy/png18_1.png) no-repeat center center/contain;
     width: calc(412 / 1920 * 100vw);
     height: calc(730 / 1920 * 100vw);
     position: absolute;
@@ -15876,7 +15876,7 @@ body:not(.lang-en) .special_tang2 .head .text {
 
 .special_tang3::before {
     content: "";
-    background: url(../image/baiy/png18_2.png) no-repeat center center/contain;
+    background: url(../img/baiy/png18_2.png) no-repeat center center/contain;
     width: 100%;
     height: calc(911 / 1920 * 100vw);
     position: absolute;
@@ -15931,7 +15931,7 @@ body:not(.lang-en) .special_tang2 .head .text {
 
 .special_tang3 .frame .child .pic .inner::before {
     content: "";
-    background: url(../image/baiy/png24_1.png) no-repeat center center;
+    background: url(../img/baiy/png24_1.png) no-repeat center center;
     width: 144px;
     height: 145px;
     position: absolute;
@@ -15954,7 +15954,7 @@ body:not(.lang-en) .special_tang2 .head .text {
 
 .special_tang3 .frame .child.red .inner::after {
     content: "";
-    background: url(../image/baiy/png24_4.png) no-repeat right bottom/contain;
+    background: url(../img/baiy/png24_4.png) no-repeat right bottom/contain;
     width: 100%;
     height: 70%;
     position: absolute;
@@ -15968,7 +15968,7 @@ body:not(.lang-en) .special_tang2 .head .text {
 
 .special_tang3 .frame .child.grn .inner::after {
     content: "";
-    background: url(../image/baiy/png24_5.png) no-repeat right bottom/contain;
+    background: url(../img/baiy/png24_5.png) no-repeat right bottom/contain;
     width: 100%;
     height: 70%;
     position: absolute;
@@ -15982,7 +15982,7 @@ body:not(.lang-en) .special_tang2 .head .text {
 
 .special_tang3 .frame .child.blue .inner::after {
     content: "";
-    background: url(../image/baiy/png24_3.png) no-repeat right bottom/contain;
+    background: url(../img/baiy/png24_3.png) no-repeat right bottom/contain;
     width: 100%;
     height: 70%;
     position: absolute;
@@ -16210,7 +16210,7 @@ body:not(.lang-en) .special_tang2 .head .text {
 
 .special_tang4 .frame .child .bg1 span:after {
     content: "";
-    background: url(../image/baiy/png28_1.png) no-repeat center center/contain;
+    background: url(../img/baiy/png28_1.png) no-repeat center center/contain;
     display: block;
     height: 100%
 }
@@ -16234,7 +16234,7 @@ body:not(.lang-en) .special_tang2 .head .text {
 
 .special_tang4 .frame .child .bg2 span:after {
     content: "";
-    background: url(../image/baiy/png28_2.png) no-repeat center center/contain;
+    background: url(../img/baiy/png28_2.png) no-repeat center center/contain;
     display: block;
     height: 100%
 }
@@ -16254,7 +16254,7 @@ body:not(.lang-en) .special_tang2 .head .text {
 }
 
 .special_tang4 .frame .child .h {
-    background: url(../image/baiy/png28_3.png) no-repeat center center/contain;
+    background: url(../img/baiy/png28_3.png) no-repeat center center/contain;
     width: 694px;
     height: 183px;
     line-height: 203px;
@@ -16285,7 +16285,7 @@ body:not(.lang-en) .special_tang2 .head .text {
 
 .special_tang5 .x-wrap::before {
     content: "";
-    background: url(../image/baiy/png18_4.png) no-repeat center center/contain;
+    background: url(../img/baiy/png18_4.png) no-repeat center center/contain;
     width: 35%;
     padding-top: 35%;
     position: absolute;
@@ -16425,7 +16425,7 @@ body:not(.lang-en) .special_tang5 .x-wrap .head .text {
 
 .special_tang5 .x-wrap .list .item .inner::before {
     content: "";
-    background: url(../image/baiy/png24_2.png) no-repeat center center;
+    background: url(../img/baiy/png24_2.png) no-repeat center center;
     width: 144px;
     height: 145px;
     position: absolute;
@@ -16475,7 +16475,7 @@ body:not(.lang-en) .special_tang5 .x-wrap .list .item .inner .h {
 
 .special_tang5 .x-wrap .list .item.red .inner::before {
     content: "";
-    background: url(../image/baiy/png24_1.png) no-repeat center center;
+    background: url(../img/baiy/png24_1.png) no-repeat center center;
     width: 144px;
     height: 145px;
     position: absolute;
@@ -16485,7 +16485,7 @@ body:not(.lang-en) .special_tang5 .x-wrap .list .item .inner .h {
 
 .special_tang5 .x-wrap .list .item.red .inner::after {
     content: "";
-    background: url(../image/baiy/png24_4.png) no-repeat center bottom/contain;
+    background: url(../img/baiy/png24_4.png) no-repeat center bottom/contain;
     width: 50%;
     padding-top: 55%;
     position: absolute;
@@ -16513,7 +16513,7 @@ body:not(.lang-en) .special_tang5 .x-wrap .list .item .inner .h {
 
 .special_tang5 .x-wrap .list .item.blu .inner::after {
     content: "";
-    background: url(../image/baiy/png24_3.png) no-repeat center bottom/contain;
+    background: url(../img/baiy/png24_3.png) no-repeat center bottom/contain;
     width: 50%;
     padding-top: 55%;
     position: absolute;
@@ -16540,7 +16540,7 @@ body:not(.lang-en) .special_tang5 .x-wrap .list .item .inner .h {
 
 .special_tang5 .x-wrap .list .item.grn .inner::after {
     content: "";
-    background: url(../image/baiy/png24_5.png) no-repeat center bottom/contain;
+    background: url(../img/baiy/png24_5.png) no-repeat center bottom/contain;
     width: 50%;
     padding-top: 55%;
     position: absolute;
@@ -16706,7 +16706,7 @@ body:not(.lang-en) .special_tang5 .x-wrap .list .item .inner .h {
 
 .special_tang6 .frame .slick-slide .child:after {
     content: "";
-    background: url(../image/baiy/png25.png) no-repeat center bottom/40% auto;
+    background: url(../img/baiy/png25.png) no-repeat center bottom/40% auto;
     width: 100%;
     padding-top: calc(327 / 670 * 100%);
     position: absolute;
@@ -16800,7 +16800,7 @@ body:not(.lang-en) .special_tang6 .frame .slick-slide .child .h span {
 
 .special_tang6 .frame .slick-slide.slick-active .child .h::before {
     content: "";
-    background: url(../image/baiy/png27_4.png) no-repeat center center/contain;
+    background: url(../img/baiy/png27_4.png) no-repeat center center/contain;
     width: 312px;
     height: 110%;
     position: absolute;
@@ -16811,7 +16811,7 @@ body:not(.lang-en) .special_tang6 .frame .slick-slide .child .h span {
 }
 
 .special_tang6 .frame .slick-slide.slick-active .child .h span {
-    background: url(../image/baiy/png27_1.png) no-repeat center top/contain
+    background: url(../img/baiy/png27_1.png) no-repeat center top/contain
 }
 
 .special_tang6 .frame .slick-slide.slick-active .child .pic img {
@@ -17656,7 +17656,7 @@ body:not(.lang-en) .special_tang6 .frame .slick-slide .child .h span {
     position: absolute;
     left: 0;
     top: 0;
-    background: url(../image/jhy/bg2.png) no-repeat;
+    background: url(../img/jhy/bg2.png) no-repeat;
     width: 100px;
     height: 100px;
     color: #fff;
@@ -17891,7 +17891,7 @@ body:not(.lang-en) .special_tang6 .frame .slick-slide .child .h span {
 }
 
 .universal2 {
-    background: url(../image/lys/jpg15.jpg) no-repeat center;
+    background: url(../img/lys/jpg15.jpg) no-repeat center;
     background-size: cover;
     padding: 175px 0 180px;
     position: relative;
@@ -17902,7 +17902,7 @@ body:not(.lang-en) .special_tang6 .frame .slick-slide .child .h span {
     content: '';
     width: 26px;
     height: 150px;
-    background: url(../image/lys/png5.png) no-repeat center;
+    background: url(../img/lys/png5.png) no-repeat center;
     position: absolute;
     top: -63px;
     left: 50%;
@@ -17971,7 +17971,7 @@ body:not(.lang-en) .special_tang6 .frame .slick-slide .child .h span {
     z-index: 2;
     overflow: hidden;
     margin: 0 30px;
-    background: url(../image/lys/jpg18.jpg)
+    background: url(../img/lys/jpg18.jpg)
 }
 
 .universal2 .txt_box .infor .item::before {
@@ -18117,7 +18117,7 @@ body:not(.lang-en) .universal2 .txt_box .pbox {
 }
 
 .universal3 {
-    background: url(../image/lys/jpg16.jpg) no-repeat center;
+    background: url(../img/lys/jpg16.jpg) no-repeat center;
     background-size: cover;
     padding: 180px 0 190px;
     position: relative
@@ -18127,7 +18127,7 @@ body:not(.lang-en) .universal2 .txt_box .pbox {
     content: '';
     width: 26px;
     height: 87px;
-    background: url(../image/lys/png8.png) no-repeat center;
+    background: url(../img/lys/png8.png) no-repeat center;
     position: absolute;
     top: 0;
     left: calc(50% + 183px)
@@ -18203,7 +18203,7 @@ body:not(.lang-en) .universal3 .tbox .pbox {
 }
 
 .universal4 {
-    background: url(../image/lys/jpg17.jpg) no-repeat center;
+    background: url(../img/lys/jpg17.jpg) no-repeat center;
     background-size: cover;
     padding: 175px 0 180px;
     position: relative;
@@ -18214,7 +18214,7 @@ body:not(.lang-en) .universal3 .tbox .pbox {
     content: '';
     width: 26px;
     height: 87px;
-    background: url(../image/lys/png9.png) no-repeat center;
+    background: url(../img/lys/png9.png) no-repeat center;
     position: absolute;
     top: 0;
     left: 50%;
@@ -18257,7 +18257,7 @@ body:not(.lang-en) .universal3 .tbox .pbox {
     width: 551px;
     position: relative;
     overflow: hidden;
-    background: url(../image/lys/jpg33.jpg) no-repeat center;
+    background: url(../img/lys/jpg33.jpg) no-repeat center;
     background-size: cover
 }
 
@@ -18280,7 +18280,7 @@ body:not(.lang-en) .universal3 .tbox .pbox {
 }
 
 .universal4 .tracker-mod .tracker-item:nth-child(2n) .img {
-    background-image: url(../image/lys/jpg32.jpg)
+    background-image: url(../img/lys/jpg32.jpg)
 }
 
 .universal4 .t {
@@ -18382,7 +18382,7 @@ body:not(.lang-en) .universal3 .tbox .pbox {
 }
 
 .universal5 {
-    background: url(../image/lys/jpg18.jpg) no-repeat center;
+    background: url(../img/lys/jpg18.jpg) no-repeat center;
     background-size: cover
 }
 
@@ -18404,7 +18404,7 @@ body:not(.lang-en) .universal3 .tbox .pbox {
     content: '';
     width: 26px;
     height: 87px;
-    background: url(../image/lys/png8.png) no-repeat center;
+    background: url(../img/lys/png8.png) no-repeat center;
     position: absolute;
     top: 0;
     left: 50px
@@ -18462,7 +18462,7 @@ body:not(.lang-en) .universal5 .txt_box {
 }
 
 .universal6 {
-    background: url(../image/lys/jpg19.jpg) no-repeat center;
+    background: url(../img/lys/jpg19.jpg) no-repeat center;
     background-size: cover;
     padding: 175px 0 172px;
     position: relative
@@ -18472,7 +18472,7 @@ body:not(.lang-en) .universal5 .txt_box {
     content: '';
     width: 26px;
     height: 87px;
-    background: url(../image/lys/png8.png) no-repeat center;
+    background: url(../img/lys/png8.png) no-repeat center;
     position: absolute;
     top: 0;
     left: 50%;
@@ -18531,7 +18531,7 @@ body:not(.lang-en) .universal5 .txt_box {
 }
 
 .universal7 {
-    background: url(../image/lys/jpg20.jpg) no-repeat center;
+    background: url(../img/lys/jpg20.jpg) no-repeat center;
     background-size: cover;
     padding: 175px 0 180px;
     position: relative;
@@ -18542,7 +18542,7 @@ body:not(.lang-en) .universal5 .txt_box {
     content: '';
     width: 26px;
     height: 87px;
-    background: url(../image/lys/png9.png) no-repeat center;
+    background: url(../img/lys/png9.png) no-repeat center;
     position: absolute;
     top: 0;
     left: 50%;
@@ -19226,7 +19226,7 @@ body:not(.lang-en) .volunteers .volbox1 .box .txt_box .p {
 .volunteers .volbox2 .bg {
     width: 1780px;
     height: 1022px;
-    background: url(../image/lys/png3.png) no-repeat center;
+    background: url(../img/lys/png3.png) no-repeat center;
     position: absolute;
     top: 59px;
     right: -360px
@@ -20172,7 +20172,7 @@ body:not(.lang-en) .liuyan2 .item .rl .txt {
     position: absolute;
     width: 382px;
     height: 146px;
-    background: url(../image/jjl/icon1.png) no-repeat center;
+    background: url(../img/jjl/icon1.png) no-repeat center;
     background-size: contain;
     left: 182px;
     top: 0
@@ -20734,7 +20734,7 @@ body:not(.lang-en) .long_context3 .text .p {
     }
 
     .long_context_bgi {
-        background: url(../image/jjl/long_context14.png) no-repeat top center;
+        background: url(../img/jjl/long_context14.png) no-repeat top center;
         background-size: 100% auto
     }
 
@@ -20745,7 +20745,7 @@ body:not(.lang-en) .long_context3 .text .p {
         bottom: 0;
         left: 0;
         right: 0;
-        background: url(../image/jjl/long_context3.jpg);
+        background: url(../img/jjl/long_context3.jpg);
         background-size: 100% auto
     }
 
@@ -21329,7 +21329,7 @@ body:not(.lang-en) .about1 .box .txt {
     position: absolute;
     width: 100%;
     height: 200px;
-    background: url(../image/jjl/btn1.png) no-repeat center;
+    background: url(../img/jjl/btn1.png) no-repeat center;
     background-size: contain;
     top: 7%;
     left: 0
@@ -21412,7 +21412,7 @@ body:not(.lang-en) .about3 .txt {
     right: 0;
     bottom: 0;
     left: 0;
-    background: url(../image/jjl/about1.png) no-repeat center;
+    background: url(../img/jjl/about1.png) no-repeat center;
     background-size: cover;
     z-index: 1
 }
@@ -22026,14 +22026,14 @@ body:not(.lang-en) .about7 .top .tit {
 }
 
 .x-layout.bg1 .x-header .nav_child {
-    background: url(../image/bg1_7.jpg) no-repeat center bottom/cover
+    background: url(../img/bg1_7.jpg) no-repeat center bottom/cover
 }
 
 .activity_detail1 {
     position: relative;
     padding-top: 170px;
     padding-bottom: 368px;
-    background: url(../image/xf/bg11.jpg) center bottom no-repeat;
+    background: url(../img/xf/bg11.jpg) center bottom no-repeat;
     background-size: cover;
     color: #fff
 }
@@ -22045,7 +22045,7 @@ body:not(.lang-en) .about7 .top .tit {
     right: 0;
     top: 0;
     height: 165px;
-    background: url(../image/xf/bg6.jpg) center no-repeat;
+    background: url(../img/xf/bg6.jpg) center no-repeat;
     background-size: cover
 }
 
@@ -22079,7 +22079,7 @@ body:not(.lang-en) .about7 .top .tit {
     right: 0;
     top: 0;
     padding-top: 123.1975%;
-    background: url(../image/xf/png21.png) no-repeat;
+    background: url(../img/xf/png21.png) no-repeat;
     background-size: contain
 }
 
@@ -22208,7 +22208,7 @@ body:not(.lang-en) .activity_detail1 .view .cont .p {
 .activity_detail1 .view .cont .p2 .a {
     display: block;
     width: 98px;
-    background: url(../image/xf/png26.png) no-repeat;
+    background: url(../img/xf/png26.png) no-repeat;
     background-size: 100% 100%;
     line-height: 32px;
     text-align: center
@@ -22393,7 +22393,7 @@ body:not(.lang-en) .activity_detail1 .view .cont .p {
 .activity_detail2 {
     padding-top: 105px;
     padding-bottom: 130px;
-    background: url(../image/xf/bg12.jpg) center bottom no-repeat;
+    background: url(../img/xf/bg12.jpg) center bottom no-repeat;
     background-size: cover;
     color: #fff
 }
@@ -22483,7 +22483,7 @@ body:not(.lang-en) .activity_detail2 .tit .p {
     margin-top: -45px;
     width: 1920px;
     height: 230px;
-    background: url(../image/xf/png28.png) center no-repeat;
+    background: url(../img/xf/png28.png) center no-repeat;
     -webkit-transition: all 1s;
     transition: all 1s;
     -webkit-transform: translateX(-50%) scale(0);
@@ -22682,7 +22682,7 @@ body:not(.lang-en) .activity_detail2 .tit .p {
 
 .activity_detail2 .unit2 .pic {
     padding: 17px 19px;
-    background: url(../image/xf/png27.png) no-repeat;
+    background: url(../img/xf/png27.png) no-repeat;
     background-size: contain
 }
 
@@ -22970,7 +22970,7 @@ body:not(.lang-en) .activity_detail2 .tit .p {
 .activity_forecast1 {
     position: relative;
     padding-top: 170px;
-    background: url(../image/xf/bg7.jpg) center 165px no-repeat;
+    background: url(../img/xf/bg7.jpg) center 165px no-repeat;
     background-size: cover;
     color: #fff
 }
@@ -22982,7 +22982,7 @@ body:not(.lang-en) .activity_detail2 .tit .p {
     right: 0;
     top: 0;
     height: 165px;
-    background: url(../image/xf/bg6.jpg) center no-repeat;
+    background: url(../img/xf/bg6.jpg) center no-repeat;
     background-size: cover
 }
 
@@ -22994,7 +22994,7 @@ body:not(.lang-en) .activity_detail2 .tit .p {
     bottom: 0;
     margin-bottom: -1px;
     height: 223px;
-    background: url(../image/xf/png12.png) center no-repeat;
+    background: url(../img/xf/png12.png) center no-repeat;
     background-size: 100% 100%
 }
 
@@ -23030,7 +23030,7 @@ body:not(.lang-en) .activity_detail2 .tit .p {
 .activity_forecast1 .view {
     position: relative;
     margin-top: 75px;
-    background: url(../image/xf/png17.png) center top no-repeat;
+    background: url(../img/xf/png17.png) center top no-repeat;
     background-size: 100%
 }
 
@@ -23289,7 +23289,7 @@ body:not(.lang-en) .activity_forecast1 .view .slick-item .p {
 
 .activity_forecast2 {
     padding-bottom: 80px;
-    background: url(../image/xf/png18.png) no-repeat center top/cover;
+    background: url(../img/xf/png18.png) no-repeat center top/cover;
     color: #fff
 }
 
@@ -23775,7 +23775,7 @@ body:not(.lang-en) .activity_forecast2 .li .p {
     content: '';
     width: 81px;
     height: 41px;
-    background: url(../image/more1.png) no-repeat center
+    background: url(../img/more1.png) no-repeat center
 }
 
 .announcement .list .lcont {
@@ -23817,7 +23817,7 @@ body:not(.lang-en) .announcement .list .lcont .p {
     }
 
     .announcement .list .li:hover .ltit a::after {
-        background-image: url(../image/lys/png1.png);
+        background-image: url(../img/lys/png1.png);
 
         -webkit-animation: more1 0.5s ease-out 0s 1 both;
         animation: more1 0.5s ease-out 0s 1 both
@@ -23881,7 +23881,7 @@ body:not(.lang-en) .announcement .list .lcont .p {
 .activity_registration1 {
     position: relative;
     padding: 170px 0 120px;
-    background: url(../image/xf/bg4.jpg) center 165px no-repeat;
+    background: url(../img/xf/bg4.jpg) center 165px no-repeat;
     background-size: cover;
     color: #fff
 }
@@ -23893,7 +23893,7 @@ body:not(.lang-en) .announcement .list .lcont .p {
     right: 0;
     top: 0;
     height: 165px;
-    background: url(../image/xf/bg6.jpg) center no-repeat;
+    background: url(../img/xf/bg6.jpg) center no-repeat;
     background-size: cover
 }
 
@@ -23927,7 +23927,7 @@ body:not(.lang-en) .announcement .list .lcont .p {
     margin-top: 50px;
     padding: 142px 170px 0;
     height: 934px;
-    background: url(../image/xf/png9.png) center no-repeat;
+    background: url(../img/xf/png9.png) center no-repeat;
     background-size: 100% 100%
 }
 
@@ -24143,7 +24143,7 @@ body:not(.lang-en) .announcement .list .lcont .p {
     margin: auto;
     margin-top: 38px;
     width: 186px;
-    background: url(../image/xf/png10.png) no-repeat;
+    background: url(../img/xf/png10.png) no-repeat;
     background-size: contain;
     font-size: 20px;
     line-height: 45px;
@@ -24916,7 +24916,7 @@ body:not(.lang-en) .articles_association .txt_cont .pbox {
 .basic_display1 .tab-cont1 .tab-item .pic {
     width: 100%;
     height: auto;
-    cursor: url(../image/jjl/cur2.png), pointer !important;
+    cursor: url(../img/jjl/cur2.png), pointer !important;
     margin-top: -12%
 }
 
@@ -25375,7 +25375,7 @@ body:not(.lang-en) .collection2 .list .scroll .item .h {
 }
 
 .collection2 .list .scroll .item .mask {
-    background: url(../image/baiy/bg3.jpg) no-repeat center center/cover;
+    background: url(../img/baiy/bg3.jpg) no-repeat center center/cover;
     color: #fff;
     opacity: 0;
     visibility: hidden;
@@ -25432,7 +25432,7 @@ body:not(.lang-en) .collection2 .list .scroll .item .h {
 }
 
 .collection2 .list .scroll .item:last-child .inner {
-    background: url(../image/baiy/bg1.jpg) no-repeat center center/cover;
+    background: url(../img/baiy/bg1.jpg) no-repeat center center/cover;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -25494,7 +25494,7 @@ body:not(.lang-en) .collection2 .list .scroll .item .h {
 }
 
 .collection3 .list .item .bg {
-    background: url(../image/baiy/png6_1.png) no-repeat center center/80% auto;
+    background: url(../img/baiy/png6_1.png) no-repeat center center/80% auto;
     position: absolute;
     padding-top: 90%;
     left: 5%;
@@ -25507,7 +25507,7 @@ body:not(.lang-en) .collection2 .list .scroll .item .h {
 
 .collection3 .list .item .bg::after {
     content: "";
-    background: url(../image/baiy/png6_2.png) no-repeat center center/100% auto;
+    background: url(../img/baiy/png6_2.png) no-repeat center center/100% auto;
     position: absolute;
     left: 0%;
     right: 0%;
@@ -25574,7 +25574,7 @@ body:not(.lang-en) .collection2 .list .scroll .item .h {
 }
 
 .collection4 {
-    background: url(../image/baiy/bg2.jpg) no-repeat center center/cover;
+    background: url(../img/baiy/bg2.jpg) no-repeat center center/cover;
     position: relative;
     height: 100vh;
     min-height: 40vw;
@@ -25587,7 +25587,7 @@ body:not(.lang-en) .collection2 .list .scroll .item .h {
     top: 50%;
     width: calc(1006 / 1920 * 95vw);
     height: calc(1006 / 1920 * 95vw);
-    background: url(../image/baiy/png5_2.png) no-repeat center center/contain;
+    background: url(../img/baiy/png5_2.png) no-repeat center center/contain;
     margin: calc(1006 / 1920 * -46vw) 0 0 calc(1006 / 1920 * -47vw)
 }
 
@@ -25597,7 +25597,7 @@ body:not(.lang-en) .collection2 .list .scroll .item .h {
     top: 50%;
     width: calc(1444 / 1920 * 95vw);
     height: calc(1444 / 1920 * 95vw);
-    background: url(../image/baiy/png5_1.png) no-repeat center center/contain;
+    background: url(../img/baiy/png5_1.png) no-repeat center center/contain;
     margin: calc(1444 / 1920 * -46vw) 0 0 calc(1444 / 1920 * -47vw);
     -webkit-animation: ro 30s linear 0s infinite;
     animation: ro 30s linear 0s infinite
@@ -25609,7 +25609,7 @@ body:not(.lang-en) .collection2 .list .scroll .item .h {
     top: 50%;
     width: calc(726 / 1920 * 95vw);
     height: calc(726 / 1920 * 95vw);
-    background: url(../image/baiy/png5_3.png) no-repeat center center/contain;
+    background: url(../img/baiy/png5_3.png) no-repeat center center/contain;
     margin: calc(726 / 1920 * -46vw) 0 0 calc(726 / 1920 * -47vw);
     display: -webkit-box;
     display: -ms-flexbox;
@@ -25839,7 +25839,7 @@ body:not(.lang-en) .collection2 .list .scroll .item .h {
     .collection2 .list .scroll .item:nth-last-child() .mask {
         opacity: 1;
         visibility: visible;
-        background: url(../image/baiy/bg1.jpg) no-repeat center center/cover
+        background: url(../img/baiy/bg1.jpg) no-repeat center center/cover
     }
 
     .collection2 .list .scroll .item:hover .h {
@@ -25912,7 +25912,7 @@ body:not(.lang-en) .collection2 .list .scroll .item .h {
 .collection_detail1 {
     position: relative;
     height: 100vh;
-    background: url(../image/xf/bg1.jpg) center top no-repeat;
+    background: url(../img/xf/bg1.jpg) center top no-repeat;
     background-size: cover;
     color: #fff;
     z-index: 1
@@ -25936,7 +25936,7 @@ body:not(.lang-en) .collection2 .list .scroll .item .h {
     margin-left: -250px;
     width: 1211px;
     height: 523px;
-    background-image: url(../image/xf/p2.png);
+    background-image: url(../img/xf/p2.png);
     -webkit-transform: translateX(30vw);
     transform: translateX(30vw)
 }
@@ -25946,7 +25946,7 @@ body:not(.lang-en) .collection2 .list .scroll .item .h {
     margin-right: -55px;
     width: 1016px;
     height: 194px;
-    background-image: url(../image/xf/p1.png);
+    background-image: url(../img/xf/p1.png);
     -webkit-transform: translateX(-30vw);
     transform: translateX(-30vw)
 }
@@ -25974,7 +25974,7 @@ body:not(.lang-en) .collection2 .list .scroll .item .h {
     margin-left: 120px;
     width: 350px;
     height: 350px;
-    background: url(../image/xf/bg2.jpg);
+    background: url(../img/xf/bg2.jpg);
     border-radius: 50%;
     opacity: 0;
     -webkit-transition: all 2s 3.5s ease-out;
@@ -26163,7 +26163,7 @@ body:not(.lang-en) .collection2 .list .scroll .item .h {
     -ms-flex-align: center;
     align-items: center;
     padding-right: 260px;
-    background: url(../image/xf/bg13.jpg) no-repeat;
+    background: url(../img/xf/bg13.jpg) no-repeat;
     background-size: cover
 }
 
@@ -26351,7 +26351,7 @@ body:not(.lang-en) .collection_detail2 .slick-item .c {
 }
 
 .collection_detail3 .unit1 {
-    background: url(../image/xf/bg14.jpg) no-repeat;
+    background: url(../img/xf/bg14.jpg) no-repeat;
     background-size: cover
 }
 
@@ -26455,7 +26455,7 @@ body:not(.lang-en) .collection_detail2 .slick-item .c {
 .collection_detail3 .pad .v {
     position: relative;
     margin-top: 30px;
-    background: url(../image/xf/png4.png) no-repeat;
+    background: url(../img/xf/png4.png) no-repeat;
     background-size: contain
 }
 
@@ -26565,7 +26565,7 @@ body:not(.lang-en) .collection_detail2 .slick-item .c {
 }
 
 .collection_detail4 .unit1 {
-    background: url(../image/xf/bg15.jpg) no-repeat;
+    background: url(../img/xf/bg15.jpg) no-repeat;
     background-size: cover
 }
 
@@ -26655,7 +26655,7 @@ body:not(.lang-en) .collection_detail2 .slick-item .c {
     right: 0;
     top: 0;
     bottom: 0;
-    background: url(../image/xf/png8.png) center no-repeat;
+    background: url(../img/xf/png8.png) center no-repeat;
     background-size: contain
 }
 
@@ -27363,16 +27363,16 @@ body:not(.lang-en) .collection_detail2 .slick-item .c {
 }
 
 .x-layout.wmyl {
-    background: url(../image/lys/jpg34.jpg) no-repeat top center;
+    background: url(../img/lys/jpg34.jpg) no-repeat top center;
     background-size: cover
 }
 
 .x-layout.wmyl .x-header2 .nav-mod .bg {
-    background-image: url(../image/lys/png25.png)
+    background-image: url(../img/lys/png25.png)
 }
 
 .x-layout.wmyl .x-header2 .nav_child {
-    background-image: url(../image/lys/jpg35.jpg)
+    background-image: url(../img/lys/jpg35.jpg)
 }
 
 .x-layout.wmyl .cradle1 {
@@ -27444,7 +27444,7 @@ body:not(.lang-en) .collection_detail2 .slick-item .c {
 .x-layout.wmyl .cradle2 .cont .before {
     width: 551px;
     padding-top: calc(1200 / 551 * 551px);
-    background: url(../image/lys/png14.png) no-repeat center;
+    background: url(../img/lys/png14.png) no-repeat center;
     top: -111px;
     right: 72.5%
 }
@@ -27453,7 +27453,7 @@ body:not(.lang-en) .collection_detail2 .slick-item .c {
     width: 55.0833%;
     position: relative;
     overflow: hidden;
-    background: url(../image/lys/png15.png) no-repeat center;
+    background: url(../img/lys/png15.png) no-repeat center;
     top: 2px;
     right: 17.25%;
     background-size: contain
@@ -27597,7 +27597,7 @@ body:not(.lang-en) .collection_detail2 .slick-item .c {
     content: '';
     width: 101px;
     height: 113px;
-    background: url(../image/lys/png19.png) no-repeat center;
+    background: url(../img/lys/png19.png) no-repeat center;
     background-size: contain
 }
 
@@ -27656,7 +27656,7 @@ body:not(.lang-en) .collection_detail2 .slick-item .c {
     content: '';
     width: 101px;
     height: 113px;
-    background: url(../image/lys/png20.png) no-repeat center;
+    background: url(../img/lys/png20.png) no-repeat center;
     background-size: contain
 }
 
@@ -28182,16 +28182,16 @@ body:not(.lang-en) .x-layout.wmyl .cradle3 .txt_box .box2 .p {
 }
 
 .x-layout.dhxf {
-    background: url(../image/xf/bg21.jpg) center top no-repeat
+    background: url(../img/xf/bg21.jpg) center top no-repeat
 }
 
 .x-layout.dhxf .x-header2 .nav-mod .bg {
     padding-top: calc(285 / 1920 * 100vw);
-    background-image: url(../image/xf/png58.png)
+    background-image: url(../img/xf/png58.png)
 }
 
 .x-layout.dhxf .x-header2 .nav_child {
-    background: url(../image/bg1_2.jpg) no-repeat center bottom/cover
+    background: url(../img/bg1_2.jpg) no-repeat center bottom/cover
 }
 
 .x-layout.dhxf .x-footer {
@@ -28218,7 +28218,7 @@ body:not(.lang-en) .x-layout.wmyl .cradle3 .txt_box .box2 .p {
     margin-left: -50vw;
     width: 100vw;
     height: 860px;
-    background: url(../image/xf/png60.png) center bottom no-repeat
+    background: url(../img/xf/png60.png) center bottom no-repeat
 }
 
 .x-layout.dhxf .special_bottom .nav {
@@ -28255,13 +28255,13 @@ body:not(.lang-en) .x-layout.wmyl .cradle3 .txt_box .box2 .p {
     top: 100%;
     width: 80px;
     height: 102px;
-    background: url(../image/xf/png62.png) no-repeat
+    background: url(../img/xf/png62.png) no-repeat
 }
 
 .dhxf1 {
     position: relative;
     height: 1280px;
-    background: url(../image/xf/img18.jpg) center top no-repeat;
+    background: url(../img/xf/img18.jpg) center top no-repeat;
     color: #fff
 }
 
@@ -28519,7 +28519,7 @@ body:not(.lang-en) .x-layout.wmyl .cradle3 .txt_box .box2 .p {
     position: relative;
     padding-top: 320px;
     padding-bottom: 265px;
-    background: url(../image/xf/bg20.jpg) center top no-repeat;
+    background: url(../img/xf/bg20.jpg) center top no-repeat;
     color: #fff
 }
 
@@ -28760,7 +28760,7 @@ body:not(.lang-en) .dhxf3 .slick-item .p {
     right: 0;
     top: 0;
     height: 1246px;
-    background: url(../image/xf/png78.png) center top no-repeat
+    background: url(../img/xf/png78.png) center top no-repeat
 }
 
 .dhxf4 .wrap {
@@ -28909,7 +28909,7 @@ body:not(.lang-en) .dhxf4 .unit .l .p {
     margin-left: -70px;
     padding-top: 106.41%;
     width: 106.41%;
-    background-image: url(../image/xf/png71.png)
+    background-image: url(../img/xf/png71.png)
 }
 
 .dhxf4 .unit1 .slick-item {
@@ -28953,7 +28953,7 @@ body:not(.lang-en) .dhxf4 .unit .l .p {
     top: 50%;
     padding-top: 121.1538%;
     width: 121.1538%;
-    background-image: url(../image/xf/png72.png);
+    background-image: url(../img/xf/png72.png);
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%)
 }
@@ -29089,7 +29089,7 @@ body:not(.lang-en) .dhxf4 .slick-item .p {
 
 .dhxf5 .slick-mod {
     margin-top: 60px;
-    background: url(../image/xf/png76.png) no-repeat;
+    background: url(../img/xf/png76.png) no-repeat;
     background-size: contain
 }
 
@@ -29392,7 +29392,7 @@ body:not(.lang-en) .dhxf4 .slick-item .p {
     .dhxf1 {
         padding-top: 117.552%;
         height: auto;
-        background-image: url(../image/xf/img19.jpg);
+        background-image: url(../img/xf/img19.jpg);
         background-size: contain
     }
 
@@ -29706,7 +29706,7 @@ body:not(.lang-en) .dhxf4 .slick-item .p {
 }
 
 .x-layout.dtyb {
-    background: url(../image/xf/bg18.jpg) center top
+    background: url(../img/xf/bg18.jpg) center top
 }
 
 .x-layout.dtyb .x-header2 .nav-mod .bg {
@@ -29714,7 +29714,7 @@ body:not(.lang-en) .dhxf4 .slick-item .p {
 }
 
 .x-layout.dtyb .x-footer {
-    background: url(../image/xf/bg17.jpg) no-repeat center center/cover;
+    background: url(../img/xf/bg17.jpg) no-repeat center center/cover;
     border-color: #7f3222;
     color: #fff
 }
@@ -29722,7 +29722,7 @@ body:not(.lang-en) .dhxf4 .slick-item .p {
 .dtyb1 {
     position: relative;
     height: 1202px;
-    background: url(../image/xf/img10.jpg) center no-repeat
+    background: url(../img/xf/img10.jpg) center no-repeat
 }
 
 .dtyb1 .p {
@@ -30974,7 +30974,7 @@ body:not(.lang-en) .dtyb5 .tit .more1 {
 }
 
 .x-layout.dfdg .x-header2 .nav-mod .bg {
-    background-image: url(../image/jjl/head1.png)
+    background-image: url(../img/jjl/head1.png)
 }
 
 .x-layout.dfdg .x-footer {
@@ -30984,7 +30984,7 @@ body:not(.lang-en) .dtyb5 .tit .more1 {
 }
 
 .x-layout.dfdg .x-header2 .nav_child {
-    background: url(../image/bg1_4.jpg) no-repeat center bottom/cover
+    background: url(../img/bg1_4.jpg) no-repeat center bottom/cover
 }
 
 .eastern_empire1 {
@@ -31329,7 +31329,7 @@ body:not(.lang-en) .eastern_empire2 .mar_box .list .item .tit2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(../image/jjl/x.svg) no-repeat center;
+    background: url(../img/jjl/x.svg) no-repeat center;
     background-size: cover
 }
 
@@ -31758,7 +31758,7 @@ body:not(.lang-en) .eastern_empire2 .mar_box .list .item .tit2 {
 }
 
 .exhibition_tang1 .box {
-    background: url(../image/baiy/png13.png) no-repeat center center/cover;
+    background: url(../img/baiy/png13.png) no-repeat center center/cover;
     width: 857px;
     height: 547px;
     position: absolute;
@@ -31824,7 +31824,7 @@ body:not(.lang-en) .eastern_empire2 .mar_box .list .item .tit2 {
 }
 
 .exhibition_tang1 .box .btns i {
-    background: url(../image/baiy/png14_3.png) no-repeat center center;
+    background: url(../img/baiy/png14_3.png) no-repeat center center;
     width: 94px;
     height: 9px;
     margin: 0 15px 8px
@@ -31832,7 +31832,7 @@ body:not(.lang-en) .eastern_empire2 .mar_box .list .item .tit2 {
 
 .exhibition_tang2 {
     padding: 8vw 0 0;
-    background: url(../image/baiy/bg5.jpg) no-repeat center top/cover
+    background: url(../img/baiy/bg5.jpg) no-repeat center top/cover
 }
 
 .exhibition_tang2 .des {
@@ -31981,7 +31981,7 @@ body:not(.lang-en) .eastern_empire2 .mar_box .list .item .tit2 {
 }
 
 .exhibition_tang3 .focus:nth-child(1) {
-    background: url(../image/baiy/bg7_1.jpg) no-repeat center center/cover
+    background: url(../img/baiy/bg7_1.jpg) no-repeat center center/cover
 }
 
 .exhibition_tang3 .focus:nth-child(1) .slick-arrow {
@@ -31989,7 +31989,7 @@ body:not(.lang-en) .eastern_empire2 .mar_box .list .item .tit2 {
 }
 
 .exhibition_tang3 .focus:nth-child(2) {
-    background: url(../image/baiy/bg7_2.jpg) no-repeat center center/cover
+    background: url(../img/baiy/bg7_2.jpg) no-repeat center center/cover
 }
 
 .exhibition_tang3 .focus:nth-child(2) .slick-arrow {
@@ -31997,7 +31997,7 @@ body:not(.lang-en) .eastern_empire2 .mar_box .list .item .tit2 {
 }
 
 .exhibition_tang3 .focus:nth-child(3) {
-    background: url(../image/baiy/bg7_3.jpg) no-repeat center center/cover
+    background: url(../img/baiy/bg7_3.jpg) no-repeat center center/cover
 }
 
 .exhibition_tang3 .focus:nth-child(3) .slick-arrow {
@@ -32005,7 +32005,7 @@ body:not(.lang-en) .eastern_empire2 .mar_box .list .item .tit2 {
 }
 
 .exhibition_tang3 .focus:nth-child(4) {
-    background: url(../image/baiy/bg7_1.jpg) no-repeat center center/cover
+    background: url(../img/baiy/bg7_1.jpg) no-repeat center center/cover
 }
 
 .exhibition_tang3 .focus:nth-child(4) .slick-arrow {
@@ -32013,7 +32013,7 @@ body:not(.lang-en) .eastern_empire2 .mar_box .list .item .tit2 {
 }
 
 .exhibition_tang3 .focus:nth-child(5) {
-    background: url(../image/baiy/bg7_2.jpg) no-repeat center center/cover
+    background: url(../img/baiy/bg7_2.jpg) no-repeat center center/cover
 }
 
 .exhibition_tang3 .focus:nth-child(5) .slick-arrow {
@@ -32021,7 +32021,7 @@ body:not(.lang-en) .eastern_empire2 .mar_box .list .item .tit2 {
 }
 
 .exhibition_tang3 .focus:nth-child(6) {
-    background: url(../image/baiy/bg7_3.jpg) no-repeat center center/cover
+    background: url(../img/baiy/bg7_3.jpg) no-repeat center center/cover
 }
 
 .exhibition_tang3 .focus:nth-child(6) .slick-arrow {
@@ -32029,7 +32029,7 @@ body:not(.lang-en) .eastern_empire2 .mar_box .list .item .tit2 {
 }
 
 .exhibition_tang4 {
-    background: url(../image/baiy/bg6.jpg) no-repeat center top/cover;
+    background: url(../img/baiy/bg6.jpg) no-repeat center top/cover;
     padding-bottom: 100px
 }
 
