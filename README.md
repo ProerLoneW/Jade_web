@@ -6,6 +6,27 @@
 ~~~
 pip install -r requirements.txt
 ~~~
+### 数据库配置
+本项目使用MySql数据库，安装配置请查阅互联网资料  
+打开app.py
+~~~python
+# MySQL 数据库连接配置
+db_config={
+    'user':'root',
+    'password':'password',#这里改成自己的数据库密码
+    'host':'localhost',
+    'port':3306,
+    'database': 'database_name',#这里改成自己的数据库名字
+    'charset':'utf8mb4'}
+~~~
+如果先前没有运行过此文件，初次运行自动生成所有表格及关系。  
+如果在旧版本在本地运行过，那么需要进行数据库迁移。不过有更简单的办法：先清除已有数据库再重新建立  
+~~~python
+# 这是删除所有数据的操作，不到万不得已千万不要做
+# 如果之前创建过同名数据库且不明白如何数据库迁移，可以把下面一句注释去掉，运行清除之前的表并创建新表，然后记得加上注释
+# Base.metadata.drop_all(engine)
+~~~
+
 ## 运行
 打开app.py文件，命令行运行
 ~~~
