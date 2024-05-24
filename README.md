@@ -60,8 +60,8 @@ route括号里的就是路由，也就是超链接里应该放的东西
 - forum.html 论坛首页，就是进入论坛的页面
 - forum_read.html 论坛阅读页，就是点进去一个帖子的页面
 - forum_post.html 论坛发布页，就是发布一个帖子的页面
-- profile.html
-- collection_detail.html
+- profile.html个人主页
+- collection_detail.html 藏品点进去的详情页
 - 其他在计划中的网页
 
 
