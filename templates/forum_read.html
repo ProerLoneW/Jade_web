@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+    <style>
+        .post {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .comment {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .comment img {
+            max-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="post">
+        <p><a href="{{ url_for('profile', username=post.author.username) }}">{{ post.author.username }}</a> {{ post.timestamp|date }}</p>
+        <h1>{{ post.title }}</h1>
+        <p>{{ post.content }}</p>
+        {% if post.images %}
+            {% for image in post.images %}
+                <img src="{{ url_for('static', filename=image.file_path) }}" alt="Post Image">
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div class="comments">
+        <h2>评论</h2>
+        {% for comment in post.comments %}
+            <div class="comment">
+                <p>{{ comment.author.username }} {{ comment.timestamp|date }}</p>
+                <p>{{ comment.content }}</p>
+                {% if comment.images %}
+                    {% for image in comment.images %}
+                        <img src="{{ url_for('static', filename=image.file_path) }}" alt="Comment Image">
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="add-comment">
+        <h2>发表评论</h2>
+        <form method="post" action="{{ url_for('comment_post', post_id=post.id) }}" enctype="multipart/form-data">
+            <textarea name="content" rows="4" cols="50" placeholder="输入你的评论"></textarea><br>
+            <label for="images">最多选择三张照片:</label>
+            <input type="file" id="images" name="images" multiple accept="image/*"><br>
+            <button type="submit">发表评论</button>
+        </form>
+    </div>
+</body>
+</html>

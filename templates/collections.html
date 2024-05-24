@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>藏品展示</title>
+    <style>
+        .collection {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .collection img {
+            max-width: 100%;
+            height: auto;
+        }
+        .collections {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .collections .collection {
+            flex: 1 1 calc(33.333% - 10px);
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <h1>藏品展示</h1>
+    <div class="collections">
+        {% for collection in collections %}
+            <div class="collection">
+                <h2><a href="{{ url_for('collection_detail', collection_id=collection.id) }}">{{ collection.name }}</a></h2>
+                <img src="{{ url_for('static', filename=collection.image_path) }}" alt="{{ collection.name }}">
+            </div>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        {% if prev_url %}
+            <a href="{{ prev_url }}">上一页</a>
+        {% endif %}
+        {% if next_url %}
+            <a href="{{ next_url }}">下一页</a>
+        {% endif %}
+    </div>
+</body>
+</html>

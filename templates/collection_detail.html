@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ collection.name }}</title>
+</head>
+<body>
+    <h1>{{ collection.name }}</h1>
+    <img src="{{ url_for('static', filename=collection.image_path) }}" alt="{{ collection.name }}">
+    <p>{{ collection.description }}</p>
+</body>
+</html>

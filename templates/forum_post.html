@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在这里发布你的帖子</title>
+</head>
+<body>
+    <h1>在这里发布你的帖子</h1>
+    <form method="post" action="{{ url_for('forum_post') }}" enctype="multipart/form-data">
+        <label for="title">标题</label>
+        <input type="text" id="title" name="title" required><br>
+        <label for="content">正文</label>
+        <textarea id="content" name="content" required></textarea><br>
+        <input type="file" name="images" multiple><br>
+        <small>最多选择九张照片</small><br>
+        <button type="submit">发布</button>
+    </form>
+</body>
+</html>
