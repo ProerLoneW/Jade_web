@@ -85,4 +85,8 @@ route括号里的就是路由，也就是超链接里应该放的东西
 - collection_detail.html 藏品点进去的详情页
 - 其他在计划中的网页
 
+### 5.26更新
+论坛首页、论坛阅读页，评论，个人空间用户名前显示头像
+<img src="readme.img/avator.png">
+
 

@@ -19,6 +19,11 @@
         }
         .edit-section {
             display: none;
+        
+        }
+        .avatar {
+            vertical-align: middle;
+            height: 1em;
         }
     </style>
     <script>
@@ -118,7 +123,12 @@
         <h2>{% if is_self %}我发布的帖子{% else %}TA发布的帖子{% endif %}（{{ posts|length }}）</h2>
         {% for post in posts %}
             <div class="post">
-                <h3><a href="{{ url_for('read_post', post_id=post.id) }}">{{ post.title }}</a></h3>
+                <h3>
+                    {% if post.author.avatar %}
+                        <img src="{{ url_for('static', filename=post.author.avatar) }}" alt="Avatar" class="avatar">
+                    {% endif %}
+                    <a href="{{ url_for('read_post', post_id=post.id) }}">{{ post.title }}</a>
+                </h3>
                 <p>{{ post.content[:100] }}...</p>
                 {% if is_self %}
                     <form method="post" action="{{ url_for('self_delete_post', post_id=post.id) }}" style="display:inline;">
