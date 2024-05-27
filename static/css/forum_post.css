@@ -1,0 +1,128 @@
+* {
+    box-sizing: border-box;
+    transition: all 0.3s ease; /* 添加过渡效果 */
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #79ca78, #b6e1b5); /* 渐变背景色 */
+    min-height: 100vh; /* 确保背景覆盖整个视口 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#WholePage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* 头部 */
+.Head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed; /* 使头部固定在页面顶部 */
+    top: -100px; /* 初始位置在页面之外 */
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+    transition: top 0.3s ease; /* 添加位置过渡效果 */
+}
+.Logo {
+    width: 60px;
+    height: auto;
+}
+.User-Head {
+    width: 45px;
+    height: auto;
+    border-radius: 50%;
+}
+.Head-Jump {
+    display: flex;
+    gap: 40px;
+}
+.Head-Jump a {
+    text-decoration: none;
+    color: #79ac78;
+    font-size: 20px;
+    transition: color 0.3s ease; /* 添加颜色过渡效果 */
+}
+.Head-Jump a:hover {
+    color: #618264;
+}
+/* 发布帖子区域 */
+.Post-Container {
+    background-color: #ffffff;
+    width: 60%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* 添加过渡效果 */
+}
+.Post-Container:hover {
+    transform: translateY(-10px); /* 添加悬停效果 */
+}
+.Post-Container h1 {
+    text-align: center;
+    color: #79ac78;
+}
+.Post-Container form {
+    display: flex;
+    flex-direction: column;
+}
+.Post-Container label {
+    margin: 10px 0 5px;
+    color: #333333;
+}
+.Post-Container input[type="text"],
+.Post-Container textarea {
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.Post-Container textarea {
+    height: 200px; /* 调整正文框的高度 */
+}
+.Post-Container input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    background-color: #79ac78;
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 90px; /* 调整按钮宽度 */
+    transition: background-color 0.3s ease; /* 添加背景色过渡效果 */
+}
+.custom-file-upload:hover {
+    background-color: #618264;
+}
+.Post-Container small {
+    color: #666666;
+    margin-bottom: 15px;
+}
+.Post-Container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #79ac78;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 添加背景色过渡效果 */
+}
+.Post-Container button:hover {
+    background-color: #618264;
+}
