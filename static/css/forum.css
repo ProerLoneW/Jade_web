@@ -1,0 +1,456 @@
+*{
+    margin: 0;
+    padding: 0;
+}   /*内外边距*/
+
+body,
+section{
+    overflow-x: hidden;
+    block-size: 100%;
+}
+.post_button{
+    position: absolute;
+    top:110%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    line-height: 40px;
+    color: #ffffff;
+    font-size:50px;
+    text-decoration: none;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    background: linear-gradient(90deg,#2a7f22,#4cadbb,#8d5e2c,#618264);
+    border-radius: 20px;
+    background-size:400%;
+    z-index:1;
+}
+.post_button:hover{
+    animation: animate 8s linear infinite;
+}
+.post_button::before{
+    content:'';
+    position: absolute;
+    inset:-5px;
+    z-index:-1;
+    background: linear-gradient(90deg,#2a7f22,#4cadbb,#8d5e2c,#618264);
+    background-size:400%;
+    border-radius: 20px;
+    opacity: 0;
+}
+.post_button:hover::before{
+    filter: blur(10px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+}
+@keyframes animate {
+    from{
+        background-position: 0;
+    }
+    to{
+        background-position: 400%;
+    }
+
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+  background-color: transparent;
+}
+
+.post {
+  border: 1px solid #b0c1a4;
+  border-radius: 4px;
+  padding: 20px;
+  background-color: rgba(247, 247, 247, 0.15);
+  transition: transform 0.2s ease;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+}
+
+.post:hover {
+  transform: translateX(-2px) translateY(-2px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 鼠标悬停时的阴影效果 */
+}
+
+    .post .content {
+        margin-bottom: 10px;
+    }
+
+    .post p {
+        margin: 0;
+        color: #888;
+    }
+
+    .post h2 {
+        margin: 10px 0;
+    }
+
+    .post button {
+        padding: 3px 3px;
+        background-color:transparent;
+        color: transparent;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .post button:hover {
+        background-color: transparent;
+    }
+
+    .post span {
+        color:transparent;
+    }
+
+    .post img {
+        width: 90%;
+        height: 90%;
+    }
+
+.post .avatar {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; /* 将边框形状设置为圆形 */
+}
+
+.post .avatar img {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* 将图像形状设置为圆形 */
+}
+.post .username {
+  font-weight: bold;
+    color: #beb8a3;
+  text-decoration: none;
+}
+.post .title {
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+.post .timestamp {
+  color: #999;
+  font-size: 12px;
+  margin-top: 5px;
+}
+.post .like-button {
+    display: inline-block;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    top: 50%;
+    right:0 ; /* 修改为负值，位于右侧 */
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+}
+
+.post .like-button img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-top: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.post .like-count {
+    font-weight: bold;
+    color: #8195b3;
+    margin-left: 5px;
+    position: relative;
+    top: 0;
+    left:-17%; /* 修改为0，位于右侧 */
+    transform: translateY(-50%);
+}
+    @-webkit-keyframes show{
+    0%,
+    49.99%{
+        opacity: 0;
+        z-index: 5;
+    }
+
+    50%,
+    100%{
+        opacity: 1;
+        z-index: 6;
+    }
+}
+
+@keyframes show{
+    0%,
+    49.99%{
+        opacity: 0;
+        z-index: 5;
+    }
+
+    50%,
+    100%{
+        opacity: 1;
+        z-index: 6;
+    }
+}
+
+.slidershow{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 115%;
+    overflow: hidden;
+    pointer-events: none; /* 禁用鼠标事件 */
+    z-index: -1; /* 将其放置在最底层 */
+}
+
+.slidershow--image{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: no-repeat 50% 50%;
+    background-size: cover;
+    -webkit-animation-name: kenburns;
+    animation-name: kenburns;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-duration: 24s;
+    animation-duration: 24s;
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.slidershow--image:nth-child(1){
+    -webkit-animation-name: kenburns-1;
+    animation-name: kenburns-1;
+    z-index: 3;
+}
+
+.slidershow--image:nth-child(2){
+    -webkit-animation-name: kenburns-2;
+    animation-name: kenburns-2;
+    z-index: 2;
+}
+
+.slidershow--image:nth-child(3){
+    -webkit-animation-name: kenburns-3;
+    animation-name: kenburns-3;
+    z-index: 1;
+}
+
+.slidershow--image:nth-child(4){
+    -webkit-animation-name: kenburns-4;
+    animation-name: kenburns-4;
+    z-index: 0;
+}
+
+
+@-webkit-keyframes kenburns-1{
+    0%{
+        opacity:1;
+        -webkit-transform: scale(1.2);
+        transform:scale(1.2);
+    }
+    1.5625%{
+        opacity:1;
+    }
+    23.4375%{
+        opacity:1;
+    }
+    26.5625%{
+        opacity:0;
+        -webkit-transform: scale(1);
+        transform:scale(1);
+    }
+    100%{
+        opacity:0;
+        -webkit-transform: scale(1.2);
+        transform:scale(1.2);
+    }
+    98.4375%{
+        opacity:0;
+        -webkit-transform: scale(1.21176);
+        transform:scale(1.21176);
+    }
+    100%{
+        opacity:1;
+    }
+}
+
+@keyframes kenburns-1{
+    0%{
+        opacity:1;
+        -webkit-transform: scale(1.2);
+        transform:scale(1.2);
+    }
+    1.5625%{
+        opacity:1;
+    }
+    23.4375%{
+        opacity:1;
+    }
+    26.5625%{
+        opacity:0;
+        -webkit-transform: scale(1);
+        transform:scale(1);
+    }
+    100%{
+        opacity:0;
+        -webkit-transform: scale(1.2);
+        transform:scale(1.2);
+    }
+    98.4375%{
+        opacity:0;
+        -webkit-transform: scale(1.21176);
+        transform:scale(1.21176);
+    }
+    100%{
+        opacity:1;
+    }
+}
+
+@-webkit-keyframes kenburns-2{
+    23.4375%{
+        opacity:1;
+        -webkit-transform: scale(1.2);
+        transform:scale(1.2);
+    }
+    26.5625%{
+        opacity:1;
+    }
+    48.4375%{
+        opacity:1;
+    }
+    51.5625%{
+        opacity:0;
+        -webkit-transform: scale(1);
+        transform:scale(1);
+    }
+    100%{
+        opacity:0;
+        -webkit-transform: scale(1.2);
+        transform:scale(1.2);
+    }
+}
+
+@keyframes kenburns-2{
+    23.4375%{
+        opacity:1;
+        -webkit-transform: scale(1.2);
+        transform:scale(1.2);
+    }
+    26.5625%{
+        opacity:1;
+    }
+    48.4375%{
+        opacity:1;
+    }
+    51.5625%{
+        opacity:0;
+        -webkit-transform: scale(1);
+        transform:scale(1);
+    }
+    100%{
+        opacity:0;
+        -webkit-transform: scale(1.2);
+        transform:scale(1.2);
+    }
+}
+
+@-webkit-keyframes kenburns-3{
+    48.4375%{
+        opacity:1;
+        -webkit-transform: scale(1.2);
+        transform:scale(1.2);
+    }
+    51.5625%{
+        opacity:1;
+    }
+    73.4375%{
+        opacity:1;
+    }
+    76.5625%{
+        opacity:0;
+        -webkit-transform: scale(1);
+        transform:scale(1);
+    }
+    100%{
+        opacity:0;
+        -webkit-transform: scale(1.2);
+        transform:scale(1.2);
+    }
+}
+
+@keyframes kenburns-3{
+    48.4375%{
+        opacity:1;
+        -webkit-transform: scale(1.2);
+        transform:scale(1.2);
+    }
+    51.5625%{
+        opacity:1;
+    }
+    73.4375%{
+        opacity:1;
+    }
+    76.5625%{
+        opacity:0;
+        -webkit-transform: scale(1);
+        transform:scale(1);
+    }
+    100%{
+        opacity:0;
+        -webkit-transform: scale(1.2);
+        transform:scale(1.2);
+    }
+}
+
+@-webkit-keyframes kenburns-4{
+    73.4375%{
+        opacity:1;
+        -webkit-transform: scale(1.2);
+        transform:scale(1.2);
+    }
+    76.5625%{
+        opacity:1;
+    }
+    98.4375%{
+        opacity:1;
+    }
+    100%{
+        opacity:0;
+        -webkit-transform: scale(1);
+        transform:scale(1);
+    }
+}
+
+@keyframes kenburns-4{
+    73.4375%{
+        opacity:1;
+        -webkit-transform: scale(1.2);
+        transform:scale(1.2);
+    }
+    76.5625%{
+        opacity:1;
+    }
+    98.4375%{
+        opacity:1;
+    }
+    100%{
+        opacity:0;
+        -webkit-transform: scale(1);
+        transform:scale(1);
+    }
+}
