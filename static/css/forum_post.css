@@ -44,15 +44,42 @@ body {
 .Head-Jump {
     display: flex;
     gap: 40px;
+    position: relative;
 }
 .Head-Jump a {
-    text-decoration: none;
+    position: relative;
+    padding: 10px 20px;
+    font: 500 20px Arial, sans-serif;
+    border: none;
+    outline: none;
     color: #79ac78;
-    font-size: 20px;
+    display: inline-block;
+    text-decoration: none;
+    z-index: 3;
     transition: color 0.3s ease; /* 添加颜色过渡效果 */
 }
 .Head-Jump a:hover {
     color: #618264;
+}
+.slide1, .slide2 {
+    position: absolute;
+    display: inline-block;
+    height: 100%; /* 覆盖导航栏的高度 */
+    border-radius: 10px; /* 修改为矩形框的圆角 */
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1.05);
+}
+.slide1 {
+    background-color: rgb(170, 190, 255);
+    z-index: 2;
+}
+.slide2 {
+    opacity: 0;
+    background-color: rgba(170, 190, 255, .5);
+    z-index: 1;
+    box-shadow: 0 0 20px #ffffffaa inset;
+}
+.squeeze {
+    transform: scale(0.9);
 }
 /* 发布帖子区域 */
 .Post-Container {

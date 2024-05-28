@@ -13,6 +13,8 @@
             <img class="Logo" src="../static/img/Logo.png">
         </div>
         <div class="Head-Jump">
+            <div class="slide1"></div>
+            <div class="slide2"></div>
             <a href="/index">首页</a>
             <a href="/Subject">玉●学术</a>
             <a href="/exhibition/exhibition">玉●展览</a>
@@ -55,12 +57,6 @@
                     {% endif %}
                     <div class="comment-actions">
                         <button class="reply-btn">回复</button>
-                        <!--  
-                        <button class="like-btn">
-                            <img src="../static/img/like.png" alt="点赞"> 赞
-                        </button>
-                        -->
-                       
                     </div>
                 </div>
             {% endfor %}
@@ -76,33 +72,41 @@
                 </form>
             </div>
         </div>
-        <!-- 相似内容推荐,不要了
-        <div class="similar-posts-section">
-            <h3>相似内容推荐</h3>
-            <div class="similar-post">
-                <a href="#">SimilarPost1</a>
-                <p>传了一些信息</p>
-                <p>2周前 - 1.2k浏览</p>
-            </div>
-        </div> 
-        --> 
-         
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const head = document.getElementById('head');
+        const head = document.getElementById('head');
 
-            head.style.top = '-100px';
+        head.style.top = '-100px';
 
-            document.addEventListener('mousemove', function(event) {
-                if (event.clientY < 50) {
-                    head.style.top = '0';
-                } else {
-                    head.style.top = '-100px';
-                }
-            });
+        document.addEventListener('mousemove', function(event) {
+            if (event.clientY < 50) {
+                head.style.top = '0';
+            } else {
+                head.style.top = '-100px';
+            }
         });
+
+        $("#head a").on("click", function () {
+            var position = $(this).position();
+            var width = $(this).outerWidth(); // 获取包括内边距和边框的宽度
+            $("#head .slide1").css({ opacity: 1, left: position.left, width: width });
+        });
+        $("#head a").on("mouseover", function () {
+            var position = $(this).position();
+            var width = $(this).outerWidth(); // 获取包括内边距和边框的宽度
+            $("#head .slide2").css({ opacity: 1, left: position.left, width: width }).addClass("squeeze");
+        });
+        $("#head a").on("mouseout", function () {
+            $("#head .slide2").css({ opacity: 0 }).removeClass("squeeze");
+        });
+        var currentWidth = $("#head a").eq(0).outerWidth(); // 获取包括内边距和边框的宽度
+        var current = $("#head a").eq(0).position();
+        $("#head .slide1").css({ left: current.left, width: currentWidth });
+        });
+
     </script>
 </body>
 </html>
