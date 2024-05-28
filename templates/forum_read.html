@@ -2,72 +2,107 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/forum_read.css">
     <title>{{ post.title }}</title>
-    <style>
-        .post {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        .comment {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-top: 10px;
-        }
-        .comment img {
-            max-height: 100px;
-        }
-        .avatar {
-            vertical-align: middle;
-            height: 1em;
-        }
-    </style>
 </head>
-<body>
-    <div class="post">
-        <p>
-            {% if post.author.avatar %}
-                <img src="{{ url_for('static', filename=post.author.avatar) }}" alt="Avatar" class="avatar">
-            {% endif %}
-            <a href="{{ url_for('profile', username=post.author.username) }}">{{ post.author.username }}</a> {{ post.timestamp|date }}
-        </p>
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.content }}</p>
-        {% if post.images %}
-            {% for image in post.images %}
-                <img src="{{ url_for('static', filename=image.file_path) }}" alt="Post Image">
-            {% endfor %}
-        {% endif %}
+<body id="WholePage">
+    <!-- 上方浮页 -->
+    <div class="Head" id="head">
+        <div>
+            <img class="Logo" src="../static/img/Logo.png">
+        </div>
+        <div class="Head-Jump">
+            <a href="/index">首页</a>
+            <a href="/Subject">玉●学术</a>
+            <a href="/exhibition/exhibition">玉●展览</a>
+            <a href="/collection">玉●美学</a>
+            <a href="/forum">玉●交流</a>
+        </div>
+        <div>
+            <img class="User-Head" src="../static/img/profile.jpg">
+        </div>
     </div>
-
-    <div class="comments">
-        <h2>评论</h2>
-        {% for comment in post.comments %}
-            <div class="comment">
-                <p>
-                    {% if comment.author.avatar %}
-                        <img src="{{ url_for('static', filename=comment.author.avatar) }}" alt="Avatar" class="avatar">
-                    {% endif %}
-                    {{ comment.author.username }} {{ comment.timestamp|date }}
-                </p>
-                <p>{{ comment.content }}</p>
-                {% if comment.images %}
-                    {% for image in comment.images %}
-                        <img src="{{ url_for('static', filename=image.file_path) }}" alt="Comment Image">
+    <!-- 帖子发布详情 -->
+    <div class="container">
+        <div class="post">
+            <div class="post-header">
+                <h2 class="post-title">{{ post.title }}</h2>
+                <p class="post-meta"><a href="{{ url_for('profile', username=post.author.username) }}" class="username-link">{{ post.author.username }}</a> {{ post.timestamp|date }}</p>
+            </div>
+            <div class="post-content">
+                <p>{{ post.content }}</p>
+                {% if post.images %}
+                    {% for image in post.images %}
+                        <img src="{{ url_for('static', filename=image.file_path) }}" alt="Post Image" class="post-image">
                     {% endfor %}
                 {% endif %}
             </div>
-        {% endfor %}
+            <div class="post-actions">
+                <button class="subscribe-btn">关注</button>
+            </div>
+        </div>
+        
+        <div class="comments-section">
+            {% for comment in post.comments %}
+                <div class="comment">
+                    <p class="comment-meta"><a href="{{ url_for('profile', username=comment.author.username) }}" class="username-link">{{ comment.author.username }}</a> | {{ comment.timestamp|date }}</p>
+                    <p>{{ comment.content }}</p>
+                    {% if comment.images %}
+                        {% for image in comment.images %}
+                            <img src="{{ url_for('static', filename=image.file_path) }}" alt="Comment Image" class="comment-image">
+                        {% endfor %}
+                    {% endif %}
+                    <div class="comment-actions">
+                        <button class="reply-btn">回复</button>
+                        <!--  
+                        <button class="like-btn">
+                            <img src="../static/img/like.png" alt="点赞"> 赞
+                        </button>
+                        -->
+                       
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="comment-form">
+                <h2>发表评论</h2>
+                <form method="post" action="{{ url_for('comment_post', post_id=post.id) }}" enctype="multipart/form-data">
+                    <textarea name="content" rows="4" cols="50" placeholder="输入你的评论"></textarea><br>
+                    <div class="form-actions">
+                        <label for="images" class="custom-file-upload">最多选择三张照片:</label>
+                        <input type="file" id="images" name="images" multiple accept="image/*" class="file-input">
+                        <button class="submit-btn" type="submit">提交</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- 相似内容推荐,不要了
+        <div class="similar-posts-section">
+            <h3>相似内容推荐</h3>
+            <div class="similar-post">
+                <a href="#">SimilarPost1</a>
+                <p>传了一些信息</p>
+                <p>2周前 - 1.2k浏览</p>
+            </div>
+        </div> 
+        --> 
+         
     </div>
 
-    <div class="add-comment">
-        <h2>发表评论</h2>
-        <form method="post" action="{{ url_for('comment_post', post_id=post.id) }}" enctype="multipart/form-data">
-            <textarea name="content" rows="4" cols="50" placeholder="输入你的评论"></textarea><br>
-            <label for="images">最多选择三张照片:</label>
-            <input type="file" id="images" name="images" multiple accept="image/*"><br>
-            <button type="submit">发表评论</button>
-        </form>
-    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const head = document.getElementById('head');
+
+            head.style.top = '-100px';
+
+            document.addEventListener('mousemove', function(event) {
+                if (event.clientY < 50) {
+                    head.style.top = '0';
+                } else {
+                    head.style.top = '-100px';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
