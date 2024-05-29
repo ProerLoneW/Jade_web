@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    #...其他自己写，主要是写出每条文章只呈现标题和文章的前xx个字
+    # 调出数据库的资料示例见collections.html
+    <div class="pagination">
+        {% if prev_url %}
+            <a href="{{ prev_url }}">上一页</a>
+        {% endif %}
+        {% if next_url %}
+            <a href="{{ next_url }}">下一页</a>
+        {% endif %}
+    </div>
+</body>
+</html>

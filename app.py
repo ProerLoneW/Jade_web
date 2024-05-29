@@ -108,8 +108,48 @@ class Collection(Base):
     image_path = Column(String(255), nullable=False)
     description = Column(Text, nullable=False)
 
+# 学术论文的数据库
+class Essay(Base):
+    __tablename__ = "essays"
+    __table_args__ = {'extend_existing': True}
+    id = Column(Integer, primary_key=True)
+    title = Column(String(200), nullable=False)
+    content = Column(Text, nullable=False)
+    timestamp = Column(DateTime, default=datetime.utcnow)
+
+# 学术讲座的数据库
+class Lecture(Base):
+    __tablename__ = "lectures"
+    __table_args__ = {'extend_existing': True}
+    id = Column(Integer, primary_key=True)
+    title = Column(String(200), nullable=False)
+    content = Column(Text, nullable=False)
+    timestamp = Column(DateTime, default=datetime.utcnow)
 
 
+# 国内展览
+class Exhibition_dome(Base):
+    __tablename__ = "exhibitions_dome"
+    __table_args__ = {'extend_existing': True}
+    id = Column(Integer, primary_key=True)
+    name = Column(String(200), nullable=False)
+    image_path_1 = Column(String(255), nullable=False)
+    image_path_2 = Column(String(255), nullable=False)
+    image_path_3 = Column(String(255), nullable=False)
+    description_1 = Column(Text, nullable=False)
+    description_2 = Column(Text, nullable=False)
+
+# 学生策展
+class Exhibition_stu(Base):
+    __tablename__ = "exhibitions_stu"
+    __table_args__ = {'extend_existing': True}
+    id = Column(Integer, primary_key=True)
+    name = Column(String(200), nullable=False)
+    image_path_1 = Column(String(255), nullable=False)
+    image_path_2 = Column(String(255), nullable=False)
+    image_path_3 = Column(String(255), nullable=False)
+    description_1 = Column(Text, nullable=False)
+    description_2 = Column(Text, nullable=False)
 
 # 这是删除所有数据的操作，不到万不得已千万不要做
 # 如果之前创建过同名数据库且不明白如何数据库迁移，可以把下面一句注释去掉，运行清除之前的表并创建新表，然后记得加上注释
@@ -365,7 +405,20 @@ def profile(username):
 
     return render_template('profile.html', user=user, is_self=is_self, posts=posts, liked_posts=liked_posts)
 
-#文章管理
+#文章刊物管理
+
+@app.route('/articles')
+def articles():
+    page = request.args.get('page', 1, type=int)
+    per_page = 5
+    total = db_session.query(Article).count()
+    articles = db_session.query(Article).order_by(Article.id).offset((page - 1) * per_page).limit(
+        per_page).all()
+
+    next_url = url_for('articles', page=page + 1) if total > page * per_page else None
+    prev_url = url_for('articles', page=page - 1) if page > 1 else None
+
+    return render_template('articles.html', articles=articles, next_url=next_url, prev_url=prev_url)
 @app.route('/article/<int:article_id>')
 def read_article(article_id):
     article = db_session.query(Article).filter_by(id=article_id).first()
@@ -399,7 +452,273 @@ def delete_article(article_id):
         db_session.commit()
     return redirect(url_for('manage_articles'))
 
-#藏品管理
+# 学术论文管理
+@app.route('/essays')
+def essays():
+    page = request.args.get('page', 1, type=int)
+    per_page = 5
+    total = db_session.query(Essay).count()
+    essays = db_session.query(Essay).order_by(Essay.id).offset((page - 1) * per_page).limit(
+        per_page).all()
+
+    next_url = url_for('essays', page=page + 1) if total > page * per_page else None
+    prev_url = url_for('essays', page=page - 1) if page > 1 else None
+
+    return render_template('essays.html', essays=essays, next_url=next_url, prev_url=prev_url)
+
+@app.route('/essay/<int:essay_id>')
+def read_essay(essay_id):
+    essay = db_session.query(Essay).filter_by(id=essay_id).first()
+    if essay is None:
+        abort(404)
+    prev_essay = db_session.query(Essay).filter(Essay.id < essay_id).order_by(Essay.id.desc()).first()
+    next_essay = db_session.query(Essay).filter(Essay.id > essay_id).order_by(Essay.id.asc()).first()
+    return render_template('read_essay.html', essay=essay, prev_essay=prev_essay, next_essay=next_essay)
+
+@app.route('/manage_essays', methods=['GET', 'POST'])
+def manage_essays():
+    if 'role' not in session or session['role'] != 'admin':
+        return redirect(url_for('index'))
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['content']
+        new_essay = Essay(title=title, content=content)
+        db_session.add(new_essay)
+        db_session.commit()
+        return redirect(url_for('manage_essays'))
+    essays = db_session.query(Essay).order_by(Essay.timestamp.desc()).all()
+    return render_template('manage_essays.html', essays=essays)
+
+@app.route('/essay/<int:essay_id>/delete', methods=['POST'])
+def delete_essay(essay_id):
+    if 'role' not in session or session['role'] != 'admin':
+        return redirect(url_for('index'))
+    essay = db_session.query(Essay).filter_by(id=essay_id).first()
+    if essay:
+        db_session.delete(essay)
+        db_session.commit()
+    return redirect(url_for('manage_essays'))
+
+#学术讲座管理
+
+@app.route('/lectures')
+def lectures():
+    page = request.args.get('page', 1, type=int)
+    per_page = 5
+    total = db_session.query(Lecture).count()
+    lectures = db_session.query(Lecture).order_by(Lecture.id).offset((page - 1) * per_page).limit(
+        per_page).all()
+
+    next_url = url_for('lectures', page=page + 1) if total > page * per_page else None
+    prev_url = url_for('lectues', page=page - 1) if page > 1 else None
+
+    return render_template('lectures.html', lectures=lectures, next_url=next_url, prev_url=prev_url)
+@app.route('/lecture/<int:lecture_id>')
+def read_lecture(lecture_id):
+    lecture = db_session.query(Lecture).filter_by(id=lecture_id).first()
+    if lecture is None:
+        abort(404)
+    prev_lecture = db_session.query(Lecture).filter(Lecture.id < lecture_id).order_by(Lecture.id.desc()).first()
+    next_lecture = db_session.query(Lecture).filter(Lecture.id > lecture_id).order_by(Lecture.id.asc()).first()
+    return render_template('read_lecture.html', lecture=lecture, prev_lecture=prev_lecture, next_lecture=next_lecture)
+
+@app.route('/manage_lectures', methods=['GET', 'POST'])
+def manage_lectures():
+    if 'role' not in session or session['role'] != 'admin':
+        return redirect(url_for('index'))
+    if request.method == 'POST':
+        title = request.form['title']
+        content = request.form['content']
+        new_lecture = Lecture(title=title, content=content)
+        db_session.add(new_lecture)
+        db_session.commit()
+        return redirect(url_for('manage_lectures'))
+    lectures = db_session.query(Lecture).order_by(Lecture.timestamp.desc()).all()
+    return render_template('manage_lectures.html', lectures=lectures)
+
+@app.route('/lecture/<int:lecture_id>/delete', methods=['POST'])
+def delete_lecture(lecture_id):
+    if 'role' not in session or session['role'] != 'admin':
+        return redirect(url_for('index'))
+    lecture = db_session.query(Lecture).filter_by(id=lecture_id).first()
+    if lecture:
+        db_session.delete(lecture)
+        db_session.commit()
+    return redirect(url_for('manage_lectures'))
+
+
+
+# 国内展览管理
+@app.route('/exhibitions_dome')
+def exhibitions_dome():
+    page = request.args.get('page', 1, type=int)
+    per_page = 6
+    total = db_session.query(Exhibition_dome).count()
+    exhibitions_dome = db_session.query(Exhibition_dome).order_by(Exhibition_dome.id).offset((page - 1) * per_page).limit(
+        per_page).all()
+
+    next_url = url_for('exhibitions_dome', page=page + 1) if total > page * per_page else None
+    prev_url = url_for('exhibitions_dome', page=page - 1) if page > 1 else None
+
+    return render_template('exhibitions_dome.html', exhibitions_dome=exhibitions_dome, next_url=next_url, prev_url=prev_url)
+
+
+@app.route('/exhibition_dome/<int:exhibition_dome_id>')
+def exhibition_dome_detail(exhibition_dome_id):
+    exhibition_dome = db_session.query(Exhibition_dome).filter_by(id=exhibition_dome_id).first()
+    if exhibition_dome is None:
+        abort(404)
+    return render_template('exhibition_dome_detail.html', exhibition_dome=exhibition_dome)
+
+
+@app.route('/manage_exhibitions_dome', methods=['GET', 'POST'])
+def manage_exhibitions_dome():
+    if 'role' not in session or session['role'] != 'admin':
+        return redirect(url_for('index'))
+
+    if request.method == 'POST':
+        name = request.form['name']
+        description_1 = request.form['description_1']
+        description_2 = request.form['description_2']
+        image_1 = request.files['image_1']
+        image_2 = request.files['image_2']
+        image_3 = request.files['image_3']
+
+        if image_1 and image_1.filename != '':
+            filename_1 = f"{name}_{image_1.filename}"
+            filepath_1 = os.path.join(app.config['UPLOAD_FOLDER'], filename_1)
+            image_1.save(filepath_1)
+        else:
+            filename_1 = None
+
+        if image_2 and image_2.filename != '':
+            filename_2 = f"{name}_{image_2.filename}"
+            filepath_2 = os.path.join(app.config['UPLOAD_FOLDER'], filename_2)
+            image_2.save(filepath_2)
+        else:
+            filename_2 = None
+
+        if image_3 and image_3.filename != '':
+            filename_3 = f"{name}_{image_3.filename}"
+            filepath_3 = os.path.join(app.config['UPLOAD_FOLDER'], filename_3)
+            image_3.save(filepath_3)
+        else:
+            filename_3 = None
+
+        new_exhibition_dome = Exhibition_dome(
+            name=name,
+            image_path_1='uploads/' + filename_1 if filename_1 else None,
+            image_path_2='uploads/' + filename_2 if filename_2 else None,
+            image_path_3='uploads/' + filename_3 if filename_3 else None,
+            description_1=description_1,
+            description_2=description_2
+        )
+
+        db_session.add(new_exhibition_dome)
+        db_session.commit()
+
+        return redirect(url_for('manage_exhibitions_dome'))
+
+    exhibitions_dome = db_session.query(Exhibition_dome).order_by(Exhibition_dome.id).all()
+    return render_template('manage_exhibitions_dome.html', exhibitions_dome=exhibitions_dome)
+
+
+@app.route('/ exhibition_dome/<int:exhibition_dome_id>/delete', methods=['POST'])
+def delete_exhibition_dome(exhibition_dome_id):
+    if 'role' not in session or session['role'] != 'admin':
+        return redirect(url_for('index'))
+    exhibition_dome = db_session.query(Exhibition_dome).filter_by(id=exhibition_dome_id).first()
+    if exhibition_dome:
+        db_session.delete(exhibition_dome)
+        db_session.commit()
+    return redirect(url_for('manage_exhibitions_dome'))
+
+#学生策展管理
+@app.route('/exhibitions_stu')
+def exhibitions_stu():
+    page = request.args.get('page', 1, type=int)
+    per_page = 6
+    total = db_session.query(Exhibition_stu).count()
+    exhibitions_stu = db_session.query(Exhibition_stu).order_by(Exhibition_stu.id).offset((page - 1) * per_page).limit(
+        per_page).all()
+
+    next_url = url_for('exhibitions_stu', page=page + 1) if total > page * per_page else None
+    prev_url = url_for('exhibitions_stu', page=page - 1) if page > 1 else None
+
+    return render_template('exhibitions_stu.html', exhibitions_stu=exhibitions_stu, next_url=next_url, prev_url=prev_url)
+
+
+@app.route('/exhibition_stu/<int:exhibition_stu_id>')
+def exhibition_stu_detail(exhibition_stu_id):
+    exhibition_stu = db_session.query(Exhibition_stu).filter_by(id=exhibition_stu_id).first()
+    if exhibition_stu is None:
+        abort(404)
+    return render_template('exhibition_stu_detail.html', exhibition_stu=exhibition_stu)
+
+
+@app.route('/manage_exhibitions_stu', methods=['GET', 'POST'])
+def manage_exhibitions_stu():
+    if 'role' not in session or session['role'] != 'admin':
+        return redirect(url_for('index'))
+
+    if request.method == 'POST':
+        name = request.form['name']
+        description_1 = request.form['description_1']
+        description_2 = request.form['description_2']
+        image_1 = request.files['image_1']
+        image_2 = request.files['image_2']
+        image_3 = request.files['image_3']
+
+        if image_1 and image_1.filename != '':
+            filename_1 = f"{name}_{image_1.filename}"
+            filepath_1 = os.path.join(app.config['UPLOAD_FOLDER'], filename_1)
+            image_1.save(filepath_1)
+        else:
+            filename_1 = None
+
+        if image_2 and image_2.filename != '':
+            filename_2 = f"{name}_{image_2.filename}"
+            filepath_2 = os.path.join(app.config['UPLOAD_FOLDER'], filename_2)
+            image_2.save(filepath_2)
+        else:
+            filename_2 = None
+
+        if image_3 and image_3.filename != '':
+            filename_3 = f"{name}_{image_3.filename}"
+            filepath_3 = os.path.join(app.config['UPLOAD_FOLDER'], filename_3)
+            image_3.save(filepath_3)
+        else:
+            filename_3 = None
+
+        new_exhibition_stu = Exhibition_stu(
+            name=name,
+            image_path_1='uploads/' + filename_1 if filename_1 else None,
+            image_path_2='uploads/' + filename_2 if filename_2 else None,
+            image_path_3='uploads/' + filename_3 if filename_3 else None,
+            description_1=description_1,
+            description_2=description_2
+        )
+
+        db_session.add(new_exhibition_stu)
+        db_session.commit()
+
+        return redirect(url_for('manage_exhibitions_stu'))
+
+    exhibitions_stu = db_session.query(Exhibition_stu).order_by(Exhibition_stu.id).all()
+    return render_template('manage_exhibitions_stu.html', exhibitions_stu=exhibitions_stu)
+
+
+@app.route('/exhibition_stu/<int:exhibition_stu_id>/delete', methods=['POST'])
+def delete_exhibition_stu(exhibition_stu_id):
+    if 'role' not in session or session['role'] != 'admin':
+        return redirect(url_for('index'))
+    exhibition_stu = db_session.query(Exhibition_stu).filter_by(id=exhibition_stu_id).first()
+    if exhibition_stu:
+        db_session.delete(exhibition_stu)
+        db_session.commit()
+    return redirect(url_for('manage_exhibitions_stu'))
+
+
 @app.route('/collections')
 def collections():
     page = request.args.get('page', 1, type=int)
@@ -448,6 +767,7 @@ def delete_collection(collection_id):
         db_session.delete(collection)
         db_session.commit()
     return redirect(url_for('manage_collections'))
+
 
 @app.route('/about')
 def about():

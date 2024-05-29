@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ essay.title }}</title>
+</head>
+<body>
+    <h1>{{ essay.title }}</h1>
+    <p>{{ essay.content }}</p>
+    <div>
+        {% if prev_essay %}
+            <a href="{{ url_for('read_essay', essay_id=prev_essay.id) }}">上一篇</a>
+        {% endif %}
+        {% if next_essay %}
+            <a href="{{ url_for('read_essay', essay_id=next_essay.id) }}">下一篇</a>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+* {
+    box-sizing: border-box;
+    transition: all 0.3s ease; /* 添加过渡效果 */
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #79ca78, #b6e1b5); /* 渐变背景色 */
+    min-height: 100vh; /* 确保背景覆盖整个视口 */
+}
+#WholePage {
+    width: 100%;
+}
+/* 头部 */
+.Head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed; /* 使头部固定在页面顶部 */
+    top: -100px; /* 初始位置在页面之外 */
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
+    transition: top 0.3s ease; /* 添加位置过渡效果 */
+}
+.Logo {
+    width: 60px;
+    height: auto;
+}
+.User-Head {
+    width: 45px;
+    height: auto;
+    border-radius: 50%;
+}
+.Head-Jump {
+    display: flex;
+    gap: 40px;
+    position: relative;
+}
+.Head-Jump a {
+    position: relative;
+    padding: 10px 20px;
+    font: 500 20px Arial, sans-serif;
+    border: none;
+    outline: none;
+    color: #79ac78;
+    display: inline-block;
+    text-decoration: none;
+    z-index: 3;
+    transition: color 0.3s ease; /* 添加颜色过渡效果 */
+}
+.Head-Jump a:hover {
+    color: #618264;
+}
+.slide1, .slide2 {
+    position: absolute;
+    display: inline-block;
+    height: 100%; /* 覆盖导航栏的高度 */
+    border-radius: 10px; /* 修改为矩形框的圆角 */
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1.05);
+}
+.slide1 {
+    background-color: rgb(170, 190, 255);
+    z-index: 2;
+}
+.slide2 {
+    opacity: 0;
+    background-color: rgba(170, 190, 255, .5);
+    z-index: 1;
+    box-shadow: 0 0 20px #ffffffaa inset;
+}
+.squeeze {
+    transform: scale(0.9);
+}
+/* 帖子详情 */
+.container {
+    max-width: 800px; /* 设置最大宽度 */
+    margin: 120px auto 20px auto; /* 自动水平居中，顶部留出更多空间给导航栏 */
+    background-color: white; /* 设置白色背景 */
+    padding: 20px; /* 设置内边距 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* 添加阴影 */
+}
+.post-header, .post-content, .post-actions, .comment, .comment-form, .similar-posts-section, .similar-post {
+    margin-bottom: 20px; /* 设置底部边距 */
+}
+.post-title {
+    font-size: 24px; /* 设置标题字体大小 */
+    margin: 0; /* 去掉默认的外边距 */
+}
+.post-meta, .comment-meta, .post-views {
+    font-size: 14px; /* 设置元数据字体大小 */
+    color: #666; /* 字体颜色 */
+}
+.username-link {
+    color: #79ac78; /* 用户名颜色 */
+    text-decoration: none; /* 去掉下划线 */
+    font-weight: bold; /* 加粗字体 */
+    transition: color 0.3s ease; /* 添加颜色过渡效果 */
+}
+.username-link:hover {
+    color: #618264; /* 悬停时更改颜色 */
+}
+.post-content p, .comment p {
+    font-size: 16px; /* 设置内容字体大小 */
+}
+.post-image, .comment-image {
+    width: 100%; /* 设置图片宽度为容器宽度 */
+    height: auto; /* 高度自动调整以保持比例 */
+}
+.post-actions, .comment-actions, .form-actions {
+    display: flex; /* 使用flexbox布局 */
+    align-items: center; /* 垂直居中对齐内容 */
+    gap: 10px; /* 设置按钮之间的间距 */
+}
+.subscribe-btn, .like-btn, .reply-btn, .submit-btn {
+    padding: 5px 10px;
+    border: none;
+    background-color: #79AC78;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px; /* 可选：按钮圆角 */
+    display: flex;
+    align-items: center;
+    gap: 5px; /* 按钮内部图片与文字的间距 */
+}
+.file-input {
+    display: none; /* 隐藏实际的文件输入按钮 */
+}
+.custom-file-upload {
+    padding: 5px 10px;
+    border: none;
+    background-color: #79AC78;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px; /* 按钮圆角 */
+    display: inline-block; /* 设置为内联块级元素 */
+    gap: 5px; /* 按钮内部图片与文字的间距 */
+}
+.custom-file-upload:hover {
+    background-color: #618264; /* 鼠标悬停时更改按钮颜色 */
+}
+.subscribe-btn:hover, .like-btn:hover, .reply-btn:hover, .submit-btn:hover {
+    background-color: #618264; /* 鼠标悬停时更改按钮颜色 */
+}
+.like-btn img {
+    width: 16px; /* 设置图片宽度 */
+    height: auto; /* 高度自动调整以保持比例 */
+}
+.comment-form textarea {
+    width: 100%; /* 设置文本区域宽度 */
+    height: 100px; /* 设置文本区域高度 */
+    padding: 10px; /* 设置内边距 */
+    border: 1px solid #ccc; /* 设置边框 */
+    border-radius: 4px; /* 设置圆角 */
+    resize: vertical; /* 允许垂直调整大小 */
+}
+button {
+    display: block;
+}
+.similar-posts-section h3 {
+    font-size: 20px; /* 设置标题字体大小 */
+    margin-bottom: 10px; /* 设置标题底部边距 */
+}
+.similar-post a {
+    font-size: 16px; /* 设置超链接字体大小 */
+    color: #79AC78; /* 设置超链接颜色 */
+    text-decoration: none; /* 去掉超链接下划线 */
+    display: block; /* 设置为块级元素 */
+    margin-bottom: 5px; /* 设置底部边距 */
+}
+.similar-post a:hover {
+    text-decoration: underline; /* 鼠标悬停时添加下划线 */
+}
+.similar-post p {
+    font-size: 14px; /* 设置字体大小 */
+    color: #666; /* 设置字体颜色 */
+    margin: 0; /* 去掉默认的外边距 */
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ lecture.title }}</title>
+</head>
+<body>
+    <h1>{{ lecture.title }}</h1>
+    <p>{{ lecture.content }}</p>
+    <div>
+        {% if prev_lecture %}
+            <a href="{{ url_for('read_lecture', lecture_id=prev_lecture.id) }}">上一篇</a>
+        {% endif %}
+        {% if next_lecture %}
+            <a href="{{ url_for('read_lecture', lecture_id=next_lecture.id) }}">下一篇</a>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ exhibition_stu.name }}</title>
+</head>
+<body>
+    <h1>{{ exhibition_stu.name }}</h1>
+    <img src="{{ url_for('static', filename=exhibition_stu.image_path_1) }}" alt="{{ exhibition_stu.name }}">
+     <img src="{{ url_for('static', filename=exhibition_stu.image_path_2) }}" alt="{{ exhibition_stu.name }}">
+     <img src="{{ url_for('static', filename=exhibition_stu.image_path_3) }}" alt="{{ exhibition_stu.name }}">
+    <p>{{ exhibition_stu.description_1 }}</p>
+    <p>{{ exhibition_stu.description_2 }}</p>
+</body>
+</html>

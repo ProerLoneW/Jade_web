@@ -2,36 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>藏品展示</title>
+    <title>国内展览展示</title>
     <style>
-        .collection {
+        .exhibition_dome {
             border: 1px solid #ddd;
             padding: 10px;
             margin-bottom: 10px;
             text-align: center;
         }
-        .collection img {
+        .exhibition_dome  img {
             max-width: 100%;
             height: auto;
         }
-        .collections {
+        .exhibitions_dome {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
-        .collections .collection {
+        .exhibitions_dome .exhibition_dome {
             flex: 1 1 calc(33.333% - 10px);
             box-sizing: border-box;
         }
     </style>
 </head>
 <body>
-    <h1>藏品展示</h1>
-    <div class="collections">
-        {% for collection in collections %}
-            <div class="collection">
-                <h2><a href="{{ url_for('collection_detail', collection_id=collection.id) }}">{{ collection.name }}</a></h2>
-                <img src="{{ url_for('static', filename=collection.image_path_1) }}" alt="{{ collection.name }}">
+    <h1>国内展览展示</h1>
+    <div class="exhibitions_dome">
+        {% for exhibition_dome in exhibitions_dome %}
+            <div class="exhibitions_dome">
+                <h2><a href="{{ url_for('exhibition_dome_detail', exhibition_dome_id=exhibition_dome.id) }}">{{ exhibition_dome.name }}</a></h2>
+                <img src="{{ url_for('static', filename=exhibition_dome.image_path_1) }}" alt="{{ exhibition_dome.name }}">
             </div>
         {% endfor %}
     </div>
