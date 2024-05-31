@@ -18,7 +18,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 # MySQL 数据库连接配置
 db_config={
     'user':'root',
-    'password':'20040504',#这里改成自己的数据库密码
+    'password':'Ma3332808',#这里改成自己的数据库密码
     'host':'localhost',
     'port':3306,
     'database': 'web',#这里改成自己的数据库名字
@@ -733,17 +733,17 @@ def delete_exhibition_stu(exhibition_stu_id):
     return redirect(url_for('manage_exhibitions_stu'))
 
 
-@app.route('/collections')
+@app.route('/collection')
 def collections():
     page = request.args.get('page', 1, type=int)
     per_page = 9
     total = db_session.query(Collection).count()
     collections = db_session.query(Collection).order_by(Collection.id).offset((page - 1) * per_page).limit(per_page).all()
 
-    next_url = url_for('collections', page=page + 1) if total > page * per_page else None
-    prev_url = url_for('collections', page=page - 1) if page > 1 else None
+    next_url = url_for('collection', page=page + 1) if total > page * per_page else None
+    prev_url = url_for('collection', page=page - 1) if page > 1 else None
 
-    return render_template('collections.html', collections=collections, next_url=next_url, prev_url=prev_url)
+    return render_template('collection.html', collections=collections, next_url=next_url, prev_url=prev_url)
 
 @app.route('/collection/<int:collection_id>')
 def collection_detail(collection_id):
