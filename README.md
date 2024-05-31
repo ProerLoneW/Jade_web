@@ -34,7 +34,11 @@ python .\app.py
 ~~~
 或者点击IDE中的运行按钮运行
 ## 停止运行
-终端中ctrl+c
+终端中ctrl+c  
+## 如何设置自己为管理员  
+由于数据库目前在本地，只可以通过修改数据库来设置自己为管理员  
+设置方法为：将用户的role字段中的内容改为admin（默认为student）
+ <img src="readme.img/set_admin.png">
 ## 要做的工作(5.24更新)
 ### 把原先html中的超链接更改
 举例说明  

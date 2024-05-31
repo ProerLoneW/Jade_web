@@ -18,7 +18,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 # MySQL 数据库连接配置
 db_config={
     'user':'root',
-    'password':'hxyym123',#这里改成自己的数据库密码
+    'password':'20040504',#这里改成自己的数据库密码
     'host':'localhost',
     'port':3306,
     'database': 'web',#这里改成自己的数据库名字
@@ -377,7 +377,6 @@ def unlike_post(post_id):
         return redirect(url_for('forum'))
     return "Like not found"
 
-#个人主页
 @app.route('/profile/<username>', methods=['GET', 'POST'])
 def profile(username):
     user = db_session.query(User).filter_by(username=username).first()
@@ -388,23 +387,38 @@ def profile(username):
         if 'avatar' in request.files:
             avatar = request.files['avatar']
             if avatar.filename != '':
-                filename = f"{username}_avatar_{avatar.filename}"
-                filepath = os.path.join('static/uploads', filename)
+                filename = f"{username}_{avatar.filename}"
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                 avatar.save(filepath)
                 user.avatar = 'uploads/' + filename
+        if 'favorite_jade1' in request.files:
+            avatar = request.files['favorite_jade1']
+            if avatar.filename != '':
+                filename = f"{username}_{avatar.filename}"
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                avatar.save(filepath)
+                user.favorite_jade1 = 'uploads/' + filename
+        if 'favorite_jade2' in request.files:
+            avatar = request.files['favorite_jade2']
+            if avatar.filename != '':
+                filename = f"{username}_{avatar.filename}"
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                avatar.save(filepath)
+                user.favorite_jade2 = 'uploads/' + filename
+        if 'favorite_jade3' in request.files:
+            avatar = request.files['favorite_jade3']
+            if avatar.filename != '':
+                filename = f"{username}_{avatar.filename}"
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                avatar.save(filepath)
+                user.favorite_jade3 = 'uploads/' + filename
         user.gender = request.form.get('gender', user.gender)
         user.signature = request.form.get('signature', user.signature)
-        user.favorite_jade = request.form.get('favorite_jade', user.favorite_jade)
-        # user.show_email = 'show_email' in request.form
+        # user.favorite_jade = request.form.get('favorite_jade', user.favorite_jade)
         user.show_likes = 'show_likes' in request.form
         db_session.commit()
+        # print(username)
         return redirect(url_for('profile', username=username))
-
-    posts = db_session.query(Post).filter_by(user_id=user.id).all()
-    liked_posts = db_session.query(Post).join(Like, Like.post_id == Post.id).filter(Like.user_id == user.id).all()
-
-    return render_template('profile.html', user=user, is_self=is_self, posts=posts, liked_posts=liked_posts)
-
 #文章刊物管理
 
 @app.route('/articles')
@@ -820,11 +834,11 @@ def Subject():
     return render_template('Subject1.1.html')
 #就是上面那个
 
-@app.route('/exhibition/exhibition')
+@app.route('/exhibition')
 def exhibition_extibition():
     return render_template('exhibition.html')
 
-@app.route('/exhibition/student')
+@app.route('/student')
 def exhibition_estudent():
     return render_template('student.html')
 
