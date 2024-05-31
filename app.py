@@ -563,10 +563,10 @@ def delete_lecture(lecture_id):
 
 
 # 国内展览管理
-@app.route('/exhibitions_dome')
+@app.route('/exhibition')
 def exhibitions_dome():
     page = request.args.get('page', 1, type=int)
-    per_page = 6
+    per_page = 8
     total = db_session.query(Exhibition_dome).count()
     exhibitions_dome = db_session.query(Exhibition_dome).order_by(Exhibition_dome.id).offset((page - 1) * per_page).limit(
         per_page).all()
@@ -574,7 +574,7 @@ def exhibitions_dome():
     next_url = url_for('exhibitions_dome', page=page + 1) if total > page * per_page else None
     prev_url = url_for('exhibitions_dome', page=page - 1) if page > 1 else None
 
-    return render_template('exhibitions_dome.html', exhibitions_dome=exhibitions_dome, next_url=next_url, prev_url=prev_url)
+    return render_template('exhibition.html', exhibitions_dome=exhibitions_dome, next_url=next_url, prev_url=prev_url)
 
 
 @app.route('/exhibition_dome/<int:exhibition_dome_id>')
@@ -648,18 +648,18 @@ def delete_exhibition_dome(exhibition_dome_id):
     return redirect(url_for('manage_exhibitions_dome'))
 
 #学生策展管理
-@app.route('/exhibitions_stu')
+@app.route('/student')
 def exhibitions_stu():
     page = request.args.get('page', 1, type=int)
-    per_page = 6
+    per_page = 8
     total = db_session.query(Exhibition_stu).count()
     exhibitions_stu = db_session.query(Exhibition_stu).order_by(Exhibition_stu.id).offset((page - 1) * per_page).limit(
         per_page).all()
 
-    next_url = url_for('exhibitions_stu', page=page + 1) if total > page * per_page else None
-    prev_url = url_for('exhibitions_stu', page=page - 1) if page > 1 else None
+    next_url = url_for('student', page=page + 1) if total > page * per_page else None
+    prev_url = url_for('student', page=page - 1) if page > 1 else None
 
-    return render_template('exhibitions_stu.html', exhibitions_stu=exhibitions_stu, next_url=next_url, prev_url=prev_url)
+    return render_template('student.html', exhibitions_stu=exhibitions_stu, next_url=next_url, prev_url=prev_url)
 
 
 @app.route('/exhibition_stu/<int:exhibition_stu_id>')

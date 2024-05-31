@@ -2,14 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ exhibition_stu.name }}</title>
+    <title>{{ exhibition_dome.name }}</title>
+    <link rel="stylesheet" href="../static/css/exhibition_detail.css">
+    <style>
+        .carousel-item--1 .carousel-item_image{
+            background-image: url("{{ url_for('static', filename=exhibition_stu.image_path_1) }}");
+        }
+        .carousel-item--2 .carousel-item_image{
+            background-image: url("{{ url_for('static', filename=exhibition_stu.image_path_2) }}");
+        }
+        .carousel-item--3 .carousel-item_image{
+            background-image: url("{{ url_for('static', filename=exhibition_stu.image_path_3) }}");
+        }
+    </style>
 </head>
 <body>
-    <h1>{{ exhibition_stu.name }}</h1>
-    <img src="{{ url_for('static', filename=exhibition_stu.image_path_1) }}" alt="{{ exhibition_stu.name }}">
-     <img src="{{ url_for('static', filename=exhibition_stu.image_path_2) }}" alt="{{ exhibition_stu.name }}">
-     <img src="{{ url_for('static', filename=exhibition_stu.image_path_3) }}" alt="{{ exhibition_stu.name }}">
-    <p>{{ exhibition_stu.description_1 }}</p>
-    <p>{{ exhibition_stu.description_2 }}</p>
+
+    <div class="carousel">
+        <!-- 箭头绘制 -->
+        <div class="carousel_nav">
+            <span id="moveLeft" class="carousel_arrow">
+                <svg class="carousel_icon" width="24" height="24" viewbox="0 0 24 24">
+                    <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+                </svg>
+            </span>
+            <span id="moveRight" class="carousel_arrow">
+                <svg class="carousel_icon" width="24" height="24" viewbox="0 0 24 24">
+                    <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+                </svg>
+            </span>
+        </div>
+    
+        <!-- 图片文章概述 -->
+        <div class="carousel-item carousel-item--1">
+            <div class="carousel-item_image"></div>
+            <div class="carousel-item_info">
+                <div class="carousel-item_cantainer">
+                  <h2 class="carousel-item_subtitle">{{ exhibition_stu.name }}</h2>
+                  <h1 class="carousel-item_title">{{ exhibition_stu.name }}</h1>
+                  <p class="carousel-item_description">{{ exhibition_stu.description_1 }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="carousel-item carousel-item--2">
+            <div class="carousel-item_image"></div>
+            <div class="carousel-item_info">
+                <div class="carousel-item_container">
+                  <h2 class="carousel-item_subtitle">{{ exhibition_stu.name }}</h2>
+                  <h1 class="carousel-item_title">{{ exhibition_stu.name }}</h1>
+                  <p class="carousel-item_description">{{ exhibition_stu.description_2 }}</p>
+                </div>
+            </div>
+        </div>
+            
+        <div class="carousel-item carousel-item--3">
+            <div class="carousel-item_image"></div>
+            <div class="carousel-item_info">
+                <div class="carousel-item_container">
+                  <h2 class="carousel-item_subtitle">{{ exhibition_stu.name }}</h2>
+                  <h1 class="carousel-item_title">{{ exhibition_stu.name }}</h1>
+                  <p class="carousel-item_description">123123</p>
+                </div>
+            </div>
+        </div>
+          
+        
+          
+        
+    </div>
+    
+    <!-- partial -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><script src="../static/js/exhibition_datail.js"></script>
+
 </body>
 </html>
