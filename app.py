@@ -18,7 +18,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 # MySQL 数据库连接配置
 db_config={
     'user':'root',
-    'password':'hxyym123',#这里改成自己的数据库密码
+    'password':'Ma3332808',#这里改成自己的数据库密码
     'host':'localhost',
     'port':3306,
     'database': 'web',#这里改成自己的数据库名字
@@ -820,11 +820,11 @@ def Subject():
     return render_template('Subject1.1.html')
 #就是上面那个
 
-@app.route('/exhibition/exhibition')
+@app.route('/exhibition')
 def exhibition_extibition():
     return render_template('exhibition.html')
 
-@app.route('/exhibition/student')
+@app.route('/student')
 def exhibition_estudent():
     return render_template('student.html')
 
