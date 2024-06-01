@@ -1112,9 +1112,9 @@ body:not(.lang-en) .more1.v {
         border-top: 1px solid rgba(255, 255, 255, 0.3)
     }
 
-    .x-header .tools-mod .search-box {
+    /* .x-header .tools-mod .search-box {
         color: #333
-    }
+    } */
 
     .x-header .nav-mod {
         position: absolute;
@@ -1125,6 +1125,12 @@ body:not(.lang-en) .more1.v {
         font-size: 18px
     }
 }
+
+/* 
+    注：x-header 是 首页的上面到导航栏所有部分
+       x-header2是其他页面的这些部分
+       x-footer是所有页面公共底部
+*/
 
 @media screen and (min-width: 1301px) and (max-width: 768px) {
     .x-header .nav-mod {
@@ -1278,6 +1284,10 @@ body:not(.lang-en) .more1.v {
     }
 }
 
+/* 
+    导航栏响应式设计
+*/
+
 @media screen and (max-width: 1300px) {
     .x-header .nav-mod .nav-box {
         -webkit-box-pack: justify;
@@ -1371,7 +1381,7 @@ body:not(.lang-en) .more1.v {
         opacity: 1
     }
 
-    .x-header .search-box,
+    /* .x-header .search-box,
     .x-header .share-box {
         -ms-flex-negative: 0;
         flex-shrink: 0;
@@ -1436,9 +1446,9 @@ body:not(.lang-en) .more1.v {
 
     .x-header .search-box .search-submit {
         width: 40px
-    }
+    } */
 
-    .x-header .share-box {
+    /* .x-header .share-box {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -1449,9 +1459,9 @@ body:not(.lang-en) .more1.v {
 
     .x-header .share-box .share-item {
         font-size: 1.2em
-    }
+    } */
 
-    .x-header .icon-wb .suds-pop.at-t {
+    /* .x-header .icon-wb .suds-pop.at-t {
         left: auto;
         -webkit-transform: none !important;
         transform: none !important;
@@ -1463,7 +1473,7 @@ body:not(.lang-en) .more1.v {
         right: 10px;
         -webkit-transform: translate(0, -50%) rotate(45deg);
         transform: translate(0, -50%) rotate(45deg)
-    }
+    } */
 
     .x-header .nav-mod {
         display: -webkit-box;
@@ -1817,6 +1827,14 @@ body:not(.lang-en) .more1.v {
         margin: 0 1em 0 0 !important
     }
 }
+
+/* 
+    网站尾部头部尾部响应式设计
+*/
+
+/* 
+    x-header2是马超的
+*/
 
 .x-header2 {
     z-index: 3;
@@ -2639,9 +2657,18 @@ body:not(.lang-en) .more1.v {
     }
 }
 
+/* 
+    上面应该是公共
+*/
+
 .x-layout.pl {
     padding-left: 145px
 }
+
+/* 
+    注：header_page应该都是没用的，没在我们的文件里面搜到，你们
+    可以check一下，main.js里面也有相关内容
+*/
 
 .header_page {
     z-index: 3;
@@ -3224,6 +3251,11 @@ body:not(.lang-en) .more1.v {
     }
 }
 
+/* 
+    注：banner
+    不知是什么，目前来看没人用
+*/
+
 .banner {
     position: relative;
     margin-top: -147px
@@ -3278,6 +3310,10 @@ body:not(.lang-en) .more1.v {
 .banner .slick-dot.slick-active {
     opacity: 1
 }
+
+/* 
+    注：audio显然可以删，没人用声音
+*/
 
 .audio-mod.ui {
     position: relative;
@@ -3450,6 +3486,14 @@ body:not(.lang-en) .more1.v {
     }
 }
 
+/* 
+    注：audio结束
+*/
+
+/* 
+    下面这坨div也没人用
+*/
+
 div[data-search] * {
     -webkit-box-sizing: content-box;
     box-sizing: content-box
@@ -3478,9 +3522,18 @@ div[data-search] .infoBox>img {
     right: 10px !important
 }
 
+/* 
+    注：bdmap也没人用
+*/
+
 .bdmap {
     height: 600px
 }
+
+/* 
+    注：bread-mod 是李秉轩的
+    以及马超
+*/
 
 .bread-mod {
     color: #fff;
@@ -3564,6 +3617,15 @@ div[data-search] .infoBox>img {
         display: none
     }
 }
+
+/* 
+    bread-mod结束
+*/
+
+/* 
+    注：paging-mod这个也是lbx的
+        mc也用了一点
+*/
 
 .paging-mod {
     text-align: center;
@@ -3797,6 +3859,19 @@ div[data-search] .infoBox>img {
     }
 }
 
+/* 
+    注：paging-mod 结束
+*/
+
+/* 
+    pop-mod
+    没人用
+ */
+
+ /* 
+ 
+ */
+
 .pop-mod {
     position: fixed;
     left: 0;
@@ -3882,6 +3957,10 @@ div[data-search] .infoBox>img {
     display: block
 }
 
+/* 
+    注：这个video没有就删了
+*/
+
 .pop-mod .video {
     width: 100%;
     height: 100%;
@@ -3941,6 +4020,14 @@ div[data-search] .infoBox>img {
     }
 }
 
+/* 
+    poping mod
+*/
+
+
+/* 
+    注：scbar没人用
+*/
 .scbar {
     color: #fff;
     height: 70px;
@@ -4141,6 +4228,14 @@ div[data-search] .infoBox>img {
     }
 }
 
+/* 
+    注：scbar结束
+*/
+
+/* 
+    scroll-mod没人用
+*/
+
 .scroll-mod {
     position: relative;
     overflow: hidden
@@ -4210,6 +4305,15 @@ div[data-search] .infoBox>img {
         width: 0
     }
 }
+
+/* 
+    注：scroll-mod结束
+*/
+
+/* 
+    select-mod公用
+    王马李
+*/
 
 .select-mod {
     position: relative
@@ -4339,6 +4443,10 @@ div[data-search] .infoBox>img {
     right: 12px
 }
 
+/* 
+    注：select-mod 结束
+*/
+
 @media screen and (min-width: 769px) {
 
     .select-mod .select-trigger:hover .select-btn,
@@ -4365,6 +4473,11 @@ div[data-search] .infoBox>img {
         overflow: auto
     }
 }
+
+/* 
+    注：search-mod
+    应该是三人共用那个搜索，后面看怎么改
+*/
 
 .search-mod {
     position: relative
@@ -4477,6 +4590,15 @@ div[data-search] .infoBox>img {
     }
 }
 
+/* 
+    select-mod结束
+*/
+
+/* 
+    注：下面几个icon主页就用了icon-wx
+    其他的某几个李马的页面在用
+*/
+
 .icon-wx::before {
     content: url(../img/profile.jpg);
     border-radius:50%;
@@ -4513,6 +4635,10 @@ div[data-search] .infoBox>img {
     content: '\e608'
 }
 
+/* 
+    注：share-box都在用
+*/
+
 .share-mod .share-label,
 .share-mod .share-label~.share-box {
     display: inline-block;
@@ -4539,6 +4665,14 @@ div[data-search] .infoBox>img {
         color: #c85840
     }
 }
+
+/* 
+    注：share-box结束
+*/
+
+/* 
+    注：slick-slider没人用
+*/
 
 .slick-slider {
     position: relative;
@@ -4626,6 +4760,15 @@ div[data-search] .infoBox>img {
     opacity: 0.5;
     cursor: initial
 }
+
+/* 
+    slick-dot结束
+*/
+
+/* 
+    注：special_bottom
+    没人用
+*/
 
 .special_bottom {
     padding: 100px 0 0
@@ -4956,6 +5099,15 @@ div[data-search] .infoBox>img {
     }
 }
 
+/* 
+    special_bottom结束
+*/
+
+/* 
+    注：sidebar-mod
+    没人用
+*/
+
 .sidebar-mod {
     position: fixed;
     top: 50%;
@@ -5026,6 +5178,12 @@ div[data-search] .infoBox>img {
     }
 }
 
+/* 
+    注：sidebar-mod结束
+    topping-mod开始
+    都在用，不能删
+*/
+
 .topping-mod {
     position: fixed;
     right: 10px;
@@ -5070,6 +5228,7 @@ div[data-search] .infoBox>img {
     visibility: visible
 }
 
+
 .vjs-full-window .topping-mod {
     z-index: -1
 }
@@ -5099,6 +5258,13 @@ div[data-search] .infoBox>img {
     }
 }
 
+/* 
+    注：topping-mod结束
+*/
+
+/* 
+    tab-mod没用
+*/
 .tab-mod .tab-term {
     cursor: pointer
 }
@@ -5116,6 +5282,11 @@ div[data-search] .infoBox>img {
     opacity: 1;
     visibility: visible
 }
+
+/* 
+    注：tracker-mod
+    是家庆的
+*/
 
 .tracker-mod .tracker-prev {
     cursor: pointer
@@ -5173,6 +5344,11 @@ div[data-search] .infoBox>img {
 .tracker-mod.dir-ver .tracker-item {
     margin: 10px 0
 }
+
+/* 
+    注：video-mod
+    没用
+*/
 
 .video-mod {
     position: relative;
@@ -5272,6 +5448,11 @@ div[data-search] .infoBox>img {
         display: none
     }
 }
+
+/* 
+    注：suds-mod
+    王马李陈
+*/
 
 .suds-mod {
     position: relative
@@ -5425,6 +5606,15 @@ div[data-search] .infoBox>img {
     visibility: visible
 }
 
+/* 
+    suds-mod结束
+*/
+
+/* 
+    注：guides
+    没人用
+*/
+
 .guides .pubtit_box .title {
     font-family: 'Microsoft Yahei', 'PingFang SC', Arial, sans-serif;
     font-size: 40px;
@@ -5456,6 +5646,10 @@ div[data-search] .infoBox>img {
 .guides .head .p {
     margin-top: 6px
 }
+
+/* 
+    注：guide1也没有人用
+*/
 
 .guide1 {
     position: relative;
@@ -7472,6 +7666,16 @@ body:not(.lang-en) .guide6 .list .item .slide-cont {
     }
 }
 
+/* 
+
+    注：以上guide+响应式设计全删了
+*/
+
+/* 
+    x-layout都在用
+    不过子类没用，后面这些也可以删
+*/
+
 .x-layout.hhzz {
     background: url(../img/xf/bg16.jpg) center top
 }
@@ -8536,6 +8740,14 @@ body:not(.lang-en) .hhzz2 .slick-item .st {
     }
 }
 
+/* 
+    注：hhzz是主页某个图片点金去，待定
+*/
+
+/* 
+    x-layout有用
+*/
+
 .x-layout.bg1 {
     background: url(../img/baiy/bg4.jpg) no-repeat center bottom/cover
 }
@@ -8549,6 +8761,15 @@ body:not(.lang-en) .hhzz2 .slick-item .st {
 .x-layout.bg1 .x-footer .viewer .num i {
     background: rgba(255, 255, 255, 0.15)
 }
+
+/* 
+    上面这些有用
+*/
+
+/* 
+    注：learning
+    李秉轩的
+*/
 
 .learning {
     position: relative;
@@ -9172,6 +9393,11 @@ body:not(.lang-en) .learning .dt .tit .tabs1 a {
     }
 }
 
+/* 
+
+    learning_detail依然李秉轩
+*/
+
 .learning_detail {
     color: #fff;
     padding: 4vw 0
@@ -9356,9 +9582,18 @@ body:not(.lang-en) .learning_detail .list .item .p {
     }
 }
 
+/* 
+    注：下面这个好像没用
+*/
+
 .x-layout.home .x-header {
     background: url(../img/bg3.png) no-repeat center center/cover
 }
+
+/* 
+
+    注：trans李秉轩、王
+*/
 
 @media screen and (min-width: 901px) {
     .transT {
@@ -9514,6 +9749,11 @@ body:not(.lang-en) .learning_detail .list .item .p {
     }
 }
 
+/* 
+    注：nav_left
+    王的
+*/
+
 .nav_left {
     position: fixed;
     left: 0;
@@ -9632,6 +9872,16 @@ body:not(.lang-en) .nav_left .item {
     width: 66px
 } */
 
+/* 
+
+    注：nav_left结束
+*/
+
+/* 
+    注：head王 马超
+    李秉轩似乎有
+*/
+
 .head {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -9654,6 +9904,10 @@ body:not(.lang-en) .nav_left .item {
     margin-top: 1em
 }
 
+/* 
+    注：title：王李马
+*/
+
 .title {
     text-align: center;
     font-family: font;
@@ -9672,6 +9926,16 @@ body:not(.lang-en) .nav_left .item {
         font-size: 28px
     }
 }
+
+/* 
+    title结束
+*/
+
+/* 
+    注：home1
+    王
+    下面的home123456全是王的，可跳过
+*/
 
 .home1 {
     position: fixed;
@@ -9776,6 +10040,16 @@ body:not(.lang-en) .nav_left .item {
 .home1 .nav .count b {
     font-weight: normal
 }
+
+/* 
+    home1结束
+
+*/
+
+/* 
+    注：home2
+    王的
+*/
 
 .home2 {
     position: relative;
@@ -9943,6 +10217,16 @@ body:not(.lang-en) .home2 .list .item .p {
 .home2 .bb {
     display: none
 }
+
+/* 
+    home2结束
+*/
+
+/* 
+    注：home3
+    王的
+
+*/
 
 .home3 {
     padding: 7vw 0 5vw;
@@ -10152,6 +10436,14 @@ body:not(.lang-en) .home2 .list .item .p {
     width: 100%;
     height: 100%
 }
+
+/* 
+    home3结束
+*/
+
+/* 
+    注：home4王的
+*/
 
 .home4 {
     position: relative;
@@ -10424,8 +10716,17 @@ body:not(.lang-en) .home2 .list .item .p {
     font-size: 16px;
     border: 1px solid lightgreen;
     border-radius: 4px;
-    transition: background-image 1s ease-in-out;
+    transition: back
+    ground-image 1s ease-in-out;
 }
+
+/* 
+    注：home4结束
+*/
+
+/* 
+    下面效果应该不用删
+*/
 
 /* 淡入淡出效果 */
 @keyframes fadeInOut {
@@ -10441,6 +10742,10 @@ body:not(.lang-en) .home2 .list .item .p {
         opacity: 0;
     }
 }
+
+/* 
+    注：home5开始
+*/
 
 .home5 {
     position: relative;
@@ -10639,6 +10944,15 @@ body:not(.lang-en) .home2 .list .item .p {
     display: block;
     margin-bottom: 10px
 }
+
+/* 
+    注：结束home5
+    
+*/
+
+/* 
+    下面的move是干什么的？？
+*/
 
 @-webkit-keyframes move1 {
     0% {
@@ -10843,6 +11157,10 @@ body:not(.lang-en) .home2 .list .item .p {
         margin-top: 0
     }
 }
+
+/* 
+    注：home6
+*/
 
 .home6 {
     background: #e8e3d1;
@@ -11156,6 +11474,15 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 }
 
+/* 
+    home6结束
+*/
+
+/* 
+
+    下面是响应式设计，考虑删
+*/
+
 @media screen and (min-width: 901px) {
     .home2 .list .item .b {
         -webkit-transform: scale(0.9) translateY(10px);
@@ -11436,6 +11763,9 @@ body:not(.lang-en) .home2 .list .item .p {
 
 @media screen and (max-width: 900px) {
     .x-layout.home .x-header {
+        /* 
+            todo：响应式设计上方颜色
+        */
         background: #7f3222 url(../img/bg3.png) no-repeat center center/cover
     }
 
@@ -12060,6 +12390,15 @@ body:not(.lang-en) .home2 .list .item .p {
     }
 }
 
+/* 
+    注：这里到前面的注，都是响应式设计，一起看看
+
+*/
+
+    /* 
+        这个pubtit——box没人用
+    */
+
 .pubtit_box .title {
     text-align: left
 }
@@ -12082,6 +12421,10 @@ body:not(.lang-en) .home2 .list .item .p {
     margin-left: 15px;
     margin-right: -900px
 }
+
+/* 
+    pubtab_bar没人用
+*/
 
 .pubtab_bar {
     padding-top: 47px
@@ -12112,6 +12455,14 @@ body:not(.lang-en) .home2 .list .item .p {
 .pubtab_bar .tracker-mod .xicon {
     display: none
 }
+
+/* 
+    注：pubtab_bar结束
+*/
+
+/* 
+    news没人用
+*/
 
 .news {
     padding: 172px 0 80px
@@ -12368,6 +12719,14 @@ body:not(.lang-en) .news .cont .listwrap .txt_box2 .p {
         display: none
     }
 }
+
+/* 
+    news结束
+*/
+
+/* 
+    注：product没人用
+*/
 
 .product {
     position: relative;
@@ -12914,6 +13273,10 @@ body:not(.lang-en) .product .content .item .mask .p {
     }
 }
 
+/* 
+    注：result-page
+*/
+
 .result-page {
     padding: 50px 0
 }
@@ -12963,6 +13326,11 @@ body:not(.lang-en) .product .content .item .mask .p {
     }
 }
 
+/* 
+    注：sitemap-page
+    没人用
+*/
+
 .sitemap-page {
     padding: 7% 0 50px
 }
@@ -12995,6 +13363,11 @@ body:not(.lang-en) .product .content .item .mask .p {
         color: #c85840
     }
 }
+
+/* 
+    注：special_exhibition家庆的
+    但是2家庆没有用
+*/
 
 .special_exhibition1 {
     position: relative;
@@ -13145,6 +13518,10 @@ body:not(.lang-en) .product .content .item .mask .p {
     opacity: 1
 }
 
+/* 
+    注：exhibition1结束，2没人用
+*/
+
 .special_exhibition2 {
     padding: 180px 0 130px
 }
@@ -13235,6 +13612,10 @@ body:not(.lang-en) .product .content .item .mask .p {
     margin-top: 45px;
     text-align: center
 }
+
+/* 
+    注：special——exhi响应式设计
+*/
 
 @media screen and (min-width: 769px) {
     .special_exhibition2 .item:hover .text {
@@ -13352,6 +13733,14 @@ body:not(.lang-en) .product .content .item .mask .p {
     }
 }
 
+/* 
+    special——exhi结束
+*/
+
+/* 
+    注：fuse儿子，没人用
+*/
+
 .x-layout.fuse {
     background: #66231b url(../img/lyj/fuse2.jpg) no-repeat top center/cover;
     color: #fff
@@ -13458,6 +13847,10 @@ body:not(.lang-en) .product .content .item .mask .p {
     position: relative;
     z-index: 4
 }
+
+/* 
+    注：fuse和special_fuse应该是主页引出的那几个页
+*/
 
 .special_fuse1 {
     padding: 14.2708% 0 9.2187%;
@@ -14740,6 +15133,11 @@ body:not(.lang-en) .x-layout.fuse .special_fuse2 .cont1 .top .tracker-mod.dir-ho
     }
 }
 
+/* 
+    注：fuse结束
+
+*/
+
 @keyframes rot {
     0% {
         -webkit-transform: rotate(0);
@@ -14775,6 +15173,10 @@ body:not(.lang-en) .x-layout.fuse .special_fuse2 .cont1 .top .tracker-mod.dir-ho
         transform: rotate(-360deg)
     }
 }
+
+/* 
+    special_fuse一些响应式设计
+*/
 
 @media screen and (min-width: 769px) {
     .xr-act.special_fuse1::before {
@@ -15516,6 +15918,10 @@ body:not(.lang-en) .x-layout.fuse .special_fuse2 .cont1 .top .tracker-mod.dir-ho
         writing-mode: horizontal-tb
     }
 }
+
+/* 
+    注：fuse部分响应式设计结束
+*/
 
 .x-layout.red {
     background: #66231b url(../img/baiy/bg8.jpg) no-repeat center -1px/100% auto;
@@ -17629,6 +18035,16 @@ body:not(.lang-en) .special_tang6 .frame .slick-slide .child .h span {
     }
 }
 
+/* 
+
+    注：special_tang是其他页面
+    上面包含了响应式设计
+    */
+
+/* 
+    下面这个没人用
+*/
+
 .temporary_exhibition2 {
     padding: 150px 0 100px
 }
@@ -17828,6 +18244,11 @@ body:not(.lang-en) .special_tang6 .frame .slick-slide .child .h span {
         height: auto
     }
 }
+
+/* 
+    注：
+    universal包没人用
+*/
 
 .universal1 .box {
     position: relative;
@@ -18631,6 +19052,14 @@ body:not(.lang-en) .universal5 .txt_box {
     left: calc(50% + 540px)
 }
 
+/* 
+    注：universal结束
+*/
+
+/* 
+    panel没人用
+*/
+
 .panel .list-group-item .page-widget-desc {
     opacity: 0
 }
@@ -18686,6 +19115,10 @@ body:not(.lang-en) .universal5 .txt_box {
     background-color: #f5f5f5;
     border-color: #ddd
 }
+
+/* 
+    univer响应式
+*/
 
 @media screen and (min-width: 769px) {
 
@@ -18981,6 +19414,15 @@ body:not(.lang-en) .universal5 .txt_box {
         margin-top: 10px
     }
 }
+
+/* 
+    注：univer响应式结束
+*/
+
+/* 
+    volunteer开始
+    没人用
+*/
 
 .volunteers {
     padding: 172px 0 348px
@@ -19435,6 +19877,15 @@ body:not(.lang-en) .volunteers .volbox2 .flexbox .tbox .pbox {
     }
 }
 
+/* 
+    注：volunteer结束
+*/
+
+/* 
+    data开始
+    没人用
+*/
+
 .data {
     padding: 15vw 0 120px
 }
@@ -19831,6 +20282,10 @@ body:not(.lang-en) .data .cont .tab-mod .tab-cont .tbox .p {
         display: none
     }
 }
+
+/* 
+    注：留言，能不能利用起来
+*/
 
 .liuyan1 {
     padding: 50px 0 74px
@@ -21239,6 +21694,15 @@ body:not(.lang-en) .long_context3 .text .p {
     }
 }
 
+/* 
+    注：从这里到上面都没用
+    
+*/
+
+/* 
+    about看看能不能利用
+*/
+
 .about1 {
     padding: 175px 0
 }
@@ -22011,6 +22475,10 @@ body:not(.lang-en) .about7 .top .tit {
         background-attachment: local !important
     }
 }
+
+/* 
+    about结束
+*/
 
 .x-layout.bg1 .x-footer.xf {
     border-top: 0
@@ -23678,6 +24146,15 @@ body:not(.lang-en) .activity_forecast2 .li .p {
     }
 }
 
+/* 
+
+    注：前面的activity没用
+*/
+
+/* 
+    announcement看能不能用
+*/
+
 .announcement {
     padding: 172px 0 80px
 }
@@ -24253,6 +24730,16 @@ body:not(.lang-en) .announcement .list .lcont .p {
     }
 }
 
+/* 
+    注：上面
+    activity——registration
+    
+*/
+
+/* 
+    article-page看能不能用
+*/
+
 .article-page {
     padding: 100px 0
 }
@@ -24794,6 +25281,15 @@ body:not(.lang-en) .articles_association .txt_cont .pbox {
     }
 }
 
+/* 
+    注：article
+    结束
+*/
+
+/* 
+    basic_disp没人用
+*/
+
 .basic_display1 {
     padding: 110px 0 0
 }
@@ -25121,6 +25617,14 @@ body:not(.lang-en) .articles_association .txt_cont .pbox {
     }
 }
 
+/* 
+    basic display没人用
+*/
+
+/* 
+    注：collection1是马超的
+*/
+
 .collection1 {
     background: #618264;
     position: relative
@@ -25255,6 +25759,10 @@ body:not(.lang-en) .collection1 .head .text {
     -webkit-transition: all 2s ease-out 1s;
     transition: all 2s ease-out 1s
 }
+
+/* 
+    注：1结束，collection2也是马超的
+*/
 
 .collection2 {
     position: relative;
@@ -25631,6 +26139,10 @@ body:not(.lang-en) .collection2 .list .scroll .item .h {
     margin-top: 2.5em
 }
 
+/* 
+    注：以上的collection3 4都是马超的
+*/
+
 @media screen and (min-width: 901px) {
     .collection1.showd img {
         opacity: 1;
@@ -25904,6 +26416,17 @@ body:not(.lang-en) .collection2 .list .scroll .item .h {
         margin-top: 20px
     }
 }
+
+/* 
+
+    注：collection响应式设计结束了
+*/
+
+
+/* 
+    fp这个没用
+    collection detail不知道有用没，马超检查下
+*/
 
 .fp-auto-height {
     height: auto !important
@@ -27362,6 +27885,11 @@ body:not(.lang-en) .collection_detail2 .slick-item .c {
     }
 }
 
+/* 
+    注：collection detail结束
+    下面是新页面家x-layout
+*/
+
 .x-layout.wmyl {
     background: url(../img/lys/jpg34.jpg) no-repeat top center;
     background-size: cover
@@ -28180,6 +28708,10 @@ body:not(.lang-en) .x-layout.wmyl .cradle3 .txt_box .box2 .p {
         text-align: left
     }
 }
+
+/* 
+    注：新页面：大汉雄风
+*/
 
 .x-layout.dhxf {
     background: url(../img/xf/bg21.jpg) center top no-repeat
@@ -30987,6 +31519,11 @@ body:not(.lang-en) .dtyb5 .tit .more1 {
     background: url(../img/bg1_4.jpg) no-repeat center bottom/cover
 }
 
+/* 
+
+    注：又是新页面
+*/
+
 .eastern_empire1 {
     position: relative
 }
@@ -31742,6 +32279,10 @@ body:not(.lang-en) .eastern_empire2 .mar_box .list .item .tit2 {
     }
 }
 
+/* 
+    注：exhibition tang没用
+*/
+
 .exhibition_tang1 {
     height: 100vh;
     position: relative;
@@ -32400,6 +32941,10 @@ body:not(.lang-en) .eastern_empire2 .mar_box .list .item .tit2 {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap
 }
+
+/* 
+    注：下面这个也没用
+*/
 
 .experts_list .list .li {
     width: calc((100% - 80px) / 4);
