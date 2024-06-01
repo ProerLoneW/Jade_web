@@ -14,7 +14,7 @@
     <meta name="keywords" content="玉石 交流 学习" />
     <meta  name="description" content="玉石天地" />
 
-    <title>首页玉石天地</title>
+    <title>首页-玉石天地</title>
     <script type="text/javascript">
         if (!window.matchMedia) {
             var el = document.createElement('div');
@@ -42,6 +42,7 @@
         <div class="topping-mod xfont icon-up">
             <div class="s"></div>
         </div>
+
         <div class="nav_left">
             <div class="item"><a href="/news">最新资讯</a></div>
             <div class="item"><a href="/teacher_style">教师风采</a></div>
@@ -51,15 +52,19 @@
             <!-- <div class="item"><a href="/jade_poems.html">诗说美珏</a></div> -->
             <div class="item"><a href="/message_board">留言黑板</a></div>
             <div class="item"><a href="/about">关于我们</a></div>
-            <div class="item"><a id="login-status" href="/login">未登录</a></div>
+            <div class="item">
+                <a id="login-status" href="/login">
+                </a>
+            </div>
             {% if 'username' in session %}
             <div class="item"><a href="/forum">进入论坛</a></div>
             <div class="item"><a href="/logout">登出</a></div>
             {% endif %}
         </div>
+
         <style>
             /* 在每个div盒子中内联style */
-            #myalert {
+            /* #myalert {
                 display: none;
             }
     
@@ -116,34 +121,34 @@
                 height: 29px;
                 font: 14px/100% "Microsoft YaHei", Arial, Tahoma, Helvetica, sans-serif;
                 color: #707070;
-            }
+            } */
         </style>
-        <div id="myalert" class="layer">
+<!-- <div id="myalert" class="layer">
             <div class="myalert">
                 <a href="javascript:;" onclick="myalert_hide();" class="guan"></a>
                 <div class="text">请输入关键字</div>
                 <a><button class="button" id="my_ok"
                         style="cursor:pointer ;opacity: 1;transform: translateY(0px);">确定</button></a>
             </div>
-        </div>
+        </div> -->
         <script>
-            function my_alert(text, callback) {
-                $('#myalert').show();
-                $('#myalert .myalert div').html(text);
+                // function my_alert(text, callback) {
+                //     $('#myalert').show();
+                //     $('#myalert .myalert div').html(text);
 
-                $('#my_ok').click(function () {
-                    $('#myalert').hide();
+                //     $('#my_ok').click(function () {
+                //         $('#myalert').hide();
 
-                    if (typeof (callback) == 'function') {
-                        callback();
-                        return false;
-                    }
-                });
-            }
+                //         if (typeof (callback) == 'function') {
+                //             callback();
+                //             return false;
+                //         }
+                //     });
+                // }
 
-            function myalert_hide() {
-                $('#myalert').hide();
-            }
+                // function myalert_hide() {
+                //     $('#myalert').hide();
+                // }
 
             async function checkLoginStatus() {
             const response = await fetch('/check_login');
@@ -167,7 +172,6 @@
     
         <div class="x-layout home">
             <div class="x-header">
-    
                 <div class="menu-mod">
                     <div class="logo"><a href="/"><img src="/Uploads/Picture/2021/11/05/s6185032db4faf.png" alt="" title=""
                                 class="i"></a></div>
@@ -283,7 +287,7 @@
                                 </div>
                                 <ul>
                                     <li><a href="/info/Building.html">党建工作</a></li>
-                                    <li><a href="/info/news.html">工作动态</a></li>
+                                    <li><a href="/info/.html">工作动态</a></li>
                                     <li><a href="/info/industry.html">行业信息</a></li>
                                     <li><a href="/info/announcement.html">最新公告</a></li>
                                     <li><a href="/volunteer.html">志愿者</a></li>
@@ -473,36 +477,36 @@
         <script>
             var p = 1;
             var catrgory_id = "";
-            $(function () {
-                $('#btn_Search').click(function () {
-                    var keywords = $("#txt_Search").val();
-                    if (keywords == '') {
-                        my_alert("请输入关键字");
-                        return false;
-                    }
-                    var tit = '';
-                    if (tit == "搜索结果") {
-                        window.location.href = "/searchs/keywords/" + encodeURI(keywords);
-                    } else {
-                        window.open("/searchs/keywords/" + encodeURI(keywords));
-                    }
-                });
-                $('#btn_Search2').click(function () {
-                    var keywords = $("#txt_Search2").val();
-                    if (keywords == '') {
-                        my_alert("请输入关键字");
-                        return false;
-                    }
+                // $(function () {
+                //     $('#btn_Search').click(function () {
+                //         var keywords = $("#txt_Search").val();
+                //         if (keywords == '') {
+                //             my_alert("请输入关键字");
+                //             return false;
+                //         }
+                //         var tit = '';
+                //         if (tit == "搜索结果") {
+                //             window.location.href = "/searchs/keywords/" + encodeURI(keywords);
+                //         } else {
+                //             window.open("/searchs/keywords/" + encodeURI(keywords));
+                //         }
+                //     });
+                //     $('#btn_Search2').click(function () {
+                //         var keywords = $("#txt_Search2").val();
+                //         if (keywords == '') {
+                //             my_alert("请输入关键字");
+                //             return false;
+                //         }
 
-                    var tit = '';
-                    if (tit == "搜索结果") {
-                        window.location.href = "/searchs/keywords/" + encodeURI(keywords);
-                    } else {
-                        window.open("/searchs/keywords/" + encodeURI(keywords));
-                    }
-                });
+                //         var tit = '';
+                //         if (tit == "搜索结果") {
+                //             window.location.href = "/searchs/keywords/" + encodeURI(keywords);
+                //         } else {
+                //             window.open("/searchs/keywords/" + encodeURI(keywords));
+                //         }
+                //     });
 
-            })
+                // })
             function keydown(e, but) {
                 var currKey = 0, e = e || event;
                 var _this = $(but);
@@ -513,11 +517,9 @@
                 }
             }
 
-
-
         </script>
         <script src="../static/js/snap.svg-min.js"></script>
-        <br class="x-container" data-pt="false">
+        <div class="x-container" data-pt="false">
             <div class="home1" style="min-height:20px;">
                 <div class="frame">
                     <div class="child">
@@ -642,7 +644,7 @@
                                 </video>
                                 <a href="/long_context.html"></a>
                             </div>
-                            <div class="h"></div>
+                            <div class="h">第一部分 教师风采</div>
                         </div>
                         <div class="item">
                             <div class="pic">
@@ -656,7 +658,7 @@
                                 </video>
                                 <a href="/special_tang.html"></a>
                             </div>
-                            <div class="h">第二单元 盛唐气象</div>
+                            <div class="h">第二部分 课堂剪影</div>
                         </div>
                         <div class="item">
                             <div class="pic">
@@ -670,20 +672,18 @@
                                 </video>
                                 <a href="/special_fuse.html"></a>
                             </div>
-                            <div class="h">第三单元 冲突融合</div>
+                            <div class="h">第三部分 漫话玉史</div>
                         </div>
                         <div class="item">
-                            <div class="new-box">
-                                <div class="left-image">
-                                    <!-- <img src="Public/static/themes_main/image/png1.png" alt="" width="50%"> -->
-                                </div>
-                                <div class="right-inputs">
-                                    <input type="text" placeholder="标题">
-                                    <input type="text" placeholder="内容">
-                                    <!-- <button class="submit-btn">提交</button> -->
-                                </div>
+                            <div class="pic">
+                                <video preload="auto" poster1="../static/img/board.jpg" poster2="../static/img/board.jpg" webkit-playsinline=""
+                                    playsinline="" x5-playsinline="" x-webkit-airplay="allow" loop autoplay muted>
+                                    <source src="/Public/static/themes_main/image/v1_2.mp4" type="video/mp4" media="screen and (min-width:901px)" />
+                                    <source src="/Public/static/themes_main/image/v2_2.mp4" type="video/mp4" media="screen and (max-width:900px)" />
+                                </video>
+                                <a href="/special_fuse.html"></a>
                             </div>
-                            <div class="h">第四单元 大汉雄风</div>
+                            <div class="h">第四部分 留言黑板</div>
                         </div>
                         <div class="item">
                             <div class="pic">
@@ -697,7 +697,7 @@
                                 </video>
                                 <a href="/eastern_empire.html"></a>
                             </div>
-                            <div class="h">第五单元 东方帝国</div>
+                            <div class="h">第五部分 关于我们</div>
                         </div>
                         <!-- <div class="item">
                             <div class="pic">
