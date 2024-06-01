@@ -2,104 +2,111 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>玉·交流</title>
-      <link href="../static/css/forum.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Forum</title>
+    <link rel="stylesheet" href="../static/css/forum.css">
 </head>
 <body>
-        <div class="slidershow">
-    <div class="slidershow--image" style="background-image: url(../static/img/login/1.png)"></div>
-    <div class="slidershow--image" style="background-image: url(../static/img/login/2.png)"></div>
-    <div class="slidershow--image" style="background-image: url(../static/img/login/3.png)"></div>
-    <div class="slidershow--image" style="background-image: url(../static/img/login/4.png)"></div>
-</div>
-
-        <div class="slidershow2">
-    <div class="slidershow2--image" style="background-image: url(../static/img/login/1.png)"></div>
-    <div class="slidershow2--image" style="background-image: url(../static/img/login/2.png)"></div>
-    <div class="slidershow2--image" style="background-image: url(../static/img/login/3.png)"></div>
-    <div class="slidershow2--image" style="background-image: url(../static/img/login/4.png)"></div>
-</div>
-           <div class="slidershow3">
-    <div class="slidershow3--image" style="background-image: url(../static/img/login/1.png)"></div>
-    <div class="slidershow3--image" style="background-image: url(../static/img/login/2.png)"></div>
-    <div class="slidershow3--image" style="background-image: url(../static/img/login/3.png)"></div>
-    <div class="slidershow3--image" style="background-image: url(../static/img/login/4.png)"></div>
-</div>
-<div class="navbar">
-    <input type="checkbox" />
-    <span></span>
-    <span></span>
-    <ul>
-        <li><a href="/index">首页</a></li>
-        <li><a href="/Subject">学术</a></li>
-        <li><a href="/exhibition">展览</a></li>
-        <li><a href="/collection">美学</a></li>
-        <li><a href="/forum">交流</a></li>
-    </ul>
-</div>
-
-    {% if 'username' in session %}
-        <p><a href="{{ url_for('forum_post') }}" class="post_button">+</a></p>
-       <p><a href="{{ url_for('logout') }}" class="logout"><img src="../static/img/forum/logout.png" alt="Logout"></a></p>
-    {% else %}
-        <p><a href="{{ url_for('login') }}">登录</a> | <a href="{{ url_for('register') }}">注册</a></p>
-    {% endif %}
-
-    <div class="posts">
-        {% for post in posts %}
-            <div class="post">
-                <div class="content">
-                    <div class="post-info">
-  <div class="avatar">
-    {% if post.author.avatar %}
-      <img src="{{ url_for('static', filename=post.author.avatar) }}" alt="Avatar" class="avatar">
-    {% endif %}
-  </div>
-  <div class="username-date">
-    <p>
-      <a href="{{ url_for('profile', username=post.author.username) }}" class="username">{{ post.author.username }}</a>
-    </p>
-    <p class="timestamp">{{ post.timestamp|date }}</p>
-  </div>
-</div>
-                    {#<h2>{{ post.title }}</h2>#}
-                   <h2><a href="{{ url_for('read_post', post_id=post.id) }}" class="title">{{ post.title }}</a></h2>
-                    {% if session.get('role') == 'admin' %}
-                        <form method="post" action="{{ url_for('delete_post', post_id=post.id) }}" style="display:inline;">
-                            <button type="submit">删除</button>
+    <header class="header">
+        <h1>欢迎来到玉 ● 论坛</h1>
+    </header>
+    <nav class="nav">
+        <div class="Head-Jump" id="head">
+            <div class="slide1"></div>
+            <div class="slide2"></div>
+            <a href="/index">首页</a>
+            <a href="/Subject">玉●学术</a>
+            <a href="/exhibition">玉●展览</a>
+            <a href="/collection">玉●美学</a>
+            <a href="/forum">玉●交流</a>
+        </div>
+    </nav>
+    <div class="user-actions">
+        {% if 'username' in session %}
+            <button class="post-button" onclick="location.href='{{ url_for('forum_post') }}'">发布帖子</button>
+            <button class="post-button" onclick="location.href='{{ url_for('logout') }}'">登出</button>
+        {% else %}
+            <p><a href="{{ url_for('login') }}">登录</a> | <a href="{{ url_for('register') }}">注册</a></p>
+        {% endif %}
+    </div>
+    <main>
+        <section id="posts" class="posts">
+            <h2 class="posts-title">来看看最近发生什么新鲜事吧</h2>
+            {% for post in posts %}
+            <article>
+                <p>
+                    <a class="author-link" href="{{ url_for('profile', username=post.author.username) }}">{{ post.author.username }}</a>
+                    <span class="timestamp">{{ post.timestamp|date }}</span>
+                </p>
+                <h2><a class="title-link" href="{{ url_for('read_post', post_id=post.id) }}">{{ post.title }}</a></h2>
+                {% if session.get('role') == 'admin' %}
+                    <form method="post" action="{{ url_for('delete_post', post_id=post.id) }}" style="display:inline;">
+                        <button type="submit">删除</button>
+                    </form>
+                {% endif %}
+                <div class="like-container">
+                    {% if post.id in liked_post_ids %}
+                        <form method="post" action="{{ url_for('unlike_post', post_id=post.id) }}" style="display:inline;">
+                            <button type="submit" class="like-button">
+                                <img src="{{ url_for('static', filename='../static/img/forum/like_after.png') }}" alt="取消点赞">
+                            </button>
+                        </form>
+                    {% else %}
+                        <form method="post" action="{{ url_for('like_post', post_id=post.id) }}" style="display:inline;">
+                            <button type="submit" class="like-button">
+                                <img src="{{ url_for('static', filename='../static/img/forum/like_before.png') }}" alt="点赞">
+                            </button>
                         </form>
                     {% endif %}
-                {% if post.images %}
-                    <img src="{{ url_for('static', filename=post.images[0].file_path) }}" alt="Post Image">
-                {% endif %}
-                   {% if post.id in liked_post_ids %}
-                         <form method="post" action="{{ url_for('unlike_post', post_id=post.id) }}" style="display:inline;">
-                             <button class="like-button" type="submit">
-                             <img src="../static/img/forum/like_after.png" alt="Like After"> <!-- 替换为点赞后的图片路径 -->
-                             </button>
-                          </form>
-                   {% else %}
-                        <form method="post" action="{{ url_for('like_post', post_id=post.id) }}" style="display:inline;">
-                        <button class="like-button" type="submit">
-                        <img src="../static/img/forum/like_before.png" alt="Like Before"> <!-- 替换为点赞前的图片路径 -->
-                        </button>
-                        </form>
-                   {% endif %}
-                   <span class="like-count">（{{ post.likes|length }}）</span>
+                    <span class="like-text">已有 {{ post.likes|length }} 人喜欢</span>
                 </div>
-
-            </div>
-        {% endfor %}
-    </div>
-
-    <script src="../static/js/forum.js"></script>
+                {% if post.images %}
+                    <div class="post-image">
+                        <img src="{{ url_for('static', filename=post.images[0].file_path) }}" alt="Post Image">
+                    </div>
+                {% endif %}
+            </article>
+            {% endfor %}
+        </section>
+    </main>
     <div class="pagination">
         {% if prev_url %}
-            <a href="{{ prev_url }}">上一页</a>
+            <button class="post-button" onclick="location.href='{{ prev_url }}'">上一页</button>
         {% endif %}
         {% if next_url %}
-            <a href="{{ next_url }}">下一页</a>
+            <button class="post-button" onclick="location.href='{{ next_url }}'">下一页</button>
         {% endif %}
     </div>
+    <footer class="footer">
+        <p>&copy; By B1ack</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            $("#head a").on("click", function () {
+                var position = $(this).position();
+                var width = $(this).outerWidth();
+                $("#head .slide1").css({ opacity: 1, left: position.left, width: width });
+            });
+            $("#head a").on("mouseover", function () {
+                var position = $(this).position();
+                var width = $(this).outerWidth();
+                $("#head .slide1").css({ opacity: 1, left: position.left, width: width });
+                $("#head .slide2").css({ opacity: 1, left: position.left, width: width, height: '80%' }).addClass("squeeze");
+            });
+            $("#head a").on("mouseout", function () {
+                $("#head .slide1").css({ opacity: 0 });
+                $("#head .slide2").css({ opacity: 0 }).removeClass("squeeze");
+            });
+
+            $(".like-button").on("click", function() {
+                $(this).find("img").addClass("like-animation");
+                setTimeout(function() {
+                    $(".like-button img").removeClass("like-animation");
+                }, 600);
+            });
+        });
+    </script>
 </body>
 </html>

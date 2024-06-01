@@ -9,21 +9,17 @@
 <body id="WholePage">
     <!-- 上方浮页 -->
     <div class="Head" id="head">
-        <div>
-            <img class="Logo" src="../static/img/Logo.png">
-        </div>
+        <div class="logo-container"></div>
         <div class="Head-Jump">
             <div class="slide1"></div>
             <div class="slide2"></div>
             <a href="/index">首页</a>
             <a href="/Subject">玉●学术</a>
-            <a href="/exhibition/exhibition">玉●展览</a>
+            <a href="/exhibition">玉●展览</a>
             <a href="/collection">玉●美学</a>
             <a href="/forum">玉●交流</a>
         </div>
-        <div>
-            <img class="User-Head" src="../static/img/profile.jpg">
-        </div>
+        <div class="user-container"></div>
     </div>
     <!-- 帖子发布详情 -->
     <div class="container">
@@ -79,13 +75,13 @@
         document.addEventListener('DOMContentLoaded', function() {
         const head = document.getElementById('head');
 
-        head.style.top = '-100px';
+        head.style.top = '-10px';
 
         document.addEventListener('mousemove', function(event) {
             if (event.clientY < 50) {
                 head.style.top = '0';
             } else {
-                head.style.top = '-100px';
+                head.style.top = '-10px';
             }
         });
 
