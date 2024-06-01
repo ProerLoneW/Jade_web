@@ -4478,8 +4478,8 @@ div[data-search] .infoBox>img {
 }
 
 .icon-wx::before {
-    content: url(/Public/static/themes_main/image/profile.jpg);
-    
+    content: url(../img/profile.jpg);
+    border-radius:50%;
     object-fit: cover;
     /* background-size: cover; */
     /* background-image: url(/Public/static/themes_main/image/babatuosi.jpg); */
@@ -9598,32 +9598,32 @@ body:not(.lang-en) .nav_left .item {
 }
 
 .nav_left .item:nth-child(1) {
-    background-image: url(/Public/static/themes_main/image/index-nav-left-1.png);
+    background-image: url(../img/index-nav-left-1.png);
     width: 85px
 }
 
 .nav_left .item:nth-child(2) {
-    background-image: url(/Public/static/themes_main/image/index-nav-left-2.png);
+    background-image: url(../img/index-nav-left-2.png);
     width: 87px
 }
 
 .nav_left .item:nth-child(3) {
-    background-image: url(/Public/static/themes_main/image/index-nav-left-3.png);
+    background-image: url(../img/index-nav-left-3.png);
     width: 67px
 }
 
 .nav_left .item:nth-child(4) {
-    background-image: url(/Public/static/themes_main/image/index-nav-left-4.png);
+    background-image: url(../img/index-nav-left-4.png);
     width: 76px
 }
 
 .nav_left .item:nth-child(5) {
-    background-image: url(/Public/static/themes_main/image/index-nav-left-5.png);
+    background-image: url(../img/index-nav-left-5.png);
     width: 97px
 }
 
 .nav_left .item:nth-child(6) {
-    background-image: url(/Public/static/themes_main/image/index-nav-left-6.png);
+    background-image: url(../img/index-nav-left-6.png);
     width: 86px
 }
 

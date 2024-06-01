@@ -18,7 +18,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 # MySQL 数据库连接配置
 db_config={
     'user':'root',
-    'password':'Ma3332808',#这里改成自己的数据库密码
+    'password':'20040504',#这里改成自己的数据库密码
     'host':'localhost',
     'port':3306,
     'database': 'web',#这里改成自己的数据库名字
@@ -40,9 +40,11 @@ class User(Base):
     avatar = Column(String(255), nullable=True)
     gender = Column(String(10), nullable=False, default='不愿透露')
     signature = Column(String(40), nullable=True)
-    favorite_jade = Column(String(40), nullable=True)
+    favorite_jade1 = Column(String(255), nullable=True)
+    favorite_jade2 = Column(String(255), nullable=True)
+    favorite_jade3 = Column(String(255), nullable=True)
     show_likes = Column(Boolean, default=True)
-    show_email = Column(Boolean, default=True)  
+    show_email = Column(Boolean, default=True)
     posts = relationship('Post', back_populates='author', cascade="all, delete-orphan")
     comments = relationship('Comment', back_populates='author', cascade="all, delete-orphan")
     likes = relationship('Like', back_populates='user', cascade="all, delete-orphan")
@@ -414,11 +416,19 @@ def profile(username):
                 user.favorite_jade3 = 'uploads/' + filename
         user.gender = request.form.get('gender', user.gender)
         user.signature = request.form.get('signature', user.signature)
+
         # user.favorite_jade = request.form.get('favorite_jade', user.favorite_jade)
+
         user.show_likes = 'show_likes' in request.form
         db_session.commit()
+
         # print(username)
         return redirect(url_for('profile', username=username))
+
+    posts = db_session.query(Post).filter_by(user_id=user.id).all()
+    liked_posts = db_session.query(Post).join(Like, Like.post_id == Post.id).filter(Like.user_id == user.id).all()
+
+    return render_template('profile.html', user=user, is_self=is_self, posts=posts, liked_posts=liked_posts)
 #文章刊物管理
 
 @app.route('/articles')

@@ -1,46 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>个人主页 - {{ user.username }}</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            background: url('../static/img/babatuosi.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .navbar button {
+            margin-right: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .navbar button:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            display: flex;
+            width: 100%;
+            padding-top: 70px;
+            /* 高度加上导航栏的高度 */
+            box-sizing: border-box;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            overflow-y: auto;
+            height: calc(100vh - 70px);
+        }
+
+        .main-content {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            height: calc(100vh - 70px);
+        }
+
         .profile {
             border: 1px solid #ddd;
             padding: 10px;
             margin-bottom: 10px;
         }
-        .posts, .liked-posts {
-            display: block;
+
+        .posts,
+        .liked-posts {
+            display: none;
         }
-        .post, .liked-post {
+
+        .post,
+        .liked-post {
             border: 1px solid #ddd;
             padding: 10px;
             margin-bottom: 10px;
         }
+
         .edit-section {
             display: none;
-        
         }
+
         .avatar {
             vertical-align: middle;
             height: 1em;
         }
+
+        .active {
+            display: block !important;
+        }
     </style>
     <script>
-        function toggleEdit(section) {
-            const readSection = document.getElementById(`read-${section}`);
-            const editSection = document.getElementById(`edit-${section}`);
-            const editButton = document.getElementById(`edit-button-${section}`);
-            const submitButton = document.getElementById(`submit-button-${section}`);
+        function toggleEditAll() {
+            const editSections = document.querySelectorAll('.edit-section');
+            const readSections = document.querySelectorAll('.read-section');
+            const editButton = document.getElementById('edit-button-all');
+            const submitButton = document.getElementById('submit-button-all');
 
-            if (readSection.style.display === 'none') {
-                readSection.style.display = 'block';
-                editSection.style.display = 'none';
+            editSections.forEach(section => {
+                section.classList.toggle('edit-section');
+                section.classList.toggle('read-section');
+            });
+
+            readSections.forEach(section => {
+                section.classList.toggle('read-section');
+                section.classList.toggle('edit-section');
+            });
+
+            if (editButton.style.display === 'none') {
                 editButton.style.display = 'inline';
                 submitButton.style.display = 'none';
             } else {
-                readSection.style.display = 'none';
-                editSection.style.display = 'block';
                 editButton.style.display = 'none';
                 submitButton.style.display = 'inline';
             }
@@ -55,113 +137,153 @@
 
             document.getElementById('likes-visibility-form').submit();
         }
+
+        function switchTab(tabName) {
+            const postsSection = document.getElementById('posts');
+            const likedPostsSection = document.getElementById('liked-posts');
+
+            if (tabName === 'posts') {
+                postsSection.classList.add('active');
+                likedPostsSection.classList.remove('active');
+            } else {
+                postsSection.classList.remove('active');
+                likedPostsSection.classList.add('active');
+            }
+        }
     </script>
 </head>
+
 <body>
-    <div class="profile">
-        <h1>{{ user.username }}的个人主页</h1>
-        {% if user.avatar %}
-            <img src="{{ url_for('static', filename=user.avatar) }}" alt="Avatar" style="max-width: 150px; height: auto;">
-        {% endif %}
+    <div class="navbar">
+        <button onclick="window.location.href='{{ url_for('index') }}'">返回</button>
+        <button onclick="switchTab('posts')">我发布的帖子</button>
+        <button onclick="switchTab('liked-posts')">我点赞的帖子</button>
+    </div>
 
-        {% if is_self %}
-            <form method="post" enctype="multipart/form-data">
-                <div id="read-avatar">
-                    <p>头像</p>
-                </div>
-                <div id="edit-avatar" class="edit-section">
-                    <label for="avatar">更改头像:</label>
-                    <input type="file" id="avatar" name="avatar"><br>
-                </div>
-                <button type="button" id="edit-button-avatar" onclick="toggleEdit('avatar')">更换头像</button>
-                <button type="submit" id="submit-button-avatar" style="display:none;">提交头像</button>
+    <div class="container">
+        <div class="sidebar">
+            <div class="profile">
+                <h1>{{ user.username }}的个人主页</h1>
+                {% if user.avatar %}
+                <img src="{{ url_for('static', filename=user.avatar) }}" alt="Avatar"
+                    style="max-width: 150px; height: auto;">
+                {% endif %}
 
-                <div id="read-gender">
+                {% if is_self %}
+                <form method="post" enctype="multipart/form-data">
+                    <div id="read-avatar" class="read-section">
+                        <p>头像</p>
+                    </div>
+                    <div id="edit-avatar" class="edit-section">
+                        <label for="avatar">更改头像:</label>
+                        <input type="file" id="avatar" name="avatar"><br>
+                    </div>
+
+                    <div id="read-gender" class="read-section">
+                        <p>性别: {{ user.gender }}</p>
+                    </div>
+                    <div id="edit-gender" class="edit-section">
+                        <label for="gender">性别:</label>
+                        <select id="gender" name="gender">
+                            <option value="不愿透露" {% if user.gender=='不愿透露' %}selected{% endif %}>不愿透露</option>
+                            <option value="♂" {% if user.gender=='♂' %}selected{% endif %}>♂</option>
+                            <option value="♀" {% if user.gender=='♀' %}selected{% endif %}>♀</option>
+                        </select><br>
+                    </div>
+
+                    <div id="read-signature" class="read-section">
+                        <p>个性签名: {% if user.signature %}{{ user.signature }}{% else %}这个人很神秘，不愿意透露{% endif %}</p>
+                    </div>
+                    <div id="edit-signature" class="edit-section">
+                        <label for="signature">个性签名:</label>
+                        <textarea id="signature" name="signature" maxlength="40">{{ user.signature }}</textarea><br>
+                    </div>
+
+                    <div id="read-favorite_jade" class="read-section">
+                        <p>喜欢的玉石:</p>
+                    </div>
+                    {% if user.favorite_jade1 %}
+                    <img src="{{ url_for('static', filename=user.favorite_jade1) }}" alt="jade1"
+                        style="max-width: 150px; height: auto;">
+                    {% endif %}
+                    {% if user.favorite_jade2 %}
+                    <img src="{{ url_for('static', filename=user.favorite_jade2) }}" alt="jade2"
+                        style="max-width: 150px; height: auto;">
+                    {% endif %}
+                    {% if user.favorite_jade3 %}
+                    <img src="{{ url_for('static', filename=user.favorite_jade3) }}" alt="jade3"
+                        style="max-width: 150px; height: auto;">
+                    {% endif %}
+                    <div id="edit-favorite_jade" class="edit-section">
+                        <label for="favorite_jade">喜欢的玉石:</label>
+                        <input type="file" id="favorite_jade1"
+                            name="favorite_jade1">当前玉石1：{{user.favorite_jade1[8:]}}<br>
+                        <input type="file" id="favorite_jade2"
+                            name="favorite_jade2">当前玉石2：{{user.favorite_jade2[8:]}}<br>
+                        <input type="file" id="favorite_jade3"
+                            name="favorite_jade3">当前玉石3：{{user.favorite_jade3[8:]}}<br>
+                    </div>
+                    <button type="button" id="edit-button-all" onclick="toggleEditAll()">修改信息</button>
+                    <button type="submit" id="submit-button-all" style="display:none;">提交修改</button>
+                </form>
+                {% else %}
+                <div>
                     <p>性别: {{ user.gender }}</p>
-                </div>
-                <div id="edit-gender" class="edit-section">
-                    <label for="gender">性别:</label>
-                    <select id="gender" name="gender">
-                        <option value="不愿透露" {% if user.gender == '不愿透露' %}selected{% endif %}>不愿透露</option>
-                        <option value="♂" {% if user.gender == '♂' %}selected{% endif %}>♂</option>
-                        <option value="♀" {% if user.gender == '♀' %}selected{% endif %}>♀</option>
-                    </select><br>
-                </div>
-                <button type="button" id="edit-button-gender" onclick="toggleEdit('gender')">更换性别</button>
-                <button type="submit" id="submit-button-gender" style="display:none;">提交性别</button>
-
-                <div id="read-signature">
                     <p>个性签名: {% if user.signature %}{{ user.signature }}{% else %}这个人很神秘，不愿意透露{% endif %}</p>
-                </div>
-                <div id="edit-signature" class="edit-section">
-                    <label for="signature">个性签名:</label>
-                    <textarea id="signature" name="signature" maxlength="40">{{ user.signature }}</textarea><br>
-                </div>
-                <button type="button" id="edit-button-signature" onclick="toggleEdit('signature')">更换个性签名</button>
-                <button type="submit" id="submit-button-signature" style="display:none;">提交个性签名</button>
-
-                <div id="read-favorite_jade">
                     <p>喜欢的玉石: {% if user.favorite_jade %}{{ user.favorite_jade }}{% else %}这个人很神秘，不愿意透露{% endif %}</p>
                 </div>
-                <div id="edit-favorite_jade" class="edit-section">
-                    <label for="favorite_jade">喜欢的玉石:</label>
-                    <textarea id="favorite_jade" name="favorite_jade" maxlength="40">{{ user.favorite_jade }}</textarea><br>
-                </div>
-                <button type="button" id="edit-button-favorite_jade" onclick="toggleEdit('favorite_jade')">更换喜欢的玉石</button>
-                <button type="submit" id="submit-button-favorite_jade" style="display:none;">提交喜欢的玉石</button>
-            </form>
-        {% else %}
-            <div>
-                <p>性别: {{ user.gender }}</p>
-                <p>个性签名: {% if user.signature %}{{ user.signature }}{% else %}这个人很神秘，不愿意透露{% endif %}</p>
-                <p>喜欢的玉石: {% if user.favorite_jade %}{{ user.favorite_jade }}{% else %}这个人很神秘，不愿意透露{% endif %}</p>
-            </div>
-        {% endif %}
-    </div>
-
-    <div class="posts">
-        <h2>{% if is_self %}我发布的帖子{% else %}TA发布的帖子{% endif %}（{{ posts|length }}）</h2>
-        {% for post in posts %}
-            <div class="post">
-                <h3>
-                    {% if post.author.avatar %}
-                        <img src="{{ url_for('static', filename=post.author.avatar) }}" alt="Avatar" class="avatar">
-                    {% endif %}
-                    <a href="{{ url_for('read_post', post_id=post.id) }}">{{ post.title }}</a>
-                </h3>
-                <p>{{ post.content[:100] }}...</p>
-                {% if is_self %}
-                    <form method="post" action="{{ url_for('self_delete_post', post_id=post.id) }}" style="display:inline;">
-                        <button type="submit">删除</button>
-                    </form>
                 {% endif %}
             </div>
-        {% endfor %}
-    </div>
+        </div>
 
-    {% if user.show_likes or is_self %}
-        <div class="liked-posts">
-            <h2>{% if is_self %}我点赞的帖子{% else %}TA点赞的帖子{% endif %}（{{ liked_posts|length }}）
-                {% if is_self %}
-                    <form id="likes-visibility-form" method="post" action="{{ url_for('profile', username=session['username']) }}">
-                        <input type="checkbox" id="show_likes" name="show_likes" style="display:none;" {% if user.show_likes %}checked{% endif %}>
+        <div class="main-content">
+            <div id="posts" class="posts active">
+                <h2>{% if is_self %}我发布的帖子{% else %}TA发布的帖子{% endif %}（{{ posts|length }}）</h2>
+                {% for post in posts %}
+                <div class="post">
+                    <h3>
+                        {% if post.author.avatar %}
+                        <img src="{{ url_for('static', filename=post.author.avatar) }}" alt="Avatar" class="avatar">
+                        {% endif %}
+                        <a href="{{ url_for('read_post', post_id=post.id) }}">{{ post.title }}</a>
+                    </h3>
+                    <p>{{ post.content[:100] }}...</p>
+                    {% if is_self %}
+                    <form method="post" action="{{ url_for('self_delete_post', post_id=post.id) }}"
+                        style="display:inline;">
+                        <button type="submit">删除</button>
+                    </form>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+
+            <div id="liked-posts" class="liked-posts">
+                <h2>{% if is_self %}我点赞的帖子{% else %}TA点赞的帖子{% endif %}（{{ liked_posts|length }}）
+                    {% if is_self %}
+                    <form id="likes-visibility-form" method="post"
+                        action="{{ url_for('profile', username=session['username']) }}">
+                        <input type="checkbox" id="show_likes" name="show_likes" style="display:none;" {% if
+                            user.show_likes %}checked{% endif %}>
                         <button type="button" onclick="toggleVisibility()">更换状态</button>
                         <span id="visibility-text">{{ '公开' if user.show_likes else '不予公开' }}</span>
                     </form>
-                {% endif %}
-            </h2>
-            {% for post in liked_posts %}
+                    {% endif %}
+                </h2>
+                {% for post in liked_posts %}
                 <div class="liked-post">
                     <h3>
                         {% if post.author.avatar %}
-                            <img src="{{ url_for('static', filename=post.author.avatar) }}" alt="Avatar" class="avatar">
+                        <img src="{{ url_for('static', filename=post.author.avatar) }}" alt="Avatar" class="avatar">
                         {% endif %}
                         <a href="{{ url_for('read_post', post_id=post.id) }}">{{ post.title }}</a>
                     </h3>
                     <p>{{ post.content[:100] }}...</p>
                 </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-    {% endif %}
+    </div>
 </body>
+
 </html>

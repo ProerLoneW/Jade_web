@@ -181,27 +181,20 @@
                                 <div class="select-val">中文版</div>
                             </div>
                         </div>
-                        <!-- <div class="select-cont">
-                            <div class="select-opts">
-                                <div class="select-item"><a href="/">中文版</a></div>
-                                <div class="select-item"><a href="/en/index.html">EN</a></div>
-                            </div>
-                        </div> -->
                     </div>
-                    <div class="tools-item share-box"><a class="share-item suds-mod bttn xicon icon-wx" href="javascript:;">
+                    <div class="tools-item share-box">
+                        <a class="share-item suds-mod bttn xicon icon-wx" href="{{url_for('profile', username=session['username'])}}">
                             <div class="suds-pop at-b">
-                                <!-- <div class="code">
-                                    <img src="/Uploads/Picture/2023/02/14/s63eae4ff6f316.png" title="" alt="">
-                                </div> -->
                             </div>
                         </a>
-                        <a class="share-item suds-mod bttn xicon icon-wb" href="javascript:;">
+                        <p>点击头像进入个人主页</p>
+                        <!-- <a class="share-item suds-mod bttn xicon icon-wb" href="javascript:;">
                             <div class="suds-pop at-b">
-                                <!-- <div class="code">
+                                <div class="code">
                                     <img src="/Uploads/Picture/2023/02/15/s63ec8c8fc4e56.png" title="" alt="">
-                                </div> -->
+                                </div>
                             </div>
-                        </a>
+                        </a> -->
                     </div>
                     <!-- <div class="tools-item search-mod">
                         <div class="search-tap xicon icon-search bttn"></div>
@@ -224,18 +217,12 @@
                                 </ul>
                             </div>
                             <div class="item">
-                                <div class="h"><a class="" href="/exhibition/exhibition">玉·展览</a>
+                                <div class="h"><a class="" href="/exhibition">玉·展览</a>
                                     <span class="arr xicon icon-down"></span>
                                 </div>
                                 <ul>
-                                    <li><a href="/exhibition/exhibition">国内展览</a></li>
-                                    <li><a href="/exhibition/exhibition">学生策览</a></li>
-                                    <!-- <li><a href="/Temporary.html">临时展览</a></li>
-                                    <li><a href="/xiufu.html">修复展示</a></li>
-                                    <li><a href="/online.html">线上展览</a></li>
-                                    <li><a href="/temporary_exhibition.html">交流展览</a></li>
-                                    <li><a href="/online2.html">虚拟布展</a></li>
-                                    <li><a href="/online1.html">云展览</a></li> -->
+                                    <li><a href="/exhibition">国内展览</a></li>
+                                    <li><a href="/exhibition">学生策览</a></li>
                                 </ul>
                             </div>
                             <!-- <div class="item">
@@ -272,16 +259,21 @@
                                 </ul>
                             </div>
                             <div class="item">
-                                <div class="h"><a class="" href="/product.html">玉·交流</a>
+                                <div class="h">
+                                    {% if 'username' in session %}
+                                    <a class="" href="/forum">玉·交流</a>
+                                    {% else %}
+                                    <a class="" href="/login">登陆解锁论坛功能</a>
+                                    {% endif %}
                                     <span class="arr xicon icon-down"></span>
                                 </div>
                                 <ul>
-                                    <li><a href="/product/tiger.html">师生论玉</a></li>
-                                    <li><a href="/product/tgirl.html">文学创作</a></li>
-                                    <li><a href="/product/tang.html">精美视频</a></li>
-                                    <li><a href="/product/treasure.html">首饰制作</a></li>
-                                    <li><a href="/product/calendar.html">对外合作</a></li>
-                                    <li><a href="/product/stamp.html">考察指南</a></li>
+                                    <li><a href="/forum">师生论玉</a></li>
+                                    <li><a href="/forum">文学创作</a></li>
+                                    <li><a href="/forum">精美视频</a></li>
+                                    <li><a href="/forum">首饰制作</a></li>
+                                    <li><a href="/forum">对外合作</a></li>
+                                    <li><a href="/forum">考察指南</a></li>
                                     <!-- <li><a href="/product/joint.html">联名文创</a></li> -->
                                 </ul>
                             </div>
@@ -393,7 +385,7 @@
     
                         <div class="nav-item nav-lv1-item ">
                             <div class="nav-tit nav-lv1-tit">
-                                <a class="nav-link nav-lv1-link" href="/exhibition/exhibition">玉·展览</a>
+                                <a class="nav-link nav-lv1-link" href="/exhibition">玉·展览</a>
                             </div>
                         </div>
                         <div class="nav-item nav-lv1-item ">
@@ -408,34 +400,13 @@
                         </div>
                         <div class="nav-item nav-lv1-item ">
                             <div class="nav-tit nav-lv1-tit">
-                                <a class="nav-link nav-lv1-link" href="/education">玉·交流</a>
+                                {% if 'username' in session %}
+                                <a class="nav-link nav-lv1-link" href="/forum">玉·交流</a>
+                                {% else %}
+                                <a class="nav-link nav-lv1-link" href="/login">登陆解锁论坛功能</a>
+                                {% endif %}
                             </div>
                         </div>
-                        <!-- <div class="nav-item nav-lv1-item ">
-                                                        <div class="nav-tit nav-lv1-tit">
-                                <a class="nav-link nav-lv1-link" href="/Publication/Subject.html">学术</a>
-                            </div>
-                        </div>
-                        <div class="nav-item nav-lv1-item ">
-                            <div class="nav-tit nav-lv1-tit">
-                                <a class="nav-link nav-lv1-link" href="/product.html">文创</a>
-                            </div>
-                        </div>
-                        <div class="nav-item nav-lv1-item ">
-                            <div class="nav-tit nav-lv1-tit">
-                                <a class="nav-link nav-lv1-link" href="/info/Building.html">资讯</a>
-                            </div>
-                        </div>
-                        <div class="nav-item nav-lv1-item ">
-                            <div class="nav-tit nav-lv1-tit">
-                                <a class="nav-link nav-lv1-link" href="/articles_association.html">信息公开</a>
-                            </div>
-                        </div>
-                        <div class="nav-item nav-lv1-item ">
-                            <div class="nav-tit nav-lv1-tit">
-                                <a class="nav-link nav-lv1-link" href="/about.html">关于</a>
-                            </div>
-                        </div> -->
                     <script>
                         //首页高亮
                         var indexs = "1";
@@ -488,12 +459,12 @@
                 <div class="bb">
                     <!-- <div class="lang"><a href="/" class="now">中</a><a href="/en/index.html">EN</a></div> -->
                     <div class="share-box m-show">
-                        <a class="share-item suds-mod xicon icon-wx" href="javascript:;">
+                        <!-- <a class="share-item suds-mod xicon icon-wx" href="javascript:;">
                             <div class="suds-pop at-t">
                                 <div class="code"><img src="/Uploads/Picture/2023/02/14/s63eae4ff6f316.png" alt=""
                                         title=""></div>
                             </div>
-                        </a>
+                        </a> -->
                         <!-- <a href="#" class="share-item xicon icon-wb" title="分享到新浪微博"></a> -->
                     </div>
                 </div>
@@ -577,11 +548,11 @@
                     </div>
                     <div class="child">
                         <div class="pic"
-                            style="background-image: url(../static/image/index-bg4.jpg);">
+                            style="background-image: url(../static/img/index-bg4.jpg);">
                             <a></a>
                         </div>
                         <div class="pic"
-                            style="background-image: url(../static/image/index-bg4.jpg);">
+                            style="background-image: url(../static/img/index-bg4.jpg);">
                             <a></a>
                         </div>
                     </div>
