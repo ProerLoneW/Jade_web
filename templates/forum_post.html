@@ -9,21 +9,17 @@
 <body id="WholePage">
     <!-- 上方浮页 -->
     <div class="Head" id="head">
-        <div>
-            <img class="Logo" src="../static/img/Logo.png" alt="Logo">
-        </div>
+        <div class="logo-container"></div>
         <div class="Head-Jump">
             <div class="slide1"></div>
             <div class="slide2"></div>
             <a href="/index">首页</a>
             <a href="/Subject">玉●学术</a>
-            <a href="/exhibition/exhibition">玉●展览</a>
+            <a href="/exhibition">玉●展览</a>
             <a href="/collection">玉●美学</a>
             <a href="/forum">玉●交流</a>
         </div>
-        <div>
-            <img class="User-Head" src="../static/img/profile.jpg" alt="User Profile">
-        </div>
+        <div class="user-container"></div>
     </div>
     
     <!-- 发布帖子区域 -->
@@ -34,11 +30,10 @@
             <input type="text" id="title" name="title" required><br>
             <label for="content">正文</label>
             <textarea id="content" name="content" required></textarea><br>
-            <label for="images" class="custom-file-upload">
+            <label for="images" class="custom-file-upload small-button">
                 <input type="file" id="images" name="images" multiple>
-                选择文件
-            </label>
-            <small>最多选择九张照片</small><br>
+                最多选择九张图片
+            </label><br>
             <button type="submit">发布</button>
         </form>
     </div>
@@ -46,36 +41,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-        const head = document.getElementById('head');
+            const head = document.getElementById('head');
 
-        head.style.top = '-100px';
+            head.style.top = '-10px';
 
-        document.addEventListener('mousemove', function(event) {
-            if (event.clientY < 50) {
-                head.style.top = '0';
-            } else {
-                head.style.top = '-100px';
-            }
-        });
+            document.addEventListener('mousemove', function(event) {
+                if (event.clientY < 50) {
+                    head.style.top = '0';
+                } else {
+                    head.style.top = '-10px';
+                }
+            });
 
-        $("#head a").on("click", function () {
-            var position = $(this).position();
-            var width = $(this).outerWidth(); // 获取包括内边距和边框的宽度
-            $("#head .slide1").css({ opacity: 1, left: position.left, width: width });
+            $("#head a").on("click", function () {
+                var position = $(this).position();
+                var width = $(this).outerWidth(); // 获取包括内边距和边框的宽度
+                $("#head .slide1").css({ opacity: 1, left: position.left, width: width });
+            });
+            $("#head a").on("mouseover", function () {
+                var position = $(this).position();
+                var width = $(this).outerWidth(); // 获取包括内边距和边框的宽度
+                $("#head .slide2").css({ opacity: 1, left: position.left, width: width }).addClass("squeeze");
+                $(this).css({ color: '#FFFFFF' }); // 鼠标移到导航栏的文字时变成白色
+            });
+            $("#head a").on("mouseout", function () {
+                $("#head .slide2").css({ opacity: 0 }).removeClass("squeeze");
+                $(this).css({ color: '#FF91A4' }); // 鼠标移出时文字恢复为粉红色
+            });
+            var currentWidth = $("#head a").eq(0).outerWidth(); // 获取包括内边距和边框的宽度
+            var current = $("#head a").eq(0).position();
+            $("#head .slide1").css({ left: current.left, width: currentWidth });
         });
-        $("#head a").on("mouseover", function () {
-            var position = $(this).position();
-            var width = $(this).outerWidth(); // 获取包括内边距和边框的宽度
-            $("#head .slide2").css({ opacity: 1, left: position.left, width: width }).addClass("squeeze");
-        });
-        $("#head a").on("mouseout", function () {
-            $("#head .slide2").css({ opacity: 0 }).removeClass("squeeze");
-        });
-        var currentWidth = $("#head a").eq(0).outerWidth(); // 获取包括内边距和边框的宽度
-        var current = $("#head a").eq(0).position();
-        $("#head .slide1").css({ left: current.left, width: currentWidth });
-        });
-
     </script>
 </body>
 </html>
