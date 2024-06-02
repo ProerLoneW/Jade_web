@@ -44,20 +44,14 @@
         </div>
 
         <div class="nav_left">
-            <div class="item"><a href="/news">最新资讯</a></div>
+            <div class="item"><a>最新资讯</a></div>
             <div class="item"><a href="/teacher_style">教师风采</a></div>
             <div class="item"><a href="/class_silhouette">课堂剪影</a></div>
-            <!-- <div class="item"><a href="/jade_encyclopedia.html">美玉百科</a></div> -->
             <div class="item"><a href="/jade_history">漫话玉史</a></div>
-            <!-- <div class="item"><a href="/jade_poems.html">诗说美珏</a></div> -->
             <div class="item"><a href="/message_board">留言黑板</a></div>
             <div class="item"><a href="/about">关于我们</a></div>
-            <div class="item">
-                <a id="login-status" href="/login">
-                </a>
-            </div>
+            <div class="item"><a id="login-status" href="/login"></a></div>
             {% if 'username' in session %}
-            <div class="item"><a href="/forum">进入论坛</a></div>
             <div class="item"><a href="/logout">登出</a></div>
             {% endif %}
         </div>
@@ -150,13 +144,13 @@
         }
         checkLoginStatus();
         </script>
-    
+
         <div class="x-layout home">
             <div class="x-header">
                 <div class="menu-mod">
                     <div class="logo">
                         <a href="/">
-                            <img src="../static/img/babatuosi.jpg" alt="" title="" class="i">
+                            <img src="../static/img/babatuosi.jpg" alt="" title="" class="i" style="border-radius: 50%;">
                         </a>
                     </div>
                 </div>
@@ -164,13 +158,25 @@
                     <!-- 这里去掉中文英文版 -->
                     <div class="tools-item lang select-mod">
                         <div class="select-bar bttn">
-                            
+                            {% if user %}
+                                欢迎用户{{user.username}}
+                            {% else %}
+                                欢迎来到玉石天地，请注册
+                            {% endif %}
                         </div>
                     </div>
                     <div class="tools-item share-box">
-                        <a class="share-item suds-mod bttn xicon icon-wx" href="{{url_for('profile', username=session['username'])}}" style="border-radius: 50%;">
-                        </a>
-                        <p>点击头像进入个人主页</p>
+                        {% if not user %}
+                            <a class="share-item suds-mod bttn xicon" style="background-image: url('{{ avatar_url }}');" href="/login">
+                            </a>
+                        {% else %}
+                            <a class="share-item suds-mod bttn xicon" style="background-image: url('{{ avatar_url }}');"
+                                href="{{url_for('profile', username=session['username'])}}">
+                            </a>
+                        {% endif %}
+                        <p style="font-size: 16px; color: #007BFF; font-weight: bold; text-align: center; margin-top: 10px;">
+                            点击左侧头像进入个人主页
+                        </p>
                     </div>
                     <div class="menu-btn"><span class="line"></span></div>
                 </div>
@@ -226,10 +232,10 @@
                                 </div>
                                 {% if 'username' in session %}
                                 <ul>
-                                    <li><a href="/">智慧树视频</a></li>
-                                    <li><a href="/">课程回放</a></li>
-                                    <li><a href="/">优质讲座</a></li>
-                                    <li><a href="/">课程资料</a></li>
+                                    <li><a href="/jade_class">智慧树视频</a></li>
+                                    <li><a href="/jade_class">课程回放</a></li>
+                                    <li><a href="/jade_class">优质讲座</a></li>
+                                    <li><a href="/jade_class">课程资料</a></li>
                                 </ul>
                                 {% endif %}
                             </div>
@@ -242,11 +248,13 @@
                                     {% endif %}
                                     <span class="arr xicon icon-down"></span>
                                 </div>
-                                <ul>
-                                    <li><a href="">师生交流</a></li>
-                                    <li><a href="">鉴别玉石</a></li>
-                                    <li><a href="">文学创作</a></li>
-                                </ul>
+                                    {% if 'username' in session %}
+                                    <ul>
+                                        <li><a href="">师生交流</a></li>
+                                        <li><a href="">鉴别玉石</a></li>
+                                        <li><a href="">文学创作</a></li>
+                                    </ul>
+                                    {% endif %}
                             </div>
                         </div>
                         <script>
@@ -604,8 +612,7 @@
                             <div class="pic">
                                 <video preload="auto" poster1="../static/img/board.jpg" poster2="../static/img/board.jpg" webkit-playsinline=""
                                     playsinline="" x5-playsinline="" x-webkit-airplay="allow" loop autoplay muted>
-                                    <source src="/Public/static/themes_main/image/v1_2.mp4" type="video/mp4" media="screen and (min-width:901px)" />
-                                    <source src="/Public/static/themes_main/image/v2_2.mp4" type="video/mp4" media="screen and (max-width:900px)" />
+                                    
                                 </video>
                                 <a href="/blackboard"></a>
                             </div>
@@ -1065,7 +1072,11 @@
                 }
 
                 ra();
-                
+                $(".home2 .content").hover(function () {
+                    $(".nav_left .item").eq(0).addClass("now");
+                }, function () {
+                    $(".nav_left .item").eq(0).removeClass("now");
+                });
                 $(".home4 .list .item").hover(function () {
                     var nextIndex = $(this).index() + 1;
                     $(".home4 .list .item").eq(nextIndex).addClass("now");

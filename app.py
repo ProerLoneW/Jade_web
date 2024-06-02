@@ -826,19 +826,30 @@ def validate_email(email):
 
 @app.route('/class_silhouette')
 def class_silhouette():
-        return render_template('class_silhouette.html')
+    return render_template('class_silhouette.html')
 
 @app.route('/collection')
 def collection():
-        return render_template('collection.html')
+    return render_template('collection.html')
 
 @app.route('/index')
 def index():
-        return render_template('index.html')
+    user=None
+    avatar_url=None
+    if 'username' in session:
+        user = db_session.query(User).filter_by(username=session['username']).first()
+        if not user:
+            return "User not found", 404  # 如果用户不存在，返回404
+        # 生成用户头像URL或默认头像URL
+    if user and user.avatar:
+        avatar_url = url_for('static', filename=user.avatar)
+    else:
+        avatar_url = url_for('static', filename='img/profile.jpg')
+    return render_template('index.html', user=user, avatar_url=avatar_url)
 
 @app.route('/jade_encyclopedia')
 def jade_encyclopedia():
-        return render_template('jade_encyclopedia.html')
+    return render_template('jade_encyclopedia.html')
 
 @app.route('/jade_history')
 def jade_history():

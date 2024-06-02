@@ -371,7 +371,11 @@ video {
 .xicon {
     width: 30px;
     height: 30px;
-    cursor: pointer
+    background-image: url(../img/profile.jpg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .xicon::before {
@@ -379,81 +383,7 @@ video {
     left: 50%;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%)
-}
-
-.icon-left::before {
-    content: '\e504'
-}
-
-.icon-right::before {
-    content: '\e505'
-}
-
-.icon-up::before {
-    content: '\e506'
-}
-
-.icon-down::before {
-    content: '\e507'
-}
-
-.icon-search::before {
-    content: '\e510'
-}
-
-.icon-close::before {
-    content: '\e509'
-}
-
-.icon-menu::before {
-    content: '\e511'
-}
-
-.icon-load {
-    -webkit-animation: animat-round 2s steps(12, end) infinite;
-    animation: animat-round 2s steps(12, end) infinite
-}
-
-.icon-load::before {
-    content: '\e512'
-}
-
-.icon-media-start::before {
-    content: '\e520'
-}
-
-.icon-media-play::before {
-    content: '\e521'
-}
-
-.icon-media-pause::before {
-    content: '\e522'
-}
-
-.icon-media-buffer {
-    -webkit-animation: animat-round 5s linear infinite;
-    animation: animat-round 5s linear infinite
-}
-
-.icon-media-buffer::before {
-    content: '\e513'
-}
-
-.icon-media-prev::before {
-    content: '\e523'
-}
-
-.icon-media-next::before {
-    content: '\e524'
-}
-
-.icon-media-volume::before {
-    content: '\e52c'
-}
-
-.icon-media-muted::before {
-    content: '\e52d'
+    transform: translate(-50%, -50%);
 }
 
 .clear::after,
@@ -4599,41 +4529,7 @@ div[data-search] .infoBox>img {
     其他的某几个李马的页面在用
 */
 
-.icon-wx::before {
-    content: url(../img/profile.jpg);
-    border-radius:50%;
-    object-fit: cover;
-    /* background-size: cover; */
-    /* background-image: url(/Public/static/themes_main/image/babatuosi.jpg); */
-}
 
-.icon-wb::before {
-    content: ''
-}
-
-.icon-qq::before {
-    content: '\e603'
-}
-
-.icon-qz::before {
-    content: '\e604'
-}
-
-.icon-twitter::before {
-    content: '\e605'
-}
-
-.icon-facebook::before {
-    content: '\e606'
-}
-
-.icon-linkedin::before {
-    content: '\e607'
-}
-
-.icon-share::before {
-    content: '\e608'
-}
 
 /* 
     注：share-box都在用
@@ -9867,10 +9763,10 @@ body:not(.lang-en) .nav_left .item {
     width: 86px
 }
 
-/* .nav_left .item:nth-child(7) {
-    background-image: url(../img/png7_7.png);
+.nav_left .item:nth-child(7) {
+    background-image: url(../img/index-nav-left-7.png);
     width: 66px
-} */
+}
 
 /* 
 
