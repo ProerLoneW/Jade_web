@@ -1052,7 +1052,7 @@ body:not(.lang-en) .more1.v {
 
     .x-header .tools-mod .lang {
         position: relative;
-        width: 100px
+        width: 200px
     }
 
     .x-header .tools-mod .lang .xicon {
@@ -2086,7 +2086,7 @@ body:not(.lang-en) .more1.v {
 
     .x-header2 .tools-mod .lang {
         position: relative;
-        width: 100px
+        width: 200px
     }
 
     .x-header2 .tools-mod .lang .xicon {

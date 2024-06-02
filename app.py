@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session, url_for, flash, send_from_directory,abort
+from flask import Flask, render_template, request, redirect, session, url_for, flash, send_from_directory,abort,jsonify
 import pymysql
 import hashlib
 import sqlalchemy
@@ -152,6 +152,12 @@ class Exhibition_stu(Base):
     image_path_3 = Column(String(255), nullable=False)
     description_1 = Column(Text, nullable=False)
     description_2 = Column(Text, nullable=False)
+
+class UserMessages(Base):
+    __tablename__ = 'user_messages'
+    mess_id = Column(Integer, primary_key=True)
+    content = Column(String(500), nullable=False)
+    email = Column(String(120), nullable=True)
 
 # 这是删除所有数据的操作，不到万不得已千万不要做
 # 如果之前创建过同名数据库且不明白如何数据库迁移，可以把下面一句注释去掉，运行清除之前的表并创建新表，然后记得加上注释
@@ -800,6 +806,23 @@ def about():
 @app.route('/blackboard')
 def blackboard():
         return render_template('blackboard.html')
+
+@app.route('/blackboard', methods=['POST'])
+def send_message():
+    content = request.form.get('content')
+    email = request.form.get('email')
+    if not content:
+        return jsonify({'status': 0, 'info': '留言内容不能为空'})
+    if not email or email and not validate_email(email):
+        return jsonify({'status': 0, 'info': '请输入正确的邮箱'})
+    new_message = UserMessages(content=content, email=email)
+    db_session.add(new_message)
+    db_session.commit()
+    return jsonify({'status': 1, 'info': '提交成功'})
+
+def validate_email(email):
+    import re
+    return re.match(r"[^@]+@[^@]+\.[^@]+", email)
 
 @app.route('/class_silhouette')
 def class_silhouette():
