@@ -3,170 +3,34 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人主页 - {{ user.username }}</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            height: 100vh;
-            background: url('../static/img/babatuosi.jpg') no-repeat center center fixed;
-            background-size: cover;
-        }
-
-        .navbar {
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1;
-        }
-
-        .navbar button {
-            margin-right: 10px;
-            padding: 10px 20px;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .navbar button:hover {
-            background-color: #0056b3;
-        }
-
-        .container {
-            display: flex;
-            width: 100%;
-            padding-top: 70px;
-            /* 高度加上导航栏的高度 */
-            box-sizing: border-box;
-        }
-
-        .sidebar {
-            width: 20%;
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box;
-            overflow-y: auto;
-            height: calc(100vh - 70px);
-        }
-
-        .main-content {
-            width: 80%;
-            display: flex;
-            flex-direction: column;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow-y: auto;
-            height: calc(100vh - 70px);
-        }
-
-        .profile {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        .posts,
-        .liked-posts {
-            display: none;
-        }
-
-        .post,
-        .liked-post {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        .edit-section {
-            display: none;
-        }
-
-        .avatar {
-            vertical-align: middle;
-            height: 1em;
-        }
-
-        .active {
-            display: block !important;
-        }
-    </style>
-    <script>
-        function toggleEditAll() {
-            const editSections = document.querySelectorAll('.edit-section');
-            const readSections = document.querySelectorAll('.read-section');
-            const editButton = document.getElementById('edit-button-all');
-            const submitButton = document.getElementById('submit-button-all');
-
-            editSections.forEach(section => {
-                section.classList.toggle('edit-section');
-                section.classList.toggle('read-section');
-            });
-
-            readSections.forEach(section => {
-                section.classList.toggle('read-section');
-                section.classList.toggle('edit-section');
-            });
-
-            if (editButton.style.display === 'none') {
-                editButton.style.display = 'inline';
-                submitButton.style.display = 'none';
-            } else {
-                editButton.style.display = 'none';
-                submitButton.style.display = 'inline';
-            }
-        }
-
-        function toggleVisibility() {
-            const checkbox = document.getElementById('show_likes');
-            const visibilityText = document.getElementById('visibility-text');
-
-            checkbox.checked = !checkbox.checked;
-            visibilityText.innerText = checkbox.checked ? '公开' : '不予公开';
-
-            document.getElementById('likes-visibility-form').submit();
-        }
-
-        function switchTab(tabName) {
-            const postsSection = document.getElementById('posts');
-            const likedPostsSection = document.getElementById('liked-posts');
-
-            if (tabName === 'posts') {
-                postsSection.classList.add('active');
-                likedPostsSection.classList.remove('active');
-            } else {
-                postsSection.classList.remove('active');
-                likedPostsSection.classList.add('active');
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="../static/css/profile.css">
 </head>
 
 <body>
-    <div class="navbar">
-        <button onclick="window.location.href='{{ url_for('index') }}'">返回</button>
-        <button onclick="switchTab('posts')">我发布的帖子</button>
-        <button onclick="switchTab('liked-posts')">我点赞的帖子</button>
-    </div>
+    <header class="header">
+        <h1>欢迎来到您的个人空间</h1>
+    </header>
 
-    <div class="container">
+    <nav class="nav">
+        <div class="Head-Jump" id="head">
+            <div class="slide1"></div>
+            <div class="slide2"></div>
+            <a href="/index">首页</a>
+            <a href="/Subject">玉●学术</a>
+            <a href="/exhibition">玉●展览</a>
+            <a href="/collection">玉●美学</a>
+            <a href="/forum">玉●交流</a>
+        </div>
+    </nav>
+
+    <main>
         <div class="sidebar">
             <div class="profile">
                 <h1>{{ user.username }}的个人主页</h1>
                 {% if user.avatar %}
-                <img src="{{ url_for('static', filename=user.avatar) }}" alt="Avatar"
-                    style="max-width: 150px; height: auto;">
+                <img src="{{ url_for('static', filename=user.avatar) }}" alt="Avatar" class="avatar">
                 {% endif %}
 
                 {% if is_self %}
@@ -199,53 +63,56 @@
                         <textarea id="signature" name="signature" maxlength="40">{{ user.signature }}</textarea><br>
                     </div>
 
-                    <div id="read-favorite_jade" class="read-section">
+                    <div id="read-favorite_jade" class="read-section favorite-jade">
                         <p>喜欢的玉石:</p>
+                        {% if user.favorite_jade1 %}
+                        <img src="{{ url_for('static', filename=user.favorite_jade1) }}" alt="jade1">
+                        {% endif %}
+                        {% if user.favorite_jade2 %}
+                        <img src="{{ url_for('static', filename=user.favorite_jade2) }}" alt="jade2">
+                        {% endif %}
+                        {% if user.favorite_jade3 %}
+                        <img src="{{ url_for('static', filename=user.favorite_jade3) }}" alt="jade3">
+                        {% endif %}
                     </div>
-                    {% if user.favorite_jade1 %}
-                    <img src="{{ url_for('static', filename=user.favorite_jade1) }}" alt="jade1"
-                        style="max-width: 150px; height: auto;">
-                    {% endif %}
-                    {% if user.favorite_jade2 %}
-                    <img src="{{ url_for('static', filename=user.favorite_jade2) }}" alt="jade2"
-                        style="max-width: 150px; height: auto;">
-                    {% endif %}
-                    {% if user.favorite_jade3 %}
-                    <img src="{{ url_for('static', filename=user.favorite_jade3) }}" alt="jade3"
-                        style="max-width: 150px; height: auto;">
-                    {% endif %}
                     <div id="edit-favorite_jade" class="edit-section">
                         <label for="favorite_jade">喜欢的玉石:</label>
-                        <input type="file" id="favorite_jade1"
-                            name="favorite_jade1">当前玉石1：
-                            {% if user.favorite_jade1 %}
-                            {{user.favorite_jade1[8:]}}
-                            {% else %}
-                            {{"None"}}<br>
-                            {% endif %}
-                        <input type="file" id="favorite_jade2"
-                            name="favorite_jade2">当前玉石2：
-                            {% if user.favorite_jade2 %}
-                            {{user.favorite_jade2[8:]}}
-                            {% else %}
-                            {{"None"}}<br>
-                            {% endif %}
-                        <input type="file" id="favorite_jade3"
-                            name="favorite_jade3">当前玉石3：
-                            {% if user.favorite_jade3 %}
-                            {{user.favorite_jade3[8:]}}
-                            {% else %}
-                            {{"None"}}<br>
-                            {% endif %}
+                        <input type="file" id="favorite_jade1" name="favorite_jade1">当前玉石1：
+                        {% if user.favorite_jade1 %}
+                        {{user.favorite_jade1[8:]}}
+                        {% else %}
+                        {{"None"}}<br>
+                        {% endif %}
+                        <input type="file" id="favorite_jade2" name="favorite_jade2">当前玉石2：
+                        {% if user.favorite_jade2 %}
+                        {{user.favorite_jade2[8:]}}
+                        {% else %}
+                        {{"None"}}<br>
+                        {% endif %}
+                        <input type="file" id="favorite_jade3" name="favorite_jade3">当前玉石3：
+                        {% if user.favorite_jade3 %}
+                        {{user.favorite_jade3[8:]}}
+                        {% else %}
+                        {{"None"}}<br>
+                        {% endif %}
                     </div>
                     <button type="button" id="edit-button-all" onclick="toggleEditAll()">修改信息</button>
                     <button type="submit" id="submit-button-all" style="display:none;">提交修改</button>
                 </form>
                 {% else %}
-                <div>
+                <div class="favorite-jade">
                     <p>性别: {{ user.gender }}</p>
                     <p>个性签名: {% if user.signature %}{{ user.signature }}{% else %}这个人很神秘，不愿意透露{% endif %}</p>
-                    <p>喜欢的玉石: {% if user.favorite_jade %}{{ user.favorite_jade }}{% else %}这个人很神秘，不愿意透露{% endif %}</p>
+                    <p>喜欢的玉石:</p>
+                    {% if user.favorite_jade1 %}
+                    <img src="{{ url_for('static', filename=user.favorite_jade1) }}" alt="jade1">
+                    {% endif %}
+                    {% if user.favorite_jade2 %}
+                    <img src="{{ url_for('static', filename=user.favorite_jade2) }}" alt="jade2">
+                    {% endif %}
+                    {% if user.favorite_jade3 %}
+                    <img src="{{ url_for('static', filename=user.favorite_jade3) }}" alt="jade3">
+                    {% endif %}
                 </div>
                 {% endif %}
             </div>
@@ -263,9 +130,11 @@
                         <a href="{{ url_for('read_post', post_id=post.id) }}">{{ post.title }}</a>
                     </h3>
                     <p>{{ post.content[:100] }}...</p>
+                    {% if post.image %}
+                    <img src="{{ url_for('static', filename=post.image) }}" alt="Post Image" class="post-image">
+                    {% endif %}
                     {% if is_self %}
-                    <form method="post" action="{{ url_for('self_delete_post', post_id=post.id) }}"
-                        style="display:inline;">
+                    <form method="post" action="{{ url_for('self_delete_post', post_id=post.id) }}" style="display:inline;">
                         <button type="submit">删除</button>
                     </form>
                     {% endif %}
@@ -276,10 +145,8 @@
             <div id="liked-posts" class="liked-posts">
                 <h2>{% if is_self %}我点赞的帖子{% else %}TA点赞的帖子{% endif %}（{{ liked_posts|length }}）
                     {% if is_self %}
-                    <form id="likes-visibility-form" method="post"
-                        action="{{ url_for('profile', username=session['username']) }}">
-                        <input type="checkbox" id="show_likes" name="show_likes" style="display:none;" {% if
-                            user.show_likes %}checked{% endif %}>
+                    <form id="likes-visibility-form" method="post" action="{{ url_for('profile', username=session['username']) }}">
+                        <input type="checkbox" id="show_likes" name="show_likes" style="display:none;" {% if user.show_likes %}checked{% endif %}>
                         <button type="button" onclick="toggleVisibility()">更换状态</button>
                         <span id="visibility-text">{{ '公开' if user.show_likes else '不予公开' }}</span>
                     </form>
@@ -294,11 +161,39 @@
                         <a href="{{ url_for('read_post', post_id=post.id) }}">{{ post.title }}</a>
                     </h3>
                     <p>{{ post.content[:100] }}...</p>
+                    {% if post.image %}
+                    <img src="{{ url_for('static', filename=post.image) }}" alt="Post Image" class="post-image">
+                    {% endif %}
                 </div>
                 {% endfor %}
             </div>
         </div>
-    </div>
+
+        <div class="right-sidebar">
+            <h2>我点赞的帖子</h2>
+            {% for post in liked_posts %}
+            <div class="liked-post">
+                <h3>
+                    {% if post.author.avatar %}
+                    <img src="{{ url_for('static', filename=post.author.avatar) }}" alt="Avatar" class="avatar">
+                    {% endif %}
+                    <a href="{{ url_for('read_post', post_id=post.id) }}">{{ post.title }}</a>
+                </h3>
+                <p>{{ post.content[:100] }}...</p>
+                {% if post.image %}
+                <img src="{{ url_for('static', filename=post.image) }}" alt="Post Image" class="post-image">
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>By B1ack</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../static/js/profle.js"></script>
 </body>
 
 </html>
