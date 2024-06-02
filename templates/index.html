@@ -212,14 +212,13 @@
                                 <ul>
                                     <li><a href="/Subject">学术刊物</a></li>
                                     <li><a href="/Subject-essay">学术论文</a></li>
-                                    <li><a href="/Subject-lectures">学术讲座</a></li>
                                     <li><a href="/Subject-resources">学习资料</a></li>
                                 </ul>
                             </div>
                             <div class="item">
                                 <div class="h">
                                     {% if 'username' in session %}
-                                    <a class="" href="/forum">玉·学问</a>
+                                    <a class="" href="/jade_class">玉·学问</a>
                                     {% else %}
                                     <a class="" href="/login">登陆解锁课程资源</a>
                                     {% endif %}
@@ -230,7 +229,7 @@
                                     <li><a href="/">智慧树视频</a></li>
                                     <li><a href="/">课程回放</a></li>
                                     <li><a href="/">优质讲座</a></li>
-                                    <li><a href="/">学习资料</a></li>
+                                    <li><a href="/">课程资料</a></li>
                                 </ul>
                                 {% endif %}
                             </div>
@@ -323,7 +322,7 @@
                         <div class="nav-item nav-lv1-item ">
                             <div class="nav-tit nav-lv1-tit">
                                 {% if 'username' in session %}
-                                <a class="nav-link nav-lv1-link" href="/forum">玉·学问</a>
+                                <a class="nav-link nav-lv1-link" href="/jade_class">玉·学问</a>
                                 {% else %}
                                 <a class="nav-link nav-lv1-link" href="/login">登陆解锁课程资源</a>
                                 {% endif %}

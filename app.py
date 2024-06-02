@@ -903,5 +903,9 @@ def Publication_Subject3():
 def welcome():
     return render_template('welcome1.html')
 
+@app.route('/jade_class')
+def jade_class():
+        return render_template('jade_class.html')
+
 if __name__ == '__main__':
     app.run(port=5000,debug=True)
