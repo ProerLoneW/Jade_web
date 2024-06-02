@@ -18,10 +18,10 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 # MySQL 数据库连接配置
 db_config={
     'user':'root',
-    'password':'20040504',#这里改成自己的数据库密码
+    'password':'518349276',#这里改成自己的数据库密码
     'host':'localhost',
     'port':3306,
-    'database': 'web',#这里改成自己的数据库名字
+    'database': 'WebJade',#这里改成自己的数据库名字
     'charset':'utf8mb4'}
 # 创建数据库连接
 engine = create_engine('mysql+pymysql://{user}:{password}@{host}:{port}/{database}?charset={charset}'.format(**db_config))
@@ -886,27 +886,27 @@ def exhibition_extibition():
 def exhibition_estudent():
     return render_template('student.html')
 
-@app.route('/Publication/Subject-essay')
+@app.route('/Subject-essay')
 def Publication_Subject_essay():
     return render_template('Subject-essay.html')
 
-@app.route('/Publication/Subject-lectures')
+@app.route('/Subject-lectures')
 def Publication_Subject_lectures():
     return render_template('Subject-lectures.html')
 
-@app.route('/Publication/Subject-resources')
+@app.route('/Subject-resources')
 def Publication_Subject_resources():
     return render_template('Subject-resources.html')
 
-@app.route('/Publication/Subject')
+@app.route('/Subject')
 def Publication_Subject():
     return render_template('Subject.html')
 
-@app.route('/Publication/Subject2')
+@app.route('/Subject2')
 def Publication_Subject2():
     return render_template('Subject2.html')
 
-@app.route('/Publication/Subject3')
+@app.route('/Subject3')
 def Publication_Subject3():
     return render_template('Subject3.html')
 
