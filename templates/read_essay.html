@@ -5,8 +5,311 @@
     <title>{{ essay.title }}</title>
 </head>
 <body>
-    <h1>{{ essay.title }}</h1>
-    <p>{{ essay.content }}</p>
+    <div class="topping-mod xfont icon-up">
+        <div class="s"></div>
+    </div>
+    <div class="x-layout bg1">
+        <style>
+            
+        </style>
+        
+        <script>
+            async function checkLoginStatus() {
+                const response = await fetch('/check_login');
+                const data = await response.json();
+                const loginStatusLink = document.getElementById('login-status');
+                const logoutLink = document.getElementById('logout-link');
+                
+                if (data.loggedIn) {
+                    loginStatusLink.textContent = '个人空间';
+                    loginStatusLink.href = "{{ url_for('profile', username=session['username']) }}";
+                    logoutLink.style.display = 'block';
+                } else {
+                    loginStatusLink.textContent = '未登录';
+                    loginStatusLink.href = '/login';
+                    logoutLink.style.display = 'none';
+                }
+            }
+            checkLoginStatus();
+        </script>
+
+        <div class="x-layout home">
+            <div class="x-header">
+                <div class="menu-mod">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="../static/img/babatuosi.jpg" alt="" title="" class="i" style="border-radius: 50%;">
+                        </a>
+                    </div>
+                </div>
+            <div class="tools-mod">
+                <div class="tools-item lang select-mod">
+                    <div class="select-bar bttn">
+                        {% if user %}
+                            欢迎用户{{user.username}}
+                        {% else %}
+                            欢迎来到玉石天地，请注册
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="tools-item share-box">
+                    {% if not user %}
+                        <a class="share-item suds-mod bttn xicon" style="background-image: url('{{ avatar_url }}');" href="/login">
+                        </a>
+                    {% else %}
+                        <a class="share-item suds-mod bttn xicon" style="background-image: url('{{ avatar_url }}');"
+                            href="{{url_for('profile', username=session['username'])}}">
+                        </a>
+                    {% endif %}
+                    <p style="font-size: 16px; color: #007BFF; font-weight: bold; text-align: center; margin-top: 10px;">
+                        点击左侧头像进入个人主页
+                    </p>
+                </div>
+                <div class="menu-btn"><span class="line"></span></div>
+            </div>
+            <div class="nav-mod">
+                <div class="nav_child">
+                    <div class="inner">
+                        <div class="item" style="text-align: center;">
+                            <div class="h">
+                                <a class="" href="/index">首页</a>
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                        </div>
+                        <div class="item" style="text-align: center;">
+                            <div class="h">
+                                <a class="" href="/exhibition">玉·展览</a>
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                            <ul>
+                                <li><a href="/exhibition">国内展览</a></li>
+                                <li><a href="/student">学生策展</a></li>
+                            </ul>
+                        </div>
+                        <div class="item" style="text-align: center;">
+                            <div class="h">
+                                <a class="" href="/collection">玉·美学</a>
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                            <ul>
+                                <li><a href="/collection">精品宝玉</a></li>
+                                <li><a href="/collection">宝玉藏品</a></li>
+                                <li><a href="/collection">玉石百科</a></li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <div class="h">
+                                <a class="" href="/Subject">玉·学术</a>
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                            <ul>
+                                <li><a href="/Subject">学术刊物</a></li>
+                                <li><a href="/Subject-essay">学术论文</a></li>
+                                <li><a href="/Subject-resources">学习资料</a></li>
+                            </ul>
+                        </div>
+                        <div class="item">
+                            <div class="h">
+                                {% if 'username' in session %}
+                                <a class="" href="/jade_class">玉·学问</a>
+                                {% else %}
+                                <a class="" href="/login">登陆解锁课程资源</a>
+                                {% endif %}
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                            {% if 'username' in session %}
+                            <ul>
+                                <li><a href="/jade_class">智慧树视频</a></li>
+                                <li><a href="/jade_class">课程回放</a></li>
+                                <li><a href="/jade_class">优质讲座</a></li>
+                                <li><a href="/jade_class">课程资料</a></li>
+                            </ul>
+                            {% endif %}
+                        </div>
+                        <div class="item">
+                            <div class="h">
+                                {% if 'username' in session %}
+                                <a class="" href="/forum">玉·交流</a>
+                                {% else %}
+                                <a class="" href="/login">登陆解锁论坛功能</a>
+                                {% endif %}
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                                {% if 'username' in session %}
+                                <ul>
+                                    <li><a href="">师生交流</a></li>
+                                    <li><a href="">鉴别玉石</a></li>
+                                    <li><a href="">文学创作</a></li>
+                                </ul>
+                                {% endif %}
+                        </div>
+                    </div>
+                    <script>
+                        //首页高亮
+                        var indexs = "";
+                        if (indexs) {
+                            $(".nav_child .item:first .h a").addClass("cur");
+                        }
+                        //一级高亮
+                        var nowurl = ("/Subject" != 'javascript:void(0);') ? "/Subject" : window.location.pathname;
+                        $(' .nav_child .item .h a').each(function () {
+                            var listurl = $(this).attr('href');
+                            if (nowurl == listurl || listurl == '') {
+                                $(this).addClass('cur').siblings().removeClass('cur');
+                            }
+                        });
+                        var pas_id = "7";
+                        var pa_id = "19";
+                        if (pa_id == 11) {
+                            $('.item').eq(1).find('.h a').addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pa_id == 3) {
+                            $('.item').eq(9).find('.h a').addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pas_id == 9) {
+                            $('.item').eq(3).find('.h a').addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pas_id == 10) {
+                            $('.item').eq(2).find('.h a').addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pa_id == 7) {
+                            $('.item').eq(5).find('.h a').addClass('cur').siblings().removeClass('cur')
+                        }
+                        //锚点点击高亮
+                        $(document).on('click', 'li', function () {
+                            $(this).addClass('cur').siblings().removeClass('cur');
+                        })
+                        //二级导航
+                        var _nowurl = window.location.href;
+                        var cat_url = '/Subject';
+                        var arr = _nowurl.split('#')[1];
+                        $('.nav_child .item ul li').find('a').each(function (i, k) {
+                            var towurl = $(k).attr('href');
+                            if (towurl.indexOf(arr) > -1 || towurl == window.location.pathname || towurl == cat_url || towurl == '') {
+                                $(this).parents('.item').find('.h a').addClass('cur').siblings().removeClass('cur');
+                            }
+                        });
+                    </script>
+                </div>
+                <div class="bg"></div>
+                    <div class="nav-box nav-lv1">
+                        <div class="nav-item nav-lv1-item ">
+                            <div class="nav-tit nav-lv1-tit">
+                                <a class="nav-link nav-lv1-link" href="/index">首页</a>
+                            </div>
+                        </div>
+    
+                        <div class="nav-item nav-lv1-item ">
+                            <div class="nav-tit nav-lv1-tit">
+                                <a class="nav-link nav-lv1-link" href="/exhibition">玉·展览</a>
+                            </div>
+                        </div>
+                        <div class="nav-item nav-lv1-item ">
+                            <div class="nav-tit nav-lv1-tit">
+                                <a class="nav-link nav-lv1-link" href="/collection">玉·美学</a>
+                            </div>
+                        </div>
+                        <div class="nav-item nav-lv1-item ">
+                            <div class="nav-tit nav-lv1-tit">
+                                <a class="nav-link nav-lv1-link" href="/Subject">玉·学术</a>
+                            </div>
+                        </div>
+                        <div class="nav-item nav-lv1-item ">
+                            <div class="nav-tit nav-lv1-tit">  
+                                {% if 'username' in session %}
+                                <a class="nav-link nav-lv1-link" href="/jade_class">玉·学问</a>
+                                {% else %}
+                                <a class="nav-link nav-lv1-link" href="/login">登陆解锁课程资源</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="nav-item nav-lv1-item ">
+                            <div class="nav-tit nav-lv1-tit">
+                                {% if 'username' in session %}
+                                <a class="nav-link nav-lv1-link" href="/forum">玉·交流</a>
+                                {% else %}
+                                <a class="nav-link nav-lv1-link" href="/login">登陆解锁论坛功能</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    <script>
+                        //首页高亮
+                        var indexs = "";
+                        if (indexs) {
+                            $(".nav-lv1-item:first").addClass("cur");
+                        }
+                        //一级高亮
+                        var nowurl = ("/Subject" != 'javascript:void(0);') ? "/Subject" : window.location.pathname;
+                        $(' .nav-lv1-item a').each(function () {
+                            var listurl = $(this).attr('href');
+                            if (nowurl == listurl || listurl == '') {
+                                $(this).parents('.nav-lv1-item').addClass('cur').siblings().removeClass('cur');
+                            }
+                        });
+                        var pas_id = "7";
+                        var pa_id = "19";
+                        if (pa_id == 11) {
+                            $('.nav-lv1-item').eq(1).addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pa_id == 3) {
+                            $('.nav-lv1-item').eq(9).addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pas_id == 9) {
+                            $('.nav-lv1-item').eq(3).addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pas_id == 10) {
+                            $('.nav-lv1-item').eq(2).addClass('cur').siblings().removeClass('cur')
+                        }
+                        if (pa_id == 7) {
+                            $('.nav-lv1-item').eq(5).addClass('cur').siblings().removeClass('cur')
+                        }
+                        //锚点点击高亮
+                        $(document).on('click', '.nav-lv2-item', function () {
+                            $(this).addClass('cur').siblings().removeClass('cur');
+                        })
+
+                        //二级导航
+                        var _nowurl = window.location.href;
+                        var cat_url = '/Subject';
+                        var arr = _nowurl.split('#')[1];
+                        $('.nav-lv2 .nav-lv2-item').find('a').each(function (i, k) {
+                            var towurl = $(k).attr('href');
+                            if (towurl.indexOf(arr) > -1 || towurl == window.location.pathname || towurl == cat_url || towurl == '') {
+                                // $(this).parents('.nav-lv2-item').addClass('cur').siblings().removeClass('cur');
+                                $(this).parents(".nav-lv1-item").addClass('cur').siblings().removeClass('cur');
+                            }
+                        });
+                    </script>
+                </div>
+                
+            </div>
+        </div>
+        <div class="x-container">
+            <div class="x-wrap2">
+                <div class="bread-mod">
+                    <div class="inner">
+                        <div class="bread-item"><a title="首页" href="/index">首页</a></div>
+                        <div class="bread-item"><a href="javascript:void(0);">学术</a></div>
+                        <div class="bread-item"><a href="/Subject">学术刊物</a></div>
+                        <div class="bread-item cur"><a href="/Subject">{{ essay.title }}</a></div>
+                        <div class="bread-item cur"><a href="javascript:void(0);" style="cursor: default;">正文</a></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="learning_detail">
+            <div class="x-wrap">
+                <div class="head tac">
+                    <div class="title">
+                        {{ essay.title }} </div>
+                        <div class="content">
+                            <div class="essay">
+                                <p>{{ essay.content }}</p>
+                            </div>
+                        </div>
+
     <div>
         {% if prev_essay %}
             <a href="{{ url_for('read_essay', essay_id=prev_essay.id) }}">上一篇</a>
