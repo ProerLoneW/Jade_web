@@ -48,11 +48,12 @@
             <div class="item"><a href="/teacher_style">教师风采</a></div>
             <div class="item"><a href="/class_silhouette">课堂剪影</a></div>
             <div class="item"><a href="/jade_history">漫话玉史</a></div>
-            <div class="item"><a href="/message_board">留言黑板</a></div>
+            <div class="item"><a href="/blackboard">留言黑板</a></div>
             <div class="item"><a href="/about">关于我们</a></div>
-            <div class="item"><a id="login-status" href="/login"></a></div>
             {% if 'username' in session %}
             <div class="item"><a href="/logout">登出</a></div>
+            {% else %}
+            <div class="item"><a href="/login">登录</a></div>
             {% endif %}
         </div>
 
@@ -129,11 +130,11 @@
             async function checkLoginStatus() {
             const response = await fetch('/check_login');
             const data = await response.json();
-            const loginStatusLink = document.getElementById('login-status');
+            // const loginStatusLink = document.getElementById('login-status');
             const logoutLink = document.getElementById('logout-link');
             
             if (data.loggedIn) {
-                loginStatusLink.textContent = '个人空间';
+                // loginStatusLink.textContent = '个人空间';
                 loginStatusLink.href = "{{ url_for('profile', username=session['username']) }}";
                 logoutLink.style.display = 'block';
             } else {
@@ -508,10 +509,12 @@
             <div class="home2">
                 <div class="bg">
                     <div class="g"></div>
-                    <div class="text"><a href="/info/announcement/detail/16051.html" target="_blank">
+                    <div class="text">
+                        <a>
                             <div class="h">敲黑板❗️❗️❗️：关于...</div>
                             <div class="date">2024-05-08</div>
-                        </a></div>
+                        </a>
+                    </div>
                 </div>
                 <div class="content">
                     <div class="head transT">
@@ -623,12 +626,8 @@
                                 <video preload="auto" poster1="../static/img/about.jpg"
                                     poster2="../static/img/about.jpg" webkit-playsinline="" playsinline=""
                                     x5-playsinline="" x-webkit-airplay="allow" loop autoplay muted>
-                                    <source src="/Public/static/themes_main/image/v1_4.mp4" type="video/mp4"
-                                        media="screen and (min-width:901px)" />
-                                    <source src="/Public/static/themes_main/image/v2_4.mp4" type="video/mp4"
-                                        media="screen and (max-width:900px)" />
                                 </video>
-                                <a href="/eastern_empire.html"></a>
+                                <a href="/about"></a>
                             </div>
                             <div class="h">第五部分 关于我们</div>
                         </div>
@@ -750,7 +749,7 @@
                                         style="background-image: url(../static/img/new1.jpg);">
                                     </div>
                                 </div>
-                                <a href="/info/news/detail/16058.html" target="_blank" class="a"></a>
+                                <a href="/" target="_blank" class="a"></a>
                             </div>
                             <div class="child" date="2024-05-08">
                                 <div class="text">
@@ -1183,56 +1182,11 @@
         </script>
         <div class="x-footer">
             <div class="x-wrap">
-                <!-- <div class="nav_foot"><a href="/sitemap.html" target="_blank">网站地图</a><span>|</span><a
-                        href="/leaving/message.html">网友留言</a><span>|</span>
-                    <script type="text/javascript">
-                        $(function () {
-                            $('.nav_foot span:last').remove();
-                        })
-                    </script>
-                </div> -->
-                <div class="friends">
-                    <!-- <a href="http://www.chnmuseum.cn/" target="_blank">中国国家博物馆</a><a
-                        href="https://www.dpm.org.cn/Home.html" target="_blank">故宫博物院</a><a
-                        href="https://www.shanghaimuseum.net/mu/frontend/pg/index" target="_blank">上海博物馆</a><a
-                        href="http://www.njmuseum.com/zh" target="_blank">南京博物院</a><a href="http://www.hnmuseum.com/"
-                        target="_blank">湖南博物院</a><a href="http://www.chnmus.net/" target="_blank">河南博物院</a><a
-                        href="http://hbsbwg.cjyun.org/home/index.html" target="_blank">湖北省博物馆</a><a
-                        href="https://www.zhejiangmuseum.com/" target="_blank">浙江省博物馆</a><a
-                        href="http://www.lnmuseum.com.cn/" target="_blank">辽宁省博物馆</a><a
-                        href="http://www.capitalmuseum.org.cn/" target="_blank">首都博物馆</a><a
-                        href="http://www.shanximuseum.com/sx/index/index.html" target="_blank">山西博物院</a><a
-                        href="http://www.3gmuseum.cn/" target="_blank">重庆中国三峡博物馆</a><a href="https://www.dha.ac.cn/"
-                        target="_blank">敦煌研究院</a><a href="http://www.bmy.com.cn/" target="_blank">秦始皇帝陵博物院</a><a
-                        href="http://www.beilin-museum.com/" target="_blank">西安碑林博物馆</a><a href="http://www.hylae.com/"
-                        target="_blank">汉景帝阳陵博物院</a> -->
-                </div>
-                <!-- <div class="list">
-                    <div class="item">
-                        <div class="icon"><img src="/Public/static/themes_main/image/lyj/icon12.png" alt=""></div>
-                        <div class="txt">4000293806</div>
-                    </div>
-                    <div class="item">
-                        <div class="icon"><img src="/Public/static/themes_main/image/lyj/icon13.png" alt=""></div>
-                        <div class="txt">sxhm1991@sxhm.com</div>
-                    </div>
-                    <div class="item">
-                        <div class="icon"><img src="/Public/static/themes_main/image/lyj/icon14.png" alt=""></div>
-                        <div class="txt">中国 · 陕西 · 西安市小寨东路91号</div>
-                    </div>
-                </div> -->
                 <div class="info">
-                    <!-- <span>Copyright 2021 陕西历史博物馆版权所有All Rights Reserved. </span>
-                    <a href="http://beian.miit.gov.cn/" target="_blank">陕ICP备05005777号-2</a>
-
-                    <a href="http://www.beian.gov.cn/" target="_blank">陕公网安备 61011302001384号</a> -->
-                <!-- </div>
-                <div class="viewer"><span>网站浏览人数：</span>
-                    <div class="num"></div>
+                    <div class="support">
+                        &copy;玛卡巴卡说得队
+                    </div>
                 </div>
-                <div class="support"><a>网站建设</a>：<a>北京分形科技</a></div>
-            </div> -->
-            </div>
         <script>
             var _hmt = _hmt || [];
             (function () {

@@ -225,7 +225,7 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: #333;
-    background-color: #e8e3d1;
+    background-color: #6E897F;
     opacity: 0
 }
 
@@ -1574,7 +1574,7 @@ body:not(.lang-en) .more1.v {
 .x-footer {
     padding: 70px 0;
     text-align: center;
-    background: #e8e3d1;
+    background: #6E897F;
     border-top: 1px solid #beb8a3;
     -webkit-box-sizing: border-box;
     box-sizing: border-box
@@ -9765,7 +9765,7 @@ body:not(.lang-en) .nav_left .item {
 
 .nav_left .item:nth-child(7) {
     background-image: url(../img/index-nav-left-7.png);
-    width: 66px
+    width: 68px
 }
 
 /* 
@@ -10013,7 +10013,10 @@ body:not(.lang-en) .nav_left .item {
     background: #e8e3d1;
     position: relative;
     padding: 6vw 0 11vw;
-    background: #e8e3d1 url(../img/png3.png) no-repeat center bottom/100% auto
+    /* 
+        todo
+    */
+    background: #B7CFC6 url(../img/png3.png) no-repeat center bottom/100% auto
 }
 
 .home2 .head {
@@ -10346,7 +10349,10 @@ body:not(.lang-en) .home2 .list .item .p {
     padding-top: 15vw;
     overflow: hidden;
     z-index: 3;
-    background: #e8e3d1;
+    /* 
+        todo
+    */
+    background: #B7CFC6;
     margin-top: -1px;
 }
 
@@ -10645,7 +10651,10 @@ body:not(.lang-en) .home2 .list .item .p {
 
 .home5 {
     position: relative;
-    background: #e8e3d1;
+    /* 
+        todo
+    */
+    background: #B7CFC6;
     padding-top: 8vw;
     z-index: 3
 }
@@ -11059,7 +11068,10 @@ body:not(.lang-en) .home2 .list .item .p {
 */
 
 .home6 {
-    background: #e8e3d1;
+    /* 
+        todo
+    */
+    background: #B7CFC6;
     position: relative;
     padding-top: 168px;
     z-index: 3
@@ -11167,7 +11179,7 @@ body:not(.lang-en) .home2 .list .item .p {
 
 .home6 .nav::after {
     content: "";
-    background: url(/Public/static/themes_main/image/nav-after.png) no-repeat center center/100% auto;
+    background: url(../img/nav-after.png) no-repeat center center/100% auto;
     width: 100%;
     height: 100%;
     position: relative;
@@ -11303,39 +11315,39 @@ body:not(.lang-en) .home2 .list .item .p {
 }
 
 .home6 .div1 .child .pic {
-    background-image: url(../img/lyj/zixun2.png)
+    background-image: url(../img/1.jpg)
 }
 
 .home6 .div1 .child1 .pic {
-    background-image: url(../img/lyj/zixun1.png)
+    background-image: url(../img/1.jpg)
 }
 
 .home6 .div1 .child3 .pic {
-    background-image: url(../img/lyj/zixun3.png)
+    background-image: url(../img/1.jpg)
 }
 
 .home6 .div2 .child .pic {
-    background-image: url(../img/lyj/jiaoyu2.png)
+    background-image: url(../img/2.jpg)
 }
 
 .home6 .div2 .child1 .pic {
-    background-image: url(../img/lyj/jiaoyu1.png)
+    background-image: url(../img/2.jpg)
 }
 
 .home6 .div2 .child3 .pic {
-    background-image: url(../img/lyj/jiaoyu3.png)
+    background-image: url(../img/2.jpg)
 }
 
 .home6 .div3 .child .pic {
-    background-image: url(../img/lyj/xueshu2.png)
+    background-image: url(../img/3.jpg)
 }
 
 .home6 .div3 .child1 .pic {
-    background-image: url(../img/lyj/xueshu1.png)
+    background-image: url(../img/3.jpg)
 }
 
 .home6 .div3 .child3 .pic {
-    background-image: url(../img/lyj/xueshu3.png)
+    background-image: url(../img/3.jpg)
 }
 
 .home6 .slick-current .text {
@@ -28610,16 +28622,16 @@ body:not(.lang-en) .x-layout.wmyl .cradle3 .txt_box .box2 .p {
 */
 
 .x-layout.dhxf {
-    background: url(../img/xf/bg21.jpg) center top no-repeat
+    background: url(../img/bg1.png) center top no-repeat
 }
 
 .x-layout.dhxf .x-header2 .nav-mod .bg {
     padding-top: calc(285 / 1920 * 100vw);
-    background-image: url(../img/xf/png58.png)
+    background-image: url()
 }
 
 .x-layout.dhxf .x-header2 .nav_child {
-    background: url(../img/bg1_2.jpg) no-repeat center bottom/cover
+    background: url() no-repeat center bottom/cover
 }
 
 .x-layout.dhxf .x-footer {
@@ -28646,7 +28658,7 @@ body:not(.lang-en) .x-layout.wmyl .cradle3 .txt_box .box2 .p {
     margin-left: -50vw;
     width: 100vw;
     height: 860px;
-    background: url(../img/xf/png60.png) center bottom no-repeat
+    background: url(../img/babatuosi.jpg) center bottom no-repeat
 }
 
 .x-layout.dhxf .special_bottom .nav {
@@ -28683,13 +28695,13 @@ body:not(.lang-en) .x-layout.wmyl .cradle3 .txt_box .box2 .p {
     top: 100%;
     width: 80px;
     height: 102px;
-    background: url(../img/xf/png62.png) no-repeat
+    background: url(../img/babatuosi.jpg) no-repeat
 }
 
 .dhxf1 {
     position: relative;
     height: 1280px;
-    background: url(../img/xf/img18.jpg) center top no-repeat;
+    background: url(../img/babatuosi.jpg) center top no-repeat;
     color: #fff
 }
 
@@ -28947,7 +28959,7 @@ body:not(.lang-en) .x-layout.wmyl .cradle3 .txt_box .box2 .p {
     position: relative;
     padding-top: 320px;
     padding-bottom: 265px;
-    background: url(../img/xf/bg20.jpg) center top no-repeat;
+    background: url(../img/babatuosi.jpg) center top no-repeat;
     color: #fff
 }
 
@@ -29188,7 +29200,7 @@ body:not(.lang-en) .dhxf3 .slick-item .p {
     right: 0;
     top: 0;
     height: 1246px;
-    background: url(../img/xf/png78.png) center top no-repeat
+    background: url(../img/babatuosi.jpg) center top no-repeat
 }
 
 .dhxf4 .wrap {
@@ -29337,7 +29349,7 @@ body:not(.lang-en) .dhxf4 .unit .l .p {
     margin-left: -70px;
     padding-top: 106.41%;
     width: 106.41%;
-    background-image: url(../img/xf/png71.png)
+    background-image: url(../img/babatuosi.jpg)
 }
 
 .dhxf4 .unit1 .slick-item {
@@ -29381,7 +29393,7 @@ body:not(.lang-en) .dhxf4 .unit .l .p {
     top: 50%;
     padding-top: 121.1538%;
     width: 121.1538%;
-    background-image: url(../img/xf/png72.png);
+    background-image: url(../img/babatuosi.jpg);
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%)
 }
