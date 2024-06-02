@@ -217,11 +217,26 @@
                     <div id="edit-favorite_jade" class="edit-section">
                         <label for="favorite_jade">喜欢的玉石:</label>
                         <input type="file" id="favorite_jade1"
-                            name="favorite_jade1">当前玉石1：{{user.favorite_jade1[8:]}}<br>
+                            name="favorite_jade1">当前玉石1：
+                            {% if user.favorite_jade1 %}
+                            {{user.favorite_jade1[8:]}}
+                            {% else %}
+                            {{"None"}}<br>
+                            {% endif %}
                         <input type="file" id="favorite_jade2"
-                            name="favorite_jade2">当前玉石2：{{user.favorite_jade2[8:]}}<br>
+                            name="favorite_jade2">当前玉石2：
+                            {% if user.favorite_jade2 %}
+                            {{user.favorite_jade2[8:]}}
+                            {% else %}
+                            {{"None"}}<br>
+                            {% endif %}
                         <input type="file" id="favorite_jade3"
-                            name="favorite_jade3">当前玉石3：{{user.favorite_jade3[8:]}}<br>
+                            name="favorite_jade3">当前玉石3：
+                            {% if user.favorite_jade3 %}
+                            {{user.favorite_jade3[8:]}}
+                            {% else %}
+                            {{"None"}}<br>
+                            {% endif %}
                     </div>
                     <button type="button" id="edit-button-all" onclick="toggleEditAll()">修改信息</button>
                     <button type="submit" id="submit-button-all" style="display:none;">提交修改</button>
