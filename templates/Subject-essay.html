@@ -4,8 +4,7 @@
 <head>
     <meta charset="utf-8">
     <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
+
     <title>学术论文</title>
     <script type="text/javascript">
         if (!window.matchMedia) {
@@ -36,192 +35,139 @@
     </div>
     <div class="x-layout bg1">
         <style>
-            #myalert {
-                display: none;
-            }
-
-            .recruit .block1 {
-                height: auto
-            }
-
-            .layer {
-                background: url(/Public/static/images/con_mask.png);
-                ;
-                position: fixed;
-                left: 0;
-                right: 0;
-                top: 0;
-                bottom: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 1000000;
-            }
-
-            .layer .myalert {
-                padding: 30px;
-                background: #fff;
-                width: 240px;
-                position: absolute;
-                margin-top: -100px;
-                top: 50%;
-                left: 50%;
-                margin-left: -120px;
-                text-align: center;
-                z-index: 100000
-            }
-
-            .layer .guan {
-                background: url(/Public/static/images/close.png) no-repeat center;
-                display: block;
-                width: 23px;
-                height: 23px;
-                position: absolute;
-                top: 10px;
-                right: 10px;
-            }
-
-            .layer .text {
-                padding-bottom: 15px;
-                font-size: 16px;
-                color: #474747;
-            }
-
-            .layer .button {
-                background: none;
-                border: 1px solid #bbbbbb;
-                width: 91px;
-                height: 29px;
-                font: 14px/100% "Microsoft YaHei", Arial, Tahoma, Helvetica, sans-serif;
-                color: #707070;
-            }
+            
         </style>
-        <div id="myalert" class="layer">
-            <div class="myalert">
-                <a href="javascript:;" onclick="myalert_hide();" class="guan"></a>
-                <div class="text">请输入关键字</div>
-                <a><button class="button" id="my_ok"
-                        style="cursor:pointer ;opacity: 1;transform: translateY(0px);">确定</button></a>
-            </div>
-        </div>
+        
         <script>
-            function my_alert(text, callback) {
-                $('#myalert').show();
-                $('#myalert .myalert div').html(text);
-
-                $('#my_ok').click(function () {
-                    $('#myalert').hide();
-
-                    if (typeof (callback) == 'function') {
-                        callback();
-                        return false;
-                    }
-                });
+            async function checkLoginStatus() {
+                const response = await fetch('/check_login');
+                const data = await response.json();
+                const loginStatusLink = document.getElementById('login-status');
+                const logoutLink = document.getElementById('logout-link');
+                
+                if (data.loggedIn) {
+                    loginStatusLink.textContent = '个人空间';
+                    loginStatusLink.href = "{{ url_for('profile', username=session['username']) }}";
+                    logoutLink.style.display = 'block';
+                } else {
+                    loginStatusLink.textContent = '未登录';
+                    loginStatusLink.href = '/login';
+                    logoutLink.style.display = 'none';
+                }
             }
-
-            function myalert_hide() {
-                $('#myalert').hide();
-            }
+            checkLoginStatus();
         </script>
 
-        <div class="x-header gn">
-
-            <div class="menu-mod">
-                <div class="logo"><a href="/"><img src="/Uploads/Picture/2021/11/05/s6185032db4faf.png" alt="" title=""
-                            class="i"></a></div>
-            </div>
+        <div class="x-layout home">
+            <div class="x-header">
+                <div class="menu-mod">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="../static/img/babatuosi.jpg" alt="" title="" class="i" style="border-radius: 50%;">
+                        </a>
+                    </div>
+                </div>
             <div class="tools-mod">
                 <div class="tools-item lang select-mod">
                     <div class="select-bar bttn">
-                        <div class="select-btn xicon icon-down"></div>
-                        <div class="select-txt">
-                            <div class="select-val">中文版</div>
-                        </div>
-                    </div>
-                    <div class="select-cont">
-                        <div class="select-opts">
-                            <div class="select-item"><a href="/">中文版</a></div>
-                            <div class="select-item"><a href="/en/index.html">EN</a></div>
-                        </div>
+                        {% if user %}
+                            欢迎用户{{user.username}}
+                        {% else %}
+                            欢迎来到玉石天地，请注册
+                        {% endif %}
                     </div>
                 </div>
-                <div class="tools-item share-box"><a class="share-item suds-mod bttn xicon icon-wx" href="javascript:;">
-                        <div class="suds-pop at-b">
-                            <div class="code"><img src="/Uploads/Picture/2023/02/14/s63eae4ff6f316.png" title="" alt="">
-                            </div>
-                        </div>
-                    </a>
-                    <a class="share-item suds-mod bttn xicon icon-wb" href="javascript:;">
-                        <div class="suds-pop at-b">
-                            <div class="code"><img src="/Uploads/Picture/2023/02/15/s63ec8c8fc4e56.png" title="" alt="">
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="tools-item search-mod">
-                    <div class="search-tap xicon icon-search bttn"></div>
-                    <div class="search-box">
-                        <div class="search-txt"><input type="text" class="search-input" placeholder="search..."
-                                id="txt_Search" onkeypress="keydown(event, '#btn_Search')"></div>
-                        <div class="search-btn"><button class="search-submit xicon icon-search" type="submit"
-                                id="btn_Search"></button></div>
-                    </div>
+                <div class="tools-item share-box">
+                    {% if not user %}
+                        <a class="share-item suds-mod bttn xicon" style="background-image: url('{{ avatar_url }}');" href="/login">
+                        </a>
+                    {% else %}
+                        <a class="share-item suds-mod bttn xicon" style="background-image: url('{{ avatar_url }}');"
+                            href="{{url_for('profile', username=session['username'])}}">
+                        </a>
+                    {% endif %}
+                    <p style="font-size: 16px; color: #007BFF; font-weight: bold; text-align: center; margin-top: 10px;">
+                        点击左侧头像进入个人主页
+                    </p>
                 </div>
                 <div class="menu-btn"><span class="line"></span></div>
             </div>
             <div class="nav-mod">
                 <div class="nav_child">
                     <div class="inner">
-                        <div class="item">
-                            <div class="h"><a class="" href="/index">首页</a>
+                        <div class="item" style="text-align: center;">
+                            <div class="h">
+                                <a class="" href="/index">首页</a>
+                                <span class="arr xicon icon-down"></span>
                             </div>
-                            <ul>
-                            </ul>
                         </div>
-                        
-                        <div class="item">
-                            <div class="h"><a class="" href="/exhibition">玉·展览</a>
+                        <div class="item" style="text-align: center;">
+                            <div class="h">
+                                <a class="" href="/exhibition">玉·展览</a>
                                 <span class="arr xicon icon-down"></span>
                             </div>
                             <ul>
                                 <li><a href="/exhibition">国内展览</a></li>
-                                <li><a href="/student">学生展览</a></li>                             
+                                <li><a href="/student">学生策展</a></li>
                             </ul>
-                        </div>                     
-                        <div class="item">
-                            <div class="h"><a class="" href="/collection">玉·美学</a>
+                        </div>
+                        <div class="item" style="text-align: center;">
+                            <div class="h">
+                                <a class="" href="/collection">玉·美学</a>
                                 <span class="arr xicon icon-down"></span>
                             </div>
                             <ul>
-                                <li><a href="/collection">玉词百科</a></li>
-                                <li><a href="/collection">美玉宝库</a></li>
-                                <li><a href="/collection">诗说美珏</a></li>
-                                <li><a href="/collection">玉蕴哲思</a></li>
+                                <li><a href="/collection">精品宝玉</a></li>
+                                <li><a href="/collection">宝玉藏品</a></li>
+                                <li><a href="/collection">玉石百科</a></li>
                             </ul>
                         </div>
                         <div class="item">
-                            <div class="h"><a class="" href="/templates/Subject">玉·学术</a>
+                            <div class="h">
+                                <a class="" href="/Subject">玉·学术</a>
                                 <span class="arr xicon icon-down"></span>
                             </div>
                             <ul>
-                                <li><a href="/templates/Subject">学术刊物</a></li>
-                                <li><a href="/templates/Subject-essay">学术论文</a></li>
-                                <li><a href="/templates/Subject-lectures">学术讲座</a></li>
-                                <li><a href="/templates/Subject-resources">学术资源</a></li>
+                                <li><a href="/Subject">学术刊物</a></li>
+                                <li><a href="/Subject-essay">学术论文</a></li>
+                                <li><a href="/Subject-resources">学习资料</a></li>
                             </ul>
                         </div>
                         <div class="item">
-                            <div class="h"><a class="" href="/product.html">玉·交流</a>
+                            <div class="h">
+                                {% if 'username' in session %}
+                                <a class="" href="/jade_class">玉·学问</a>
+                                {% else %}
+                                <a class="" href="/login">登陆解锁课程资源</a>
+                                {% endif %}
                                 <span class="arr xicon icon-down"></span>
                             </div>
+                            {% if 'username' in session %}
                             <ul>
-                                <li><a href="/product/tiger.html">师生论玉</a></li>
-                                <li><a href="/product/tgirl.html">文学创作</a></li>
-                                <li><a href="/product/tang.html">精美视频</a></li>
-                                <li><a href="/product/treasure.html">首饰制作</a></li>
-                                <li><a href="/product/calendar.html">对外合作</a></li>
-                                <li><a href="/product/stamp.html">考察指南</a></li>
+                                <li><a href="/jade_class">智慧树视频</a></li>
+                                <li><a href="/jade_class">课程回放</a></li>
+                                <li><a href="/jade_class">优质讲座</a></li>
+                                <li><a href="/jade_class">课程资料</a></li>
                             </ul>
-                        </div>                        
+                            {% endif %}
+                        </div>
+                        <div class="item">
+                            <div class="h">
+                                {% if 'username' in session %}
+                                <a class="" href="/forum">玉·交流</a>
+                                {% else %}
+                                <a class="" href="/login">登陆解锁论坛功能</a>
+                                {% endif %}
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                                {% if 'username' in session %}
+                                <ul>
+                                    <li><a href="">师生交流</a></li>
+                                    <li><a href="">鉴别玉石</a></li>
+                                    <li><a href="">文学创作</a></li>
+                                </ul>
+                                {% endif %}
+                        </div>
                     </div>
                     <script>
                         //首页高亮
@@ -271,18 +217,13 @@
                     </script>
                 </div>
                 <div class="bg"></div>
-                <div class="search-box m-show">
-                    <div class="search-txt"><input type="text" class="search-input" placeholder="search..."
-                            id="txt_Search2" onkeypress="keydown(event, '#btn_Search2');"></div>
-                    <button class="search-submit xicon icon-search" type="submit" id="btn_Search2"></button>
-                </div>
                 <div class="nav-box nav-lv1">
                     <div class="nav-item nav-lv1-item ">
                         <div class="nav-tit nav-lv1-tit">
                             <a class="nav-link nav-lv1-link" href="/index">首页</a>
                         </div>
                     </div>
-                    
+
                     <div class="nav-item nav-lv1-item ">
                         <div class="nav-tit nav-lv1-tit">
                             <a class="nav-link nav-lv1-link" href="/exhibition">玉·展览</a>
@@ -295,12 +236,25 @@
                     </div>
                     <div class="nav-item nav-lv1-item ">
                         <div class="nav-tit nav-lv1-tit">
-                            <a class="nav-link nav-lv1-link" href="/templates">玉·学术</a>
+                            <a class="nav-link nav-lv1-link" href="/Subject">玉·学术</a>
+                        </div>
+                    </div>
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">  
+                            {% if 'username' in session %}
+                            <a class="nav-link nav-lv1-link" href="/jade_class">玉·学问</a>
+                            {% else %}
+                            <a class="nav-link nav-lv1-link" href="/login">登陆解锁课程资源</a>
+                            {% endif %}
                         </div>
                     </div>
                     <div class="nav-item nav-lv1-item ">
                         <div class="nav-tit nav-lv1-tit">
-                            <a class="nav-link nav-lv1-link" href="/education">玉·交流</a>
+                            {% if 'username' in session %}
+                            <a class="nav-link nav-lv1-link" href="/forum">玉·交流</a>
+                            {% else %}
+                            <a class="nav-link nav-lv1-link" href="/login">登陆解锁论坛功能</a>
+                            {% endif %}
                         </div>
                     </div>
                     <script>
@@ -352,53 +306,14 @@
                         });
                     </script>
                 </div>
-                <div class="bb">
-                    <div class="lang"><a class="now" href="/">中</a><a href="/en/index.html">EN</a></div>
-                    <div class="share-box m-show">
-                        <a class="share-item suds-mod xicon icon-wx" href="javascript:;">
-                            <div class="suds-pop at-t">
-                                <div class="code"><img src="/Uploads/Picture/2023/02/14/s63eae4ff6f316.png" alt=""
-                                        title=""></div>
-                            </div>
-                        </a>
-                        <a href="#" class="share-item xicon icon-wb" title="分享到新浪微博"></a>
-                    </div>
-                </div>
+
+                
             </div>
         </div>
         <script>
             var p = 1;
             var catrgory_id = "65";
-            $(function () {
-                $('#btn_Search').click(function () {
-                    var keywords = $("#txt_Search").val();
-                    if (keywords == '') {
-                        my_alert("请输入关键字");
-                        return false;
-                    }
-                    var tit = '《文博》';
-                    if (tit == "搜索结果") {
-                        window.location.href = "/searchs/keywords/" + encodeURI(keywords);
-                    } else {
-                        window.open("/searchs/keywords/" + encodeURI(keywords));
-                    }
-                });
-                $('#btn_Search2').click(function () {
-                    var keywords = $("#txt_Search2").val();
-                    if (keywords == '') {
-                        my_alert("请输入关键字");
-                        return false;
-                    }
-
-                    var tit = '《文博》';
-                    if (tit == "搜索结果") {
-                        window.location.href = "/searchs/keywords/" + encodeURI(keywords);
-                    } else {
-                        window.open("/searchs/keywords/" + encodeURI(keywords));
-                    }
-                });
-
-            })
+            
             function keydown(e, but) {
                 var currKey = 0, e = e || event;
                 var _this = $(but);
@@ -418,7 +333,7 @@
                     <div class="inner">
                         <div class="bread-item"><a title="首页" href="/index">首页</a></div>
                         <div class="bread-item"><a href="javascript:void(0);">玉·学术</a></div>
-                        <div class="bread-item"><a href="/templates/Subject">学术论文</a></div>
+                        <div class="bread-item"><a href="/Subject">学术刊物</a></div>
                         <div class="bread-item cur"><a href="javascript:void(0);" style="cursor: default;">《天工》</a>
                         </div>
                     </div>
@@ -433,20 +348,15 @@
                         <div class="text" style="min-height:14px;min-width:14px;">传承与发扬中华文化历史</div>
                     </div>
                     <div class="tabs" id="headlist">
-                        <a href="/templates/Subject">学术刊物</a><a
-                            href="/templates/Subject-essay" class="now">学术论文</a><a
-                            href="/templates/Subject-lectures">学术讲座</a><a
-                            href="/templates/Subject-resources">学术资源</a>
+                        <a href="/Subject" >学术刊物</a><a href="/Subject-essay" class="now">学术论文</a><a href="/Subject-resources">学术资源</a>
                     </div>
                     <div class="content">
                         <div class="dt">
                             <div class="tit transR">
-                                <div class="title">学术论文</div>
+                                <div class="title">学术刊物</div>
                                 <div class="tabs1">
-                                    <a class="now" href="/templates/Subject">《天工》</a><a
-                                        href="/templates/Subject2">《故宫博物院院刊》</a><a
-                                        href="/templates/Subject3">《紫禁城》</a>
-                                        
+                                    <a class="now" href="/Subject">《天工》</a><a href="/Subject2">《故宫博物院院刊》</a><a
+                                        href="/Subject3">《紫禁城》</a>
                                 </div>
                             </div>
                             <div class="pic transL"><img src="../static/img/Subject/png10.png" alt="">
@@ -456,95 +366,27 @@
                         <div id="datalist">
 
                             <div class="list" id="datalist_wap">
+                                {% for i in essays %}
                                 <div class="item">
-                                    
+                                    <div class="date">{{i.timestamp }}</div>
                                     <div class="r">
-                                        <a href="/detail/Subject1.1.html" target="_blank">
-                                            <div class="h">《论玉雕设计的美学内涵》</div>
-                                            <div class="p">
-                                                玉雕文化在我国有着极为久远的历史,随着千万年的流传,已成为我国传统文化的艺术瑰宝,更是非遗文化传承的代表。玉雕设计的美学内涵是历史的结晶,更是民族的智慧,还是人们审美价值的体现,因此它的美学内涵是丰富多彩的,是中国传统工艺美学里最为杰出的代表。
-                                            </div>
+                                        <a href="{{ url_for('read_essay', essay_id=i.id) }}" target="_blank">
+                                            <div class="h">{{i.title }}</div> 
+
                                         </a>
                                     </div>
                                 </div>
-                                <div class="item">
-                                    
-                                    <div class="r">
-                                        <a href="/detail/Subject1.2.html" target="_blank">
-                                            <div class="h">《宝玉石矿产原料与优化处理》
-                                                </div>
-                                            <div class="p">
-                                                随着封建社会的建立和玉石雕琢业的发展，玉石被赋予了独特的文化内涵和象征，其温润的外表和品质使人不禁将“美玉”和“君子”联系在一起，玉也，就成为君子的象征物，并在中华民族几千年来的发展过程中形成了民族爱
-                                                来看，宝石和玉石在狭义和广义上存在不同定义和区分，广义上的宝石等同于玉石，指的是色彩瑰丽、坚硬耐久，并可琢磨、可雕刻成首饰和工艺品的矿物或岩石，包括天然的和人工合成的；狭义上宝石和玉石存在区别，宝石指
-                                                的是晶莹剔透、坚硬耐久，可琢磨成宝石首饰的单晶体或双晶，如钻石、红宝石等，而玉石则是指色彩瑰丽、坚硬耐久、稀少，可琢磨成首饰和工艺品的矿物集合体或岩石，如翡翠、软玉、岫玉等。可以说，对于宝玉石矿产原料
-                                                及加工处理的详细认识有助于宝玉石产业的进一步发展。
-                                                                                          </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <!--			<div class="date"><strong>07</strong>2023-11</div>-->
-                                    <div class="r">
-                                        <a href="/detail/Subject1.3.html" target="_blank">
-                                            <div class="h">《推动玉石健康与香文化结合》</div>
-                                            <div class="p">
-                                                近年来，海外版抖音TikTok掀起了一股“刮痧”风，外国网民对刮痧疗法不吝好评，妥妥地被刮痧板这支小小的“东方制造”所折服。刮痧板在欧美的流行，也是中国制造提升质量、提升信誉的契机。位于寮步镇的慕尚未来美容用品（广东）有限公司（以下简称“慕尚未来”）将中医理疗文化与天然玉石生产工艺相结合，打造了玉石刮痧板、玉石滚轮、玉石面膜等系列美容护理产品，备受海外市场青睐。
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <!--			<div class="date"><strong>19</strong>2023-09</div>-->
-                                    <div class="r">
-                                        <a href="/detail/Subject1.4.html" target="_blank">
-                                            <div class="h">《流动的石头：过程与关系中的材料哲思》</div>
-                                            <div class="p">
-                                                流动具有空间性、时间性和有生性。通过对材料与物品
-                                                固有认知的反思，从过程与关系的哲学视角，探索具有发展可能的
-                                                手工艺材料观。从玉石到玉器，从材料的取舍到“遗留之物”，
-                                                从可见的形式到不可见的耗损，从非人类世界到人类世界，从材料
-                                                的谜语特性到手工艺制作的问答机制，从物质材料的流动到感知意
-                                                识的流动，从形式生成到价值创造，从知识和经验的生长到智慧涌
-                                                现，无不体现石头与世界互通中流转多变的形态、属性及作用。                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <!--			<div class="date"><strong>19</strong>2023-09</div>-->
-                                    <div class="r">
-                                        <a href="/detail/Subject1.5.html" target="_blank">
-                                            <div class="h">《汉代玉器纹样的视觉特征研究与应用》</div>
-                                            <div class="p">
-                                                主要从对汉代玉器纹样的研究入手，从不同的玉器纹饰中提取艺术主题，并以创新的方式运用于服装设
-                                                计中，为服装设计提供灵感和素材。                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
+                                {% endfor %}
                             </div>
                             <div class="paging-mod w">
                                 <div class="paging-box">
+                                    {% if prev_url %}
+                                    <a href="{{ prev_url }}">上一页</a>
+                                    {% endif %}
+                                    {% if next_url %}
+                                    <a href="{{ next_url }}">下一页</a>
+                                    {% endif %}
 
-                                    <a href="javascript:void(0);" class="paging-item paging-link cur">1</a>
-                                    <a href="/Publication/Subject/p/2.html" onClick="getPage($(this));return false;"
-                                        class="paging-item paging-link">2</a> <a href="/Publication/Subject/p/3.html"
-                                        onClick="getPage($(this));return false;" class="paging-item paging-link">3</a>
-                                    <a href="/Publication/Subject/p/4.html" onClick="getPage($(this));return false;"
-                                        class="paging-item paging-link">4</a> <a href="/Publication/Subject/p/5.html"
-                                        onClick="getPage($(this));return false;" class="paging-item paging-link">5</a>
-                                    <a href="/Publication/Subject/p/2.html" onClick="getPage($(this));return false;"
-                                        class="paging-item paging-arrow xfont icon-right"></a>
-                                    <div class="paging-item paging-jump">
-                                        <div class="paging-table">
-                                            <div class="paging-cell">
-                                                <input type="text" class="paging-input"
-                                                    onkeyup="this.value=this.value.replace(/[^\d]/g,'');" id="text_se">
-                                            </div>
-                                            <div class="paging-cell">
-                                                <button type="submit" class="paging-btn" data-max="6" id="btn_new"
-                                                    onclick="go($(this));return false;">GO</button>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <script>
@@ -609,11 +451,10 @@
 
                         </div>
 
-                        <div class="paging-more w" id="mores"><a>查看更多</a></div>
+                       
 
                     </div>
                 </div>
-                <img src="/Public/static/themes_main/image/baiy/png7_2.png" alt="" class="bp">
             </div>
         </div>
 
@@ -649,7 +490,7 @@
                 $(".tabs").scrollLeft($(".tabs .now").offset().left - $(".tabs").offset().left); ///  
             });
         </script>
-        
+
 </body>
 
 </html>
