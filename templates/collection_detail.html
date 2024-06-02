@@ -19,45 +19,35 @@
 <body>
     <div class="x-header2">
         <div class="menu-mod">
-            <div class="logo"><a href="/"><img src="/Uploads/Picture/2021/11/05/s6185032db4faf.png" alt="" title=""
-                        class="i"></a></div>
+            <div class="logo">
+                <a href="/">
+                    <img src="../static/img/babatuosi.jpg" alt="" title="" class="i" style="border-radius: 50%;">
+                </a>
+            </div>
         </div>
         <div class="tools-mod">
             <div class="tools-item lang select-mod">
                 <div class="select-bar bttn">
-                    <div class="select-btn xicon icon-down"></div>
-                    <div class="select-txt">
-                        <div class="select-val">中文版</div>
-                    </div>
-                </div>
-                <div class="select-cont">
-                    <div class="select-opts">
-                        <div class="select-item"><a href="/">中文版</a></div>
-                        <div class="select-item"><a href="/en/index.html">EN</a></div>
-                    </div>
+                    {% if user %}
+                    欢迎用户{{user.username}}
+                    {% else %}
+                    欢迎来到玉石天地，请注册
+                    {% endif %}
                 </div>
             </div>
-            <div class="tools-item share-box"><a class="share-item suds-mod bttn xicon icon-wx" href="javascript:;">
-                    <div class="suds-pop at-b">
-                        <div class="code"><img src="/Uploads/Picture/2023/02/14/s63eae4ff6f316.png" title="" alt="">
-                        </div>
-                    </div>
+            <div class="tools-item share-box">
+                {% if not user %}
+                <a class="share-item suds-mod bttn xicon" style="background-image: url('{{ avatar_url }}');"
+                    href="/login">
                 </a>
-                <a class="share-item suds-mod bttn xicon icon-wb" href="javascript:;">
-                    <div class="suds-pop at-b">
-                        <div class="code"><img src="/Uploads/Picture/2023/02/15/s63ec8c8fc4e56.png" title="" alt="">
-                        </div>
-                    </div>
+                {% else %}
+                <a class="share-item suds-mod bttn xicon" style="background-image: url('{{ avatar_url }}');"
+                    href="{{url_for('profile', username=session['username'])}}">
                 </a>
-            </div>
-            <div class="tools-item search-mod">
-                <div class="search-tap xicon icon-search bttn"></div>
-                <div class="search-box">
-                    <div class="search-txt"><input type="text" class="search-input" placeholder="search..."
-                            id="txt_Search" onkeypress="keydown(event, '#btn_Search')"></div>
-                    <div class="search-btn"><button class="search-submit xicon icon-search" type="submit"
-                            id="btn_Search"></button></div>
-                </div>
+                {% endif %}
+                <p style="font-size: 16px; color: #007BFF; font-weight: bold; text-align: center; margin-top: 10px;">
+                    点击左侧头像进入个人主页
+                </p>
             </div>
             <div class="menu-btn"><span class="line"></span></div>
         </div>
@@ -71,57 +61,76 @@
                 </div>
                 <div class="item" style="text-align: center;">
                     <div class="h">
-                        <a class="" href="index.html">首页</a>
+                        <a class="" href="/index">首页</a>
                         <span class="arr xicon icon-down"></span>
                     </div>
                 </div>
                 <div class="item" style="text-align: center;">
                     <div class="h">
-                        <a class="" href="exhibition.html">玉-展览</a>
+                        <a class="" href="/exhibition">玉·展览</a>
                         <span class="arr xicon icon-down"></span>
                     </div>
                     <ul>
-                        <li><a href="exhibition.html">国内展览</a></li>
-                        <li><a href="exhibition.html">学生策展</a></li>
+                        <li><a href="/exhibition">国内展览</a></li>
+                        <li><a href="/student">学生策展</a></li>
                     </ul>
                 </div>
                 <div class="item" style="text-align: center;">
                     <div class="h">
-                        <a class="" href="collection.html">玉-美学</a>
+                        <a class="" href="/collection">玉·美学</a>
                         <span class="arr xicon icon-down"></span>
                     </div>
                     <ul>
-                        <li><a href="collection.html">玉词百科</a></li>
-                        <li><a href="collection.html">美玉宝库</a></li>
-                        <li><a href="collection.html">诗说美玉</a></li>
-                        <li><a href="collection.html">玉蕴哲思</a></li>
+                        <li><a href="/collection">精品宝玉</a></li>
+                        <li><a href="/collection">宝玉藏品</a></li>
+                        <li><a href="/collection">玉石百科</a></li>
                     </ul>
                 </div>
                 <div class="item">
                     <div class="h">
-                        <a class="" href="Subject.html">玉-学术</a>
+                        <a class="" href="/Subject">玉·学术</a>
                         <span class="arr xicon icon-down"></span>
                     </div>
                     <ul>
-                        <li><a href="Subject.html">学术刊物</a></li>
-                        <li><a href="Subject-essay.html">学术论文</a></li>
-                        <li><a href="Subject-lectures.html">学术讲座</a></li>
-                        <li><a href="Subject-resources.html">学习资料</a></li>
+                        <li><a href="/Subject">学术刊物</a></li>
+                        <li><a href="/Subject-essay">学术论文</a></li>
+                        <li><a href="/Subject-resources">学习资料</a></li>
                     </ul>
                 </div>
-                <div class="item" style="text-align: center;">
+                <div class="item">
                     <div class="h">
-                        <a class="" href="/product.html">玉-交流</a>
+                        {% if 'username' in session %}
+                        <a class="" href="/jade_class">玉·学问</a>
+                        {% else %}
+                        <a class="" href="/login">登陆解锁课程资源</a>
+                        {% endif %}
                         <span class="arr xicon icon-down"></span>
                     </div>
+                    {% if 'username' in session %}
                     <ul>
-                        <li><a href="../jade_poems.html">师生论玉</a></li>
-                        <li><a href="/product/tgirl.html">文学创作</a></li>
-                        <li><a href="/product/tang.html">精美视频</a></li>
-                        <li><a href="/product/treasure.html">首饰制作</a></li>
-                        <li><a href="/product/calendar.html">对外合作</a></li>
-                        <li><a href="/product/stamp.html">考察指南</a></li>
+                        <li><a href="/jade_class">智慧树视频</a></li>
+                        <li><a href="/jade_class">课程回放</a></li>
+                        <li><a href="/jade_class">优质讲座</a></li>
+                        <li><a href="/jade_class">课程资料</a></li>
                     </ul>
+                    {% endif %}
+                </div>
+                <div class="item">
+                    <div class="h">
+                        {% if 'username' in session %}
+                        <a class="" href="/forum">玉·交流</a>
+                        {% else %}
+                        <a class="" href="/login">登陆解锁论坛功能</a>
+                        {% endif %}
+                        <span class="arr xicon icon-down"></span>
+                    </div>
+                    {% if 'username' in session %}
+                    <ul>
+                        <li><a href="">师生交流</a></li>
+                        <li><a href="">鉴别玉石</a></li>
+                        <li><a href="">文学创作</a></li>
+                    </ul>
+                    {% endif %}
                 </div>
                 <script>
                     //首页高亮
@@ -172,8 +181,8 @@
             </div>
             <div class="bg"></div>
             <div class="search-box m-show">
-                <div class="search-txt"><input type="text" class="search-input" placeholder="search..."
-                        id="txt_Search2" onkeypress="keydown(event, '#btn_Search2');"></div>
+                <div class="search-txt"><input type="text" class="search-input" placeholder="search..." id="txt_Search2"
+                        onkeypress="keydown(event, '#btn_Search2');"></div>
                 <button class="search-submit xicon icon-search" type="submit" id="btn_Search2"></button>
             </div>
             <div class="bb">
@@ -183,8 +192,8 @@
                 <div class="share-box m-show">
                     <a class="share-item suds-mod xicon icon-wx" href="javascript:;">
                         <div class="suds-pop at-t">
-                            <div class="code"><img src="/Uploads/Picture/2023/02/14/s63eae4ff6f316.png" alt=""
-                                    title=""></div>
+                            <div class="code"><img src="/Uploads/Picture/2023/02/14/s63eae4ff6f316.png" alt="" title="">
+                            </div>
                         </div>
                     </a>
                     <a href="#" class="share-item xicon icon-wb" title="分享到新浪微博"></a>
@@ -197,7 +206,8 @@
         <div class="gauss"></div> <!-- 独立的背景层用于应用模糊效果 -->
         <div class="page-context glass">
             <h1 class="title">{{ collection.name }}</h1>
-            <img class="collection-image" src="{{ url_for('static', filename=collection.image_path) }}" alt="{{ collection.name }}">
+            <img class="collection-image" src="{{ url_for('static', filename=collection.image_path) }}"
+                alt="{{ collection.name }}">
             <p class="description">{{ collection.description }}</p>
         </div>
     </div>

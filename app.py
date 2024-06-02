@@ -18,10 +18,10 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 # MySQL 数据库连接配置
 db_config={
     'user':'root',
-    'password':'518349276',#这里改成自己的数据库密码
+    'password':'Ma3332808',#这里改成自己的数据库密码
     'host':'localhost',
     'port':3306,
-    'database': 'WebJade',#这里改成自己的数据库名字
+    'database': 'Web',#这里改成自己的数据库名字
     'charset':'utf8mb4'}
 # 创建数据库连接
 engine = create_engine('mysql+pymysql://{user}:{password}@{host}:{port}/{database}?charset={charset}'.format(**db_config))
@@ -751,6 +751,17 @@ def delete_exhibition_stu(exhibition_stu_id):
 
 @app.route('/collection')
 def collections():
+    user=None
+    avatar_url=None
+    if 'username' in session:
+        user = db_session.query(User).filter_by(username=session['username']).first()
+        if not user:
+            return "User not found", 404  # 如果用户不存在，返回404
+        # 生成用户头像URL或默认头像URL
+    if user and user.avatar:
+        avatar_url = url_for('static', filename=user.avatar)
+    else:
+        avatar_url = url_for('static', filename='img/profile.jpg')
     page = request.args.get('page', 1, type=int)
     per_page = 9
     total = db_session.query(Collection).count()
@@ -759,14 +770,25 @@ def collections():
     next_url = url_for('collection', page=page + 1) if total > page * per_page else None
     prev_url = url_for('collection', page=page - 1) if page > 1 else None
 
-    return render_template('collection.html', collections=collections, next_url=next_url, prev_url=prev_url)
+    return render_template('collection.html', collections=collections, next_url=next_url, prev_url=prev_url , user=user, avatar_url=avatar_url)
 
 @app.route('/collection/<int:collection_id>')
 def collection_detail(collection_id):
+    user=None
+    avatar_url=None
+    if 'username' in session:
+        user = db_session.query(User).filter_by(username=session['username']).first()
+        if not user:
+            return "User not found", 404  # 如果用户不存在，返回404
+        # 生成用户头像URL或默认头像URL
+    if user and user.avatar:
+        avatar_url = url_for('static', filename=user.avatar)
+    else:
+        avatar_url = url_for('static', filename='img/profile.jpg')
     collection = db_session.query(Collection).filter_by(id=collection_id).first()
     if collection is None:
         abort(404)
-    return render_template('collection_detail.html', collection=collection)
+    return render_template('collection_detail.html', collection=collection , user=user, avatar_url=avatar_url)
 
 @app.route('/manage_collections', methods=['GET', 'POST'])
 def manage_collections():
