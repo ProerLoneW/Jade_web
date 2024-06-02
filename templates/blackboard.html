@@ -1,0 +1,965 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="/favicon.ico" type="image/x-icon" rel="shortcut icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="author" content="http://www.fractal-technology.com">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="keywords" content="陕西历史博物馆" />
+    <meta name="description" content="陕西历史博物馆" />
+    <title>留言_陕西历史博物馆_陕西历史博物馆</title>
+    <script type="text/javascript">
+        if (!window.matchMedia) {
+            var el = document.createElement('div');
+            el.style.cssText = "position: fixed; left: 0; top: 0; width: 100%; height: 100%; background-color: #575757; z-index: 999999;";
+            el.innerHTML = '<div style="position: absolute; top: 40%; left: 0; right: 0; margin: auto; width: 80%; font-family: Microsoft YaHei; font-size: 2em; font-weight: bold; text-align: center; color: #fff;">您当前使用的浏览器版本过低，<br>建议尽快升级您的浏览器，以获得更好的浏览体验！</div>';
+            document.documentElement.appendChild(el);
+        }
+    </script>
+    <link rel="stylesheet" href="../static/css/vendor.css">
+    <!-- inject:css -->
+    <link rel="stylesheet" href="../static/css/main.css">
+    <!-- endinject -->
+    <script src="../static/js/vendor.js"></script>
+    <!-- inject:js -->
+    <script src="../static/js/main.js"></script>
+    <!-- endinject -->
+</head>
+<style type="text/css">
+    .logo .widget-area-edit {
+        top: 0px
+    }
+</style>
+
+<body>
+    <div class="topping-mod xfont icon-up">
+        <div class="s"></div>
+    </div>
+    <style>
+        #myalert {
+            display: none;
+        }
+
+        .recruit .block1 {
+            height: auto
+        }
+
+        .layer {
+            background: url(/Public/static/images/con_mask.png);
+            ;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000000;
+        }
+
+        .layer .myalert {
+            padding: 30px;
+            background: #fff;
+            width: 240px;
+            position: absolute;
+            margin-top: -100px;
+            top: 50%;
+            left: 50%;
+            margin-left: -120px;
+            text-align: center;
+            z-index: 100000
+        }
+
+        .layer .guan {
+            background: url(/Public/static/images/close.png) no-repeat center;
+            display: block;
+            width: 23px;
+            height: 23px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .layer .text {
+            padding-bottom: 15px;
+            font-size: 16px;
+            color: #474747;
+        }
+
+        .layer .button {
+            background: none;
+            border: 1px solid #bbbbbb;
+            width: 91px;
+            height: 29px;
+            font: 14px/100% "Microsoft YaHei", Arial, Tahoma, Helvetica, sans-serif;
+            color: #707070;
+        }
+    </style>
+    <div id="myalert" class="layer">
+        <div class="myalert">
+            <a href="javascript:;" onclick="myalert_hide();" class="guan"></a>
+            <div class="text">请输入关键字</div>
+            <a><button class="button" id="my_ok"
+                    style="cursor:pointer ;opacity: 1;transform: translateY(0px);">确定</button></a>
+        </div>
+    </div>
+    <script>
+        function my_alert(text, callback) {
+            $('#myalert').show();
+            $('#myalert .myalert div').html(text);
+
+            $('#my_ok').click(function () {
+                $('#myalert').hide();
+
+                if (typeof (callback) == 'function') {
+                    callback();
+                    return false;
+                }
+            });
+        }
+
+        function myalert_hide() {
+            $('#myalert').hide();
+        }
+    </script>
+
+    <div class="x-layout">
+        <div class="header_page">
+            <div class="menu-mod">
+                <div class="logo"><a href="/"><img src="/Uploads/Picture/2021/11/08/s6188bef4d304f.png" alt="" title=""
+                            class="i"><img src="/Uploads/Picture/2021/11/05/s6185032db4faf.png" alt="" title=""
+                            class="i"></a></div>
+            </div>
+            <div class="menu-btn"><i></i><i></i><i></i></div>
+            <div class="nav-mod">
+                <div class="nav-box nav-lv1">
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            <a class="nav-link nav-lv1-link" href="/">首页</a>
+                        </div>
+
+                        <div class="nav-lv nav-lv2">
+                            <div class="nav-grp">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            <a class="nav-link nav-lv1-link" href="/guide.html">导览</a>
+                            <div class="arr xicon icon-down"></div>
+                        </div>
+
+                        <div class="nav-lv nav-lv2">
+                            <div class="nav-grp">
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/guide.html#guide2">开放时间</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/guide.html#guide3">参观公告</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/guide.html#guide4">交通路线</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/guide.html#guide5">票务信息</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/guide.html#guide6">参观须知</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/guide.html#guide7">馆内服务</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            <a class="nav-link nav-lv1-link" href="/basic_display.html">展览</a>
+                            <div class="arr xicon icon-down"></div>
+                        </div>
+
+                        <div class="nav-lv nav-lv2">
+                            <div class="nav-grp">
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/basic_display.html">常设展览</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/special_exhibtion.html">专题展览</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/Temporary.html">临时展览</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/xiufu.html">修复展示</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/online.html">线上展览</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/temporary_exhibition.html">交流展览</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/online2.html">虚拟布展</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/online1.html">云展览</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            <a class="nav-link nav-lv1-link" href="/collection.html">藏品</a>
+                            <div class="arr xicon icon-down"></div>
+                        </div>
+
+                        <div class="nav-lv nav-lv2">
+                            <div class="nav-grp">
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/collection.html">镇馆之宝</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/collection.html">馆藏精品</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/Collections/ww_data.html">文物数据</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            <a class="nav-link nav-lv1-link" href="/education.html">教育</a>
+                            <div class="arr xicon icon-down"></div>
+                        </div>
+
+                        <div class="nav-lv nav-lv2">
+                            <div class="nav-grp">
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/education.html#education1">活动预告</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/education.html#education2">精彩回顾</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            <a class="nav-link nav-lv1-link" href="/Publication/Subject.html">学术</a>
+                            <div class="arr xicon icon-down"></div>
+                        </div>
+
+                        <div class="nav-lv nav-lv2">
+                            <div class="nav-grp">
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/Publication/Subject.html">学术刊物</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/Academic_achievements/Publication.html">学术成果</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/Project_topic/Domestic.html">学术研讨会</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/Academic_lectures.html">学术讲座</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/Academic_institutions.html">学术机构</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/mural_base/overview.html">馆藏壁画科研基地</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/Academic_youth forums.html">青年学术论坛</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/Academic_achievements/Scientific Academic resources.html">学术资源目录</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            <a class="nav-link nav-lv1-link" href="/product.html">文创</a>
+                            <div class="arr xicon icon-down"></div>
+                        </div>
+
+                        <div class="nav-lv nav-lv2">
+                            <div class="nav-grp">
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/product/tiger.html">虎符送福</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/product/tgirl.html">唐妞</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/product/tang.html">花舞大唐</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/product/treasure.html">国宝系列</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/product/calendar.html">陕博日历</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/product/stamp.html">书籍邮册</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/product/joint.html">联名文创</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            <a class="nav-link nav-lv1-link" href="/info/Building.html">资讯</a>
+                            <div class="arr xicon icon-down"></div>
+                        </div>
+
+                        <div class="nav-lv nav-lv2">
+                            <div class="nav-grp">
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/info/Building.html">党建工作</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/info/news.html">工作动态</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/info/industry.html">行业信息</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/info/announcement.html">最新公告</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/volunteer.html">志愿者</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/info/publicity.html">采购公示</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/info/culturaltour.html">文明旅游</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            <a class="nav-link nav-lv1-link" href="/articles_association.html">信息公开</a>
+                            <div class="arr xicon icon-down"></div>
+                        </div>
+
+                        <div class="nav-lv nav-lv2">
+                            <div class="nav-grp">
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/articles_association.html">博物馆章程</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/Activity_Board.html">运营看板</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/shared_resource.html">公共资源共享服务</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/Social_practice_activities.html">在校学生社会实践活动</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/for_council.html">理事会信息</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/lsjscy.html">理事监事成员</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            <a class="nav-link nav-lv1-link" href="/about.html">关于</a>
+                            <div class="arr xicon icon-down"></div>
+                        </div>
+
+                        <div class="nav-lv nav-lv2">
+                            <div class="nav-grp">
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/about.html#about3">本馆概述</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/about.html">馆长致辞</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/about.html#about4">历史沿革</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/about.html#about5">馆级领导</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/about.html#about6">机构设置</a></div>
+                                </div>
+                                <div class="nav-item nav-lv2-item">
+                                    <div class="nav-tit nav-lv2-tit"><a class="nav-link nav-lv2-link"
+                                            href="/about.html#about7">专家介绍</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <script>
+                    //首页高亮
+
+                    var indexs = "";
+
+                    if (indexs) {
+                        $(".nav-lv1-item:first").addClass("cur");
+                    }
+                    //一级高亮
+                    var nowurl = ("" != 'javascript:void(0);') ? "" : window.location.pathname;
+                    $(' .nav-lv1-item a').each(function () {
+                        var listurl = $(this).attr('href');
+                        if (nowurl == listurl || listurl == '') {
+                            $(this).parents('.nav-lv1-item').addClass('cur').siblings().removeClass('cur');
+                        }
+                    });
+                    var pas_id = "";
+                    var pa_id = "";
+                    if (pa_id == 11) {
+                        $('.nav-lv1-item').eq(1).addClass('cur').siblings().removeClass('cur')
+                    }
+                    if (pa_id == 3) {
+                        $('.nav-lv1-item').eq(9).addClass('cur').siblings().removeClass('cur')
+                    }
+                    if (pas_id == 9) {
+                        $('.nav-lv1-item').eq(3).addClass('cur').siblings().removeClass('cur')
+                    }
+                    if (pas_id == 10) {
+                        $('.nav-lv1-item').eq(2).addClass('cur').siblings().removeClass('cur')
+                    }
+                    if (pa_id == 7) {
+                        $('.nav-lv1-item').eq(5).addClass('cur').siblings().removeClass('cur')
+                    }
+                    //锚点点击高亮
+                    $(document).on('click', '.nav-lv2-item', function () {
+                        $(this).addClass('cur').siblings().removeClass('cur');
+                    })
+                    //二级导航
+                    var _nowurl = window.location.href;
+                    var cat_url = '';
+                    var arr = _nowurl.split('#')[1];
+                    $('.nav-lv2 .nav-lv2-item').find('a').each(function (i, k) {
+                        var towurl = $(k).attr('href');
+                        if (towurl.indexOf(arr) > -1 || towurl == window.location.pathname || towurl == cat_url || towurl == '') {
+                            // $(this).parents('.nav-lv2-item').addClass('cur').siblings().removeClass('cur');
+
+                            $(this).parents(".nav-lv1-item").addClass('cur').siblings().removeClass('cur');
+                        }
+                    });
+                </script>
+            </div>
+            <div class="tools-mod">
+                <div class="tools-item share-box"><a class="share-item suds-mod bttn xicon icon-wx" href="javascript:;">
+                        <div class="suds-pop at-b">
+                            <div class="code"><img src="/Uploads/Picture/2023/02/14/s63eae4ff6f316.png" title="" alt="">
+                            </div>
+                        </div>
+                    </a>
+                    <a class="share-item suds-mod bttn xicon icon-wb" href="javascript:;">
+                        <div class="suds-pop at-b">
+                            <div class="code"><img src="/Uploads/Picture/2023/02/15/s63ec8c8fc4e56.png" title="" alt="">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <!-- <div class="tools-item lang">
+                    <div class="bttn now"><a href="/">中</a></div>
+                    <div class="bttn"><a href="/en/index.html">EN</a></div>
+                </div> -->
+                <!-- <div class="tools-item search-mod">
+                    <div class="search-tap xicon icon-search bttn"></div>
+                    <div class="search-box">
+                        <div class="search-txt"><input type="text" class="search-input" placeholder="search..."
+                                id="txt_Search" onkeypress="keydown(event, '#btn_Search')"></div>
+                        <div class="search-btn"><button class="search-submit xicon icon-search" type="submit"
+                                id="btn_Search"></button></div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <script type="text/javascript">
+            var p = 1;
+            var catrgory_id = "";
+            $(function () {
+                $('#btn_Search').click(function () {
+                    var keywords = $("#txt_Search").val();
+                    if (keywords == '') {
+                        my_alert("请输入关键字");
+                        return false;
+                    }
+                    var tit = '留言';
+                    if (tit == "搜索结果") {
+                        window.location.href = "/searchs/keywords/" + encodeURI(keywords);
+                    } else {
+                        window.open("/searchs/keywords/" + encodeURI(keywords));
+                    }
+                });
+                $('#btn_Search2').click(function () {
+                    var keywords = $("#txt_Search2").val();
+                    if (keywords == '') {
+                        my_alert("请输入关键字");
+                        return false;
+                    }
+
+                    var tit = '留言';
+                    if (tit == "搜索结果") {
+                        window.location.href = "/searchs/keywords/" + encodeURI(keywords);
+                    } else {
+                        window.open("/searchs/keywords/" + encodeURI(keywords));
+                    }
+                });
+
+            })
+            function keydown(e, but) {
+                var currKey = 0, e = e || event;
+                var _this = $(but);
+
+                if (e.keyCode == 13) {
+                    _this.click();
+                    return false;
+                }
+            }
+        </script>
+        <div class="x-container">
+            <div class="liuyan">
+                <div class="liuyan1">
+                    <div class="x-wrap2">
+                        <div class="head">
+                            <div class="title" style="min-height:14px;min-width:14px;">我要留言</div>
+                            <div class="p" style="min-height:14px;min-width:14px;">我们始终认真聆听您的声音</div>
+                        </div>
+                        <div class="cont">
+                            <form id="messzgeform">
+                                <div class="textarea">
+                                    <textarea name="content" id="content" cols="" rows="" placeholder="请输入您的留言内容"
+                                        maxlength="500"></textarea>
+                                    <div class="num"><span class="nowLength">0</span>/<span class="maxLength">500</span></div>
+                                </div>
+                                <div class="list">
+                                    <div class="item">
+                                        <div class="txt">邮箱：</div>
+                                        <div class="ipt"><input type="text" name="email" id="email"></div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="subBtn1">
+                                <a href="javascript:;" id="tjjl" class="more1">提交留言</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="liuyan2">
+                    <div class="x-wrap2">
+                        <div id="datalist">
+
+                            <div class="cont">
+                                <div class="list" id="datalist_wap">
+                                    <div class="item">
+                                        <div class="ul">
+                                            <div class="li">
+                                                <div class="lr">网友留言：</div>
+                                                <div class="rl">
+                                                    <div class="txt">
+                                                        您好，我今天参观了陕西历史博物馆秦汉馆，发现第一展区中的古琴摆放方式疑似有误。正确的摆放方式琴轸应该悬空于琴桌右手侧方，但是馆中古琴琴轸被直接架在了琴卓上。这样摆放不仅不方便调音，在弹琴过程中还有可能会有琴轸摩擦桌面导致跑音的情况。希望贵馆能够核实。
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="li ans">
+                                                <div class="lr">留言回复：</div>
+                                                <div class="rl">
+                                                    <div class="txt">
+                                                        您好！非常感谢您的留言。经与相关工作人员核实，此琴摆放区域为观众互动区，琴可移动。初始摆放状态与您描述的正确方式一致，在互动过程中，有的观众会移动琴，造成与初始摆放状态不同。感谢您的关注与支持，欢迎您来我馆参观！
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="li times">
+                                                <div class="lr"></div>
+                                                <div class="rl">
+                                                    <div class="txt">2024-05-30</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="ul">
+                                            <div class="li">
+                                                <div class="lr">网友留言：</div>
+                                                <div class="rl">
+                                                    <div class="txt">你好！我们家小朋友13岁，1米75左右，外国籍，微信公众号上填不了护照证件号码，怎么预约门票呢？
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="li ans">
+                                                <div class="lr">留言回复：</div>
+                                                <div class="rl">
+                                                    <div class="txt">您如果有票务方面问题，请致电：029-85253806咨询 ，感谢您的理解及配合。</div>
+                                                </div>
+                                            </div>
+                                            <div class="li times">
+                                                <div class="lr"></div>
+                                                <div class="rl">
+                                                    <div class="txt">2024-05-26</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="ul">
+                                            <div class="li">
+                                                <div class="lr">网友留言：</div>
+                                                <div class="rl">
+                                                    <div class="txt">请问外国人如何预订门票</div>
+                                                </div>
+                                            </div>
+                                            <div class="li ans">
+                                                <div class="lr">留言回复：</div>
+                                                <div class="rl">
+                                                    <div class="txt">
+                                                        您好！我们的预约系统支持使用护照进行预约。预约成功后，按照预约时段，请本人持护照原件或复印件在我馆“东④”综合服务窗口换取纸质门票即可入馆。您如果有票务方面问题，请致电：029-85253806咨询
+                                                        ，感谢您的理解及配合。</div>
+                                                </div>
+                                            </div>
+                                            <div class="li times">
+                                                <div class="lr"></div>
+                                                <div class="rl">
+                                                    <div class="txt">2024-05-20</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="ul">
+                                            <div class="li">
+                                                <div class="lr">网友留言：</div>
+                                                <div class="rl">
+                                                    <div class="txt">
+                                                        秦汉馆卫生间男女标识的中文可否和其他语言一样改为直译呢？使用“美丽”和“英俊”这两个实际上并不互斥也不应和性别绑定的词语似乎不是很妥当。
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="li ans">
+                                                <div class="lr">留言回复：</div>
+                                                <div class="rl">
+                                                    <div class="txt">
+                                                        您好！非常感谢您的留言，留言内容我们已反馈给相关部门，我们会持续不断优化服务系统，提升服务质量。再次感谢您对我馆的支持与关注，欢迎您来我馆参观！
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="li times">
+                                                <div class="lr"></div>
+                                                <div class="rl">
+                                                    <div class="txt">2024-05-20</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="ul">
+                                            <div class="li">
+                                                <div class="lr">网友留言：</div>
+                                                <div class="rl">
+                                                    <div class="txt">
+                                                        请问我们有团队预约需要，约35人左右，是否可以联系场馆提供团队人员信息统一预约，个人散户预约有人数限制，不方便续约。</div>
+                                                </div>
+                                            </div>
+                                            <div class="li ans">
+                                                <div class="lr">留言回复：</div>
+                                                <div class="rl">
+                                                    <div class="txt">您如果有票务方面问题，请致电：029-85253806咨询 ，感谢您的理解及配合。</div>
+                                                </div>
+                                            </div>
+                                            <div class="li times">
+                                                <div class="lr"></div>
+                                                <div class="rl">
+                                                    <div class="txt">2024-05-20</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="paging-mod">
+                                <div class="paging-box">
+
+                                    <a href="javascript:void(0);" class="paging-item paging-link cur">1</a>
+                                    <a href="/blackboard/p/2.html" onClick="getPage($(this));return false;"class="paging-item paging-link">2</a> 
+                                    <a href="/blackboard/p/3.html" onClick="getPage($(this));return false;"class="paging-item paging-link">3</a>
+                                    <a href="/blackboard/p/4.html" onClick="getPage($(this));return false;"class="paging-item paging-link">4</a> 
+                                    <a href="/blackboard/p/5.html" onClick="getPage($(this));return false;" class="paging-item paging-link">5</a>
+                                    
+                                    <span class="paging-item paging-dot">&hellip;</span> <a
+                                        href="/leaving/message/p/2.html" onClick="getPage($(this));return false;"
+                                        class="paging-item paging-arrow xfont icon-right"></a>
+                                    <div class="paging-item paging-jump">
+                                        <div class="paging-table">
+                                            <div class="paging-cell">
+                                                <input type="text" class="paging-input"
+                                                    onkeyup="this.value=this.value.replace(/[^\d]/g,'');" id="text_se">
+                                            </div>
+                                            <div class="paging-cell">
+                                                <button type="submit" class="paging-btn" data-max="36" id="btn_new"
+                                                    onclick="go($(this));return false;">GO</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <script>
+                                function getPage(obj) {
+                                    var url = obj.attr('href');
+                                    if (url == 'javascript:void(0);') {
+                                        return false;
+                                    }
+                                    // $.ajaxSetup({cache:false});
+                                    $.get(url, {}, function (data) {
+                                        $('#datalist').html(data);
+                                        $('html,body,.body_page').animate({ scrollTop: parseInt($('#datalist').offset().top - 500) }, 500);
+                                    })
+                                }
+                                function go(obj) {
+                                    var text_se = obj.parent().prev().find('.paging-input').val();
+                                    if (text_se == '') {
+                                        my_alert('请输入页码');
+                                        return false;
+                                    } else {
+                                        getkey(text_se);
+                                        return false;
+                                    }
+                                }
+                                $('.paging-input').keypress(function (e) {
+                                    var keycode = e.keyCode ? e.keyCode : e.which;
+                                    if (keycode == 13) {
+                                        var text_se = $(this).val();
+                                        if (text_se == '') {
+                                            my_alert('请输入页码');
+                                            return false;
+                                        } else {
+                                            getkey(text_se);
+                                            return false;
+                                        }
+                                    }
+                                });
+
+                                function sel(obj) {
+                                    var text_se = obj.value;
+                                    getkey(text_se);
+                                }
+                                function getkey(p) {
+                                    if (p == '') {
+                                        return false;
+                                    }
+                                    var pagesize = "36"
+                                    var url = "/leaving/message/p/_PAGENUM_.html";
+
+                                    if ((p * 1) <= (pagesize * 1)) {
+                                        p = p;
+                                    } else {
+                                        p = pagesize;
+                                    }
+                                    var urls = url.replace('_PAGENUM_', p);
+                                    $.get(urls, function (data) {
+                                        $('#datalist').html(data);
+                                        $('html,body,.body_page').animate({ scrollTop: parseInt($('#datalist').offset().top - 500) }, 500);
+                                    });
+                                }
+                            </script>
+                        </div>
+                        <div class="paging-more " id="mores"><a>查看更多</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- inject:private:js -->
+        <script>
+            function refresh() {
+                var verifyimg = $("#verify2").attr("src");
+                if (verifyimg.indexOf('?') > 0) {
+                    $("#verify2").attr("src", verifyimg + '&random=' + Math.random());
+                } else {
+                    $("#verify2").attr("src", verifyimg.replace(/\?.*$/, '') + '?' + Math.random());
+                }
+            }
+            "use strict";
+
+            $(function () {
+                    $(".liuyan1 .textarea textarea").bind('input propertychange', function () {
+                        var len = $(this).val().length;
+                        $('.liuyan1 .textarea .num .nowLength').text(len);
+                    });
+
+                    $('#tjjl').on('click', function () {
+                        if (!$('#content').val()) {
+                            $('html,body').animate({ scrollTop: parseInt($('#content').offset().top - 230) }, 500);
+                            my_alert("请输入您的留言内容");
+                            return false;
+                        }
+                        var params = $('#messzgeform').serializeArray();
+                        $.post('/blackboard', params, function (data) {
+                            if (data['status'] == 1) {
+                                $('#messzgeform')[0].reset();
+                                my_alert('提交成功');
+                                setTimeout(function () {
+                                    window.location.reload();
+                                }, 2000);
+                                return false;
+                            } else {
+                                my_alert(data['info']);
+                                return false;
+                            }
+                        });
+                    });
+                });
+        </script>
+        <!-- endinject -->
+        <script type="text/javascript">
+            $.post("/fangwen.html" + '?' + Math.random(), { '_json': Math.random() }, function (data) {
+                var datas = data['info'];
+                var str = "<i>" + datas.toString().split("").join("</i><i>") + "</i>";
+                $('.x-footer .viewer .num').html(str);
+            }, 'json')
+        </script>
+        <div class="x-footer">
+            <div class="x-wrap">
+                <div class="nav_foot"><a href="/sitemap.html" target="_blank">网站地图</a><span>|</span><a
+                        href="/leaving/message.html">网友留言</a><span>|</span>
+                    <script type="text/javascript">
+                        $(function () {
+                            $('.nav_foot span:last').remove();
+                        })
+                    </script>
+                </div>
+                <div class="friends"> 友情链接：
+                    <a href="http://www.chnmuseum.cn/" target="_blank">中国国家博物馆</a><a
+                        href="https://www.dpm.org.cn/Home.html" target="_blank">故宫博物院</a><a
+                        href="https://www.shanghaimuseum.net/mu/frontend/pg/index" target="_blank">上海博物馆</a><a
+                        href="http://www.njmuseum.com/zh" target="_blank">南京博物院</a><a href="http://www.hnmuseum.com/"
+                        target="_blank">湖南博物院</a><a href="http://www.chnmus.net/" target="_blank">河南博物院</a><a
+                        href="http://hbsbwg.cjyun.org/home/index.html" target="_blank">湖北省博物馆</a><a
+                        href="https://www.zhejiangmuseum.com/" target="_blank">浙江省博物馆</a><a
+                        href="http://www.lnmuseum.com.cn/" target="_blank">辽宁省博物馆</a><a
+                        href="http://www.capitalmuseum.org.cn/" target="_blank">首都博物馆</a><a
+                        href="http://www.shanximuseum.com/sx/index/index.html" target="_blank">山西博物院</a><a
+                        href="http://www.3gmuseum.cn/" target="_blank">重庆中国三峡博物馆</a><a href="https://www.dha.ac.cn/"
+                        target="_blank">敦煌研究院</a><a href="http://www.bmy.com.cn/" target="_blank">秦始皇帝陵博物院</a><a
+                        href="http://www.beilin-museum.com/" target="_blank">西安碑林博物馆</a><a href="http://www.hylae.com/"
+                        target="_blank">汉景帝阳陵博物院</a>
+                </div>
+                <div class="list">
+                    <div class="item">
+                        <div class="icon"><img src="/Public/static/themes_main/image/lyj/icon12.png" alt=""></div>
+                        <div class="txt">4000293806</div>
+                    </div>
+                    <div class="item">
+                        <div class="icon"><img src="/Public/static/themes_main/image/lyj/icon13.png" alt=""></div>
+                        <div class="txt">sxhm1991@sxhm.com</div>
+                    </div>
+                    <div class="item">
+                        <div class="icon"><img src="/Public/static/themes_main/image/lyj/icon14.png" alt=""></div>
+                        <div class="txt">中国 · 陕西 · 西安市小寨东路91号</div>
+                    </div>
+                </div>
+                <div class="info">
+                    <span>Copyright 2021 陕西历史博物馆版权所有All Rights Reserved. </span>
+                    <a href="http://beian.miit.gov.cn/" target="_blank">陕ICP备05005777号-2</a>
+
+                    <a href="http://www.beian.gov.cn/" target="_blank">陕公网安备 61011302001384号</a>
+                </div>
+                <div class="viewer"><span>网站浏览人数：</span>
+                    <div class="num"></div>
+                </div>
+                <div class="support"><a>网站建设</a>：<a>北京分形科技</a></div>
+            </div>
+        </div>
+        <script>
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?f9afe60a3a50056805fb3c57adc8fc9a";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+        <script type="text/javascript" src="https://s13.cnzz.com/z_stat.php?id=3732658&web_id=3732658"></script>
+
+    </div>
+    <style>
+        .empty-data {
+            width: 100%;
+            font-size: 25px;
+            padding-top: 8%;
+            padding-bottom: 8%;
+            text-align: center;
+        }
+    </style>
+    <script crossorigin src="/js/vendor.DL1iBa6yb.js"></script>
+</body>
+
+</html>
