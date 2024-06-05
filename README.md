@@ -97,3 +97,13 @@ route括号里的就是路由，也就是超链接里应该放的东西
 更新了学生策展，国内策展，学术论文，讲座的后台管理  
 优化了头像显示
 
+### 6.5更新
+先更新一下库  
+邮箱验证
+<img src="readme.img/mail.png">
+<img src="readme.img/verification.jpg">  
+
+大模型问答
+<img src="readme.img/large_model.png">
+
+

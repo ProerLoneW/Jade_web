@@ -18,11 +18,26 @@
         <form id="form1" class="form" action="/register" method="POST">
             <h2 class="form_title">注册账号</h2>
             <input type="text" placeholder="User" name="username" class="input" required/>
-            <input type="email" placeholder="Email" name="email" class="input" required/>
+            <input type="email" placeholder="Email" name="email" id="email" class="input" required/>
+            <button type="button" class="btn" onclick="sendVerificationCode()">发送验证码</button>
+            <input type="text" placeholder="验证码" name="code" class="input" required/>
             <input type="password" placeholder="Password" name="password" class="input" required/>
             <input class="btn" type="submit" value="点击注册"/>
         </form>
     </div>
+    
+    <script>
+    function sendVerificationCode() {
+        var email = document.getElementById('email').value;
+        $.post('/send_verification_code', {email: email}, function(data) {
+            if (data.status === 'success') {
+                alert('验证码已发送');
+            } else {
+                alert('发送验证码失败');
+            }
+        });
+    }
+    </script>
 
     <!--登录-->
     <div class="container_form container--signin">

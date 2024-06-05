@@ -7,6 +7,10 @@ from sqlalchemy.orm import sessionmaker, relationship, declarative_base
 from datetime import datetime
 from sqlalchemy_schemadisplay import create_schema_graph
 import os
+from flask_mail import Mail, Message
+import random
+from http import HTTPStatus
+import dashscope
 
 app = Flask(__name__,
             static_folder='static')
@@ -15,13 +19,26 @@ UPLOAD_FOLDER = os.path.join(app.static_folder, 'uploads')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 
 
+app.config['MAIL_SERVER'] = 'smtp.qq.com'  # 替换为你的邮件服务器
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USERNAME'] = '3327903803@qq.com'  # 替换为你的邮箱
+app.config['MAIL_PASSWORD'] = 'xyjtyyhunuurdadj'  # 替换为你的邮箱密码
+app.config['MAIL_DEFAULT_SENDER'] = '3327903803@qq.com'  # 替换为你的邮箱
+
+mail = Mail(app)
+
+verification_codes = {}  # 存储邮箱和验证码的字典
+
+dashscope.api_key = 'sk-16d20b70778043379f8afa4b6a940a8b'
+
 # MySQL 数据库连接配置
 db_config={
     'user':'root',
-    'password':'Ma3332808',#这里改成自己的数据库密码
+    'password':'hxyym123',#这里改成自己的数据库密码
     'host':'localhost',
     'port':3306,
-    'database': 'Web',#这里改成自己的数据库名字
+    'database': 'web',#这里改成自己的数据库名字
     'charset':'utf8mb4'}
 # 创建数据库连接
 engine = create_engine('mysql+pymysql://{user}:{password}@{host}:{port}/{database}?charset={charset}'.format(**db_config))
@@ -230,25 +247,49 @@ def login():
             return render_template('login.html', error=error)
     return render_template('login.html')
 
+def generate_verification_code():
+    return str(random.randint(100000, 999999))
+
+@app.route('/send_verification_code', methods=['POST'])
+def send_verification_code():
+    email = request.form['email']
+    code = generate_verification_code()
+    verification_codes[email] = code
+
+    msg = Message('欢迎来到玉石天地', recipients=[email])
+    msg.body = f'您的验证码为 {code}'
+    mail.send(msg)
+
+    return jsonify({'status': 'success', 'message': 'Verification code sent'})
+
+@app.route('/register', methods=['GET', 'POST'])
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         username = request.form['username']
         email = request.form['email']
         password = hash_password(request.form['password'])
+        code = request.form['code']
 
-        user = User(username=username, password=password,email=email)
+        if email not in verification_codes or verification_codes[email] != code:
+            error = "验证码错误"
+            flash("验证码错误", 'error')
+            return render_template('login.html', error=error)
+
+        user = User(username=username, password=password, email=email)
         find_user = db_session.query(User).filter_by(username=username).first()
         if find_user:
             error = "用户名已存在"
             flash("用户名已存在", 'error')
             return render_template('login.html', error=error)
+
         db_session.add(user)
         db_session.commit()
         success = "注册成功"
         flash('注册成功', 'success')
         return render_template('login.html', success=success)
     return render_template('login.html')
+
 
 @app.route('/check_login')
 def check_login():
@@ -819,6 +860,31 @@ def delete_collection(collection_id):
         db_session.delete(collection)
         db_session.commit()
     return redirect(url_for('manage_collections'))
+
+@app.route('/large_model')
+def large_model():
+    return render_template('large_model.html')
+
+
+@app.route('/ask_model', methods=['POST'])
+def ask_model():
+    question = request.form['question']
+    try:
+        # 使用 dashscope 库来调用阿里云通义千问 API
+        response = dashscope.Generation.call(
+            model='qwen-turbo',
+            prompt=question
+        )
+        
+        if response.status_code == HTTPStatus.OK:
+            answer = response.output
+            print(answer)
+        else:
+            answer = f"Error: {response.code}, {response.message}"
+    except Exception as e:
+        answer = f'调用API时出错: {str(e)}'
+    
+    return jsonify({"text": answer})
 
 
 @app.route('/about')
