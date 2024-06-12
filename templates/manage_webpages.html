@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>管理员管理界面</title>
+</head>
+<body>
+    <h1>管理员管理界面</h1>
+    <form method="POST" action="{{ url_for('manage_webpages') }}">
+        <label for="page_name">网页名称:</label>
+        <input type="text" id="page_name" name="page_name" required><br>
+        <label for="keyword">关键词:</label>
+        <input type="text" id="keyword" name="keyword" required><br>
+        <button type="submit">添加</button>
+    </form>
+    <hr>
+    <h2>已有网页:</h2>
+    <ul>
+        {% for webpage in webpages %}
+        <li>
+            {{ webpage.page_name }} - {{ webpage.keyword }}
+            <form method="POST" action="{{ url_for('delete_webpage', webpage_id=webpage.id) }}">
+                <button type="submit">删除</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

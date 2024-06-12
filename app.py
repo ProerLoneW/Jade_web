@@ -19,17 +19,15 @@ UPLOAD_FOLDER = os.path.join(app.static_folder, 'uploads')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 
 
-app.config['MAIL_SERVER'] = 'smtp.qq.com'  # 替换为你的邮件服务器
+app.config['MAIL_SERVER'] = 'smtp.qq.com'  # 邮件服务器
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = '3327903803@qq.com'  # 替换为你的邮箱
-app.config['MAIL_PASSWORD'] = 'xyjtyyhunuurdadj'  # 替换为你的邮箱密码
-app.config['MAIL_DEFAULT_SENDER'] = '3327903803@qq.com'  # 替换为你的邮箱
+app.config['MAIL_USERNAME'] = '3327903803@qq.com'  # 邮箱
+app.config['MAIL_PASSWORD'] = 'xyjtyyhunuurdadj'  # 邮箱授权码
+app.config['MAIL_DEFAULT_SENDER'] = '3327903803@qq.com'  # 邮箱
 
 mail = Mail(app)
-
 verification_codes = {}  # 存储邮箱和验证码的字典
-
 dashscope.api_key = 'sk-16d20b70778043379f8afa4b6a940a8b'
 
 # MySQL 数据库连接配置
@@ -42,7 +40,7 @@ db_config={
     'charset':'utf8mb4'}
 # 创建数据库连接
 engine = create_engine('mysql+pymysql://{user}:{password}@{host}:{port}/{database}?charset={charset}'.format(**db_config))
-# app.config["SQLALCHEMY_DATABASE_URI"]=f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}{DB_POST}/{DB_NAME}?charset=utf8"
+
 Base = declarative_base()
 
 #这里是定义数据库的
@@ -176,6 +174,14 @@ class UserMessages(Base):
     content = Column(String(500), nullable=False)
     email = Column(String(120), nullable=True)
 
+#搜索功能
+class WebPage(Base):
+    __tablename__ = "WebPage"
+    __table_args__ = {'extend_existing': True}
+    id = Column(Integer, primary_key=True)
+    page_name = Column(String(200), nullable=False)
+    keyword = Column(String(200), nullable=False)
+
 # 这是删除所有数据的操作，不到万不得已千万不要做
 # 如果之前创建过同名数据库且不明白如何数据库迁移，可以把下面一句注释去掉，运行清除之前的表并创建新表，然后记得加上注释
 # Base.metadata.drop_all(engine)
@@ -234,8 +240,6 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = hash_password(request.form['password'])
-        print(f"Username: {username}")
-        print(f"Password: {password}")
         user = db_session.query(User).filter_by(username=username).filter_by(password=password).first()
         if user:
             session['username']=username
@@ -262,7 +266,7 @@ def send_verification_code():
 
     return jsonify({'status': 'success', 'message': 'Verification code sent'})
 
-@app.route('/register', methods=['GET', 'POST'])
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
@@ -320,10 +324,9 @@ def forum():
         abort(404)
 
     liked_post_ids = [like.post_id for like in user.likes]
-
     next_url = url_for('forum', page=page + 1) if total > page * per_page else None
     prev_url = url_for('forum', page=page - 1) if page > 1 else None
-    
+
     return render_template('forum.html', posts=posts, next_url=next_url, prev_url=prev_url, user=user, liked_post_ids=liked_post_ids)
 
 @app.route('/post/<int:post_id>/delete', methods=['POST'])
@@ -400,7 +403,6 @@ def read_post(post_id):
     return render_template('forum_read.html', post=post, comments=comments)
 
 
-
 @app.route('/post/<int:post_id>/like', methods=['POST'])
 def like_post(post_id):
     if 'username' not in session:
@@ -464,12 +466,9 @@ def profile(username):
         user.gender = request.form.get('gender', user.gender)
         user.signature = request.form.get('signature', user.signature)
 
-        # user.favorite_jade = request.form.get('favorite_jade', user.favorite_jade)
-
         user.show_likes = 'show_likes' in request.form
         db_session.commit()
 
-        # print(username)
         return redirect(url_for('profile', username=username))
 
     posts = db_session.query(Post).filter_by(user_id=user.id).all()
@@ -490,6 +489,7 @@ def articles():
     prev_url = url_for('articles', page=page - 1) if page > 1 else None
 
     return render_template('articles.html', articles=articles, next_url=next_url, prev_url=prev_url)
+
 @app.route('/article/<int:article_id>')
 def read_article(article_id):
     article = db_session.query(Article).filter_by(id=article_id).first()
@@ -870,7 +870,7 @@ def large_model():
 def ask_model():
     question = request.form['question']
     try:
-        # 使用 dashscope 库来调用阿里云通义千问 API
+  
         response = dashscope.Generation.call(
             model='qwen-turbo',
             prompt=question
@@ -886,6 +886,46 @@ def ask_model():
     
     return jsonify({"text": answer})
 
+# 搜索栏功能的实现
+@app.route('/search', methods=['GET'])
+def search():
+    question = request.args.get('q')
+    if not question:
+        return jsonify({'error': '搜索关键词不能为空'}), 400
+
+    result = db_session.query(WebPage.page_name).filter(WebPage.keyword.like(f'%{question}%')).distinct().first()
+
+    serialized_results= {'page_name': result.page_name}
+    if not result:
+        return jsonify({'error': '404搜索不到'}), 404
+
+
+    return jsonify(serialized_results)
+
+
+@app.route('/manage_webpages', methods=['GET', 'POST'])
+def manage_webpages():
+    if 'role' not in session or session['role'] != 'admin':
+        return redirect(url_for('index'))
+    if request.method == 'POST':
+        page_name = request.form['page_name']
+        keyword = request.form['keyword']
+        new_webpage = WebPage(page_name=page_name, keyword=keyword)
+        db_session.add(new_webpage)
+        db_session.commit()
+        return redirect(url_for('manage_webpages'))
+    webpages = db_session.query(WebPage).all()
+    return render_template('manage_webpages.html', webpages=webpages)
+
+@app.route('/webpage/<int:webpage_id>/delete', methods=['POST'])
+def delete_webpage(webpage_id):
+    if 'role' not in session or session['role'] != 'admin':
+        return redirect(url_for('index'))
+    webpage = db_session.query(WebPage).filter_by(id=webpage_id).first()
+    if webpage:
+        db_session.delete(webpage)
+        db_session.commit()
+    return redirect(url_for('manage_webpages'))
 
 @app.route('/about')
 def about():
