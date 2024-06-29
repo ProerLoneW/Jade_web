@@ -33,10 +33,10 @@ dashscope.api_key = 'sk-16d20b70778043379f8afa4b6a940a8b'
 # MySQL 数据库连接配置
 db_config={
     'user':'root',
-    'password':'hxyym123',#这里改成自己的数据库密码
+    'password':'518349276',#这里改成自己的数据库密码
     'host':'localhost',
     'port':3306,
-    'database': 'web',#这里改成自己的数据库名字
+    'database': 'webjade',#这里改成自己的数据库名字
     'charset':'utf8mb4'}
 # 创建数据库连接
 engine = create_engine('mysql+pymysql://{user}:{password}@{host}:{port}/{database}?charset={charset}'.format(**db_config))
