@@ -33,10 +33,10 @@ dashscope.api_key = 'sk-16d20b70778043379f8afa4b6a940a8b'
 # MySQL 数据库连接配置
 db_config={
     'user':'root',
-    'password':'20040504',#这里改成自己的数据库密码
+    'password':'518349276',#这里改成自己的数据库密码
     'host':'localhost',
     'port':3306,
-    'database': 'web',#这里改成自己的数据库名字
+    'database': 'webjade',#这里改成自己的数据库名字
     'charset':'utf8mb4'}
 # 创建数据库连接
 engine = create_engine('mysql+pymysql://{user}:{password}@{host}:{port}/{database}?charset={charset}'.format(**db_config))
@@ -478,7 +478,7 @@ def profile(username):
     return render_template('profile.html', user=user, is_self=is_self, posts=posts, liked_posts=liked_posts)
 #文章刊物管理
 
-@app.route('/articles')
+@app.route('/Subject')
 def articles():
     page = request.args.get('page', 1, type=int)
     per_page = 5
@@ -486,10 +486,10 @@ def articles():
     articles = db_session.query(Article).order_by(Article.id).offset((page - 1) * per_page).limit(
         per_page).all()
 
-    next_url = url_for('articles', page=page + 1) if total > page * per_page else None
-    prev_url = url_for('articles', page=page - 1) if page > 1 else None
+    next_url = url_for('Subject', page=page + 1) if total > page * per_page else None
+    prev_url = url_for('Subject', page=page - 1) if page > 1 else None
 
-    return render_template('articles.html', articles=articles, next_url=next_url, prev_url=prev_url)
+    return render_template('Subject.html', articles=articles, next_url=next_url, prev_url=prev_url)
 
 @app.route('/article/<int:article_id>')
 def read_article(article_id):
@@ -525,7 +525,7 @@ def delete_article(article_id):
     return redirect(url_for('manage_articles'))
 
 # 学术论文管理
-@app.route('/essays')
+@app.route('/Subject-essay')
 def essays():
     page = request.args.get('page', 1, type=int)
     per_page = 5
@@ -533,10 +533,10 @@ def essays():
     essays = db_session.query(Essay).order_by(Essay.id).offset((page - 1) * per_page).limit(
         per_page).all()
 
-    next_url = url_for('essays', page=page + 1) if total > page * per_page else None
-    prev_url = url_for('essays', page=page - 1) if page > 1 else None
+    next_url = url_for('Subject-essay', page=page + 1) if total > page * per_page else None
+    prev_url = url_for('Subject-essay', page=page - 1) if page > 1 else None
 
-    return render_template('essays.html', essays=essays, next_url=next_url, prev_url=prev_url)
+    return render_template('Subject-essay.html', essays=essays, next_url=next_url, prev_url=prev_url)
 
 @app.route('/essay/<int:essay_id>')
 def read_essay(essay_id):
@@ -573,7 +573,7 @@ def delete_essay(essay_id):
 
 #学术讲座管理
 
-@app.route('/lectures')
+@app.route('/Subject-resources')
 def lectures():
     page = request.args.get('page', 1, type=int)
     per_page = 5
@@ -581,10 +581,10 @@ def lectures():
     lectures = db_session.query(Lecture).order_by(Lecture.id).offset((page - 1) * per_page).limit(
         per_page).all()
 
-    next_url = url_for('lectures', page=page + 1) if total > page * per_page else None
-    prev_url = url_for('lectues', page=page - 1) if page > 1 else None
+    next_url = url_for('Subject-resources', page=page + 1) if total > page * per_page else None
+    prev_url = url_for('Subject-resources', page=page - 1) if page > 1 else None
 
-    return render_template('lectures.html', lectures=lectures, next_url=next_url, prev_url=prev_url)
+    return render_template('Subject-resources.html', lectures=lectures, next_url=next_url, prev_url=prev_url)
 @app.route('/lecture/<int:lecture_id>')
 def read_lecture(lecture_id):
     lecture = db_session.query(Lecture).filter_by(id=lecture_id).first()
