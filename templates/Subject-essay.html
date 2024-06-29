@@ -62,9 +62,6 @@
             <div class="x-header">
                 <div class="menu-mod">
                     <div class="logo">
-                        <a href="/">
-                            <img src="../static/img/babatuosi.jpg" alt="" title="" class="i" style="border-radius: 50%;">
-                        </a>
                     </div>
                 </div>
             <div class="tools-mod">
@@ -160,13 +157,24 @@
                                 {% endif %}
                                 <span class="arr xicon icon-down"></span>
                             </div>
+                            {% if 'username' in session %}
+                            <ul>
+                                <li><a href="">师生交流</a></li>
+                                <li><a href="">鉴别玉石</a></li>
+                                <li><a href="">文学创作</a></li>
+                            </ul>
+                            {% endif %}
+                        </div>
+                        <div class="item">
+                            <div class="h">
                                 {% if 'username' in session %}
-                                <ul>
-                                    <li><a href="">师生交流</a></li>
-                                    <li><a href="">鉴别玉石</a></li>
-                                    <li><a href="">文学创作</a></li>
-                                </ul>
+                                <a class="" href="/forum">玉·问答</a>
+                                {% else %}
+                                <a class="" href="/login">登陆解锁小玉问答</a>
                                 {% endif %}
+                                <span class="arr xicon icon-down"></span>
+                            </div>
+                    
                         </div>
                     </div>
                     <script>
@@ -176,7 +184,7 @@
                             $(".nav_child .item:first .h a").addClass("cur");
                         }
                         //一级高亮
-                        var nowurl = ("/templates/Subject" != 'javascript:void(0);') ? "/templates/Subject" : window.location.pathname;
+                        var nowurl = ("/Subject" != 'javascript:void(0);') ? "/Subject" : window.location.pathname;
                         $(' .nav_child .item .h a').each(function () {
                             var listurl = $(this).attr('href');
                             if (nowurl == listurl || listurl == '') {
@@ -206,7 +214,7 @@
                         })
                         //二级导航
                         var _nowurl = window.location.href;
-                        var cat_url = '/templates/Subject';
+                        var cat_url = '/Subject';
                         var arr = _nowurl.split('#')[1];
                         $('.nav_child .item ul li').find('a').each(function (i, k) {
                             var towurl = $(k).attr('href');
@@ -217,13 +225,13 @@
                     </script>
                 </div>
                 <div class="bg"></div>
+                
                 <div class="nav-box nav-lv1">
                     <div class="nav-item nav-lv1-item ">
                         <div class="nav-tit nav-lv1-tit">
-                            <a class="nav-link nav-lv1-link" href="/index">首页</a>
+                            <a class="nav-link nav-lv1-link" href="/">首页</a>
                         </div>
                     </div>
-
                     <div class="nav-item nav-lv1-item ">
                         <div class="nav-tit nav-lv1-tit">
                             <a class="nav-link nav-lv1-link" href="/exhibition">玉·展览</a>
@@ -240,7 +248,7 @@
                         </div>
                     </div>
                     <div class="nav-item nav-lv1-item ">
-                        <div class="nav-tit nav-lv1-tit">  
+                        <div class="nav-tit nav-lv1-tit">
                             {% if 'username' in session %}
                             <a class="nav-link nav-lv1-link" href="/jade_class">玉·学问</a>
                             {% else %}
@@ -254,6 +262,15 @@
                             <a class="nav-link nav-lv1-link" href="/forum">玉·交流</a>
                             {% else %}
                             <a class="nav-link nav-lv1-link" href="/login">登陆解锁论坛功能</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="nav-item nav-lv1-item ">
+                        <div class="nav-tit nav-lv1-tit">
+                            {% if 'username' in session %}
+                            <a class="nav-link nav-lv1-link" href="/large_model">玉·问答</a>
+                            {% else %}
+                            <a class="nav-link nav-lv1-link" href="/login">登陆解锁小玉问答</a>
                             {% endif %}
                         </div>
                     </div>

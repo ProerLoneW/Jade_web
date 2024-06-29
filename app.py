@@ -33,10 +33,10 @@ dashscope.api_key = 'sk-16d20b70778043379f8afa4b6a940a8b'
 # MySQL 数据库连接配置
 db_config={
     'user':'root',
-    'password':'518349276',#这里改成自己的数据库密码
+    'password':'20040504',#这里改成自己的数据库密码
     'host':'localhost',
     'port':3306,
-    'database': 'webjade',#这里改成自己的数据库名字
+    'database': 'web',#这里改成自己的数据库名字
     'charset':'utf8mb4'}
 # 创建数据库连接
 engine = create_engine('mysql+pymysql://{user}:{password}@{host}:{port}/{database}?charset={charset}'.format(**db_config))
@@ -203,6 +203,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True) #判断文件夹是否存在
 #密码加密
 def hash_password(password):
     return hashlib.sha256(password.encode()).hexdigest()
+
 #自定义过滤器
 @app.template_filter('date') 
 def format_date(value):
@@ -622,6 +623,17 @@ def delete_lecture(lecture_id):
 # 国内展览管理
 @app.route('/exhibition')
 def exhibitions_dome():
+    user=None
+    avatar_url=None
+    if 'username' in session:
+        user = db_session.query(User).filter_by(username=session['username']).first()
+        if not user:
+            return "User not found", 404  # 如果用户不存在，返回404
+        # 生成用户头像URL或默认头像URL
+    if user and user.avatar:
+        avatar_url = url_for('static', filename=user.avatar)
+    else:
+        avatar_url = url_for('static', filename='img/profile.jpg')
     page = request.args.get('page', 1, type=int)
     per_page = 8
     total = db_session.query(Exhibition_dome).count()
@@ -631,7 +643,7 @@ def exhibitions_dome():
     next_url = url_for('exhibitions_dome', page=page + 1) if total > page * per_page else None
     prev_url = url_for('exhibitions_dome', page=page - 1) if page > 1 else None
 
-    return render_template('exhibition.html', exhibitions_dome=exhibitions_dome, next_url=next_url, prev_url=prev_url)
+    return render_template('exhibition.html', exhibitions_dome=exhibitions_dome, next_url=next_url, prev_url=prev_url, user=user, avatar_url=avatar_url)
 
 
 @app.route('/exhibition_dome/<int:exhibition_dome_id>')
@@ -1028,7 +1040,18 @@ def Publication_Subject_resources():
 
 @app.route('/Subject')
 def Publication_Subject():
-    return render_template('Subject.html')
+    user=None
+    avatar_url=None
+    if 'username' in session:
+        user = db_session.query(User).filter_by(username=session['username']).first()
+        if not user:
+            return "User not found", 404  # 如果用户不存在，返回404
+        # 生成用户头像URL或默认头像URL
+    if user and user.avatar:
+        avatar_url = url_for('static', filename=user.avatar)
+    else:
+        avatar_url = url_for('static', filename='img/profile.jpg')
+    return render_template('Subject.html', user=user,avatar_url=avatar_url)
 
 @app.route('/Subject2')
 def Publication_Subject2():
